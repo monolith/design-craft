@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Specimen</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+  .name{position:absolute;top:64px;right:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#d8412a}
+  .tag{position:absolute;bottom:120px;left:96px;font-weight:600;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:rgba(22,20,13,.5)}
+  .cap{position:absolute;bottom:62px;left:96px;right:760px;font-weight:400;font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 23</div>
+  <div class="name">The Specimen</div>
+  <svg id="sp" viewBox="0 0 1920 1080"></svg>
+  <div class="tag">Mix · Generative vocabulary × Grid</div>
+  <div class="cap">One construction rule — <b>rotate the stroke, add an arm</b> — enumerated as a grid. The system's whole vocabulary, laid out as a specimen sheet.</div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("sp");
+  function el(t,a,parent){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(parent||svg).appendChild(e);return e;}
+  const ink="#16140d", red="#d8412a";
+  const cols=12, rows=4, cell=130, R=43;
+  const x0=(1920-cols*cell)/2, y0=296;           // centered specimen panel
+  // faint specimen-sheet cell grid
+  for(let c=0;c<=cols;c++) el("line",{x1:x0+c*cell,y1:y0,x2:x0+c*cell,y2:y0+rows*cell,stroke:ink,"stroke-opacity":.10,"stroke-width":1});
+  for(let r=0;r<=rows;r++) el("line",{x1:x0,y1:y0+r*cell,x2:x0+cols*cell,y2:y0+r*cell,stroke:ink,"stroke-opacity":.10,"stroke-width":1});
+  // axis labels
+  function txt(x,y,s,o,anchor){const e=el("text",{x,y,fill:ink,"fill-opacity":o,"font-family":"'Space Grotesk',sans-serif","font-size":15,"font-weight":600,"letter-spacing":"0.14em","text-anchor":anchor||"middle"});e.textContent=s;}
+  for(let c=0;c<cols;c++) txt(x0+c*cell+cell/2, y0-24, (c*30)+"°", .45);
+  const names=["VECTOR","ARC","ELBOW","TEE"];
+  for(let r=0;r<rows;r++) txt(x0-28, y0+r*cell+cell/2+5, names[r], .45, "end");
+  // the vocabulary: four base glyphs (rows) × twelve rotations (columns)
+  function dot(g,x,y,col){el("circle",{cx:x,cy:y,r:4.5,fill:col},g);}
+  function draw(g,r,col){
+    const sw={stroke:col,"stroke-width":8,"stroke-linecap":"round",fill:"none"};
+    if(r===0){ el("line",{x1:0,y1:0,x2:R,y2:0,...sw},g); dot(g,0,0,col); dot(g,R,0,col); }
+    else if(r===1){ el("path",{d:`M ${R} 0 A ${R} ${R} 0 0 1 0 ${R}`,...sw},g); dot(g,R,0,col); dot(g,0,R,col); }
+    else if(r===2){ el("line",{x1:0,y1:-R,x2:0,y2:0,...sw},g); el("line",{x1:0,y1:0,x2:R,y2:0,...sw},g); dot(g,0,-R,col); dot(g,R,0,col); }
+    else { el("line",{x1:-R,y1:0,x2:R,y2:0,...sw},g); el("line",{x1:0,y1:0,x2:0,y2:R,...sw},g); dot(g,-R,0,col); dot(g,R,0,col); dot(g,0,R,col); }
+  }
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+    const cx=x0+c*cell+cell/2, cy=y0+r*cell+cell/2;
+    const col=(c===0)?red:ink;                   // column 0 = the datum / seed forms
+    const g=el("g",{transform:`translate(${cx},${cy}) rotate(${c*30})`});
+    draw(g,r,col);
+  }
+</script>
+</body></html>

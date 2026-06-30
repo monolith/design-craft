@@ -1,0 +1,38 @@
+:root {
+  --bg: #fdfdfb;
+  --ink: #222222;
+  --muted: #6b6b6b;
+  --rule: #e2e2dd;
+  --accent: #b0301c;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  margin: 0;
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header { padding: 22px 26px 6px; }
+header h1 { font-size: 18px; margin: 0 0 4px; }
+header p { color: var(--muted); margin: 0; max-width: 74ch; font-size: 13px; }
+header .lead code { background: #f0efe9; padding: 1px 5px; border-radius: 3px; }
+main { padding: 12px 26px 60px; }
+
+.demo { border-top: 1px solid var(--rule); padding: 18px 0; }
+.demo h3 { font-size: 14px; margin: 0 0 4px; }
+.demo .why { color: var(--muted); margin: 0 0 12px; max-width: 78ch; font-size: 13px; }
+.demo .cite { color: #8a8a8a; font-size: 11px; margin: 12px 0 0; }
+.demo .cite b { color: #6f6f6f; font-weight: 600; }
+
+.mount { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+.plabel { font-size: 11px; color: var(--ink); margin-bottom: 3px; font-weight: 600; }
+.pnote { font-size: 10px; color: var(--muted); margin-top: 3px; max-width: 17ch; }
+svg { display: block; }
+
+/* palette library (demo 8) — rows stack full-width inside the flex mount */
+.pal-head { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin: 12px 0 4px; font-weight: 600; width: 100%; }
+.pal-row { display: flex; align-items: center; gap: 12px; margin: 3px 0; width: 100%; }
+.pal-strip { display: flex; flex: 0 0 auto; box-shadow: 0 0 0 1px var(--rule); }
+.sw { width: 17px; height: 17px; display: inline-block; }
+.pal-meta { font-size: 12px; color: var(--ink); }
+.pal-meta .cite { color: #9a9a9a; font-size: 10px; margin-left: 4px; }

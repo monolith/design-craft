@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>One Rule, Many Forms</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#efe7d4;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase}
+  h1{position:absolute;top:96px;left:96px;margin:0;font-weight:700;font-size:80px;line-height:.92;letter-spacing:-.03em}
+  .cap{position:absolute;bottom:62px;left:96px;right:96px;font-weight:400;font-size:20px;line-height:1.45}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 05</div>
+  <h1>One rule, many forms</h1>
+  <svg id="sys" viewBox="0 0 1920 1080"></svg>
+  <div class="cap"><b>Wyman · Hey Studio.</b> Fix one module — a quarter-disc on a grid — and a whole system falls out. Constrain the vocabulary; derive the identity.</div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("sys");
+  const cols=9, rows=3, T=156, x0=(1920-cols*T)/2, y0=320;
+  const ink="#16140d", red="#d8412a", blue="#274ab0", sun="#e7c92a", fills=[ink,red,blue,sun];
+  function rng(s){return ()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
+  const r=rng(11);
+  function add(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);}
+  for(let row=0;row<rows;row++)for(let c=0;c<cols;c++){
+    const x=x0+c*T,y=y0+row*T,cx=x+T/2,cy=y+T/2,col=fills[Math.floor(r()*fills.length)];
+    const pad=8,s=T-pad*2,X=x+pad,Y=y+pad,kind=r();
+    if(kind<0.52){const k=Math.floor(r()*4);
+      add("path",{d:`M ${X} ${Y} L ${X+s} ${Y} A ${s} ${s} 0 0 1 ${X} ${Y+s} Z`,fill:col,transform:`rotate(${k*90} ${cx} ${cy})`});}
+    else if(kind<0.74){add("circle",{cx,cy,r:s*0.46,fill:col});}
+    else if(kind<0.88){add("circle",{cx,cy,r:s*0.46,fill:col});add("circle",{cx,cy,r:s*0.22,fill:"#efe7d4"});}
+    else{add("circle",{cx,cy,r:s*0.18,fill:col});}
+  }
+</script>
+</body></html>

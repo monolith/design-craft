@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sleek &amp; beautiful type — art-director kits on the Corbusier grounds</title>
+  <link rel="stylesheet" href="fonts.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e7e6e2;color:#1d1d1b;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .doc{max-width:1140px;margin:0 auto;padding:26px 22px 90px;}
+  .doc h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:34px;letter-spacing:.2px;margin:0 0 6px;}
+  .doc .intro{color:#5b5b56;max-width:92ch;font-size:13px;line-height:1.6;}
+  .doc .intro b{color:#2a2a27;}
+  .kitlabel{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.5px;color:#8a857c;margin:34px 0 9px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
+  .kitlabel b{color:#2a2a27;font-weight:600;font-family:"Plus Jakarta Sans",sans-serif;font-size:13px;letter-spacing:0;}
+  .kitlabel .fonts{color:#6f6a62;}
+  .frame{border:1px solid #d4d2cb;border-radius:14px;overflow:hidden;box-shadow:0 10px 34px rgba(0,0,0,.09);margin-bottom:8px;}
+  .chrome{display:flex;align-items:center;gap:7px;padding:9px 13px;background:#eceae4;border-bottom:1px solid #dddbd5;}
+  .chrome .dot{width:10px;height:10px;border-radius:50%;background:#c9c7c0;}
+  .chrome .url{margin-left:8px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:#8a8a84;background:#fff;border:1px solid #ddd;border-radius:5px;padding:3px 12px;}
+
+  .pg{background:var(--bg);color:var(--fg);}
+  .pg a{color:inherit;text-decoration:none;}
+  .pg ::selection{background:var(--emph);color:var(--bg);}
+  .label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+  .rule{height:1px;background:var(--rule);border:none;margin:0;}
+
+  /* ---- 1 · EXHIBITION (Instrument Serif + Plus Jakarta) ---- */
+  .ex{--bg:#f9f8f4;--fg:#2e2a26;--muted:#79716a;--emph:#415aa0;--rule:#e1dfdb;font-family:"Plus Jakarta Sans",sans-serif;}
+  .ex .nav{display:flex;align-items:center;padding:26px 40px;}
+  .ex .nav .gname{font-family:"Instrument Serif",serif;font-size:21px;letter-spacing:.3px;}
+  .ex .nav .nl{margin-left:auto;display:flex;gap:26px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+  .ex .hero{padding:40px 40px 30px;}
+  .ex .hero .meta{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+  .ex .hero h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:84px;line-height:.98;letter-spacing:-.5px;margin:0;max-width:14ch;}
+  .ex .hero h2 em{font-style:italic;color:var(--emph);}
+  .ex .hero .sub{font-size:17px;line-height:1.6;color:var(--muted);max-width:48ch;margin:22px 0 0;}
+  .ex .plate{height:300px;background:var(--rule);margin:8px 40px 0;border-radius:4px;display:flex;align-items:flex-end;padding:16px;}
+  .ex .plate .cap{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.5px;}
+  .ex .works{padding:34px 40px 40px;}
+  .ex .works .wh{font-family:"Instrument Serif",serif;font-size:24px;margin:0 0 14px;}
+  .ex table{width:100%;border-collapse:collapse;}
+  .ex td,.ex th{padding:11px 4px;text-align:left;border-bottom:1px solid var(--rule);font-size:14px;font-weight:400;}
+  .ex th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+  .ex td .t{font-family:"Instrument Serif",serif;font-size:18px;font-style:italic;}
+  .ex .num{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted);}
+
+  /* ---- 2 · DESIGN STUDIO (Bricolage Grotesque + Inter) ---- */
+  .st{--bg:#efe7d6;--fg:#2f2624;--muted:#6f6657;--emph:#a8431f;--rule:#d8d0c1;font-family:"Inter",sans-serif;}
+  .st .nav{display:flex;align-items:center;padding:24px 40px;}
+  .st .nav .sname{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px;letter-spacing:-.4px;}
+  .st .nav .nl{margin-left:auto;display:flex;gap:22px;font-size:13px;font-weight:500;}
+  .st .hero{padding:48px 40px 30px;}
+  .st .hero h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:72px;line-height:.95;letter-spacing:-1.8px;margin:0;max-width:15ch;}
+  .st .hero h2 .ac{color:var(--emph);}
+  .st .hero .sub{font-size:18px;line-height:1.55;color:var(--muted);max-width:52ch;margin:20px 0 0;}
+  .st .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;padding:24px 40px 40px;}
+  .st .proj .pl{aspect-ratio:4/5;background:var(--rule);border-radius:6px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;}
+  .st .proj .pl b{font-weight:600;font-size:21px;line-height:1.12;color:var(--fg);opacity:.6;}
+  .st .proj .pn{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:16px;margin:11px 0 1px;}
+  .st .proj .pm{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-family:"IBM Plex Mono",monospace;}
+
+  /* ---- 3 · EDITORIAL JOURNAL (Fraunces + Plus Jakarta) ---- */
+  .ed{--bg:#1a1613;--fg:#ece2d4;--muted:#a89a88;--emph:#7aa3d8;--rule:#332e2a;font-family:"Plus Jakarta Sans",sans-serif;}
+  .ed .nav{display:flex;align-items:center;padding:24px 40px;border-bottom:1px solid var(--rule);}
+  .ed .nav .mh{font-family:"Fraunces",serif;font-weight:500;font-size:22px;letter-spacing:.3px;}
+  .ed .nav .nl{margin-left:auto;display:flex;gap:22px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+  .ed .hero{padding:54px 40px 30px;max-width:900px;}
+  .ed .hero .kick{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--emph);}
+  .ed .hero h2{font-family:"Fraunces",serif;font-weight:400;font-size:64px;line-height:1.04;letter-spacing:-.8px;margin:14px 0 0;max-width:18ch;}
+  .ed .hero h2 em{font-style:italic;}
+  .ed .body{display:grid;grid-template-columns:1fr 1fr;gap:34px;padding:6px 40px 30px;max-width:920px;}
+  .ed .body .lead{font-family:"Fraunces",serif;font-size:21px;line-height:1.5;}
+  .ed .body p{font-size:15px;line-height:1.75;color:var(--muted);margin:0 0 14px;}
+  .ed .by{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:1px;color:var(--muted);padding:0 40px 44px;}
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>Sleek &amp; beautiful — type a graphic designer would be proud of</h1>
+  <p class="intro">Three art-directed pages — an <b>exhibition</b>, a <b>design studio</b>, an <b>editorial journal</b> — set in genuinely beautiful, modern, free typefaces on the <b>Corbusier</b> grounds. Big confident display type, generous whitespace, refined detail. The legibility rules still hold underneath (a quiet readable body, a measure that breathes, tabular figures in the works index) — but the register here is <b>art &amp; editorial</b>, not dashboard. All faces are free/open; beauty is taste, set on a legible foundation.</p>
+
+  <!-- 1 · EXHIBITION -->
+  <div class="kitlabel"><b>1 · Exhibition</b> <span class="fonts">Instrument Serif (display) · Plus Jakarta Sans (text) · IBM Plex Mono (labels)</span> · Corbusier Watercolour</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">kunsthalle-nord.example</span></div>
+  <div class="pg ex">
+    <div class="nav"><span class="gname">Kunsthalle Nord</span><span class="nl"><a>Exhibitions</a><a>Collection</a><a>Visit</a><a>Journal</a></span></div>
+    <div class="hero">
+      <div class="meta">14 March — 28 July 2026</div>
+      <h2>The Quiet <em>Material</em></h2>
+      <p class="sub">Forty years of work in limestone, pigment and light — a survey of restraint as a discipline.</p>
+    </div>
+    <div class="plate"><span class="cap">Fig. 1 — installation view, west gallery</span></div>
+    <div class="works">
+      <div class="wh">Selected works</div>
+      <table>
+        <thead><tr><th>Work</th><th>Year</th><th>Medium</th><th class="num">Dimensions (cm)</th></tr></thead>
+        <tbody>
+          <tr><td><span class="t">Untitled (Limestone I)</span></td><td>2019</td><td>Pigment on plaster</td><td class="num">180 × 240</td></tr>
+          <tr><td><span class="t">Ground / Field</span></td><td>2021</td><td>Oil on linen</td><td class="num">120 × 160</td></tr>
+          <tr><td><span class="t">Standard, Drifting</span></td><td>2023</td><td>Graphite, gesso</td><td class="num">90 × 90</td></tr>
+          <tr><td><span class="t">The Quiet Material</span></td><td>2026</td><td>Mineral pigment</td><td class="num">200 × 300</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:30px;padding-top:22px;border-top:1px solid var(--rule)">
+        <div style="font-family:'Instrument Serif',serif;font-size:22px;margin-bottom:1px">Attendance over the run</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.5px;color:var(--muted);margin-bottom:8px">Visitors per week · opening peak, then steady</div>
+        <svg width="100%" viewBox="0 0 560 150" style="max-width:560px">
+          <line x1="46" y1="36" x2="46" y2="112" stroke="var(--rule)" stroke-width="1"/><line x1="50" y1="112" x2="510" y2="112" stroke="var(--rule)" stroke-width="1"/>
+          <text x="42" y="40" text-anchor="end" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">4,200</text>
+          <text x="42" y="115" text-anchor="end" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">1,100</text>
+          <text x="50" y="130" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">wk 1</text>
+          <text x="510" y="130" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">wk 20</text>
+          <path d="M50,40 L96,52 L142,70 L188,64 L234,78 L280,82 L326,76 L372,86 L418,84 L464,90 L510,96" fill="none" stroke="var(--fg)" stroke-width="1.7"/>
+          <circle cx="50" cy="40" r="3" fill="var(--emph)"/>
+        </svg>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- 2 · DESIGN STUDIO -->
+  <div class="kitlabel"><b>2 · Design studio</b> <span class="fonts">Bricolage Grotesque (display) · Inter (text) · IBM Plex Mono (labels)</span> · Corbusier Light</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">studionord.example</span></div>
+  <div class="pg st">
+    <div class="nav"><span class="sname">Studio&nbsp;Nord</span><span class="nl"><a>Work</a><a>About</a><a>Journal</a><a>Contact</a></span></div>
+    <div class="hero">
+      <h2>We make quiet things that <span class="ac">hold attention.</span></h2>
+      <p class="sub">A small design studio working with museums, publishers, and patient founders — brand, editorial, and type, made to last.</p>
+    </div>
+    <div style="padding:8px 40px 0"><span class="label">The three typefaces</span></div>
+    <div class="grid" style="padding-top:12px">
+      <div class="proj"><div class="pl"><b style="font-family:'Bricolage Grotesque',sans-serif">Bricolage Grotesque</b></div><div class="pn">Display</div><div class="pm">Headings</div></div>
+      <div class="proj"><div class="pl"><b style="font-family:'Inter',sans-serif">Inter</b></div><div class="pn">Body &amp; UI</div><div class="pm">Reading · labels</div></div>
+      <div class="proj"><div class="pl"><b style="font-family:'IBM Plex Mono',monospace">IBM Plex Mono</b></div><div class="pn">Mono</div><div class="pm">Numbers · data</div></div>
+    </div>
+    <div style="padding:6px 40px 44px">
+      <hr style="border:none;border-top:1px solid var(--rule);margin:0 0 18px">
+      <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16px;margin-bottom:1px">Studio, by the year</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.5px;color:var(--muted);margin-bottom:8px">Projects shipped · range-frame line · tabular ticks</div>
+      <svg width="100%" viewBox="0 0 560 170" style="max-width:560px;font-family:'Inter',sans-serif">
+        <line x1="42" y1="46" x2="42" y2="128" stroke="var(--rule)" stroke-width="1"/><line x1="46" y1="128" x2="500" y2="128" stroke="var(--rule)" stroke-width="1"/>
+        <text x="38" y="50" text-anchor="end" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">24</text>
+        <text x="38" y="131" text-anchor="end" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">6</text>
+        <text x="46" y="146" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">2014</text>
+        <text x="500" y="146" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">2026</text>
+        <path d="M46,118 L122,110 L198,114 L274,96 L350,84 L426,66 L500,46" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+        <circle cx="500" cy="46" r="2.6" fill="var(--emph)"/>
+      </svg>
+    </div>
+  </div></div>
+
+  <!-- 3 · EDITORIAL JOURNAL -->
+  <div class="kitlabel"><b>3 · Editorial journal</b> <span class="fonts">Fraunces (display) · Plus Jakarta Sans (text) · IBM Plex Mono (byline)</span> · Corbusier Dark</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">thefold.example/the-quiet-drift</span></div>
+  <div class="pg ed">
+    <div class="nav"><span class="mh">The Fold</span><span class="nl"><a>Essays</a><a>Interviews</a><a>Archive</a></span></div>
+    <div class="hero">
+      <div class="kick">Essay · Craft</div>
+      <h2>The quiet drift of the <em>standard</em></h2>
+    </div>
+    <div class="body">
+      <div class="lead">A garment labelled "size 8" has quietly grown for decades. The number on the tag stayed put; the tape measure did not.</div>
+      <div>
+        <p>The story of that drift is, in miniature, the story of how a standard erodes when no one in particular is accountable for keeping it. It begins, as these things often do, with a well-meaning compromise — and ends with a number that means almost nothing at all.</p>
+        <p>Each individual adjustment was defensible. A label nudged half a centimetre to flatter; a competitor matched; a decade passed. No single decision broke it — the absence of anyone defending it did.</p>
+      </div>
+    </div>
+    <figure style="margin:8px 40px 30px;padding-top:20px;border-top:1px solid var(--rule)">
+      <svg width="100%" viewBox="0 0 620 200" style="font-family:'Plus Jakarta Sans',sans-serif">
+        <line x1="46" y1="51" x2="46" y2="149" stroke="var(--rule)" stroke-width="1"/><line x1="50" y1="160" x2="560" y2="160" stroke="var(--rule)" stroke-width="1"/>
+        <text x="42" y="55" text-anchor="end" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">70 cm</text>
+        <text x="42" y="152" text-anchor="end" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">61 cm</text>
+        <text x="50" y="178" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">1995</text>
+        <text x="560" y="178" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="var(--muted)">2025</text>
+        <path d="M50,149.1 L135,138.2 L220,121.8 L305,105.5 L390,89.1 L475,72.7 L560,51" fill="none" stroke="var(--fg)" stroke-width="1.8"/>
+        <circle cx="560" cy="51" r="3" fill="var(--emph)"/>
+        <text x="566" y="48" font-size="14" font-weight="600" fill="var(--emph)" font-family="'Plus Jakarta Sans',sans-serif">+9 cm</text>
+      </svg>
+      <figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.3px">Waist of a nominal US "size 8", 1995–2025 (illustrative) · the number on the tag never moved</figcaption>
+    </figure>
+    <div class="by">By Maren Holt · Issue 14 · 2026</div>
+  </div></div>
+
+</div>
+</body>
+</html>

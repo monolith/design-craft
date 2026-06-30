@@ -1,0 +1,281 @@
+/* ===========================================================================
+   Showcase stylesheet — library-backed visuals.
+
+   Loosely inherits the main gallery's quiet palette (off-white paper, ink,
+   one brick accent) but allows richer colour inside the visuals themselves
+   (cluster hues, depth shading, directory colours). System fonts only; the
+   page loads nothing over the network.
+   ========================================================================= */
+
+:root {
+  --paper:  #fdfdfb;   /* off-white field, never pure white                  */
+  --ink:    #111111;   /* primary text + marks                               */
+  --muted:  #6b6b6b;   /* secondary text, axis lines, scaffolding            */
+  --rule:   #d8d8d2;   /* faint hairline rules                               */
+  --accent: #b0301c;   /* brick red — one idea at a time                     */
+  --paper-2:#f4f2ec;   /* faint panel wash                                   */
+  --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+h1 { font-weight: 400; font-size: 2.1rem; line-height: 1.15; margin: 0 0 .4rem; }
+h2 { font-weight: 400; font-size: 1.35rem; margin: 0 0 .2rem; }
+.subtitle { color: var(--muted); font-style: italic; margin: 0 0 2rem; }
+
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: .85em;
+  background: var(--paper-2);
+  padding: .05em .35em;
+  border-radius: 3px;
+}
+
+.offline-note {
+  color: var(--muted);
+  font-size: .92rem;
+  border-left: 2px solid var(--rule);
+  padding-left: .9rem;
+  margin: 1.4rem 0 0;
+}
+
+/* Each visual lives in its own section with a generous rule above it. */
+section.show {
+  margin: 3.4rem 0 0;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.caption {
+  color: var(--muted);
+  font-style: italic;
+  font-size: .92rem;
+  margin: .15rem 0 1rem;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: .8rem;
+  font-style: italic;
+  margin: .55rem 0 0;
+  letter-spacing: .01em;
+}
+
+/* Mount node the JS draws into. */
+.mount { margin: .2rem 0; }
+
+/* Interactive 3D / network canvases get a faint frame so the draggable area
+   reads as a distinct interactive surface (the one affordance the flat
+   gallery doesn't need). */
+.stage {
+  position: relative;
+  height: 460px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background:
+    radial-gradient(120% 120% at 50% 18%, #ffffff 0%, var(--paper) 55%, var(--paper-2) 100%);
+  overflow: hidden;
+}
+.stage canvas { display: block; }
+
+/* Light stage for the trade-flow globe — page paper, matching the rest of the
+   page; no gradient, no glow. The WebGL canvas paints over it opaquely. */
+.stage-dark {
+  border-color: var(--rule);
+  background: var(--paper);
+}
+
+/* graph mount: a light panel on page paper, taller box. */
+#mount-graph {
+  position: relative;
+  height: 560px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+/* In-scene text labels (axis labels rendered as HTML overlays where used). */
+.scene-msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-style: italic;
+  font-size: .9rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ---- Graph legend (directory colours) ----------------------------------- */
+.graph-legend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  max-width: 220px;
+  background: rgba(253, 253, 251, 0.88);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-family: var(--sans);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink);
+  pointer-events: none;
+  z-index: 3;
+}
+.graph-legend .lg-title {
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-size: 9.5px;
+  margin-bottom: 5px;
+}
+.graph-legend .lg-row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.graph-legend .lg-sw {
+  width: 9px; height: 9px; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.25); flex: 0 0 auto;
+}
+.graph-legend .lg-count { color: var(--muted); margin-left: auto; font-variant-numeric: tabular-nums; }
+
+/* Dark legend variant (over the Obsidian-style network panel). */
+.graph-legend-dark {
+  background: rgba(11, 14, 22, 0.82);
+  border-color: #2a3344;
+  color: #cdd6e3;
+}
+.graph-legend-dark .lg-title { color: #7d899c; }
+.graph-legend-dark .lg-count { color: #7d899c; }
+.graph-legend-dark .lg-sw { border-color: rgba(255,255,255,.25); }
+
+/* ---- Trade-flow globe overlays (diverging legend + selection readout) ----- */
+.globe-legend {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(253, 253, 251, 0.9); border: 1px solid var(--rule); border-radius: 3px;
+  padding: 7px 10px; font-family: var(--sans); font-size: 11px; line-height: 1.6;
+  color: var(--ink); pointer-events: none; z-index: 3;
+}
+.globe-legend .gl-title {
+  font-size: 9.5px; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--muted); margin-bottom: 4px;
+}
+.globe-legend .gl-row { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.globe-legend .gl-sw { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; border: 1px solid rgba(0,0,0,.18); }
+
+.globe-readout {
+  position: absolute; left: 10px; bottom: 10px; max-width: 280px;
+  background: rgba(253, 253, 251, 0.92); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 9px 12px; font-family: var(--sans); color: var(--ink);
+  opacity: 0; transform: translateY(4px); transition: opacity .12s ease, transform .12s ease;
+  pointer-events: none; z-index: 4; box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+.globe-readout.show { opacity: 1; transform: translateY(0); }
+.globe-readout .gr-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.globe-readout .gr-bal { font-size: 12px; font-variant-numeric: tabular-nums; margin-bottom: 5px; }
+.globe-readout .gr-part { font-size: 11px; color: var(--muted); line-height: 1.5; }
+.globe-readout .gr-v { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ---- Sunburst ----------------------------------------------------------- */
+.sunburst-wrap {
+  display: flex;
+  justify-content: center;
+}
+.sunburst-wrap svg { width: 100%; max-width: 540px; height: auto; display: block; }
+.sb-seg {
+  stroke: var(--paper);
+  stroke-width: 1;
+  cursor: pointer;
+  transition: opacity .12s ease;
+}
+.sb-center-name { font-family: var(--serif); fill: var(--ink); font-size: 16px; text-anchor: middle; }
+.sb-center-meta { font-family: var(--sans); fill: var(--muted); font-size: 11px; text-anchor: middle; }
+
+/* Tooltip shared by the 3D scenes + graph. */
+.show-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.35;
+  padding: .3rem .5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .08s ease;
+  z-index: 60;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+.show-tooltip.show { opacity: .97; }
+
+/* ===========================================================================
+   Agent run timeline — faithful port of the live token-consumption view.
+   Colours and animations mirror the production timeline_controller / its CSS.
+   ========================================================================= */
+#mount-timeline { position: relative; }
+.tl-topbar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px 15px;
+  margin: 0 0 8px;
+}
+/* live pulse — the green "● live" cue (paper-theme green from the live view). */
+.tl-live { color: #1a7f37; font-size: 12px; font-family: var(--sans);
+  animation: tllive 2s ease-in-out infinite; }
+@keyframes tllive { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.tl-legend { display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  color: #55554f; font-size: 11px; font-family: var(--sans); }
+.tl-leg { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.tl-leg svg { vertical-align: middle; }
+
+/* Panel background matches the page paper so the chart blends in (was the live
+   newsprint #e8e7e2, which read as a greyed-out widget here). Marks/colours unchanged. */
+.tl-chart-wrap { position: relative; background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 4px; padding: 6px 8px; }
+.tl-svg { display: block; width: 100%; height: auto; cursor: crosshair;
+  user-select: none; -webkit-user-select: none; }
+.tl-svg text { font-family: var(--sans); font-variant-numeric: tabular-nums; }
+
+/* tooltip (positioned inside the chart wrap). */
+.tl-tip {
+  position: absolute; pointer-events: none; background: #f1f0ec;
+  border: 1px solid #d1d0ca; border-radius: 6px; padding: 6px 9px;
+  font-family: var(--sans); font-size: 11px; line-height: 1.4; color: #1a1a18;
+  opacity: 0; transition: opacity .08s; white-space: nowrap; z-index: 5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.14); max-width: 260px; white-space: normal;
+}
+
+/* heartbeat "breath" — the slow gentle pulse ring (matches the live keyframes). */
+@keyframes hbpulse { 0% { transform: scale(1); opacity: .3; }
+  70% { opacity: 0; } 100% { transform: scale(1.5); opacity: 0; } }
+.hbpulse { transform-box: fill-box; transform-origin: center;
+  animation: hbpulse 4.5s ease-out infinite; pointer-events: none; }
+
+@media (max-width: 640px) {
+  .stage { height: 360px; }
+  #mount-graph { height: 460px; }
+  .graph-legend { display: none; }
+}

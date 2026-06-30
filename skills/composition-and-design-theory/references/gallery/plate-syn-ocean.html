@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Synthesis — Ocean Protection</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#07151b;
+    color:#e9f1f2;font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:96px;left:104px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#5f7a85}
+  .name{position:absolute;top:96px;right:104px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#6f8d97}
+
+  /* Reduction + figure-ground + salience. The measure spans the full ocean (0–100%).
+     The 8% protected sliver is a quiet tonal step at the left; the remaining 92% is the
+     dominant void — the picture IS the absence of protection. The lone accent (number +
+     span) lands only on the 92%, never the 8%. */
+  h1{position:absolute;top:176px;left:100px;margin:0;font-family:'Inter',sans-serif;
+    font-weight:800;font-size:92px;line-height:.94;letter-spacing:-.035em;color:#eef4f5}
+
+  .big{position:absolute;left:360px;top:556px;margin:0;font-family:'Inter',sans-serif;
+    font-weight:800;font-size:184px;line-height:.86;letter-spacing:-.04em;color:#ec6a3d}
+  .big-sub{position:absolute;left:372px;top:752px;font-family:'Inter',sans-serif;
+    font-weight:500;font-size:30px;letter-spacing:.0em;color:#9fb4bb}
+
+  .ptag{position:absolute;left:104px;top:946px;font-family:'Inter',sans-serif;
+    font-weight:600;font-size:19px;letter-spacing:.02em;color:#5f7a85}
+  .tag{position:absolute;right:104px;bottom:118px;text-align:right;font-weight:600;font-size:14px;
+    letter-spacing:.24em;text-transform:uppercase;color:#44606a}
+  .cap{position:absolute;right:104px;bottom:62px;width:620px;text-align:right;font-family:'Inter',sans-serif;
+    font-weight:400;font-size:18px;line-height:1.5;color:#93abb3}
+  .cap b{color:#ec6a3d;font-weight:600}
+  .src{position:absolute;left:104px;bottom:62px;font-family:'Inter',sans-serif;font-weight:500;font-size:15px;letter-spacing:.06em;color:#456069}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 18 — Poster</div>
+  <div class="name">Ocean · Marine Protection</div>
+  <h1>The ocean is<br>mostly unprotected</h1>
+
+  <svg viewBox="0 0 1920 1080">
+    <!-- the measured ocean: full width = 100% of the sea -->
+    <rect x="104" y="470" width="1712" height="460" fill="#0f2731"/>
+    <!-- 8% protected: a quiet recessive sliver at the left -->
+    <rect x="104" y="470" width="137" height="460" fill="#20424c"/>
+    <!-- neutral protection boundary (no accent here — the 8% never gets the accent) -->
+    <line x1="241" y1="470" x2="241" y2="930" stroke="#395a64" stroke-width="2"/>
+    <!-- the lone accent measures the 92% void: a span across the unprotected expanse -->
+    <line x1="262" y1="884" x2="1796" y2="884" stroke="#ec6a3d" stroke-width="4"/>
+    <line x1="262" y1="870" x2="262" y2="898" stroke="#ec6a3d" stroke-width="4"/>
+    <line x1="1796" y1="870" x2="1796" y2="898" stroke="#ec6a3d" stroke-width="4"/>
+  </svg>
+
+  <div class="big">92%</div>
+  <div class="big-sub">open ocean — no protection</div>
+
+  <div class="ptag">8% protected</div>
+  <div class="tag">Figure-ground · Reduction · Salience</div>
+  <div class="cap"><b>The absence is the picture.</b> The unprotected<br>expanse dominates; the one accent marks the 92%.</div>
+  <div class="src">Marine protected areas · 2026 · illustrative figure</div>
+</div></body></html>

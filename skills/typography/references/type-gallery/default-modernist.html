@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The default — Modernist kit (Bricolage · Plus Jakarta · Plex Mono) on Corbusier</title>
+  <link rel="stylesheet" href="fonts.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e7e6e2;color:#1d1d1b;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .doc{max-width:1140px;margin:0 auto;padding:26px 22px 90px;}
+  .doc h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:30px;letter-spacing:-.8px;margin:0 0 6px;}
+  .doc .intro{color:#5b5b56;max-width:94ch;font-size:13px;line-height:1.6;}
+  .doc .intro b{color:#2a2a27;}
+  .pick{border:1px solid #d8d6cf;border-radius:12px;background:#fbfaf6;padding:15px 18px;margin:18px 0 8px;}
+  .pick .fonts{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+  .fchip{border:1px solid #e0ded6;border-radius:8px;padding:8px 12px;min-width:170px;background:#fff;}
+  .fchip .role{font-family:"IBM Plex Mono",monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;color:#9a948a;}
+  .fchip .nm{font-size:13px;font-weight:600;margin:1px 0;}
+  .fchip .ex{font-size:18px;line-height:1.1;color:#3a3a36;}
+  .kitlabel{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.5px;color:#8a857c;margin:30px 0 9px;}
+  .kitlabel b{color:#2a2a27;font-family:"Plus Jakarta Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:0;}
+  .frame{border:1px solid #d4d2cb;border-radius:14px;overflow:hidden;box-shadow:0 10px 32px rgba(0,0,0,.09);margin-bottom:8px;}
+  .chrome{display:flex;align-items:center;gap:7px;padding:9px 13px;background:#eceae4;border-bottom:1px solid #dddbd5;}
+  .chrome .dot{width:10px;height:10px;border-radius:50%;background:#c9c7c0;}
+  .chrome .url{margin-left:8px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:#8a8a84;background:#fff;border:1px solid #ddd;border-radius:5px;padding:3px 12px;}
+
+  .pg{background:var(--bg);color:var(--fg);
+    --disp:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  .pg a{color:inherit;text-decoration:none;}
+  .pg ::selection{background:var(--emph);color:var(--bg);}
+  .pg .nav{display:flex;align-items:center;padding:22px 38px;}
+  .pg .nav .brand{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.5px;}
+  .pg .nav .nl{margin-left:auto;display:flex;gap:22px;font-family:var(--body);font-size:13px;font-weight:500;}
+  .pg .nav .nl a{opacity:.82;} .pg .nav .nl a.on{opacity:1;font-weight:600;}
+  .pg .label{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+
+  /* A — editorial / brand */
+  .pg .hero{padding:44px 38px 34px;}
+  .pg .hero h2{font-family:var(--disp);font-weight:800;font-size:74px;line-height:.96;letter-spacing:-2px;margin:14px 0 0;max-width:15ch;}
+  .pg .hero h2 .ac{color:var(--emph);}
+  .pg .hero .sub{font-family:var(--body);font-size:18px;line-height:1.55;color:var(--muted);max-width:52ch;margin:22px 0 0;}
+  .pg .plate{height:260px;background:var(--panel);margin:6px 38px 0;border-radius:8px;}
+  .pg .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;padding:28px 38px 40px;}
+  .pg .proj .pl{aspect-ratio:4/3;background:var(--panel);border-radius:6px;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;}
+  .pg .proj .pl b{font-weight:600;font-size:19px;line-height:1.12;color:var(--fg);opacity:.62;}
+  .pg .proj .pn{font-family:var(--disp);font-weight:600;font-size:16px;margin:10px 0 1px;}
+  .pg .proj .pm{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+
+  /* B — data */
+  .pg .main{padding:20px 38px 34px;}
+  .pg .pt{font-family:var(--disp);font-weight:700;font-size:30px;letter-spacing:-1px;margin:0 0 2px;}
+  .pg .meta{font-family:var(--mono);font-size:11px;color:var(--muted);}
+  .pg .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0;}
+  .pg .kpi{border:1px solid var(--rule);border-radius:11px;padding:13px;}
+  .pg .kpi .l{font-family:var(--body);font-size:11px;color:var(--muted);}
+  .pg .kpi .v{font-family:var(--mono);font-size:22px;font-weight:500;letter-spacing:-.5px;margin:2px 0 1px;}
+  .pg .kpi .d{font-family:var(--mono);font-size:11px;}
+  .pg .panel{border:1px solid var(--rule);border-radius:11px;padding:14px;margin-bottom:13px;}
+  .pg .panel .h{font-family:var(--disp);font-weight:600;font-size:15px;margin:0 0 1px;}
+  .pg .panel .sub2{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-bottom:7px;}
+  .pg table{width:100%;border-collapse:collapse;font-family:var(--body);font-size:13px;}
+  .pg th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);padding:6px 9px;border-bottom:1px solid var(--rule);font-weight:600;font-family:var(--mono);}
+  .pg td{padding:7px 9px;border-bottom:1px solid var(--rule);}
+  .pg .num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums lining-nums;}
+  .pg .st{font-weight:600;}
+
+  .t-water{--bg:#f9f8f4;--fg:#2e2a26;--muted:#79716a;--emph:#415aa0;--rule:#e1dfdb;--panel:#efece4;--info:#788591;--warn:#905f15;--sev:#b8383a;}
+  .t-light{--bg:#efe7d6;--fg:#2f2624;--muted:#6f6657;--emph:#3a5a8e;--rule:#d8d0c1;--panel:#e7dfcf;--info:#727f83;--warn:#855810;--sev:#9c2128;}
+  .t-dark{--bg:#1a1613;--fg:#ece2d4;--muted:#a89a88;--emph:#7aa3d8;--rule:#332e2a;--panel:#221e1b;--info:#6fae84;--warn:#bd9744;--sev:#f3a188;}
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>The default — the Modernist kit</h1>
+  <p class="intro"><b>Bricolage Grotesque</b> (headings) · <b>Plus Jakarta Sans</b> (body &amp; UI) · <b>IBM Plex Mono</b> (numbers &amp; data), on the <b>Corbusier</b> grounds. A contemporary grotesque in the modernist lineage (Corbusier), restrained and data-honest (Tufte), current — not classical or vintage. Beautiful enough for an editorial page, disciplined enough for a chart. Shown doing <b>both jobs</b> below.</p>
+  <div class="pick"><div class="fonts">
+    <div class="fchip"><div class="role">Display · headings</div><div class="nm">Bricolage Grotesque</div><div class="ex" style="font-family:'Bricolage Grotesque',sans-serif">Quiet Material</div></div>
+    <div class="fchip"><div class="role">Body · UI · labels</div><div class="nm">Plus Jakarta Sans</div><div class="ex" style="font-family:'Plus Jakarta Sans',sans-serif">Reading &amp; labels</div></div>
+    <div class="fchip"><div class="role">Numbers · data</div><div class="nm">IBM Plex Mono</div><div class="ex" style="font-family:'IBM Plex Mono',monospace">0123 99.94</div></div>
+  </div></div>
+
+  <!-- A — editorial / studio (beautiful) -->
+  <div class="kitlabel"><b>Job 1 — beautiful brand / editorial</b> · Corbusier Watercolour</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">studionord.example</span></div>
+  <div class="pg t-water">
+    <div class="nav"><span class="brand">Studio&nbsp;Nord</span><span class="nl"><a class="on">Work</a><a>About</a><a>Journal</a><a>Contact</a></span></div>
+    <div class="hero">
+      <span class="label">Brand · Editorial · Type</span>
+      <h2>We make quiet things that <span class="ac">hold attention.</span></h2>
+      <p class="sub">A small studio working with museums, publishers and patient founders — restraint as a discipline, made to last.</p>
+    </div>
+    <div style="padding:10px 38px 0"><span class="label">The three typefaces</span></div>
+    <div class="grid" style="padding-top:12px">
+      <div class="proj"><div class="pl"><b style="font-family:var(--disp)">Bricolage Grotesque</b></div><div class="pn">Display</div><div class="pm">Headings · brand</div></div>
+      <div class="proj"><div class="pl"><b style="font-family:var(--body)">Plus Jakarta Sans</b></div><div class="pn">Body &amp; UI</div><div class="pm">Reading · labels</div></div>
+      <div class="proj"><div class="pl"><b style="font-family:var(--mono)">IBM Plex Mono</b></div><div class="pn">Mono</div><div class="pm">Numbers · data</div></div>
+    </div>
+    <div style="padding:6px 38px 40px">
+      <div class="panel" style="border:none;border-top:1px solid var(--rule);border-radius:0;padding:20px 0 0">
+        <div class="h" style="font-size:17px">Studio growth</div>
+        <div class="sub2">Billable hours by month — even a brand page can carry one quiet figure</div>
+        <svg width="100%" viewBox="0 0 470 176" style="max-width:560px;font-family:var(--body);margin-top:4px">
+          <line x1="38" y1="56" x2="38" y2="128" stroke="var(--rule)" stroke-width="1"/><line x1="42" y1="128" x2="400" y2="128" stroke="var(--rule)" stroke-width="1"/>
+          <text x="34" y="60" text-anchor="end" font-size="13" font-family="var(--mono)" fill="var(--muted)">920</text>
+          <text x="34" y="131" text-anchor="end" font-size="13" font-family="var(--mono)" fill="var(--muted)">240</text>
+          <text x="42" y="148" text-anchor="middle" font-size="13" font-family="var(--mono)" fill="var(--muted)">Jan</text>
+          <text x="400" y="148" text-anchor="middle" font-size="13" font-family="var(--mono)" fill="var(--muted)">Dec</text>
+          <path d="M42,118 L101.7,108 L161.3,112 L221,92 L280.7,84 L340.3,70 L400,56" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+          <circle cx="400" cy="56" r="2.6" fill="var(--emph)"/>
+          <text x="406" y="59" font-size="13" font-weight="600" fill="var(--emph)">Hours</text>
+        </svg>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- B — data (Tufte) -->
+  <div class="kitlabel"><b>Job 2 — Tufte data page</b> · Corbusier Light · same three fonts</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">studionord.example/measure</span></div>
+  <div class="pg t-light">
+    <div class="nav"><span class="brand">Studio&nbsp;Nord</span><span class="nl"><a>Work</a><a class="on">Measure</a><a>Journal</a></span></div>
+    <div class="main">
+      <div class="pt">Measure</div><div class="meta">Studio metrics · figures in Plex Mono tabular numerals</div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Active projects</div><div class="v">12</div><div class="d" style="color:var(--emph)">▲ 2</div></div>
+        <div class="kpi"><div class="l">Utilisation</div><div class="v">84%</div><div class="d" style="color:var(--emph)">▲ 3 pts</div></div>
+        <div class="kpi"><div class="l">Avg. cycle</div><div class="v">31 d</div><div class="d" style="color:var(--emph)">▼ 4 d</div></div>
+        <div class="kpi"><div class="l">Pipeline</div><div class="v">$486k</div><div class="d" style="color:var(--sev)">▼ 6%</div></div>
+      </div>
+      <div class="panel"><div class="h">Hours by studio</div><div class="sub2">range-frame line · axis spans the data · direct end-labels · tabular ticks</div>
+        <svg width="100%" viewBox="0 0 470 196" style="max-width:470px;font-family:var(--body)">
+          <line x1="38" y1="75.9" x2="38" y2="148.4" stroke="var(--rule)" stroke-width="1"/><line x1="42" y1="178" x2="400" y2="178" stroke="var(--rule)" stroke-width="1"/>
+          <text x="34" y="79" text-anchor="end" font-size="13" font-family="var(--mono)" fill="var(--muted)">920</text><text x="34" y="152" text-anchor="end" font-size="13" font-family="var(--mono)" fill="var(--muted)">240</text>
+          <text x="42" y="193" text-anchor="middle" font-size="13" font-family="var(--mono)" fill="var(--muted)">Jan</text><text x="400" y="193" text-anchor="middle" font-size="13" font-family="var(--mono)" fill="var(--muted)">Jul</text>
+          <path d="M42,89.2 L101.7,101 L161.3,107 L221,118.8 L280.7,121.8 L340.3,129.2 L400,133.6" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+          <path d="M42,148.4 L101.7,127.7 L161.3,133.6 L221,111.4 L280.7,101 L340.3,89.2 L400,75.9" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+          <circle cx="400" cy="75.9" r="2.4" fill="var(--emph)"/><circle cx="400" cy="133.6" r="2.4" fill="var(--muted)"/>
+          <text x="406" y="79" font-size="13" font-weight="600" fill="var(--emph)">Brand</text><text x="406" y="137" font-size="13" font-weight="600" fill="var(--muted)">Editorial</text>
+        </svg>
+      </div>
+      <div class="panel"><div class="h">Engagements</div>
+        <table><thead><tr><th>Client</th><th class="num">Hours</th><th class="num">Budget</th><th>Status</th></tr></thead><tbody>
+          <tr><td>Kunsthalle Nord</td><td class="num">412</td><td class="num">$84,000</td><td><span class="st" style="color:var(--info)">● On track</span></td></tr>
+          <tr><td>Hallgren Press</td><td class="num">238</td><td class="num">$52,000</td><td><span class="st" style="color:var(--warn)">▲ At risk</span></td></tr>
+          <tr><td>Slow Roads</td><td class="num">176</td><td class="num">$38,500</td><td><span class="st" style="color:var(--info)">● On track</span></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- C — dark (data + chart + table) -->
+  <div class="kitlabel"><b>Job 3 — the dark ground</b> · Corbusier Dark · same three fonts, chart + table</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">studionord.example/insights</span></div>
+  <div class="pg t-dark">
+    <div class="nav"><span class="brand">Studio&nbsp;Nord</span><span class="nl"><a>Work</a><a>Measure</a><a class="on">Insights</a></span></div>
+    <div class="main">
+      <div class="pt">Insights</div><div class="meta">Last 12 months · tabular numerals · one reserved accent on the lead discipline</div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Revenue</div><div class="v">$1.42M</div><div class="d" style="color:var(--emph)">▲ 14%</div></div>
+        <div class="kpi"><div class="l">New clients</div><div class="v">18</div><div class="d" style="color:var(--emph)">▲ 5</div></div>
+        <div class="kpi"><div class="l">Repeat rate</div><div class="v">68%</div><div class="d" style="color:var(--emph)">▲ 4 pts</div></div>
+        <div class="kpi"><div class="l">Avg. fee</div><div class="v">$78k</div><div class="d" style="color:var(--sev)">▼ 3%</div></div>
+      </div>
+      <div class="panel"><div class="h">Revenue by discipline</div><div class="sub2">range-frame line · brand leads · tabular ticks · direct end-labels</div>
+        <svg width="100%" viewBox="0 0 470 196" style="max-width:470px;font-family:var(--body)">
+          <line x1="38" y1="75.9" x2="38" y2="148.4" stroke="var(--rule)" stroke-width="1"/><line x1="42" y1="178" x2="400" y2="178" stroke="var(--rule)" stroke-width="1"/>
+          <text x="34" y="79" text-anchor="end" font-size="13" font-family="var(--mono)" fill="var(--muted)">$640k</text><text x="34" y="152" text-anchor="end" font-size="13" font-family="var(--mono)" fill="var(--muted)">$120k</text>
+          <text x="42" y="193" text-anchor="middle" font-size="13" font-family="var(--mono)" fill="var(--muted)">'25</text><text x="400" y="193" text-anchor="middle" font-size="13" font-family="var(--mono)" fill="var(--muted)">'26</text>
+          <path d="M42,89.2 L101.7,101 L161.3,107 L221,118.8 L280.7,121.8 L340.3,129.2 L400,133.6" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+          <path d="M42,148.4 L101.7,127.7 L161.3,133.6 L221,111.4 L280.7,101 L340.3,89.2 L400,75.9" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+          <circle cx="400" cy="75.9" r="2.4" fill="var(--emph)"/><circle cx="400" cy="133.6" r="2.4" fill="var(--muted)"/>
+          <text x="406" y="79" font-size="13" font-weight="600" fill="var(--emph)">Brand</text><text x="406" y="137" font-size="13" font-weight="600" fill="var(--muted)">Editorial</text>
+        </svg>
+      </div>
+      <div class="panel"><div class="h">Engagements</div>
+        <table><thead><tr><th>Client</th><th class="num">Hours</th><th class="num">Revenue</th><th>Status</th></tr></thead><tbody>
+          <tr><td>Kunsthalle Nord</td><td class="num">412</td><td class="num">$184,000</td><td><span class="st" style="color:var(--info)">● Active</span></td></tr>
+          <tr><td>Hallgren Press</td><td class="num">238</td><td class="num">$112,000</td><td><span class="st" style="color:var(--warn)">▲ Renewing</span></td></tr>
+          <tr><td>Slow Roads</td><td class="num">176</td><td class="num">$88,500</td><td><span class="st" style="color:var(--info)">● Active</span></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div></div>
+
+  <p class="intro" style="margin-top:14px"><b>Easy swaps</b> if you want a different voice while keeping the body &amp; data the same: display → <b>Instrument Serif</b> (more elegant, editorial) or <b>Space Grotesk</b> (more geometric). Body and mono stay Plus Jakarta + Plex Mono so data and reading never change. Beauty is taste; the legible, data-honest foundation underneath does not.</p>
+
+</div>
+</body>
+</html>

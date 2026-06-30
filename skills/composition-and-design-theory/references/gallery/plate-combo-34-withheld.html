@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Withheld</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;position:relative;overflow:hidden;
+    font-family:'Space Grotesk',sans-serif;display:flex}
+  .half{width:960px;height:1080px;position:relative;overflow:hidden}
+  .L{background:#ece7da;color:#16140d}
+  .R{background:#141310;color:#efe7d4}
+  .seam{position:absolute;left:958px;top:0;width:3px;height:1080px;background:#d8412a;z-index:6}
+  .lab{position:absolute;top:64px;left:112px;font-weight:500;font-size:16px;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .name{position:absolute;top:64px;right:96px;font-weight:500;font-size:16px;letter-spacing:.24em;
+    text-transform:uppercase;color:#d8412a}
+  .mode{position:absolute;top:268px;font-weight:500;font-size:16px;letter-spacing:.28em;text-transform:uppercase}
+  .L .mode{left:112px;color:rgba(22,20,13,.5)}
+  .R .mode{left:96px;color:rgba(239,231,212,.5)}
+  .msg{position:absolute;top:348px;font-weight:700;font-size:68px;line-height:88px;
+    letter-spacing:-.01em;white-space:pre-line}
+  .L .msg{left:110px;width:800px}
+  .R .msg{left:96px;width:820px;opacity:.9}
+  .cap{position:absolute;bottom:66px;left:112px;width:740px;font-family:'Inter',sans-serif;
+    font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  .tag{position:absolute;bottom:66px;right:96px;text-align:right;font-weight:500;font-size:14px;
+    letter-spacing:.24em;text-transform:uppercase;color:rgba(239,231,212,.5)}
+</style></head>
+<body><div class="plate">
+  <div class="half L">
+    <div class="lab">Composition № 34</div>
+    <div class="mode">Stated plainly</div>
+    <div class="msg" id="plain"></div>
+    <div class="cap"><b>The same message, set twice.</b> One side states it outright; the other withholds the very same words. Clarity against mystery, seam to seam.</div>
+  </div>
+  <div class="half R">
+    <div class="name">The Withheld</div>
+    <div class="mode">Withheld</div>
+    <div class="msg" id="cipher"></div>
+    <div class="tag">Juxtaposition · Clarity ✗ Mystery</div>
+  </div>
+  <div class="seam"></div>
+</div>
+<script>
+  const lines=["A DESIGN CAN","STATE A THING","OR WITHHOLD IT."];
+  document.getElementById("plain").textContent=lines.join("\n");
+  let s=42; const rnd=()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;};
+  const A="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const enc=lines.map(l=>l.replace(/[A-Z]/g,()=>A[Math.floor(rnd()*26)])).join("\n");
+  document.getElementById("cipher").textContent=enc;
+</script>
+</body></html>

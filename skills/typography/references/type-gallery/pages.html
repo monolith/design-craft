@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Font kits — up to 3 typefaces that work together, in full pages</title>
+  <link rel="stylesheet" href="fonts.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e7e6e2;color:#1d1d1b;
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .doc{max-width:1180px;margin:0 auto;padding:26px 22px 80px;}
+  .doc h1{font-size:21px;margin:0 0 6px;}
+  .doc .intro{color:#5b5b56;max-width:92ch;font-size:13px;}
+  .doc .intro b{color:#2a2a27;}
+  .kit{margin:36px 0;}
+  /* kit card */
+  .kitcard{border:1px solid #d8d6cf;border-radius:11px 11px 0 0;background:#fbfaf6;padding:15px 18px;}
+  .kitcard h2{font-size:16px;margin:0 0 3px;}
+  .kitcard .lede{color:#5b5b56;font-size:12.5px;margin:0 0 11px;max-width:90ch;}
+  .fonts{display:flex;gap:10px;flex-wrap:wrap;}
+  .fchip{border:1px solid #e0ded6;border-radius:8px;padding:7px 11px;min-width:150px;background:#fff;}
+  .fchip .role{font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;color:#9a948a;}
+  .fchip .nm{font-size:13px;font-weight:600;margin:1px 0;}
+  .fchip .ex{font-size:16px;line-height:1.1;color:#3a3a36;}
+  .browser{border:1px solid #cfcec9;border-top:none;border-radius:0 0 11px 11px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.07);background:#fff;}
+  .chrome{display:flex;align-items:center;gap:7px;padding:8px 12px;background:#eceae4;border-bottom:1px solid #dddbd5;}
+  .chrome .dot{width:10px;height:10px;border-radius:50%;background:#c9c7c0;}
+  .chrome .url{margin-left:8px;font-size:11px;color:#8a8a84;background:#fff;border:1px solid #ddd;border-radius:5px;padding:3px 12px;flex:1;max-width:340px;font-family:"IBM Plex Mono",monospace;}
+
+  /* ===== theme + type page system (consumes CSS vars) ===== */
+  .pg{background:var(--bg);color:var(--fg);}
+  .pg ::selection{background:var(--emph);color:var(--on-emph);}
+  .pg a{color:var(--link);text-decoration:none;}
+  .pg .wrap{max-width:920px;margin:0 auto;padding:0 30px;}
+  .pg .nav{display:flex;align-items:center;gap:22px;max-width:920px;margin:0 auto;padding:16px 30px;border-bottom:1px solid var(--rule);}
+  .pg .nav .brand{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.2px;}
+  .pg .nav .nl{display:flex;gap:18px;font-family:var(--ui);font-size:13.5px;}
+  .pg .nav .nl a{color:var(--fg);opacity:.82;} .pg .nav .nl a.on{opacity:1;font-weight:600;}
+  .pg .nav .sp{margin-left:auto;}
+  .pg .btn{font-family:var(--ui);display:inline-block;padding:9px 17px;border-radius:8px;font-weight:600;font-size:13px;border:1px solid var(--rule);color:var(--fg);background:transparent;}
+  .pg .btn.primary{background:var(--emph);color:var(--on-emph);border-color:var(--emph);}
+  .pg .btn.sm{padding:6px 13px;font-size:12.5px;}
+  .pg .hero{padding:54px 0 40px;}
+  .pg .hero.center{text-align:center;}
+  .pg .kick{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--emph);}
+  .pg .hero h1{font-family:var(--display);font-size:46px;line-height:1.05;letter-spacing:-1px;margin:12px 0 14px;max-width:17ch;}
+  .pg .hero.center h1{margin-left:auto;margin-right:auto;}
+  .pg .hero .sub{font-family:var(--body);font-size:17px;color:var(--muted);max-width:56ch;line-height:1.55;margin:0 0 22px;}
+  .pg .hero.center .sub{margin-left:auto;margin-right:auto;}
+  .pg .body{font-family:var(--body);}
+  .pg .section{padding:30px 0;border-top:1px solid var(--rule);}
+  .pg .section h2{font-family:var(--display);font-size:26px;letter-spacing:-.4px;margin:0 0 8px;}
+  .pg .prose{font-family:var(--body);font-size:15.5px;line-height:1.7;max-width:66ch;color:var(--fg);}
+  .pg .prose.muted{color:var(--muted);}
+  .pg .pull{font-family:var(--display);font-size:23px;line-height:1.4;color:var(--emph);border-left:3px solid var(--emph);padding-left:18px;margin:22px 0;max-width:48ch;}
+  .pg .meta{font-family:var(--mono,var(--ui));font-size:11.5px;color:var(--muted);letter-spacing:.2px;}
+  .pg .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;}
+  .pg .card{border:1px solid var(--rule);border-radius:11px;padding:17px;}
+  .pg .card h3{font-family:var(--display);font-size:15px;margin:0 0 4px;}
+  .pg .card p{font-family:var(--body);font-size:13px;color:var(--muted);margin:0;line-height:1.5;}
+  .pg .code{font-family:var(--mono);font-size:12.5px;background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:11px 13px;margin:14px 0;}
+  .pg .code .c{color:var(--muted);} .pg .code .e{color:var(--emph);}
+  .pg table{width:100%;border-collapse:collapse;font-family:var(--ui);font-size:13px;margin-top:6px;}
+  .pg th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);padding:6px 9px;border-bottom:1px solid var(--rule);font-weight:600;}
+  .pg td{padding:7px 9px;border-bottom:1px solid var(--rule);}
+  .pg .num{text-align:right;font-variant-numeric:tabular-nums lining-nums;font-family:var(--mono,var(--ui));}
+  .pg .foot{border-top:1px solid var(--rule);padding:26px 0;font-family:var(--ui);}
+  .pg .foot .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;}
+  .pg .foot .brand{font-family:var(--display);font-weight:600;}
+  .pg .foot h5{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 9px;}
+  .pg .foot a{display:block;color:var(--fg);opacity:.72;font-size:13px;padding:2px 0;}
+  .pg .foot .copy{margin-top:20px;font-size:12px;color:var(--muted);}
+  .pg .price{font-family:var(--display);font-size:34px;font-weight:600;letter-spacing:-1px;}
+  .pg .price small{font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted);}
+
+  /* palettes from graphical-perception-and-color */
+  .t-corb-light{--bg:#efe7d6;--fg:#2f2624;--muted:#6f6657;--emph:#3a5a8e;--link:#0f4d40;--rule:#d8d0c1;--panel:#e7dfcf;--on-emph:#fff;}
+  .t-paper     {--bg:#e8e7e2;--fg:#1a1a18;--muted:#55554f;--emph:#1d5bd6;--link:#0b685e;--rule:#cfceca;--panel:#e0dfda;--on-emph:#fff;}
+  .t-offwhite  {--bg:#faf8f3;--fg:#1c1a19;--muted:#6a6760;--emph:#6a3fb8;--link:#0c7672;--rule:#dfddd9;--panel:#f1efea;--on-emph:#fff;}
+  .t-corb-dark {--bg:#1a1613;--fg:#ece2d4;--muted:#a89a88;--emph:#7aa3d8;--link:#52c892;--rule:#332e2a;--panel:#221e1b;--on-emph:#1a1613;}
+  .t-gallery   {--bg:#efe9e0;--fg:#22201b;--muted:#6c6457;--emph:#8e2f63;--link:#1f5fa8;--rule:#d6d1c8;--panel:#e7e1d8;--on-emph:#fff;}
+
+  /* font roles per kit */
+  .k-plex   {--display:"IBM Plex Serif",Georgia,serif;--body:"IBM Plex Sans",sans-serif;--ui:"IBM Plex Sans",sans-serif;--mono:"IBM Plex Mono",monospace;}
+  .k-edit   {--display:"Newsreader",Georgia,serif;--body:"Inter",sans-serif;--ui:"Inter",sans-serif;--mono:"IBM Plex Mono",monospace;}
+  .k-premium{--display:"Fraunces",Georgia,serif;--body:"Inter",sans-serif;--ui:"Inter",sans-serif;--mono:"IBM Plex Mono",monospace;}
+  .k-startup{--display:"Space Grotesk",sans-serif;--body:"Inter",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;}
+  .k-solo   {--display:"Inter",sans-serif;--body:"Inter",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;}
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>Font kits — up to three typefaces that work together, in full pages</h1>
+  <p class="intro">Five curated kits, each <b>one to three</b> screen-readable, free/open typefaces that pair well, shown in a <b>complete sample page</b> styled with a palette from the <code>graphical-perception-and-color</code> skill — then a sixth page where the type does real work <b>inside Tufte charts and tables</b>. Each kit card lists the fonts and the <b>job</b> each does — <b>display</b> (voice/headings), <b>body</b> (reading), <b>UI</b> (labels), <b>mono</b> (code/data). The rule throughout (§4): pair by <b>contrast</b>, make the <b>body face the anchor</b>, and use the fewest faces that do the job — two is plenty, three is the ceiling, and one is often enough. The combinations are a principled curation (taste built on the research), not proven-best — no pairing has a controlled winner.</p>
+
+  <!-- ===== KIT 1 — Plex superfamily ===== -->
+  <div class="kit">
+    <div class="kitcard">
+      <h2>1 · The superfamily — IBM Plex Sans · Serif · Mono</h2>
+      <p class="lede">Lowest-risk way to use three faces: one type system designed to harmonise. The serif gives an editorial voice, the sans does the reading and UI, the mono carries code and data. Best for <b>technical products, docs, and dashboards</b>. Message: <i>precise, engineered, trustworthy.</i></p>
+      <div class="fonts">
+        <div class="fchip"><div class="role">Display</div><div class="nm">IBM Plex Serif</div><div class="ex" style="font-family:'IBM Plex Serif',serif">Headlines Aa</div></div>
+        <div class="fchip"><div class="role">Body · UI</div><div class="nm">IBM Plex Sans</div><div class="ex" style="font-family:'IBM Plex Sans',sans-serif">Reading &amp; labels Aa</div></div>
+        <div class="fchip"><div class="role">Mono</div><div class="nm">IBM Plex Mono</div><div class="ex" style="font-family:'IBM Plex Mono',monospace">code 0123</div></div>
+      </div>
+    </div>
+    <div class="browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">atlas.dev/docs</span></div>
+    <div class="pg t-corb-light k-plex">
+      <div class="nav"><span class="brand">Atlas</span><span class="nl"><a class="on">Docs</a><a>API</a><a>Guides</a><a>Changelog</a></span><span class="sp"></span><a class="btn primary sm">Start free</a></div>
+      <div class="wrap">
+        <div class="hero">
+          <div class="kick">Reference</div>
+          <h1>Deploy your app, not your infrastructure</h1>
+          <p class="sub">Push to git and Atlas builds, ships, and scales it — global edge, zero config, observability built in.</p>
+          <div class="code"><span class="c"># deploy the current directory</span><br>atlas deploy <span class="e">--prod</span><br><span class="c"># → https://atlas-7f3a.app</span></div>
+        </div>
+        <div class="section"><h2>How a deploy works</h2>
+          <p class="prose">Every push creates an immutable, independently-addressable build. The serif headline gives the page a calm editorial voice; this running explanation is set in Plex Sans for comfortable reading at length; the command above is Plex Mono so the eye reads it as <em>code, not prose</em>. One type system, three jobs.</p>
+          <table><thead><tr><th>Run</th><th class="num">AUC</th><th class="num">Duration</th></tr></thead><tbody><tr><td>#4821</td><td class="num">0.912</td><td class="num">14m</td></tr><tr><td>#4820</td><td class="num">0.905</td><td class="num">13m</td></tr><tr><td>#4819</td><td class="num">0.881</td><td class="num">22m</td></tr></tbody></table>
+        </div>
+        <div class="foot"><div class="cols"><div><div class="brand">Atlas</div><p class="prose muted" style="font-size:13px;margin:7px 0 0">Deploy your app, not your infrastructure.</p></div><div><h5>Product</h5><a>Features</a><a>Pricing</a><a>Status</a></div><div><h5>Developers</h5><a>Docs</a><a>API</a><a>CLI</a></div></div><div class="copy meta">© 2026 Atlas, Inc.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ===== KIT 2 — Newsreader + Inter ===== -->
+  <div class="kit">
+    <div class="kitcard">
+      <h2>2 · The editorial pair — Newsreader + Inter</h2>
+      <p class="lede">The classic high-contrast pairing: an expressive <b>serif headline</b> over a neutral <b>sans body</b>. Newsreader is a screen-built text serif with real voice; Inter keeps the reading calm and modern. A mono handles bylines/metadata. Best for <b>blogs, magazines, long reads</b>. Message: <i>considered, literary, current.</i></p>
+      <div class="fonts">
+        <div class="fchip"><div class="role">Display</div><div class="nm">Newsreader</div><div class="ex" style="font-family:'Newsreader',serif">Headlines Aa</div></div>
+        <div class="fchip"><div class="role">Body · UI</div><div class="nm">Inter</div><div class="ex" style="font-family:'Inter',sans-serif">Reading &amp; labels Aa</div></div>
+        <div class="fchip"><div class="role">Meta</div><div class="nm">IBM Plex Mono</div><div class="ex" style="font-family:'IBM Plex Mono',monospace">06 · 27 · 2026</div></div>
+      </div>
+    </div>
+    <div class="browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">thedispatch.example/the-quiet-drift</span></div>
+    <div class="pg t-paper k-edit">
+      <div class="nav"><span class="brand">The Dispatch</span><span class="nl"><a>World</a><a>Tech</a><a class="on">Culture</a><a>Ideas</a></span></div>
+      <div class="wrap" style="max-width:680px">
+        <div class="hero" style="padding:40px 0 22px">
+          <div class="kick">Long read · Technology</div>
+          <h1 style="font-size:42px;max-width:20ch">The quiet drift of the size-8 garment</h1>
+          <div class="meta">By Maren Holt · 06 · 27 · 2026 · 9 min read</div>
+        </div>
+        <p class="prose">A garment labelled "size 8" has quietly grown for decades. The number on the tag stayed put; the tape measure did not. The story of that drift is, in miniature, the story of how a standard erodes when no one in particular is accountable for keeping it.</p>
+        <div class="pull">"The tag is a promise. Somewhere along the way, the promise stopped being kept."</div>
+        <figure style="margin:22px 0 6px;padding-top:18px;border-top:1px solid var(--rule)">
+          <svg width="100%" viewBox="0 0 600 190" style="font-family:var(--body)">
+            <line x1="46" y1="46" x2="46" y2="144" stroke="var(--rule)" stroke-width="1"/><line x1="50" y1="155" x2="540" y2="155" stroke="var(--rule)" stroke-width="1"/>
+            <text x="42" y="50" text-anchor="end" font-size="12" font-family="var(--mono)" fill="var(--muted)">70 cm</text>
+            <text x="42" y="147" text-anchor="end" font-size="12" font-family="var(--mono)" fill="var(--muted)">61 cm</text>
+            <text x="50" y="173" text-anchor="middle" font-size="12" font-family="var(--mono)" fill="var(--muted)">1995</text>
+            <text x="540" y="173" text-anchor="middle" font-size="12" font-family="var(--mono)" fill="var(--muted)">2025</text>
+            <path d="M50,144 L132,133 L214,117 L296,101 L378,85 L460,69 L540,46" fill="none" stroke="var(--fg)" stroke-width="1.8"/>
+            <circle cx="540" cy="46" r="3" fill="var(--emph)"/><text x="546" y="43" font-size="13" font-weight="600" fill="var(--emph)">+9 cm</text>
+          </svg>
+          <figcaption class="meta" style="margin-top:8px">Waist of a nominal US "size 8", 1995–2025 (illustrative)</figcaption>
+        </figure>
+        <p class="prose">Each individual adjustment was defensible. A label nudged half a centimetre to flatter; a competitor matched; a decade passed. No single decision broke the standard — the absence of anyone defending it did. The serif headline carries the voice; the body stays in a quiet sans so 9 minutes of reading never tires.</p>
+        <div class="foot"><div class="meta">More from Culture →</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ===== KIT 3 — Fraunces + Inter ===== -->
+  <div class="kit">
+    <div class="kitcard">
+      <h2>3 · The premium brand pair — Fraunces + Inter</h2>
+      <p class="lede">When the brief asks for <b>personality</b>: Fraunces is a high-contrast "old-style" display serif with warmth and character; Inter keeps the body neutral and screen-clean so the voice lives only in the headlines. Best for <b>product marketing &amp; premium brands</b>. Message: <i>crafted, warm, expensive.</i> (Personality is taste — set on top of a legible body.)</p>
+      <div class="fonts">
+        <div class="fchip"><div class="role">Display</div><div class="nm">Fraunces</div><div class="ex" style="font-family:'Fraunces',serif">Headlines Aa</div></div>
+        <div class="fchip"><div class="role">Body · UI</div><div class="nm">Inter</div><div class="ex" style="font-family:'Inter',sans-serif">Reading &amp; labels Aa</div></div>
+      </div>
+    </div>
+    <div class="browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">harvestgoods.example</span></div>
+    <div class="pg t-offwhite k-premium">
+      <div class="nav"><span class="brand" style="font-weight:500">Harvest&nbsp;Goods</span><span class="nl"><a class="on">Shop</a><a>Our story</a><a>Stockists</a></span><span class="sp"></span><a class="btn sm">Cart (0)</a></div>
+      <div class="wrap">
+        <div class="hero center">
+          <div class="kick">Small-batch · since 2014</div>
+          <h1 style="font-weight:500;font-size:52px">Quiet things, made to last</h1>
+          <p class="sub">A short, considered collection of everyday objects — described, not bullet-pointed, because the story is the product.</p>
+          <a class="btn primary">Explore the collection</a>
+        </div>
+        <div class="section center" style="text-align:center"><h2 style="font-weight:500">What we believe</h2>
+          <div class="feat">
+            <div class="card"><h3>Slow by design</h3><p>Nothing rushed; every piece earns its place before it ships.</p></div>
+            <div class="card"><h3>Honest materials</h3><p>Named, sourced, and left to age the way good materials should.</p></div>
+            <div class="card"><h3>Built to repair</h3><p>Made so a worn part is replaced, not the whole object.</p></div>
+          </div>
+        </div>
+        <div class="section center" style="text-align:center"><h2 style="font-weight:500;font-size:22px">Pieces that last longer</h2>
+          <p class="sub" style="margin:6px auto 16px">Median years in use, by category — the quiet case for buying once.</p>
+          <svg width="100%" viewBox="0 0 480 150" style="max-width:480px;font-family:var(--body)">
+            <g font-family="var(--mono)" font-size="12" fill="var(--muted)">
+              <text x="96" y="28" text-anchor="end">Bags</text><text x="96" y="58" text-anchor="end">Knitwear</text><text x="96" y="88" text-anchor="end">Ceramics</text><text x="96" y="118" text-anchor="end">Footwear</text>
+            </g>
+            <g stroke="var(--rule)" stroke-width="1"><line x1="104" y1="24" x2="430" y2="24"/><line x1="104" y1="54" x2="360" y2="54"/><line x1="104" y1="84" x2="300" y2="84"/><line x1="104" y1="114" x2="250" y2="114"/></g>
+            <circle cx="430" cy="24" r="4.5" fill="var(--emph)"/><circle cx="360" cy="54" r="4" fill="var(--fg)"/><circle cx="300" cy="84" r="4" fill="var(--fg)"/><circle cx="250" cy="114" r="4" fill="var(--fg)"/>
+            <g font-family="var(--mono)" font-size="12" fill="var(--muted)"><text x="438" y="28" fill="var(--emph)">22 yrs</text><text x="368" y="58">16</text><text x="308" y="88">12</text><text x="258" y="118">9</text></g>
+          </svg>
+        </div>
+        <div class="foot"><div class="cols"><div><div class="brand" style="font-weight:500">Harvest Goods</div><p class="prose muted" style="font-size:13px;margin:7px 0 0">Quiet things, made to last.</p></div><div><h5>Shop</h5><a>New</a><a>Home</a><a>Gifts</a></div><div><h5>Studio</h5><a>About</a><a>Journal</a><a>Contact</a></div></div><div class="copy">© 2026 Harvest Goods</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ===== KIT 4 — Space Grotesk + Inter + JetBrains Mono ===== -->
+  <div class="kit">
+    <div class="kitcard">
+      <h2>4 · The startup trio — Space Grotesk + Inter + JetBrains Mono</h2>
+      <p class="lede">A characterful <b>geometric grotesque</b> headline for a modern, slightly technical edge; <b>Inter</b> for neutral body and UI; <b>JetBrains Mono</b> for code and metrics. Three faces, three clearly different jobs. Best for <b>SaaS &amp; developer startups</b>, here on a dark ground. Message: <i>modern, technical, confident.</i></p>
+      <div class="fonts">
+        <div class="fchip"><div class="role">Display</div><div class="nm">Space Grotesk</div><div class="ex" style="font-family:'Space Grotesk',sans-serif">Headlines Aa</div></div>
+        <div class="fchip"><div class="role">Body · UI</div><div class="nm">Inter</div><div class="ex" style="font-family:'Inter',sans-serif">Reading &amp; labels Aa</div></div>
+        <div class="fchip"><div class="role">Mono</div><div class="nm">JetBrains Mono</div><div class="ex" style="font-family:'JetBrains Mono',monospace">code 0123</div></div>
+      </div>
+    </div>
+    <div class="browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">vector.sh</span></div>
+    <div class="pg t-corb-dark k-startup">
+      <div class="nav"><span class="brand" style="font-weight:700">vector<span style="color:var(--emph)">.sh</span></span><span class="nl"><a class="on">Product</a><a>Docs</a><a>Pricing</a></span><span class="sp"></span><a>Sign in</a><a class="btn primary sm">Get started</a></div>
+      <div class="wrap">
+        <div class="hero">
+          <div class="kick">Edge functions</div>
+          <h1 style="font-weight:700;font-size:48px">Run code at the edge in milliseconds</h1>
+          <p class="sub">Deploy a function to 90+ regions with one command. No servers, no cold starts, no config.</p>
+          <div class="code"><span class="c">$</span> vector deploy <span class="e">./fn.ts</span><br><span class="c">✓ live in 312ms · 92 regions</span></div>
+          <div style="margin-top:18px"><a class="btn primary">Deploy your first function</a></div>
+        </div>
+        <div class="section"><h2 style="font-weight:500">Metrics that matter</h2>
+          <div class="feat">
+            <div class="card"><h3 style="font-weight:500">p50 latency</h3><p style="font-family:var(--mono);color:var(--emph);font-size:20px">14ms</p></div>
+            <div class="card"><h3 style="font-weight:500">Regions</h3><p style="font-family:var(--mono);color:var(--emph);font-size:20px">92</p></div>
+            <div class="card"><h3 style="font-weight:500">Cold starts</h3><p style="font-family:var(--mono);color:var(--emph);font-size:20px">0</p></div>
+          </div>
+          <div class="card" style="margin-top:14px"><h3 style="font-weight:500;font-size:14px">p50 latency, by region tier</h3>
+            <p class="prose muted" style="font-size:11px;margin:1px 0 8px;font-family:var(--mono)">range-frame line · ms · lower is better</p>
+            <svg width="100%" viewBox="0 0 470 150" style="max-width:470px;font-family:var(--body)">
+              <line x1="40" y1="36" x2="40" y2="112" stroke="var(--rule)" stroke-width="1"/><line x1="44" y1="112" x2="430" y2="112" stroke="var(--rule)" stroke-width="1"/>
+              <text x="36" y="40" text-anchor="end" font-size="12" font-family="var(--mono)" fill="var(--muted)">42</text>
+              <text x="36" y="115" text-anchor="end" font-size="12" font-family="var(--mono)" fill="var(--muted)">8</text>
+              <text x="44" y="130" text-anchor="middle" font-size="12" font-family="var(--mono)" fill="var(--muted)">'24</text>
+              <text x="430" y="130" text-anchor="middle" font-size="12" font-family="var(--mono)" fill="var(--muted)">'26</text>
+              <path d="M44,40 L108,52 L172,60 L236,72 L300,84 L364,98 L430,104" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+              <circle cx="430" cy="104" r="2.6" fill="var(--emph)"/><text x="436" y="107" font-size="12" font-weight="600" fill="var(--emph)" font-family="var(--mono)">14ms</text>
+            </svg>
+          </div>
+        </div>
+        <div class="foot"><div class="cols"><div><div class="brand" style="font-weight:700">vector.sh</div><p class="prose muted" style="font-size:13px;margin:7px 0 0">Run code at the edge.</p></div><div><h5>Product</h5><a>Functions</a><a>Storage</a><a>Pricing</a></div><div><h5>Developers</h5><a>Docs</a><a>SDK</a><a>Status</a></div></div><div class="copy meta">© 2026 vector.sh</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ===== KIT 5 — Inter alone ===== -->
+  <div class="kit">
+    <div class="kitcard">
+      <h2>5 · One family is often enough — Inter only</h2>
+      <p class="lede">Before reaching for a second face, remember the cheapest, most robust option: <b>one good family</b>, with hierarchy built from <b>weight, size, space and colour</b>. The whole page below is Inter — heading, body, UI, even the numbers (its tabular figures). Nothing here needs a second typeface. Message: <i>clean, neutral, fast.</i> Add a voice face only when it earns a job.</p>
+      <div class="fonts">
+        <div class="fchip"><div class="role">Everything</div><div class="nm">Inter</div><div class="ex" style="font-family:'Inter',sans-serif">Aa · Bold · 0123</div></div>
+      </div>
+    </div>
+    <div class="browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">app.northwind.example</span></div>
+    <div class="pg t-gallery k-solo">
+      <div class="nav"><span class="brand" style="font-weight:700">Northwind</span><span class="nl"><a class="on">Overview</a><a>Reports</a><a>Team</a></span><span class="sp"></span><a class="btn primary sm">New report</a></div>
+      <div class="wrap">
+        <div class="hero" style="padding:36px 0 18px">
+          <h1 style="font-weight:800;font-size:34px">Overview</h1>
+          <p class="sub" style="font-size:15px">One family carries the whole interface — hierarchy by weight and size, numbers in Inter's tabular figures.</p>
+        </div>
+        <div class="section" style="padding-top:18px"><table><thead><tr><th>Account</th><th>Plan</th><th class="num">MRR</th><th class="num">Change</th></tr></thead><tbody>
+          <tr><td>Globex</td><td>Enterprise</td><td class="num">$8,420</td><td class="num" style="color:var(--emph)">+4.1%</td></tr>
+          <tr><td>Initech</td><td>Pro</td><td class="num">$3,910</td><td class="num" style="color:var(--emph)">+1.2%</td></tr>
+          <tr><td>Umbrella</td><td>Enterprise</td><td class="num">$11,200</td><td class="num">−0.3%</td></tr>
+          <tr><td>Acme</td><td>Pro</td><td class="num">$2,180</td><td class="num" style="color:var(--emph)">+6.0%</td></tr>
+        </tbody></table></div>
+        <div class="foot"><div class="copy">© 2026 Northwind · all type set in Inter</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ===== KIT 6 — Data typography: type inside Tufte charts & tables ===== -->
+  <div class="kit">
+    <div class="kitcard">
+      <h2>6 · Type inside charts &amp; tables — the four skills composing</h2>
+      <p class="lede">Where typography meets data. Every choice below is traceable, not decorative: <b>tabular Plex&nbsp;Mono numerals</b> + <b>≥14px quiet labels</b> + <b>disambiguated digits</b> (this skill: ONS, Beier&nbsp;&amp;&nbsp;Oderkerk, MDN); <b>one reserved accent</b> on the value worth noticing + <b>status by icon&nbsp;+&nbsp;word, never colour alone</b> (<code>graphical-perception-and-color</code>); <b>Tufte forms, data-ink, direct labels not legends</b> (<code>charting</code>); <b>right-aligned numbers, scannable hierarchy</b> (<code>interface-ux-and-layout</code>). Faces: IBM Plex Sans (labels) · Plex Mono (numbers) — Plex is IBM Carbon's own data-viz anchor.</p>
+      <div class="fonts">
+        <div class="fchip"><div class="role">Labels · UI</div><div class="nm">IBM Plex Sans</div><div class="ex" style="font-family:'IBM Plex Sans',sans-serif">Region · p95 Aa</div></div>
+        <div class="fchip"><div class="role">Numbers</div><div class="nm">IBM Plex Mono</div><div class="ex" style="font-family:'IBM Plex Mono',monospace">0123 · 99.94</div></div>
+      </div>
+    </div>
+    <div class="browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">app.atlas.dev/overview</span></div>
+    <div class="pg t-corb-light k-plex" style="--info:#727f83;--warn:#855810;--sev:#9c2128">
+      <div class="nav"><span class="brand">Atlas</span><span class="nl"><a class="on">Overview</a><a>Traces</a><a>Logs</a></span><span class="sp"></span><a class="btn primary sm">Export</a></div>
+      <div class="wrap" style="max-width:880px;padding-top:20px;padding-bottom:34px">
+        <h1 style="font-family:var(--display);font-size:24px;margin:0 0 3px">Overview</h1>
+        <div class="meta" style="margin-bottom:16px">Last 7 days · all figures in Plex Mono tabular numerals</div>
+
+        <!-- KPI row with sparklines (Tufte) -->
+        <div class="feat" style="grid-template-columns:repeat(4,1fr);gap:12px;margin-top:0">
+          <div class="card"><div class="meta">Active users</div><div style="font-family:var(--mono);font-size:23px;font-weight:500;letter-spacing:-.5px">18,420</div><div style="font-family:var(--mono);font-size:11px;color:var(--emph)">▲ 3.1%</div>
+            <svg width="100%" height="22" viewBox="0 0 96 22" style="margin-top:4px"><path d="M2,17 L15,16 L28,17 L41,12 L54,13 L67,8 L80,9 L94,4" fill="none" stroke="var(--emph)" stroke-width="1.4"/><circle cx="94" cy="4" r="2" fill="var(--emph)"/></svg></div>
+          <div class="card"><div class="meta">Requests</div><div style="font-family:var(--mono);font-size:23px;font-weight:500;letter-spacing:-.5px">1,284,902</div><div style="font-family:var(--mono);font-size:11px;color:var(--emph)">▲ 12%</div>
+            <svg width="100%" height="22" viewBox="0 0 96 22" style="margin-top:4px"><path d="M2,16 L15,14 L28,15 L41,11 L54,12 L67,7 L80,8 L94,5" fill="none" stroke="var(--emph)" stroke-width="1.4"/><circle cx="94" cy="5" r="2" fill="var(--emph)"/></svg></div>
+          <div class="card"><div class="meta">Error rate</div><div style="font-family:var(--mono);font-size:23px;font-weight:500;letter-spacing:-.5px">0.84%</div><div style="font-family:var(--mono);font-size:11px;color:var(--sev)">▲ 0.3 pts</div>
+            <svg width="100%" height="22" viewBox="0 0 96 22" style="margin-top:4px"><path d="M2,16 L15,16 L28,12 L41,14 L54,9 L67,11 L80,6 L94,4" fill="none" stroke="var(--muted)" stroke-width="1.4"/><circle cx="94" cy="4" r="2" fill="var(--sev)"/></svg></div>
+          <div class="card"><div class="meta">p95 latency</div><div style="font-family:var(--mono);font-size:23px;font-weight:500;letter-spacing:-.5px">240 ms</div><div style="font-family:var(--mono);font-size:11px;color:var(--emph)">▼ 18 ms</div>
+            <svg width="100%" height="22" viewBox="0 0 96 22" style="margin-top:4px"><path d="M2,6 L15,8 L28,7 L41,11 L54,10 L67,13 L80,14 L94,17" fill="none" stroke="var(--muted)" stroke-width="1.4"/><circle cx="94" cy="17" r="2" fill="var(--emph)"/></svg></div>
+        </div>
+
+        <!-- Range-frame line chart (Tufte) -->
+        <div class="card" style="margin-top:14px">
+          <div style="font-family:var(--display);font-size:14px;margin-bottom:2px">Active users by region</div>
+          <div class="meta" style="margin-bottom:6px">Range-frame line · axis spans the data, direct end-labels, tabular ticks</div>
+          <svg width="100%" viewBox="0 0 470 200" style="max-width:470px;font-family:var(--ui)" fill="var(--muted)">
+            <!-- range-frame axes: only span the data range -->
+            <line x1="38" y1="75.9" x2="38" y2="148.4" stroke="var(--rule)" stroke-width="1"/>
+            <line x1="42" y1="178" x2="400" y2="178" stroke="var(--rule)" stroke-width="1"/>
+            <text x="34" y="79" text-anchor="end" font-size="13" font-family="var(--mono)">69k</text>
+            <text x="34" y="152" text-anchor="end" font-size="13" font-family="var(--mono)">20k</text>
+            <text x="42" y="194" text-anchor="middle" font-size="13" font-family="var(--mono)">'19</text>
+            <text x="400" y="194" text-anchor="middle" font-size="13" font-family="var(--mono)">'25</text>
+            <path d="M42,89.2 L101.7,101 L161.3,107 L221,118.8 L280.7,121.8 L340.3,129.2 L400,133.6" fill="none" stroke="var(--muted)" stroke-width="1.8"/>
+            <path d="M42,148.4 L101.7,127.7 L161.3,133.6 L221,111.4 L280.7,101 L340.3,89.2 L400,75.9" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+            <circle cx="400" cy="75.9" r="2.4" fill="var(--emph)"/><circle cx="400" cy="133.6" r="2.4" fill="var(--muted)"/>
+            <text x="406" y="79" font-size="13" font-weight="600" fill="var(--emph)">North</text>
+            <text x="406" y="137" font-size="13" font-weight="600" fill="var(--muted)">South</text>
+          </svg>
+        </div>
+
+        <div class="feat" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+          <!-- Cleveland dot plot (Tufte) -->
+          <div class="card">
+            <div style="font-family:var(--display);font-size:14px;margin-bottom:2px">Endpoints by p95 latency</div>
+            <div class="meta" style="margin-bottom:6px">Cleveland dot plot · sorted, the breach in the alert accent</div>
+            <svg width="100%" viewBox="0 0 320 150" style="font-family:var(--ui)">
+              <g font-size="13" fill="var(--fg)">
+                <text x="92" y="24" text-anchor="end">/checkout</text>
+                <text x="92" y="50" text-anchor="end">/search</text>
+                <text x="92" y="76" text-anchor="end">/app</text>
+                <text x="92" y="102" text-anchor="end">/docs</text>
+                <text x="92" y="128" text-anchor="end">/static</text>
+              </g>
+              <g stroke="var(--rule)" stroke-width="1">
+                <line x1="98" y1="20" x2="300" y2="20"/><line x1="98" y1="46" x2="220" y2="46"/><line x1="98" y1="72" x2="186" y2="72"/><line x1="98" y1="98" x2="170" y2="98"/><line x1="98" y1="124" x2="142" y2="124"/>
+              </g>
+              <circle cx="300" cy="20" r="4.5" fill="var(--sev)"/><circle cx="220" cy="46" r="4" fill="var(--fg)"/><circle cx="186" cy="72" r="4" fill="var(--fg)"/><circle cx="170" cy="98" r="4" fill="var(--fg)"/><circle cx="142" cy="124" r="4" fill="var(--fg)"/>
+              <g font-family="var(--mono)" font-size="12" fill="var(--muted)">
+                <text x="307" y="24" fill="var(--sev)">412 ms</text><text x="227" y="50">240</text><text x="193" y="76">180</text><text x="177" y="102">150</text><text x="149" y="128">96</text>
+              </g>
+            </svg>
+          </div>
+          <!-- Bullet graph (Tufte / Few) -->
+          <div class="card">
+            <div style="font-family:var(--display);font-size:14px;margin-bottom:2px">Error budget used</div>
+            <div class="meta" style="margin-bottom:10px">Bullet graph · measure vs target, qualitative bands</div>
+            <svg width="100%" viewBox="0 0 320 70" style="font-family:var(--ui)">
+              <rect x="70" y="20" width="108" height="22" fill="var(--panel)"/>
+              <rect x="178" y="20" width="54" height="22" fill="var(--rule)"/>
+              <rect x="232" y="20" width="78" height="22" fill="var(--rule)" opacity="0.7"/>
+              <rect x="70" y="26" width="173" height="10" fill="var(--fg)"/>
+              <line x1="262" y1="16" x2="262" y2="46" stroke="var(--emph)" stroke-width="2.5"/>
+              <text x="64" y="35" text-anchor="end" font-size="13" fill="var(--fg)">Budget</text>
+              <g font-family="var(--mono)" font-size="12" fill="var(--muted)">
+                <text x="262" y="12" text-anchor="middle" fill="var(--emph)">target 80</text><text x="70" y="60">0</text><text x="310" y="60" text-anchor="end">100</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Data table: tabular figures + status icon+word -->
+        <div class="card" style="margin-top:14px">
+          <div style="font-family:var(--display);font-size:14px;margin-bottom:8px">Services</div>
+          <table><thead><tr><th>Service</th><th class="num">p95</th><th class="num">Errors</th><th>Status</th></tr></thead><tbody>
+            <tr><td>api-gateway</td><td class="num">180 ms</td><td class="num">0.2%</td><td><span style="color:var(--info);font-weight:600">● Healthy</span></td></tr>
+            <tr><td>auth</td><td class="num">240 ms</td><td class="num">0.9%</td><td><span style="color:var(--warn);font-weight:600">▲ Degraded</span></td></tr>
+            <tr><td>billing</td><td class="num">412 ms</td><td class="num">4.1%</td><td><span style="color:var(--sev);font-weight:600">■ Incident</span></td></tr>
+            <tr><td>search</td><td class="num">150 ms</td><td class="num">0.1%</td><td><span style="color:var(--info);font-weight:600">● Healthy</span></td></tr>
+          </tbody></table>
+        </div>
+
+        <!-- bad vs good chart-label note -->
+        <div class="feat" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+          <div class="card" style="border-color:var(--sev)">
+            <div class="meta" style="color:var(--sev);font-weight:600;margin-bottom:6px">✗ chart text done wrong</div>
+            <svg width="100%" viewBox="0 0 300 90" style="font-family:var(--ui)">
+              <text x="6" y="14" font-size="13" font-weight="700" fill="var(--fg)" letter-spacing="1.5">QUARTERLY REVENUE BY REGION (USD)</text>
+              <g font-size="8" fill="var(--muted)" letter-spacing="1" style="font-variant-numeric:proportional-nums">
+                <text x="10" y="40">1,141,090</text><text x="10" y="55">98,300</text><text x="10" y="70">1,011,777</text>
+              </g>
+              <text x="150" y="86" font-size="8" fill="var(--muted)" letter-spacing="1">TINY · ALL-CAPS · PROPORTIONAL · HEAVY TITLE</text>
+            </svg>
+          </div>
+          <div class="card" style="border-color:var(--info)">
+            <div class="meta" style="color:var(--info);font-weight:600;margin-bottom:6px">✓ chart text done right</div>
+            <svg width="100%" viewBox="0 0 300 90" style="font-family:var(--ui)">
+              <text x="6" y="15" font-size="14" font-weight="500" fill="var(--fg)">Quarterly revenue by region</text>
+              <g font-size="13" fill="var(--muted)" font-family="var(--mono)">
+                <text x="10" y="40" text-anchor="start">$1,141,090</text><text x="10" y="57">$98,300</text><text x="10" y="74">$1,011,777</text>
+              </g>
+              <text x="150" y="87" font-size="11" fill="var(--muted)">≥14px · sentence case · tabular · quiet title</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+</body>
+</html>

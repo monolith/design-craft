@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Showcase — library-backed visuals</title>
+  <link rel="stylesheet" href="showcase.css">
+</head>
+<body>
+  <div class="page">
+
+    <h1>Showcase — richer, library-backed visuals</h1>
+    <p class="subtitle">A deliberate departure from the zero-dependency Tufte gallery.</p>
+
+    <p>
+      The <a href="../charts/index.html">main gallery</a> is zero-dependency, flat-SVG, and
+      data-ink-minimal on purpose. This page goes the other way: it leans on three small
+      vendored libraries — <strong>three.js</strong> + <strong>OrbitControls</strong> and
+      <strong>force-graph</strong> — to build six interactive, visually rich scenes.
+    </p>
+    <p>
+      The discipline that survives the move: <em>3D is used only where the data is genuinely
+      spatial or relational</em> — a globe, a point cloud, a height field — never as
+      decoration draped over data that is really 2D. Where a flat form reads better (the
+      network, the sunburst, the run timeline), it stays 2D.
+    </p>
+    <p class="offline-note">
+      Everything loads locally. The three libraries are vendored under <code>lib/</code>; the
+      page fetches <strong>nothing</strong> over the network at runtime.
+    </p>
+
+    <!-- 1 — trade-flow globe -->
+    <section class="show">
+      <h2>1 · Trade-flow globe</h2>
+      <p class="caption">Real country borders (Natural Earth 110m) on a calm sphere; ~30 economies tinted by net trade balance on a diverging scale, with thin great-circle arcs for synthetic bilateral flows.</p>
+      <div class="mount stage stage-dark" id="mount-globe"></div>
+      <p class="hint">drag to orbit · scroll to zoom · click a tinted country to focus its flows and partners · click empty space to release</p>
+    </section>
+
+    <!-- 2 — 3D scatter -->
+    <section class="show">
+      <h2>2 · 3D scatter — three clusters</h2>
+      <p class="caption">~300 points in three Gaussian clusters; axes labelled, genuinely three-dimensional.</p>
+      <div class="mount stage" id="mount-scatter"></div>
+      <p class="hint">drag to orbit · scroll to zoom · clusters separate as you turn it</p>
+    </section>
+
+    <!-- 3 — 3D surface -->
+    <section class="show">
+      <h2>3 · 3D surface — a height field</h2>
+      <p class="caption">z = f(x, y) over a 48×48 grid; height and lighting both shade the relief.</p>
+      <div class="mount stage" id="mount-surface"></div>
+      <p class="hint">drag to orbit · scroll to zoom</p>
+    </section>
+
+    <!-- 4 — node graph (Obsidian-style, force-graph) -->
+    <section class="show">
+      <h2>4 · File relationship network</h2>
+      <p class="caption">An Obsidian-style force-directed graph on a dark panel — a static snapshot of a real markdown workspace; nodes are files, edges are references, colour is directory, size is in-degree.</p>
+      <div class="mount mount-dark" id="mount-graph"></div>
+      <p class="hint">hover a node to light up its neighbourhood and dim the rest · drag nodes · scroll to zoom</p>
+    </section>
+
+    <!-- 5 — sunburst -->
+    <section class="show">
+      <h2>5 · Radial sunburst</h2>
+      <p class="caption">A nested directory tree; ring = depth, angle = size. Hand-built SVG — flat on purpose.</p>
+      <div class="mount" id="mount-sunburst"></div>
+      <p class="hint">hover a wedge to isolate its branch and read its size</p>
+    </section>
+
+    <!-- 6 — agent run timeline (faithful SVG port of a live view) -->
+    <section class="show">
+      <h2>6 · Agent run timeline</h2>
+      <p class="caption">A token-consumption timeline (synthetic data): log-y, area-proportional dots by provider, pulsing heartbeats with worker connectors + traveling slivers, a trend ribbon, hard-kill ceiling, mode ribbon (active vs hibernating), and a rejection rug.</p>
+      <div class="mount" id="mount-timeline"></div>
+      <p class="hint">hover for the crosshair, family highlight, and details · the heartbeats breathe and the slivers travel on their own</p>
+    </section>
+
+  </div>
+
+  <!-- Vendored libraries — local files only. Order matters: three first, then OrbitControls.
+       vis-network.min.js stays vendored but is no longer loaded (the network now uses force-graph). -->
+  <script src="lib/three.min.js"></script>
+  <script src="lib/OrbitControls.js"></script>
+  <script src="lib/force-graph.min.js"></script>
+  <script src="showcase.js"></script>
+</body>
+</html>

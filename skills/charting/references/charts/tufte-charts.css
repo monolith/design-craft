@@ -1,0 +1,309 @@
+/* ===========================================================================
+   Tufte web theme — shared stylesheet for the charting gallery.
+
+   One quiet palette, restrained serif type, off-white paper, no chart borders,
+   no heavy gridlines. Everything here is system-only: no web fonts, no imported
+   stylesheets, no network. The charts inherit these variables and helper classes; the JS
+   never restyles what CSS already owns.
+   ========================================================================= */
+
+:root {
+  /* ---- The one quiet palette ----------------------------------------- */
+  --paper:  #fdfdfb;   /* off-white field, never pure #fff (less glare)     */
+  --ink:    #111111;   /* primary text + data marks (WCAG AAA on paper)     */
+  --muted:  #6b6b6b;   /* secondary text, axis lines, non-data scaffolding  */
+  --rule:   #d8d8d2;   /* faint hairline rules / range-frame ticks          */
+  --accent: #b0301c;   /* brick red — used sparingly, one idea at a time    */
+  --paper-2:#f4f2ec;   /* faint panel wash (qualitative band, sub-panel bg) */
+
+  /* ---- Type ----------------------------------------------------------- */
+  /* System serifs only. et-book-like feel without shipping a font file.   */
+  --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+}
+
+/* ---- Page + readable measure --------------------------------------------- */
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Centered, book-width text column. Charts may break wider via .wide. */
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+h1 { font-weight: 400; font-size: 2.1rem; line-height: 1.15; margin: 0 0 .4rem; }
+h2 { font-weight: 400; font-size: 1.35rem; margin: 0 0 .2rem; }
+.subtitle { color: var(--muted); font-style: italic; margin: 0 0 2.5rem; }
+
+/* Group divider headings (between thematic runs of charts): small, muted,
+   letter-spaced — a quiet section marker, not a chart title. */
+h2.group {
+  font-size: .8rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--muted);
+  margin: 4.5rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+}
+/* the chart right after a group heading shouldn't double the top rule */
+h2.group + section.chart { border-top: 0; padding-top: 1rem; }
+
+p { margin: 0 0 1rem; }
+
+/* Each chart lives in its own section with a generous rule above it. */
+section.chart {
+  margin: 3.2rem 0 0;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--rule);   /* the ONLY border on the page — a
+                                          section divider, not a chart frame */
+}
+section.chart:first-of-type { border-top: 0; }
+
+/* One-line technique caption under each title. */
+.caption {
+  color: var(--muted);
+  font-style: italic;
+  font-size: .92rem;
+  margin: .15rem 0 1.2rem;
+}
+
+/* Mount node the JS draws into. */
+.mount { margin: .4rem 0 .2rem; }
+
+/* Some charts are wider than the prose column; let them breathe. */
+.wide { max-width: 58rem; }
+
+/* ===========================================================================
+   Chart-internal helper classes. SVG marks carry these; the JS sets geometry,
+   the CSS owns the ink.
+   ========================================================================= */
+
+svg { display: block; overflow: visible; max-width: 100%; }
+svg text { font-family: var(--serif); }
+
+/* Axes are scaffolding, not data: thin, muted, never a full box. */
+.axis line,
+.axis path,
+.range-frame {
+  stroke: var(--muted);
+  stroke-width: 1;
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+/* Tick labels + value annotations. Apply to <text class="tick"> directly
+   (a descendant selector never matched the element itself). */
+.tick,
+.axis text { fill: var(--muted); font-size: 11px; }
+
+/* Smaller tick variant for dense edge labels (SPLOM / weekly grid) that would
+   otherwise collide at the rendered width. */
+.tick-sm { fill: var(--muted); font-size: 9px; }
+
+/* Direct labels — the primary readout. Darker and a touch larger than ticks. */
+.label      { fill: var(--ink);   font-size: 12px; }
+.label-sm   { fill: var(--ink);   font-size: 11px; }
+.muted      { fill: var(--muted); }
+.accent     { fill: var(--accent); }
+.value      { fill: var(--ink);   font-size: 11px; font-variant-numeric: tabular-nums; }
+
+/* Data marks. */
+.series       { stroke: var(--ink); stroke-width: 1.4; fill: none; }
+.series-muted { stroke: var(--muted); stroke-width: 1; fill: none; }
+.mark         { fill: var(--ink); }
+.mark-accent  { fill: var(--accent); }
+.rug          { stroke: var(--muted); stroke-width: 1; shape-rendering: crispEdges; }
+
+/* Faint qualitative bands / area fills. */
+.band   { fill: var(--rule); }
+.band-2 { fill: var(--paper-2); }
+
+/* ---- Sparklines: sized to sit inline with text, like a word. ------------- */
+.spark {
+  display: inline-block;
+  vertical-align: -0.25em;
+  margin: 0 .15em;
+}
+.spark .series { stroke-width: 1; }
+
+/* Datawords table (sparklines in a table row). */
+table.datawords {
+  border-collapse: collapse;
+  margin: 1.2rem 0 .4rem;
+  font-size: .95rem;
+  width: 100%;
+}
+table.datawords th {
+  text-align: left;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding: .3rem .6rem .3rem 0;
+}
+table.datawords td {
+  padding: .3rem .6rem .3rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+table.datawords td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Small multiples: a tidy CSS grid of identical little panels. -------- */
+.small-multiples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .4rem 1rem;
+}
+.small-multiples .panel-title {
+  fill: var(--ink);
+  font-size: 11px;
+}
+
+/* ---- Tear-sheet: a dense sub-grid of metric panels. ---------------------- */
+.tear-sheet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.2rem;
+  align-items: start;
+}
+.tear-sheet .panel-label {
+  color: var(--muted);
+  font-style: italic;
+  font-size: .8rem;
+  margin: 0 0 .15rem;
+}
+.tear-sheet .full { grid-column: 1 / -1; }
+
+/* ---- Shared hover tooltip (dense charts only). --------------------------- */
+.tufte-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: .78rem;
+  line-height: 1.3;
+  padding: .25rem .5rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .08s ease;
+  z-index: 50;
+}
+.tufte-tooltip.show { opacity: .96; }
+
+/* Cells that respond to hover get a subtle cue. */
+.hot { cursor: crosshair; }
+.hot:hover { stroke: var(--ink); stroke-width: 1; }
+
+/* ---- "How to read" note under a chart (e.g. the SPLOM). ------------------ */
+.read-note {
+  color: var(--muted);
+  font-style: italic;
+  font-size: .82rem;
+  margin: .55rem 0 0;
+  max-width: 34rem;
+}
+
+/* ===========================================================================
+   Dashboard helpers (#21–25): tiles, stat blocks, composite layout.
+   ========================================================================= */
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem 1.4rem;
+}
+.kpi-label { color: var(--muted); font-style: italic; font-size: .8rem; margin: 0 0 .15rem; }
+.kpi-num   { font-size: 1.9rem; line-height: 1; font-variant-numeric: tabular-nums; margin-bottom: .1rem; }
+.kpi-delta { font-size: .85rem; font-variant-numeric: tabular-nums; margin-top: .15rem; }
+.kpi-delta.up   { color: var(--ink); }
+.kpi-delta.down { color: var(--accent); }
+
+.overview {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem 1.4rem;
+  align-items: start;
+}
+.overview .full { grid-column: 1 / -1; }
+.stat-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem 1rem; }
+
+/* ===========================================================================
+   Monitoring timeline (#26): heartbeat "breath" + live cue, ported from the
+   trace-ui-rails stylesheet (adapted to this theme's accent).
+   ========================================================================= */
+
+@keyframes hbpulse {
+  0%   { transform: scale(1);    opacity: .35; }
+  70%  { opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+.hbpulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hbpulse 4.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes tllive { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.tl-live { animation: tllive 2s ease-in-out infinite; pointer-events: none; }
+
+/* ===========================================================================
+   Anti-pattern section — DELIBERATELY distinct from the gallery. The ✗ cards
+   show WRONG charts (never to be reproduced); the ✓ cards show the fix of the
+   same data. Red/green here is an intentional instructional code, not the
+   gallery's quiet data palette.
+   ========================================================================= */
+.anti {
+  margin-top: 4.5rem;
+  padding: 1.4rem 1.4rem 2rem;
+  border: 2px solid #c62828;
+  border-radius: 6px;
+  background: #fcf6f4;
+}
+.anti > h2 { color: #b3261e; }
+.anti .preamble {
+  background: #fdecea;
+  border-left: 4px solid #c62828;
+  padding: .7rem 1rem;
+  margin: .6rem 0 1.4rem;
+  font-size: .95rem;
+}
+.anti-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.4rem;
+  align-items: start;
+  margin: 1.6rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+.anti-pair h3 { grid-column: 1 / -1; font-weight: 400; font-size: 1.05rem; margin: 0; }
+.anti .card { border-radius: 4px; padding: .6rem .7rem; }
+.anti .dont { background: #fdecea; border: 1px solid #e6b0aa; }
+.anti .do   { background: #eafaf0; border: 1px solid #a9dfbf; }
+.anti .badge {
+  display: inline-block;
+  font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  padding: .15rem .5rem; border-radius: 3px; margin-bottom: .4rem;
+}
+.anti .dont .badge { background: #c62828; color: #fff; }
+.anti .do   .badge { background: #2e7d32; color: #fff; }
+.anti .why { font-size: .85rem; color: #5a5a52; margin: .45rem 0 0; }
+.anti .why b { color: #b3261e; }
+.anti .do .why b { color: #2e7d32; }

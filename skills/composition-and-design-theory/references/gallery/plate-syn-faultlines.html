@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Synthesis — Title Card</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#0e1316;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:96px;left:104px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#8a857a;z-index:3}
+  .name{position:absolute;top:96px;right:104px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#a09889;z-index:3}
+  .tag{position:absolute;bottom:118px;left:104px;font-weight:600;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:#5e5a51;z-index:3}
+  .cap{position:absolute;bottom:62px;left:104px;width:760px;font-family:'Inter',sans-serif;font-weight:400;font-size:18px;line-height:1.45;color:#7c7468;z-index:3}
+  .cap b{color:#bd5c41;font-weight:600}
+  .credit{position:absolute;right:104px;bottom:62px;text-align:right;font-weight:600;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:#5e5a51;z-index:3}
+  svg{position:absolute;inset:0}
+  .t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:300px;letter-spacing:-.02em;fill:#ece7da}
+</style></head>
+<body><div class="plate">
+  <svg viewBox="0 0 1920 1080">
+    <defs>
+      <!-- the fault: a jagged vertical crack with a strike-slip step near mid-frame -->
+      <clipPath id="left"><polygon points="0,0 956,0 940,180 976,360 944,540 980,720 948,900 972,1080 0,1080"/></clipPath>
+      <clipPath id="right"><polygon points="956,0 1920,0 1920,1080 972,1080 948,900 980,720 944,540 976,360 940,180"/></clipPath>
+    </defs>
+
+    <!-- two strata: the ground shifts tone across the break (figure-ground split) -->
+    <g clip-path="url(#left)"><rect x="0" y="0" width="1920" height="1080" fill="#181209"/></g>
+    <g clip-path="url(#right)"><rect x="0" y="0" width="1920" height="1080" fill="#0a0e11"/></g>
+
+    <!-- title centred on the fault: the crack runs through the middle of both words -->
+    <!-- left stratum: in register -->
+    <g clip-path="url(#left)">
+      <text class="t" x="960" y="470" text-anchor="middle">FAULT</text>
+      <text class="t" x="960" y="800" text-anchor="middle">LINES</text>
+    </g>
+    <!-- right stratum: slipped DOWN — the letterforms fracture and mis-register -->
+    <g clip-path="url(#right)">
+      <text class="t" x="960" y="542" text-anchor="middle">FAULT</text>
+      <text class="t" x="960" y="872" text-anchor="middle">LINES</text>
+    </g>
+
+    <!-- the lone accent: one ember running in the crack -->
+    <polyline points="956,0 940,180 976,360 944,540 980,720 948,900 972,1080"
+      fill="none" stroke="#d4492a" stroke-width="4" stroke-linejoin="round"/>
+  </svg>
+
+  <div class="lab">Composition № 17 — Title card</div>
+  <div class="name">Fault Lines</div>
+  <div class="tag">Type-as-image · Figure-ground · Reduction</div>
+  <div class="cap"><b>The title fractures along the fault.</b> The right block slips down, the ground shifts tone across the break, one ember in the crack — the theme read as form before the words.</div>
+  <div class="credit">A Limited Series · Atlas</div>
+</div></body></html>

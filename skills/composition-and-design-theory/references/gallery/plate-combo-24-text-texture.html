@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Text as Texture</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Inter',sans-serif;position:relative;overflow:hidden;padding:80px 96px}
+  .top{position:absolute;left:96px;right:96px;top:80px;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  .cols{position:absolute;left:96px;right:96px;top:176px;height:672px;column-count:4;column-gap:54px;
+    column-rule:1px solid rgba(22,20,13,.16);overflow:hidden;
+    font-size:14.5px;line-height:1.62;text-align:justify;color:rgba(22,20,13,.5)}
+  .hot{color:#d8412a;font-weight:700}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:780px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition № 24</div><div class="r">Text as Texture</div></div>
+  <div class="cols" id="cols"></div>
+  <div class="foot">
+    <div class="kick">MIX · Type-that-recedes <b>×</b> Grid</div>
+    <div class="cap"><b>The page read as one even grey.</b> Recessive body type dissolves into uniform texture on the grid; a single shift of hue lets one word surface.</div>
+  </div>
+</div>
+<script>
+  const pool=[
+    "Set for sustained reading, the letterform has a single duty: to disappear.",
+    "Even colour down the page, moderate contrast, organic proportion.",
+    "Nothing here asks to be noticed; the words pass straight through.",
+    "Order is a decision, and the column holds every line to one measure.",
+    "Read as a field, the page is a single even grey, not a row of marks.",
+    "The grid keeps the gutters true and the rhythm of the lines constant.",
+    "Texture is what type becomes when no one word is allowed to shout.",
+    "Restraint is the whole craft; you finish the paragraph without seeing the face.",
+    "Measure, leading and weight resolve into one quiet, continuous tone.",
+    "The eye slides; the structure underneath is felt rather than seen.",
+    "A thousand small decisions add up to the plain absence of decoration.",
+    "Uniform texture is the reward of discipline, line after patient line.",
+    "Where display type performs, the reading face withdraws and serves.",
+    "The columns stand equal, each filled to the same grey weight.",
+    "Legibility, repeated without exception, becomes a surface and not an event."
+  ];
+  let s=7; const rnd=()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;};
+  const parts=[];
+  for(let i=0;i<150;i++){
+    if(i===40){parts.push("Only one word ever surfaces from the grey.");}
+    parts.push(pool[Math.floor(rnd()*pool.length)]);
+  }
+  const text=parts.join(" ");
+  document.getElementById("cols").innerHTML =
+    text.replace("surfaces","<span class='hot'>surfaces</span>");
+</script>
+</body></html>

@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Synthesis — Museum Exhibition</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#ece6d8;color:#1b1813;
+    font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+  .kick{position:absolute;top:60px;left:96px;font-weight:600;font-size:15px;letter-spacing:.26em;text-transform:uppercase;color:#6a6350}
+  .pr{position:absolute;top:60px;right:60px;font-weight:600;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:#c9bfa6;text-align:right}
+  /* wall label — the exhibited specimen; accent reserved for the one object */
+  .label{position:absolute;left:248px;top:760px;font-weight:500;color:#5a5238}
+  .label .a{font-weight:600;font-size:22px;letter-spacing:.02em}
+  .label .b{font-size:20px;color:#6a6350;margin-top:4px}
+  .cap{position:absolute;left:96px;bottom:96px;right:760px;font-weight:500;font-size:16px;letter-spacing:.01em;color:#6a6350;line-height:1.4}
+  .princ{position:absolute;right:60px;bottom:104px;font-weight:600;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#6a6350}
+  .info{position:absolute;left:96px;right:60px;bottom:46px;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:19px;letter-spacing:.03em;color:#1b1813}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <svg id="s" viewBox="0 0 1920 1080"></svg>
+  <div class="kick">Composition № 15 — Poster</div>
+  <div class="pr">Grid · Type-as-image · Figure-ground</div>
+  <div class="label"><div class="a">Minimal Sculpture</div><div class="b">1965 – 1979</div></div>
+  <div class="cap">The title is the monument: figure-ground flips to light where the word crosses into the mass — the subject reads in one beat.</div>
+  <div class="princ">Vignelli · semantics → syntactics → pragmatics</div>
+  <div class="info"><div>The Halsey Museum</div><div>14 March – 3 August</div><div>Free admission</div></div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("s");
+  function add(t,a,txt,parent){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;(parent||svg).appendChild(e);return e;}
+  const ink="#1b1813", paper="#ece6d8", accent="#b07b1e";
+  const F={"font-family":"Inter","font-weight":800,"font-size":196,"letter-spacing":-7};
+
+  function build(){
+    svg.textContent="";
+    // rigorous 12-column grid, lightly stated (col-7 line omitted — the mass takes its place)
+    [240,384,528,672,816,1104,1248,1392,1536,1680].forEach(x=>
+      add("line",{x1:x,y1:0,x2:x,y2:1080,stroke:ink,"stroke-opacity":.06,"stroke-width":1}));
+
+    // QUIET sits wholly in the open field
+    add("text",{x:92,y:406,...F,fill:ink},"QUIET");
+
+    // measure where "NTS" begins so the flip lands cleanly in a letter gap, near centre
+    const m=add("text",{x:0,y:-200,...F,fill:"none"},"MONUME");
+    const slabX=Math.round(92+m.getComputedTextLength());
+    m.remove();
+
+    // the monument: a solid mass; its edge meets the type exactly at a letter break
+    add("rect",{x:slabX,y:0,width:1920-slabX,height:938,fill:ink});
+
+    const defs=add("defs",{});
+    defs.innerHTML=`<clipPath id="L"><rect x="0" y="0" width="${slabX}" height="1080"/></clipPath>`+
+                   `<clipPath id="R"><rect x="${slabX}" y="0" width="${1920-slabX}" height="1080"/></clipPath>`;
+
+    // MONUMENTS: ink on the field, knocked to light where it enters the mass
+    add("text",{x:92,y:604,...F,fill:ink,"clip-path":"url(#L)"},"MONUMENTS");
+    add("text",{x:92,y:604,...F,fill:paper,"clip-path":"url(#R)"},"MONUMENTS");
+
+    // the one object, on the grid
+    add("rect",{x:96,y:760,width:120,height:120,fill:accent});
+    // footer rule
+    add("line",{x1:96,y1:990,x2:1860,y2:990,stroke:ink,"stroke-width":2});
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(build);} else {build();}
+</script>
+</body></html>

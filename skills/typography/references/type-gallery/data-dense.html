@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dense data — PM, program &amp; quant, in the modernist kit</title>
+  <link rel="stylesheet" href="fonts.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e7e6e2;color:#1d1d1b;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .doc{max-width:1180px;margin:0 auto;padding:26px 22px 90px;}
+  .doc h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:30px;letter-spacing:-.8px;margin:0 0 6px;}
+  .doc .intro{color:#5b5b56;max-width:96ch;font-size:13px;line-height:1.6;}
+  .doc .intro b{color:#2a2a27;}
+  .kitlabel{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.5px;color:#8a857c;margin:30px 0 9px;}
+  .kitlabel b{color:#2a2a27;font-family:"Plus Jakarta Sans",sans-serif;font-size:13px;font-weight:700;letter-spacing:0;}
+  .frame{border:1px solid #d4d2cb;border-radius:13px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.09);margin-bottom:8px;}
+  .chrome{display:flex;align-items:center;gap:7px;padding:9px 13px;background:#eceae4;border-bottom:1px solid #dddbd5;}
+  .chrome .dot{width:10px;height:10px;border-radius:50%;background:#c9c7c0;}
+  .chrome .url{margin-left:8px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:#8a8a84;background:#fff;border:1px solid #ddd;border-radius:5px;padding:3px 12px;}
+
+  .pg{background:var(--bg);color:var(--fg);--disp:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  .pg a{color:inherit;text-decoration:none;}
+  .pg .top{display:flex;align-items:center;gap:16px;padding:13px 20px;border-bottom:1px solid var(--rule);}
+  .pg .top .brand{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:-.4px;}
+  .pg .top .nl{display:flex;gap:16px;font-family:var(--body);font-size:12.5px;}
+  .pg .top .nl a{opacity:.8;} .pg .top .nl a.on{opacity:1;font-weight:600;}
+  .pg .top .sp{margin-left:auto;}
+  .pg .top .search{font-family:var(--body);font-size:12px;color:var(--muted);background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:5px 11px;}
+  .pg .main{padding:16px 20px 26px;}
+  .pg .pt{font-family:var(--disp);font-weight:700;font-size:23px;letter-spacing:-.6px;margin:0 0 1px;}
+  .pg .meta{font-family:var(--mono);font-size:11px;color:var(--muted);}
+  .pg .kpis{display:grid;gap:11px;margin:14px 0;}
+  .pg .kpis.k4{grid-template-columns:repeat(4,1fr);} .pg .kpis.k5{grid-template-columns:repeat(5,1fr);}
+  .pg .kpi{border:1px solid var(--rule);border-radius:10px;padding:11px 12px;}
+  .pg .kpi .l{font-family:var(--body);font-size:10.5px;color:var(--muted);}
+  .pg .kpi .v{font-family:var(--mono);font-size:20px;font-weight:500;letter-spacing:-.5px;margin:2px 0 1px;}
+  .pg .kpi .d{font-family:var(--mono);font-size:11px;}
+  .pg .panel{border:1px solid var(--rule);border-radius:10px;padding:13px 14px;margin-bottom:13px;}
+  .pg .panel .h{font-family:var(--disp);font-weight:600;font-size:14px;margin:0 0 1px;}
+  .pg .panel .sub2{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:9px;}
+  .pg .two{display:grid;grid-template-columns:1.5fr 1fr;gap:13px;}
+
+  /* dense, many-column data table */
+  .pg table.d{width:100%;border-collapse:collapse;font-family:var(--body);font-size:12px;}
+  .pg table.d th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);font-weight:600;padding:5px 8px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap;}
+  .pg table.d td{padding:5px 8px;border-bottom:1px solid var(--rule);white-space:nowrap;}
+  .pg table.d tbody tr:hover td{background:var(--panel);}
+  .pg .num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums lining-nums;}
+  .pg .tk{font-family:var(--mono);font-weight:600;}
+  .pg .pos{color:var(--info);} .pg .neg{color:var(--sev);}
+  .pg .rag{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px;}
+  .pg .st{font-weight:600;font-size:11.5px;}
+  /* % complete bar */
+  .pg .pct{display:flex;align-items:center;gap:7px;}
+  .pg .pct .bar{flex:1;height:5px;background:var(--rule);border-radius:3px;overflow:hidden;min-width:46px;}
+  .pg .pct .bar i{display:block;height:100%;background:var(--emph);}
+  .pg .pct .n{font-family:var(--mono);font-size:11px;color:var(--muted);width:30px;text-align:right;}
+  /* mini gantt */
+  .pg .gantt{font-size:12px;}
+  .pg .gantt .gr{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:10px;padding:4px 0;}
+  .pg .gantt .gl{color:var(--fg);}
+  .pg .gantt .track{position:relative;height:12px;background:var(--panel);border-radius:6px;}
+  .pg .gantt .b{position:absolute;height:12px;border-radius:6px;background:var(--emph);opacity:.85;}
+  .pg .gantt .b.done{background:var(--muted);}
+  .pg .gantt .b.risk{background:var(--warn);}
+  .pg .gantt .mi{position:absolute;top:-2px;width:2px;height:16px;background:var(--sev);}
+  .pg .gantt .axis{display:grid;grid-template-columns:150px 1fr;gap:10px;font-family:var(--mono);font-size:9.5px;color:var(--muted);margin-top:4px;}
+  .pg .gantt .axis .m{display:flex;justify-content:space-between;}
+  /* correlation matrix */
+  .pg .corr{display:grid;grid-template-columns:auto repeat(5,1fr);gap:2px;font-family:var(--mono);font-size:10px;}
+  .pg .corr .hd{color:var(--muted);text-align:center;padding:2px;}
+  .pg .corr .rh{color:var(--muted);text-align:right;padding:2px 6px 2px 0;}
+  .pg .corr .c{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-radius:3px;color:var(--bg);font-size:9.5px;}
+  /* factor dots */
+  .pg .fac{font-family:var(--body);font-size:12px;}
+  .pg .fac .fr{display:grid;grid-template-columns:78px 1fr 44px;align-items:center;gap:8px;padding:3px 0;}
+  .pg .fac .ftrack{position:relative;height:14px;}
+  .pg .fac .ftrack .mid{position:absolute;left:50%;top:0;width:1px;height:14px;background:var(--rule);}
+  .pg .fac .ftrack .dot{position:absolute;top:3px;width:8px;height:8px;border-radius:50%;}
+  .pg .fac .fv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--muted);}
+
+  .t-light{--bg:#efe7d6;--fg:#2f2624;--muted:#6f6657;--emph:#3a5a8e;--rule:#d8d0c1;--panel:#e7dfcf;--info:#3f6f50;--warn:#9a7a1c;--sev:#9c2128;}
+  .t-water{--bg:#f9f8f4;--fg:#2e2a26;--muted:#79716a;--emph:#415aa0;--rule:#e1dfdb;--panel:#f1f0ec;--info:#3f6f50;--warn:#8a6310;--sev:#b8383a;}
+  .t-dark{--bg:#1a1613;--fg:#ece2d4;--muted:#a89a88;--emph:#7aa3d8;--rule:#332e2a;--panel:#221e1b;--info:#6fae84;--warn:#bd9744;--sev:#f3a188;}
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>Dense data — the modernist kit under pressure</h1>
+  <p class="intro">The hardest test of data typography: <b>compact many-column tables, program/project management, and quant data science</b>, all in the default kit (Bricolage Grotesque headings · Plus Jakarta Sans labels · <b>IBM Plex Mono numbers</b>) on Corbusier grounds. The discipline that makes dense data legible is mono <b>tabular figures</b> (every digit one width → columns align and scan), small but ≥ readable sizes, quiet labels, right-aligned numbers, and one reserved accent / RAG status by colour <em>and</em> glyph — the typography, colour, charting and UX skills composing under load.</p>
+
+  <!-- 1 · PROGRAM / PORTFOLIO MANAGEMENT -->
+  <div class="kitlabel"><b>1 · Program portfolio management</b> · dense project table + milestone Gantt · Corbusier Light</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">pmo.studionord.example/portfolio</span></div>
+  <div class="pg t-light">
+    <div class="top"><span class="brand">PMO</span><span class="nl"><a class="on">Portfolio</a><a>Roadmap</a><a>Resources</a><a>Risks</a></span><span class="sp"></span><span class="search">Search programs…</span></div>
+    <div class="main">
+      <div class="pt">Portfolio · Q3 FY26</div><div class="meta">14 programs · figures in Plex Mono tabular numerals</div>
+      <div class="kpis k4">
+        <div class="kpi"><div class="l">On track</div><div class="v">9</div><div class="d pos">▲ 1</div></div>
+        <div class="kpi"><div class="l">At risk</div><div class="v">3</div><div class="d neg">▲ 1</div></div>
+        <div class="kpi"><div class="l">Blocked</div><div class="v">2</div><div class="d">—</div></div>
+        <div class="kpi"><div class="l">Budget variance</div><div class="v">−4.2%</div><div class="d neg">▲ 1.1 pts</div></div>
+      </div>
+      <div class="panel"><div class="h">Programs</div><div class="sub2">9 columns · tabular numerals keep $ and % aligned at 12px · RAG by colour + glyph</div>
+        <table class="d">
+          <thead><tr><th>Program</th><th>Lead</th><th>Phase</th><th>Progress</th><th>Due</th><th class="num">Budget</th><th class="num">Spent</th><th class="num">Var</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Wayfinding 2.0</td><td>P. Nair</td><td>Build</td><td><div class="pct"><div class="bar"><i style="width:72%"></i></div><span class="n">72%</span></div></td><td class="num">Aug 14</td><td class="num">$420,000</td><td class="num">$298,400</td><td class="num pos">+2.1%</td><td><span class="st"><span class="rag" style="background:var(--info)"></span>On track</span></td></tr>
+            <tr><td>Identity refresh</td><td>J. Diaz</td><td>Design</td><td><div class="pct"><div class="bar"><i style="width:48%"></i></div><span class="n">48%</span></div></td><td class="num">Sep 30</td><td class="num">$185,000</td><td class="num">$104,900</td><td class="num neg">−6.0%</td><td><span class="st"><span class="rag" style="background:var(--warn)"></span>At risk</span></td></tr>
+            <tr><td>Editorial system</td><td>R. Kapoor</td><td>Build</td><td><div class="pct"><div class="bar"><i style="width:88%"></i></div><span class="n">88%</span></div></td><td class="num">Jul 22</td><td class="num">$96,000</td><td class="num">$92,100</td><td class="num pos">+0.4%</td><td><span class="st"><span class="rag" style="background:var(--info)"></span>On track</span></td></tr>
+            <tr><td>Site migration</td><td>M. Holt</td><td>QA</td><td><div class="pct"><div class="bar"><i style="width:34%"></i></div><span class="n">34%</span></div></td><td class="num">Oct 11</td><td class="num">$240,000</td><td class="num">$171,300</td><td class="num neg">−12.4%</td><td><span class="st"><span class="rag" style="background:var(--sev)"></span>Blocked</span></td></tr>
+            <tr><td>Type licensing</td><td>P. Nair</td><td>Plan</td><td><div class="pct"><div class="bar"><i style="width:18%"></i></div><span class="n">18%</span></div></td><td class="num">Nov 03</td><td class="num">$58,000</td><td class="num">$9,400</td><td class="num pos">+1.0%</td><td><span class="st"><span class="rag" style="background:var(--info)"></span>On track</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel"><div class="h">Milestones</div><div class="sub2">mini-Gantt · bars span start→due · ▌breach marker in the alert accent</div>
+        <div class="gantt">
+          <div class="gr"><span class="gl">Wayfinding 2.0</span><div class="track"><span class="b done" style="left:2%;width:40%"></span><span class="b" style="left:42%;width:34%"></span></div></div>
+          <div class="gr"><span class="gl">Identity refresh</span><div class="track"><span class="b done" style="left:18%;width:24%"></span><span class="b risk" style="left:42%;width:38%"></span></div></div>
+          <div class="gr"><span class="gl">Editorial system</span><div class="track"><span class="b done" style="left:4%;width:78%"></span><span class="b" style="left:82%;width:10%"></span></div></div>
+          <div class="gr"><span class="gl">Site migration</span><div class="track"><span class="b done" style="left:30%;width:18%"></span><span class="b" style="left:48%;width:40%"></span><span class="mi" style="left:62%"></span></div></div>
+          <div class="axis"><span></span><div class="m"><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- 2 · PROJECT TASK LIST (compact, many columns) -->
+  <div class="kitlabel"><b>2 · Project management — compact task list</b> · many narrow columns, dense rows · Corbusier Watercolour</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">pm.studionord.example/site-migration/board</span></div>
+  <div class="pg t-water">
+    <div class="top"><span class="brand">Site migration</span><span class="nl"><a>Board</a><a class="on">List</a><a>Timeline</a><a>Files</a></span><span class="sp"></span><span class="search">Filter…</span></div>
+    <div class="main">
+      <div class="pt">Sprint 24 · backlog</div><div class="meta">38 tasks · compact rows, 8 columns, 11.5px · tabular estimates</div>
+      <div class="panel" style="padding:8px 10px">
+        <table class="d" style="font-size:11.5px">
+          <thead><tr><th>#</th><th>Task</th><th>Assignee</th><th>Sprint</th><th>Pri</th><th>Status</th><th class="num">Est</th><th class="num">Logged</th><th class="num">Due</th></tr></thead>
+          <tbody>
+            <tr><td class="tk">T-412</td><td>Redirect map for legacy URLs</td><td>R. Kapoor</td><td>S24</td><td><span class="neg">P1</span></td><td><span class="st"><span class="rag" style="background:var(--warn)"></span>In&nbsp;review</span></td><td class="num">8h</td><td class="num">6.5h</td><td class="num">Jul 09</td></tr>
+            <tr><td class="tk">T-410</td><td>Migrate editorial templates</td><td>J. Diaz</td><td>S24</td><td><span class="neg">P1</span></td><td><span class="st"><span class="rag" style="background:var(--emph)"></span>In&nbsp;progress</span></td><td class="num">16h</td><td class="num">11h</td><td class="num">Jul 11</td></tr>
+            <tr><td class="tk">T-407</td><td>Set font-display + metric fallbacks</td><td>P. Nair</td><td>S24</td><td>P2</td><td><span class="st"><span class="rag" style="background:var(--info)"></span>Done</span></td><td class="num">4h</td><td class="num">3.5h</td><td class="num">Jul 03</td></tr>
+            <tr><td class="tk">T-405</td><td>Image CDN + responsive srcset</td><td>M. Holt</td><td>S24</td><td>P2</td><td><span class="st"><span class="rag" style="background:var(--emph)"></span>In&nbsp;progress</span></td><td class="num">12h</td><td class="num">4h</td><td class="num">Jul 14</td></tr>
+            <tr><td class="tk">T-401</td><td>Accessibility pass · focus + reflow</td><td>R. Kapoor</td><td>S25</td><td>P2</td><td><span class="st"><span class="rag" style="background:var(--muted)"></span>Backlog</span></td><td class="num">10h</td><td class="num">—</td><td class="num">Jul 18</td></tr>
+            <tr><td class="tk">T-398</td><td>404 / 410 monitoring + alerts</td><td>J. Diaz</td><td>S25</td><td>P3</td><td><span class="st"><span class="rag" style="background:var(--muted)"></span>Backlog</span></td><td class="num">6h</td><td class="num">—</td><td class="num">Jul 22</td></tr>
+            <tr><td class="tk">T-396</td><td>Sitemap + structured data</td><td>P. Nair</td><td>S25</td><td>P3</td><td><span class="st"><span class="rag" style="background:var(--muted)"></span>Backlog</span></td><td class="num">5h</td><td class="num">—</td><td class="num">Jul 24</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- 3 · QUANT DATA SCIENCE -->
+  <div class="kitlabel"><b>3 · Quant data science</b> · wide returns/risk table (11 cols) + equity curve + factor exposures + correlation matrix · Corbusier Dark</div>
+  <div class="frame"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">research.quant.example/strategies/xs-momentum</span></div>
+  <div class="pg t-dark">
+    <div class="top"><span class="brand">Quant Research</span><span class="nl"><a class="on">Strategy</a><a>Universe</a><a>Backtest</a><a>Risk</a></span><span class="sp"></span><span class="search">Ticker, factor…</span></div>
+    <div class="main">
+      <div class="pt">Cross-sectional momentum</div><div class="meta">Daily · USD · net of costs · all figures Plex Mono tabular</div>
+      <div class="kpis k5">
+        <div class="kpi"><div class="l">Ann. return</div><div class="v pos">18.4%</div><div class="d pos">▲ vs bench +6.1</div></div>
+        <div class="kpi"><div class="l">Sharpe</div><div class="v">1.82</div><div class="d pos">▲ 0.14</div></div>
+        <div class="kpi"><div class="l">Max drawdown</div><div class="v neg">−12.6%</div><div class="d">2025-08</div></div>
+        <div class="kpi"><div class="l">Ann. vol</div><div class="v">10.1%</div><div class="d">—</div></div>
+        <div class="kpi"><div class="l">Hit rate</div><div class="v">54.3%</div><div class="d pos">▲ 0.6 pts</div></div>
+      </div>
+      <div class="panel"><div class="h">Top holdings &amp; risk</div><div class="sub2">11 columns · gains/losses by sign + colour · tabular numerals align every decimal</div>
+        <table class="d">
+          <thead><tr><th>Ticker</th><th>Sector</th><th class="num">Wt%</th><th class="num">1D</th><th class="num">1W</th><th class="num">1M</th><th class="num">YTD</th><th class="num">Vol</th><th class="num">Beta</th><th class="num">Sharpe</th><th class="num">MaxDD</th></tr></thead>
+          <tbody>
+            <tr><td class="tk">NVDA</td><td>Tech</td><td class="num">8.20</td><td class="num neg">−1.63</td><td class="num pos">+3.41</td><td class="num pos">+12.08</td><td class="num pos">+142.6</td><td class="num">38.4</td><td class="num">1.42</td><td class="num">2.11</td><td class="num neg">−21.4</td></tr>
+            <tr><td class="tk">AVGO</td><td>Tech</td><td class="num">6.05</td><td class="num pos">+0.84</td><td class="num pos">+2.10</td><td class="num pos">+7.93</td><td class="num pos">+58.1</td><td class="num">31.0</td><td class="num">1.21</td><td class="num">1.74</td><td class="num neg">−18.0</td></tr>
+            <tr><td class="tk">LLY</td><td>Health</td><td class="num">5.40</td><td class="num neg">−0.22</td><td class="num neg">−1.04</td><td class="num pos">+4.20</td><td class="num pos">+31.7</td><td class="num">26.8</td><td class="num">0.74</td><td class="num">1.51</td><td class="num neg">−14.2</td></tr>
+            <tr><td class="tk">JPM</td><td>Fin</td><td class="num">4.95</td><td class="num pos">+0.51</td><td class="num pos">+0.88</td><td class="num pos">+3.11</td><td class="num pos">+22.4</td><td class="num">22.1</td><td class="num">1.06</td><td class="num">1.38</td><td class="num neg">−11.9</td></tr>
+            <tr><td class="tk">XOM</td><td>Energy</td><td class="num">4.10</td><td class="num neg">−1.10</td><td class="num neg">−2.33</td><td class="num neg">−4.07</td><td class="num neg">−8.2</td><td class="num">28.9</td><td class="num">0.88</td><td class="num">0.62</td><td class="num neg">−19.7</td></tr>
+            <tr><td class="tk">COST</td><td>Cons</td><td class="num">3.85</td><td class="num pos">+0.34</td><td class="num pos">+1.27</td><td class="num pos">+5.64</td><td class="num pos">+27.0</td><td class="num">19.4</td><td class="num">0.71</td><td class="num">1.66</td><td class="num neg">−9.8</td></tr>
+            <tr><td class="tk">UNH</td><td>Health</td><td class="num">3.40</td><td class="num neg">−0.46</td><td class="num neg">−3.18</td><td class="num neg">−9.40</td><td class="num neg">−24.1</td><td class="num">34.2</td><td class="num">0.69</td><td class="num neg">−0.21</td><td class="num neg">−38.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="two">
+        <div class="panel"><div class="h">Equity curve</div><div class="sub2">range-frame line · strategy vs benchmark · tabular ticks</div>
+          <svg width="100%" viewBox="0 0 440 170" style="font-family:var(--body)">
+            <line x1="38" y1="40" x2="38" y2="140" stroke="var(--rule)" stroke-width="1"/><line x1="42" y1="140" x2="412" y2="140" stroke="var(--rule)" stroke-width="1"/>
+            <text x="34" y="44" text-anchor="end" font-size="12" font-family="var(--mono)" fill="var(--muted)">2.4×</text><text x="34" y="143" text-anchor="end" font-size="12" font-family="var(--mono)" fill="var(--muted)">1.0×</text>
+            <text x="42" y="156" text-anchor="middle" font-size="12" font-family="var(--mono)" fill="var(--muted)">'21</text><text x="412" y="156" text-anchor="middle" font-size="12" font-family="var(--mono)" fill="var(--muted)">'26</text>
+            <path d="M42,128 L116,120 L190,108 L264,112 L338,86 L412,52" fill="none" stroke="var(--emph)" stroke-width="1.8"/>
+            <path d="M42,128 L116,123 L190,118 L264,116 L338,110 L412,100" fill="none" stroke="var(--muted)" stroke-width="1.4"/>
+            <circle cx="412" cy="52" r="2.4" fill="var(--emph)"/><text x="418" y="55" font-size="12" font-weight="600" fill="var(--emph)">Strat</text>
+          </svg>
+        </div>
+        <div class="panel"><div class="h">Factor exposures</div><div class="sub2">z-score vs universe · centred at 0</div>
+          <div class="fac">
+            <div class="fr"><span>Momentum</span><div class="ftrack"><span class="mid"></span><span class="dot" style="left:78%;background:var(--info)"></span></div><span class="fv">+1.4</span></div>
+            <div class="fr"><span>Value</span><div class="ftrack"><span class="mid"></span><span class="dot" style="left:34%;background:var(--sev)"></span></div><span class="fv">−0.8</span></div>
+            <div class="fr"><span>Quality</span><div class="ftrack"><span class="mid"></span><span class="dot" style="left:64%;background:var(--info)"></span></div><span class="fv">+0.7</span></div>
+            <div class="fr"><span>Size</span><div class="ftrack"><span class="mid"></span><span class="dot" style="left:42%;background:var(--muted)"></span></div><span class="fv">−0.3</span></div>
+            <div class="fr"><span>Low-vol</span><div class="ftrack"><span class="mid"></span><span class="dot" style="left:56%;background:var(--muted)"></span></div><span class="fv">+0.2</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel"><div class="h">Factor correlation</div><div class="sub2">monospace cells · tabular values</div>
+        <div class="corr">
+          <span></span><span class="hd">Mom</span><span class="hd">Val</span><span class="hd">Qual</span><span class="hd">Size</span><span class="hd">LoV</span>
+          <span class="rh">Mom</span><span class="c" style="background:var(--emph)">1.0</span><span class="c" style="background:var(--sev);opacity:.7">−.4</span><span class="c" style="background:var(--emph);opacity:.4">.2</span><span class="c" style="background:var(--sev);opacity:.3">−.1</span><span class="c" style="background:var(--emph);opacity:.4">.3</span>
+          <span class="rh">Val</span><span class="c" style="background:var(--sev);opacity:.7">−.4</span><span class="c" style="background:var(--emph)">1.0</span><span class="c" style="background:var(--sev);opacity:.4">−.3</span><span class="c" style="background:var(--emph);opacity:.5">.4</span><span class="c" style="background:var(--sev);opacity:.3">−.2</span>
+          <span class="rh">Qual</span><span class="c" style="background:var(--emph);opacity:.4">.2</span><span class="c" style="background:var(--sev);opacity:.4">−.3</span><span class="c" style="background:var(--emph)">1.0</span><span class="c" style="background:var(--sev);opacity:.3">−.1</span><span class="c" style="background:var(--emph);opacity:.6">.5</span>
+          <span class="rh">Size</span><span class="c" style="background:var(--sev);opacity:.3">−.1</span><span class="c" style="background:var(--emph);opacity:.5">.4</span><span class="c" style="background:var(--sev);opacity:.3">−.1</span><span class="c" style="background:var(--emph)">1.0</span><span class="c" style="background:var(--sev);opacity:.4">−.3</span>
+          <span class="rh">LoV</span><span class="c" style="background:var(--emph);opacity:.4">.3</span><span class="c" style="background:var(--sev);opacity:.3">−.2</span><span class="c" style="background:var(--emph);opacity:.6">.5</span><span class="c" style="background:var(--sev);opacity:.4">−.3</span><span class="c" style="background:var(--emph)">1.0</span>
+        </div>
+      </div>
+    </div>
+  </div></div>
+
+  <p class="intro" style="margin-top:14px">Same three fonts as the beautiful pages — the difference is the <b>job</b>, not the kit. Dense data lives or dies on <b>tabular mono numerals</b> (alignment), small-but-legible sizing, quiet labels, right-aligned numbers, and status by colour <em>and</em> glyph. That is the typography skill doing its part while colour, charting and UX do theirs.</p>
+
+</div>
+</body>
+</html>

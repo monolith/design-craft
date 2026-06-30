@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Letterform as Object</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;z-index:5;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  svg.art{position:absolute;inset:0;z-index:2}
+  svg.lead{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .ptr{position:absolute;z-index:4;font-weight:600;font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#16140d}
+  .ptr small{display:block;font-weight:400;font-size:15px;letter-spacing:.02em;text-transform:none;
+    color:rgba(22,20,13,.55);margin-top:6px}
+  .ptr.letter{left:236px;top:330px}
+  .ptr.object{right:236px;top:628px;text-align:right}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;z-index:5;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:700px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition &#8470; 39</div><div class="r">Letterform as Object</div></div>
+
+  <svg class="art" viewBox="0 0 1920 1080">
+    <!-- the two splayed legs: a capital A's frame and a step-ladder's rails at once -->
+    <path d="M716,852 L960,242 L1204,852" fill="none" stroke="#16140d" stroke-width="46"
+          stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- feet -->
+    <line x1="676" y1="852" x2="752" y2="852" stroke="#16140d" stroke-width="20" stroke-linecap="round"/>
+    <line x1="1168" y1="852" x2="1244" y2="852" stroke="#16140d" stroke-width="20" stroke-linecap="round"/>
+    <!-- rungs: the ladder's steps -->
+    <line x1="869" y1="472" x2="1051" y2="472" stroke="#16140d" stroke-width="22" stroke-linecap="round"/>
+    <line x1="767" y1="722" x2="1153" y2="722" stroke="#16140d" stroke-width="22" stroke-linecap="round"/>
+    <!-- the middle rung is also the letter's crossbar: the hinge of the pun -->
+    <line x1="830" y1="566" x2="1090" y2="566" stroke="#d8412a" stroke-width="30" stroke-linecap="round"/>
+  </svg>
+
+  <svg class="lead" viewBox="0 0 1920 1080">
+    <line x1="468" y1="372" x2="938" y2="262" stroke="#16140d" stroke-width="1.5"/>
+    <circle cx="938" cy="262" r="4" fill="#16140d"/>
+    <line x1="1452" y1="700" x2="1163" y2="722" stroke="#16140d" stroke-width="1.5"/>
+    <circle cx="1163" cy="722" r="4" fill="#16140d"/>
+  </svg>
+
+  <div class="ptr letter">The letter<small>one capital A</small></div>
+  <div class="ptr object">The object<small>one step-ladder</small></div>
+
+  <div class="foot">
+    <div class="kick">MIX &middot; Type-as-image <b>&times;</b> Sign-types</div>
+    <div class="cap"><b>One silhouette, read twice.</b> The letter A and a step-ladder share a profile &mdash; type and object fused into a single sign.</div>
+  </div>
+</div></body></html>

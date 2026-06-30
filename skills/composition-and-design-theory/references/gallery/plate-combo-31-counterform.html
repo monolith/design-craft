@@ -1,0 +1,93 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Counterform</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;z-index:5;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  #cv{position:absolute;left:560px;top:150px;width:800px;height:790px;z-index:2}
+  /* two pointers, equal weight — neither reading is privileged */
+  .ptr{position:absolute;z-index:4;font-weight:600;font-size:17px;letter-spacing:.2em;text-transform:uppercase}
+  .ptr.form{left:300px;top:470px;color:#16140d}
+  .ptr.gap{right:300px;top:300px;color:#d8412a;text-align:right}
+  .ptr small{display:block;font-weight:400;font-size:15px;letter-spacing:.02em;text-transform:none;
+    color:rgba(22,20,13,.55);margin-top:6px}
+  .ptr.gap small{color:rgba(22,20,13,.55)}
+  svg.lead{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;z-index:5;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:700px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition &#8470; 31</div><div class="r">The Counterform</div></div>
+
+  <canvas id="cv"></canvas>
+  <svg class="lead" viewBox="0 0 1920 1080">
+    <line x1="430" y1="478" x2="640" y2="540" stroke="#16140d" stroke-width="1.5"/>
+    <circle cx="640" cy="540" r="4" fill="#16140d"/>
+    <line x1="1490" y1="308" x2="1140" y2="430" stroke="#d8412a" stroke-width="1.5"/>
+    <circle cx="1140" cy="430" r="4" fill="#d8412a"/>
+  </svg>
+  <div class="ptr form">The form<small>black, positive</small></div>
+  <div class="ptr gap">The gap<small>red, negative</small></div>
+
+  <div class="foot">
+    <div class="kick">JUXTAPOSITION &middot; Type-as-image <b>&#10007;</b> Figure-ground</div>
+    <div class="cap"><b>Which one is the figure?</b> A letter&rsquo;s stroke and the space it encloses compete for the eye &mdash; mark and gap, each claiming the shape.</div>
+  </div>
+</div>
+<script>
+  async function build(){
+    const cv=document.getElementById("cv");
+    const DISP_W=800, DISP_H=790, S=2;          // 2x buffer for crisp edges
+    cv.width=DISP_W*S; cv.height=DISP_H*S;
+    const W=cv.width, H=cv.height, ctx=cv.getContext("2d");
+    try{ await document.fonts.load("600 1200px 'Fraunces'"); await document.fonts.ready; }catch(e){}
+    const LET="R", ink=[22,20,13], red=[216,65,42];
+    // fit the glyph to the buffer
+    let fs=1000; ctx.font="600 "+fs+"px 'Fraunces'";
+    let m=ctx.measureText(LET);
+    fs=Math.min(fs*(W*0.92)/m.width, H*1.18);     // fit width, allow height bleed
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle="#000"; ctx.textAlign="center"; ctx.textBaseline="middle";
+    ctx.font="600 "+fs+"px 'Fraunces'";
+    ctx.fillText(LET, W/2, H/2+fs*0.02);
+    const N=W*H, src=ctx.getImageData(0,0,W,H).data;
+    const TH=128;
+    const isGlyph=new Uint8Array(N);
+    for(let i=0;i<N;i++) isGlyph[i]= src[i*4+3]>TH ? 1:0;
+    // flood the exterior from the border through non-glyph pixels
+    const outside=new Uint8Array(N), stack=[];
+    for(let x=0;x<W;x++){ stack.push(x); stack.push((H-1)*W+x); }
+    for(let y=0;y<H;y++){ stack.push(y*W); stack.push(y*W+W-1); }
+    while(stack.length){
+      const p=stack.pop();
+      if(outside[p]||isGlyph[p]) continue;
+      outside[p]=1;
+      const x=p%W, y=(p-x)/W;
+      if(x>0) stack.push(p-1);
+      if(x<W-1) stack.push(p+1);
+      if(y>0) stack.push(p-W);
+      if(y<H-1) stack.push(p+W);
+    }
+    // repaint: glyph -> ink, enclosed counter -> red, exterior -> transparent (plate ground)
+    const out=ctx.createImageData(W,H), d=out.data;
+    for(let i=0;i<N;i++){
+      const o=i*4;
+      if(isGlyph[i]){ d[o]=ink[0]; d[o+1]=ink[1]; d[o+2]=ink[2]; d[o+3]=255; }
+      else if(!outside[i]){ d[o]=red[0]; d[o+1]=red[1]; d[o+2]=red[2]; d[o+3]=255; }
+      else { d[o+3]=0; }
+    }
+    ctx.putImageData(out,0,0);
+  }
+  build();
+</script>
+</body></html>

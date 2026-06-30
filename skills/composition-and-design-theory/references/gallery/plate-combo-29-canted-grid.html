@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Canted Grid</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  svg.grid{position:absolute;inset:0;z-index:1}
+  .top{position:absolute;left:96px;right:96px;top:80px;z-index:3;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  /* upright crop ticks assert the straight frame the grid fights */
+  .crop{position:absolute;z-index:3;border-color:#16140d;border-style:solid;width:34px;height:34px}
+  .crop.tl{left:54px;top:150px;border-width:2px 0 0 2px}
+  .crop.tr{right:54px;top:150px;border-width:2px 2px 0 0}
+  .crop.bl{left:54px;bottom:150px;border-width:0 0 2px 2px}
+  .crop.br{right:54px;bottom:150px;border-width:0 2px 2px 0}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;z-index:3;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:720px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <svg class="grid" viewBox="0 0 1920 1080" id="g"></svg>
+  <div class="crop tl"></div><div class="crop tr"></div>
+  <div class="crop bl"></div><div class="crop br"></div>
+  <div class="top"><div>Composition &#8470; 29</div><div class="r">The Canted Grid</div></div>
+  <div class="foot">
+    <div class="kick">JUXTAPOSITION &middot; Grid <b>&#10007;</b> Diagonal</div>
+    <div class="cap"><b>Order made restless.</b> A strict modular grid pitched 12&deg; against its own upright frame &mdash; the rational system survives, its calm does not.</div>
+  </div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("g");
+  function add(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);else svg.appendChild(e);return e;}
+  const ink="#16140d", red="#d8412a";
+  // a group rotated 12 degrees about the frame centre, carrying a regular modular grid
+  const grp=add("g",{transform:"rotate(12 960 540)"});
+  const cell=128, gap=22, step=cell+gap;
+  // cover well beyond the frame so the canted block bleeds off every edge
+  const x0=-520, x1=2440, y0=-520, y1=1600;
+  const cols=Math.round((x1-x0)/step), rows=Math.round((y1-y0)/step);
+  // pick one interior cell as the lone red module
+  const redC=Math.round(cols*0.46), redR=Math.round(rows*0.42);
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const x=x0+c*step, y=y0+r*step;
+    if(c===redC&&r===redR){
+      add("rect",{x,y,width:cell,height:cell,fill:red},grp);
+    }else{
+      add("rect",{x,y,width:cell,height:cell,fill:"none",stroke:ink,
+        "stroke-width":1.5,"stroke-opacity":0.4},grp);
+    }
+  }
+</script>
+</body></html>

@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Productive Dissonance</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;z-index:5;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  /* the calm, ordered field — a serene typographic texture */
+  .field{position:absolute;left:96px;right:96px;top:206px;bottom:198px;z-index:2;
+    display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr}
+  .cell{display:flex;align-items:center;justify-content:center}
+  .calm{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:54px;
+    color:rgba(22,20,13,.42);letter-spacing:.01em}
+  /* the one tonally wrong element — placed on the grid, deliberate, not an error */
+  .loud{font-family:'Inter',sans-serif;font-weight:800;font-size:56px;
+    text-transform:uppercase;letter-spacing:-.02em;color:#d8412a}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;z-index:5;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:720px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition &#8470; 41</div><div class="r">Productive Dissonance</div></div>
+
+  <div class="field" id="field"></div>
+
+  <div class="foot">
+    <div class="kick">JUXTAPOSITION &middot; Meaning-from-context <b>&#10007;</b> Tone &middot; after Saville</div>
+    <div class="cap"><b>A serene field, one violent word.</b> The wrong note is placed on purpose &mdash; the friction between the two tones is where the meaning is made.</div>
+  </div>
+</div>
+<script>
+  const field=document.getElementById("field");
+  const COLS=5, ROWS=4, N=COLS*ROWS;
+  const loudAt=2*COLS+2;          // row 3, col 3 — a deliberate, near-central slot
+  for(let i=0;i<N;i++){
+    const cell=document.createElement("div");
+    cell.className="cell";
+    const w=document.createElement("span");
+    if(i===loudAt){ w.className="loud"; w.textContent="violent"; }
+    else { w.className="calm"; w.textContent="serene"; }
+    cell.appendChild(w);
+    field.appendChild(cell);
+  }
+</script>
+</body></html>

@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Mosaic Word</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  svg{position:absolute;inset:0}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:780px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition № 25</div><div class="r">The Mosaic Word</div></div>
+  <svg id="m" viewBox="0 0 1920 1080"></svg>
+  <div class="foot">
+    <div class="kick">MIX · Type-as-image <b>×</b> Gestalt <b>×</b> Generative</div>
+    <div class="cap"><b>Micro builds macro.</b> One rule — set a tiny letter where the big one is solid — and hundreds of small forms group into a single colossal glyph.</div>
+  </div>
+</div>
+<script>
+  async function build(){
+    try{
+      await document.fonts.load("700 1200px 'Space Grotesk'");
+      await document.fonts.load("500 40px 'Fraunces'");
+      await document.fonts.ready;
+    }catch(e){}
+    const W=1200,H=1200,cv=document.createElement("canvas");cv.width=W;cv.height=H;
+    const ctx=cv.getContext("2d");
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle="#000";ctx.textAlign="center";ctx.textBaseline="middle";
+    ctx.font="700 1400px 'Space Grotesk'";
+    ctx.fillText("A",W/2,H/2+20);
+    const img=ctx.getImageData(0,0,W,H).data;
+    let minx=W,miny=H,maxx=0,maxy=0;
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+      if(img[(y*W+x)*4+3]>70){if(x<minx)minx=x;if(x>maxx)maxx=x;if(y<miny)miny=y;if(y>maxy)maxy=y;}
+    }
+    const gw=maxx-minx,gh=maxy-miny;
+    const targetH=770,scale=targetH/gh;
+    const offX=960-(minx+gw/2)*scale, offY=525-(miny+gh/2)*scale;
+    const NS="http://www.w3.org/2000/svg",svg=document.getElementById("m");
+    let s=9;const rnd=()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;};
+    const step=22;
+    for(let y=miny;y<=maxy;y+=step)for(let x=minx;x<=maxx;x+=step){
+      if(img[(y*W+x)*4+3]>90){
+        const sx=x*scale+offX, sy=y*scale+offY;
+        const t=document.createElementNS(NS,"text");
+        t.setAttribute("x",sx.toFixed(1));t.setAttribute("y",sy.toFixed(1));
+        t.setAttribute("text-anchor","middle");t.setAttribute("dominant-baseline","central");
+        t.setAttribute("font-family","'Fraunces',serif");
+        t.setAttribute("font-size","19");t.setAttribute("font-weight","500");
+        t.setAttribute("fill","#d8412a");t.setAttribute("fill-opacity",(0.72+rnd()*0.28).toFixed(2));
+        t.textContent="a";svg.appendChild(t);
+      }
+    }
+  }
+  build();
+</script>
+</body></html>

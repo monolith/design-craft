@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Chameleon Mark</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#ece7da;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  .sub{position:absolute;left:0;right:0;top:172px;text-align:center;font-weight:400;font-size:21px;
+    color:rgba(22,20,13,.6)}
+  svg.scene{position:absolute;inset:0}
+  .gloss{position:absolute;width:640px;text-align:center;top:712px}
+  .gloss .role{font-weight:600;font-size:15px;letter-spacing:.28em;text-transform:uppercase;color:rgba(22,20,13,.5)}
+  .gloss .w{margin-top:8px;font-weight:700;font-size:70px;letter-spacing:-.01em;color:#16140d}
+  .g1{left:0}.g2{left:640px}.g3{left:1280px}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:760px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition &#8470; 32</div><div class="r">The Chameleon Mark</div></div>
+  <div class="sub">The identical circle &mdash; meaning supplied entirely by its frame.</div>
+
+  <svg class="scene" viewBox="0 0 1920 1080" id="s"></svg>
+
+  <div class="gloss g1"><div class="role">reads as</div><div class="w">SUN</div></div>
+  <div class="gloss g2"><div class="role">reads as</div><div class="w">HOLE</div></div>
+  <div class="gloss g3"><div class="role">reads as</div><div class="w">ZERO</div></div>
+
+  <div class="foot">
+    <div class="kick">JUXTAPOSITION &middot; Sign-types <b>&#10007;</b> Meaning-from-context</div>
+    <div class="cap"><b>One mark, three meanings.</b> The same neutral circle &mdash; and even the same red line &mdash; reads as horizon, as ground, as baseline.</div>
+  </div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("s");
+  function add(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;}
+  const ink="#16140d", red="#d8412a", ground="#ece7da";
+  const R=92, YB=560;                       // identical radius; shared red line
+  const cx=[320,960,1600];
+  // dividers
+  for(const x of [640,1280]) add("line",{x1:x,y1:210,x2:x,y2:672,stroke:"#cdc6b4","stroke-width":1.5});
+  // the single red line — horizon / ground / baseline, all at once
+  add("line",{x1:96,y1:YB,x2:1824,y2:YB,stroke:red,"stroke-width":3});
+
+  // 1 — SUN: disc above the line, rays around it (rays stay above the horizon)
+  const sY=398;
+  for(let i=0;i<16;i++){
+    const a=i/16*Math.PI*2, r0=R+26, r1=R+64;
+    add("line",{x1:cx[0]+Math.cos(a)*r0,y1:sY+Math.sin(a)*r0,
+      x2:cx[0]+Math.cos(a)*r1,y2:sY+Math.sin(a)*r1,stroke:ink,"stroke-width":4,"stroke-linecap":"round"});
+  }
+  add("circle",{cx:cx[0],cy:sY,r:R,fill:ink});
+
+  // 2 — HOLE: dark void as a recessed opening — concentric rings funnel down,
+  //     the ground line crossing its mouth
+  const hY=505;
+  for(let k=3;k>=1;k--){
+    add("circle",{cx:cx[1],cy:hY,r:R+k*22,fill:"none",stroke:ink,"stroke-width":2,
+      "stroke-opacity":(0.5-(k-1)*0.15).toFixed(2)});
+  }
+  add("circle",{cx:cx[1],cy:hY,r:R,fill:ink});
+
+  // 3 — ZERO: disc as a digit sitting on the baseline, preceded by "1"
+  const zCy=YB-R;                           // bottom on the line
+  add("text",{x:cx[2]-118,y:YB,"text-anchor":"middle","font-family":"'Space Grotesk',sans-serif",
+    "font-weight":700,"font-size":236,fill:ink},).textContent="1";
+  add("circle",{cx:cx[2]+70,cy:zCy,r:R,fill:ink});
+</script>
+</body></html>

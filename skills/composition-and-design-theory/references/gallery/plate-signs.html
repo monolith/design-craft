@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>One Referent, Three Signs</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#ece6d8;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;top:0;left:0;right:0;height:150px;padding:0 96px;display:flex;
+    justify-content:space-between;align-items:center;border-bottom:1.5px solid #16140d}
+  .top h1{margin:0;font-weight:700;font-size:48px;letter-spacing:-.02em}
+  .top .lab{font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#6a6354}
+  .panels{position:absolute;top:150px;left:0;right:0;bottom:0;display:flex}
+  .panel{flex:1;padding:64px 56px;display:flex;flex-direction:column;text-align:center}
+  .panel+.panel{border-left:1.5px solid #cdc6b4}
+  .role{font-weight:700;font-size:26px;letter-spacing:.18em;text-transform:uppercase}
+  .role.red{color:#d8412a}
+  .mark{flex:1;display:grid;place-items:center}
+  .gloss{font-weight:600;font-size:24px;margin-bottom:8px}
+  .sub{font-weight:400;font-size:18px;color:#5c5648;line-height:1.4}
+  .word{font-weight:700;font-size:104px;letter-spacing:-.02em;color:#16140d}
+</style></head>
+<body><div class="plate">
+  <div class="top"><h1>One referent, three signs</h1><div class="lab">Composition № 12</div></div>
+  <div class="panels">
+    <div class="panel">
+      <div class="role red">Icon</div>
+      <div class="mark"><svg width="220" height="270" viewBox="-90 -170 180 240"><path
+        d="M0,52 C52,30 50,-38 14,-78 C27,-52 20,-29 5,-18 C18,-56 -2,-104 7,-156 C-11,-116 -45,-103 -34,-45 C-49,-9 -34,52 0,52 Z" fill="#d8412a"/></svg></div>
+      <div class="gloss">Looks like it</div>
+      <div class="sub">A drawn flame — meaning by resemblance.</div>
+    </div>
+    <div class="panel">
+      <div class="role">Index</div>
+      <div class="mark"><svg id="smoke" width="220" height="270" viewBox="0 0 220 270"></svg></div>
+      <div class="gloss">Points to it</div>
+      <div class="sub">Smoke — a trace the thing leaves behind.</div>
+    </div>
+    <div class="panel">
+      <div class="role">Symbol</div>
+      <div class="mark"><span class="word">FIRE</span></div>
+      <div class="gloss">By convention</div>
+      <div class="sub">Four letters that mean it only by agreement.</div>
+    </div>
+  </div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", s=document.getElementById("smoke");
+  for(let k=0;k<3;k++){
+    const x0=74+k*36, amp=18-k*3; let d="M "+x0+" 258";
+    for(let y=258;y>=22;y-=6){const t=(258-y)/236;const x=x0+Math.sin(y/28+k*1.7)*amp*(0.3+t);d+=" L "+x.toFixed(1)+" "+y;}
+    const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("fill","none");
+    p.setAttribute("stroke","#8a8473");p.setAttribute("stroke-width",(3.4-k*0.6).toFixed(1));
+    p.setAttribute("stroke-linecap","round");p.setAttribute("stroke-opacity","0.8");s.appendChild(p);
+  }
+</script>
+</body></html>

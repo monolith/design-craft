@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Meaning is Borrowed</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#ece6d8;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;top:60px;left:96px;right:96px;display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1.5px solid #16140d;padding-bottom:18px}
+  .top h1{margin:0;font-weight:700;font-size:52px;letter-spacing:-.02em}
+  .top .lab{font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#6a6354}
+  .cap{position:absolute;bottom:62px;left:96px;right:96px;font-weight:400;font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="top"><h1>Meaning is borrowed</h1><div class="lab">Composition № 06</div></div>
+  <svg id="s" viewBox="0 0 1920 1080"></svg>
+  <div class="cap">The <b>same red circle</b> in every frame. Context — not the mark — assigns the meaning. <b>After Saville.</b></div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("s");
+  const ink="#16140d", red="#d8412a", R=78, cy=520;
+  function add(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;}
+  const labels=["SUN","PLANET","TARGET","LETTER “O”"];
+  const m=96, cw=(1920-2*m)/4;
+  labels.forEach((lab,i)=>{
+    const cx=m+cw*i+cw/2;
+    if(i===0){for(let k=0;k<8;k++){const a=k/8*2*Math.PI;
+        add("line",{x1:cx+Math.cos(a)*(R+18),y1:cy+Math.sin(a)*(R+18),x2:cx+Math.cos(a)*(R+50),y2:cy+Math.sin(a)*(R+50),stroke:ink,"stroke-width":5,"stroke-linecap":"round"});}
+      add("line",{x1:cx-180,y1:cy+R+74,x2:cx+180,y2:cy+R+74,stroke:ink,"stroke-width":3});}
+    else if(i===1){add("ellipse",{cx,cy,rx:200,ry:74,fill:"none",stroke:ink,"stroke-width":2});add("circle",{cx:cx-200,cy,r:15,fill:ink});}
+    else if(i===2){add("circle",{cx,cy,r:122,fill:"none",stroke:ink,"stroke-width":2});add("circle",{cx,cy,r:168,fill:"none",stroke:ink,"stroke-width":2});
+      [[0,-1],[0,1],[-1,0],[1,0]].forEach(([dx,dy])=>add("line",{x1:cx+dx*172,y1:cy+dy*172,x2:cx+dx*206,y2:cy+dy*206,stroke:ink,"stroke-width":2}));}
+    else{add("text",{x:cx-R-12,y:cy+74,"text-anchor":"end","font-family":"Space Grotesk","font-weight":700,"font-size":216,fill:ink}).textContent="G";}
+    add("circle",{cx,cy,r:R,fill:red});
+    add("text",{x:cx,y:cy+290,"text-anchor":"middle","font-family":"Space Grotesk","font-weight":600,"font-size":22,"letter-spacing":"3",fill:"#6a6354"}).textContent=lab;
+  });
+</script>
+</body></html>

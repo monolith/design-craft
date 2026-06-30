@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Order &amp; Accident</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+  .name{position:absolute;top:64px;right:96px;font-weight:600;font-size:16px;letter-spacing:.24em;
+    text-transform:uppercase;color:#d8412a}
+  .tag{position:absolute;bottom:120px;left:96px;font-weight:600;font-size:14px;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(22,20,13,.5)}
+  .cap{position:absolute;bottom:62px;left:96px;right:780px;font-weight:400;font-family:'Inter',sans-serif;
+    font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 38</div>
+  <div class="name">Order &amp; Accident</div>
+  <svg id="g" viewBox="0 0 1920 1080"></svg>
+  <div class="tag">Juxtaposition · Grid ✗ Diagonal</div>
+  <div class="cap">An upright orthogonal grid holds every cell to one law — <b>until a single diagonal rogue breaks rank and becomes the hero.</b> Order, and the one accident.</div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("g");
+  function add(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);}
+  const ink="#16140d", red="#d8412a";
+  const cols=16, rows=7, sx=104, sy=120;
+  const W=(cols-1)*sx, H=(rows-1)*sy;
+  const ox=(1920-W)/2, oy=(1080-H)/2-8;
+  const rc=11, rr=2;                       // rogue cell (upright-third)
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const x=ox+c*sx, y=oy+r*sy;
+    if(c===rc&&r===rr) continue;
+    add("rect",{x:x-4,y:y-29,width:8,height:58,rx:4,fill:ink,"fill-opacity":.88});
+  }
+  // the accident: one diagonal mark — longer, bold, accented; cuts across the law
+  const x=ox+rc*sx, y=oy+rr*sy;
+  add("rect",{x:x-7,y:y-78,width:14,height:156,rx:7,fill:red,
+    transform:`rotate(-45 ${x} ${y})`});
+</script>
+</body></html>

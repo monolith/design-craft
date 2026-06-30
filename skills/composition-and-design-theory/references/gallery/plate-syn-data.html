@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Synthesis — Data Report</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f6f3ea;color:#23221d;
+    font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+  .kick{position:absolute;top:84px;left:96px;font-weight:600;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:#6b6760}
+  .lab{position:absolute;top:84px;right:96px;font-weight:600;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:#6b6760}
+  h1{position:absolute;top:118px;left:94px;margin:0;font-family:'Fraunces',serif;font-weight:600;font-size:90px;
+     letter-spacing:-.018em;line-height:.92;color:#23221d}
+  .deck{position:absolute;top:330px;left:96px;width:560px;font-weight:400;font-size:23px;line-height:1.4;color:#56524a}
+  /* hero figure — anchored in the left column, the one number the report exists to deliver */
+  .hero{position:absolute;left:94px;top:560px;font-weight:800;font-size:150px;letter-spacing:-.04em;line-height:.86;color:#0b6b5b}
+  .heroc{position:absolute;left:100px;top:736px;width:470px;font-weight:500;font-size:22px;line-height:1.34;color:#56524a}
+  .heroc b{color:#0b6b5b;font-weight:700}
+  .foot{position:absolute;left:96px;right:96px;bottom:48px;display:flex;justify-content:space-between;
+    font-weight:500;font-size:13px;letter-spacing:.04em;color:#6b6760;border-top:1px solid #ddd7c8;padding-top:16px}
+  svg{position:absolute;inset:0;pointer-events:none}
+</style></head>
+<body><div class="plate">
+  <div class="kick">Electricity · Generation mix · % share of total</div>
+  <h1>How the grid<br>decarbonised</h1>
+  <div class="deck">Change in each source's share of generation across the decade, in percentage points. The form is the message — fossil bars fall left, clean bars climb right off the true zero.</div>
+  <div class="hero">+21</div>
+  <div class="heroc"><b>points of grid share</b> moved to wind&nbsp;+&nbsp;solar in ten years — the entire net swing of the decade.</div>
+  <div class="lab">Composition № 16 — Data</div>
+  <svg id="c" viewBox="0 0 1920 1080"></svg>
+  <div class="foot"><div>Diverging change bars off a true zero — clean energy surged as coal fell. One accent reserved for the climbers; designer leads, chart serves.</div><div>position + length · direct labels · emphasis colour · no truncated baseline · WCAG AA · CVD-safe</div></div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("c");
+  function add(t,a,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e;}
+  const ink="#23221d", accent="#0b6b5b", coal="#4a4742", faint="#c7c0b0", muted="#6b6760";
+
+  // [name, delta(pts), from, to, fill, labelColour, big]
+  const rows=[["Solar", 11, 1, 12, accent, accent, true],
+              ["Wind",  10, 4, 14, accent, accent, true],
+              ["Gas",    2, 22,24, faint,  muted,  false],
+              ["Hydro", -1, 16,15, faint,  muted,  false],
+              ["Coal", -14, 41,27, coal,   ink,    true]];
+  const x0=980, k=42, bh=58;
+  const rowY=[430, 540, 650, 760, 906];   // extra gap before Coal sets the big fall apart
+
+  // axis frame: the true zero spine — the structural backbone the divergence radiates from
+  add("line",{x1:x0,y1:392,x2:x0,y2:958,stroke:muted,"stroke-width":1.5});
+  add("text",{x:x0-22,y:378,"text-anchor":"end","font-family":"Inter","font-weight":600,"font-size":16,"letter-spacing":".08em",fill:muted},"← SHARE LOST");
+  add("text",{x:x0+22,y:378,"text-anchor":"start","font-family":"Inter","font-weight":600,"font-size":16,"letter-spacing":".08em",fill:muted},"SHARE GAINED →");
+
+  rows.forEach((r,i)=>{const [name,d,from,to,col,lcol,big]=r; const y=rowY[i];
+    const end=x0+d*k, bx=Math.min(x0,end), bw=Math.abs(d*k);
+    add("rect",{x:bx,y:y-bh/2,width:bw,height:bh,fill:col});
+    const v = d>=0?`+${d}`:`−${Math.abs(d)}`;
+    if(d>=0){
+      add("text",{x:end+22,y:y-1,"text-anchor":"start","font-family":"Inter","font-weight":big?800:600,"font-size":29,fill:lcol},`${name}  ${v}`);
+      add("text",{x:end+22,y:y+25,"text-anchor":"start","font-family":"Inter","font-weight":500,"font-size":17,fill:muted},`${from} → ${to}% of grid`);
+    } else {
+      add("text",{x:bx-22,y:y-1,"text-anchor":"end","font-family":"Inter","font-weight":big?800:600,"font-size":29,fill:lcol},`${v}  ${name}`);
+      add("text",{x:bx-22,y:y+25,"text-anchor":"end","font-family":"Inter","font-weight":500,"font-size":17,fill:muted},`${from} → ${to}% of grid`);
+    }
+  });
+</script>
+</body></html>

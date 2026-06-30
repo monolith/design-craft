@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Thrust &amp; Counter-thrust</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#ece7da;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;z-index:5;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  svg.art{position:absolute;inset:0;z-index:2}
+  .vlab{position:absolute;z-index:4;font-weight:600;font-size:15px;letter-spacing:.28em;text-transform:uppercase}
+  .vlab.t{left:250px;top:744px;color:#d8412a;transform:rotate(-26deg);transform-origin:left center}
+  .vlab.c{left:250px;top:286px;color:rgba(22,20,13,.5);transform:rotate(26deg);transform-origin:left center}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;z-index:5;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:700px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition &#8470; 40</div><div class="r">Thrust &amp; Counter-thrust</div></div>
+
+  <svg class="art" viewBox="0 0 1920 1080">
+    <!-- counter-thrust: ink wedge on the "\" diagonal, driving down-right -->
+    <polygon points="511.1,376.9 554.9,287.1 1485,797" fill="#16140d"/>
+    <!-- thrust: bolder red wedge on the "/" diagonal, driving up-right; the two clash off-centre -->
+    <polygon points="486.9,739.5 543.1,854.5 1503,314" fill="#d8412a"/>
+  </svg>
+
+  <div class="vlab t">Thrust &rarr;</div>
+  <div class="vlab c">Counter-thrust &rarr;</div>
+
+  <div class="foot">
+    <div class="kick">JUXTAPOSITION &middot; Diagonal <b>&#10007;</b> Diagonal &middot; after Beall</div>
+    <div class="cap"><b>Two forces collide at centre.</b> One bold thrust drives one way, its counter the other &mdash; the page alive with movement, the eye pushed both ways.</div>
+  </div>
+</div></body></html>

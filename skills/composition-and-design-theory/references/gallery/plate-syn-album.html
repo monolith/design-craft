@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Synthesis — Album</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root{ --bg:#121821; --ink:#aeb6bf; --dim:#828b96; --line:#26303b; --acc:#d07b3a; }
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:var(--bg);
+    font-family:'Inter',sans-serif;position:relative;overflow:hidden}
+  svg{position:absolute;inset:0}
+  /* gatefold seam — a true whisper, just enough to know it folds */
+  .seam{position:absolute;left:960px;top:0;bottom:0;width:1px;background:linear-gradient(#121821,#171f29 30%,#171f29 70%,#121821)}
+  /* chrome, held at the margins so the field stays vast */
+  .tl{position:absolute;top:60px;left:80px}
+  .tr{position:absolute;top:60px;right:80px;text-align:right}
+  .bl{position:absolute;bottom:60px;left:80px}
+  .br{position:absolute;bottom:60px;right:80px;text-align:right}
+  .ch{font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim);font-weight:500;line-height:1.7}
+  .cap{position:absolute;left:80px;bottom:118px;max-width:560px;font-size:18px;line-height:1.5;color:#8d96a0;font-weight:400}
+  .cap b{color:var(--ink);font-weight:600}
+</style></head>
+<body><div class="plate">
+  <svg viewBox="0 0 1920 1080">
+    <!-- the horizon: one quiet rule, the threshold the mark is held on -->
+    <line x1="0" y1="642" x2="1920" y2="642" stroke="#2c3742" stroke-width="1"/>
+    <!-- the one charged mark: a warm disc half-sunk on the threshold, off to the right, vast cold space around it -->
+    <circle cx="1322" cy="642" r="90" fill="#d07b3a"/>
+  </svg>
+  <div class="seam"></div>
+
+  <div class="tl"><div class="ch">Composition &#8470; 14<br>Cover</div></div>
+  <div class="tr"><div class="ch">Side A / Side B</div></div>
+  <div class="bl"><div class="ch">Parallax</div></div>
+  <div class="br"><div class="ch">PXL &mdash; 014</div></div>
+
+  <div class="cap"><b>No title. One mark.</b> A warm disc held on a cold horizon, off-centre in vast space &mdash; meaning made by placement, a mood left to decode.</div>
+</div></body></html>

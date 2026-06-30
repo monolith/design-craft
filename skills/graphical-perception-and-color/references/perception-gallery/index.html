@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perception &amp; colour — worked examples</title>
+  <link rel="stylesheet" href="perception.css">
+</head>
+<body>
+  <header>
+    <h1>Perception &amp; colour — see the difference</h1>
+    <p class="lead">Nine worked demos for the <code>graphical-perception-and-color</code> skill.
+      Each shows <em>one</em> evidence-backed rule by contrast — wrong beside right, or channel beside
+      channel — and cites its primary study. Zero dependencies; renders over plain HTTP.</p>
+  </header>
+  <main>
+
+    <section class="demo" id="demo-hierarchy">
+      <h3>1 · Encoding hierarchy — the same values, four channels</h3>
+      <p class="why">Read the order off each panel. Position gives it instantly; length still works;
+        area and colour are guesses. Accuracy of decoding runs
+        <b>position → length → angle → area → colour</b>.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> Cleveland &amp; McGill (1984), <i>JASA</i> 79(387) — graphical-perception ranking; replicated by Heer &amp; Bostock (2010), <i>CHI</i>.</p>
+    </section>
+
+    <section class="demo" id="demo-categorical">
+      <h3>2 · Categorical colour — how many hues, and the legend trap</h3>
+      <p class="why">Around 5–7 colours are reliably told apart at a glance; past that, identification
+        degrades. A hue-only legend forces the eye to ferry to the key — label the series in place.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> Healey (1996), <i>IEEE Vis</i> — ~5–7 rapidly-identifiable colours; WCAG 2.x SC 1.4.1 <i>Use of Color</i>; ColorBrewer — Harrower &amp; Brewer (2003).</p>
+    </section>
+
+    <section class="demo" id="demo-sequential">
+      <h3>3 · Sequential — monotonic lightness vs rainbow</h3>
+      <p class="why">A continuous ramp must rise monotonically in <em>lightness</em>. Viridis does;
+        rainbow/jet doesn't — its luminance zig-zags, inventing false boundaries and hiding real detail.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> Borland &amp; Taylor (2007), <i>IEEE CG&amp;A</i> — rainbow colormap harmful; Kovesi (2015), arXiv:1509.03700 — uniform-lightness design.</p>
+    </section>
+
+    <section class="demo" id="demo-diverging">
+      <h3>4 · Diverging vs sequential, on signed data</h3>
+      <p class="why">Data with a meaningful midpoint (above/below zero) needs a diverging scale — two
+        hues, light at the break. A sequential ramp hides the sign and the zero crossing.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> ColorBrewer typology — Harrower &amp; Brewer (2003), <i>Cartographic Journal</i>.</p>
+    </section>
+
+    <section class="demo" id="demo-cvd">
+      <h3>5 · Colour-vision deficiency — simulate, and encode lightness</h3>
+      <p class="why">~8% of men have red-green CVD. The red-green pair collapses under a deuteranopia
+        simulation; a palette that differs in <em>lightness</em> (not just hue) survives it.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> prevalence — Nuñez, Anderton &amp; Renslow (2018), <i>PLOS ONE</i>; simulation matrix — Machado, Oliveira &amp; Fernandes (2009), <i>IEEE TVCG</i>.</p>
+    </section>
+
+    <section class="demo" id="demo-palettes">
+      <h3>Palettes — ten that cover the real cases, and when to use each</h3>
+      <p class="why">Match the palette <em>type</em> to the data first (nominal → categorical;
+        ordered → sequential; signed → diverging; not-data → neutral+accent), then pick within it.
+        Prefer colourblind-safe defaults (Okabe–Ito, viridis) unless you have a reason not to.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> Okabe &amp; Ito (2008) — CUD safe set; viridis — Smith &amp; van der Walt (2015); Cividis — Nuñez et al. (2018); ColorBrewer — Harrower &amp; Brewer (2003).</p>
+    </section>
+
+    <section class="demo" id="demo-contrast">
+      <h3>6 · Contrast — the only binding standard (WCAG), computed live</h3>
+      <p class="why">Each ratio below is computed from the actual colours: text needs ≥4.5:1, data marks
+        and lines ≥3:1, measured against the real background. The faint ones fail.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> WCAG 2.x — SC 1.4.3 (text contrast), SC 1.4.11 (non-text / graphical objects). Ratio = (L1+0.05)/(L2+0.05) on relative luminance.</p>
+    </section>
+
+    <section class="demo" id="demo-background">
+      <h3>7 · Background — brightness, not hue (incl. dark done right)</h3>
+      <p class="why">The same chart on four grounds. Comfort tracks <em>brightness + contrast</em>, not
+        hue — the "calming" green isn't restful, just dimmer. Light beats dark for small dense text, but
+        for glanceable charts neither wins — offer both. Whatever the ground, re-check contrast.</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> Buchner &amp; Baumgartner (2007); Piepenbrock et al. (2013/2014), <i>Ergonomics</i> — polarity for small text; While &amp; Sarvghad (2024) — no clear winner for charts.</p>
+    </section>
+
+    <section class="demo" id="demo-dashboard">
+      <h3>Dashboards &amp; lists — consistency, one accent, CVD-safe status</h3>
+      <p class="why">Most people build these. Keep a <em>consistent</em> palette across tiles, reserve a
+        <em>single</em> accent for the one thing that matters, and never encode status by hue alone —
+        red-amber-green dots fail for ~8% of men. Back the colour with a shape or a word. (The dashboard
+        and list <em>forms</em> themselves live in the <code>charting</code> skill; this is their colour.)</p>
+      <div class="mount"></div>
+      <p class="cite"><b>Evidence:</b> WCAG 2.x SC 1.4.1 — don't rely on colour alone; Okabe &amp; Ito (2008); CVD prevalence — Nuñez et al. (2018).</p>
+    </section>
+
+  </main>
+  <script type="module" src="perception.js"></script>
+</body>
+</html>

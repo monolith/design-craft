@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Cascade</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .top{position:absolute;left:96px;right:96px;top:80px;z-index:5;display:flex;justify-content:space-between;align-items:baseline;
+    font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1.5px solid #16140d;padding-bottom:16px}
+  .top .r{color:#d8412a}
+  svg.ramp{position:absolute;inset:0;z-index:1}
+  #stage{position:absolute;inset:0;z-index:2}
+  .item{position:absolute;display:flex;align-items:center}
+  .item .rk{font-weight:700;line-height:1;color:#d8412a;font-variant-numeric:tabular-nums}
+  .barwrap{display:flex;flex-direction:column;align-items:flex-start;margin-left:30px;
+    transform-origin:left center;transform:rotate(27deg)}
+  .barwrap .w{font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#16140d;line-height:1;
+    white-space:nowrap;margin-bottom:12px}
+  .barwrap .bar{background:#16140d}
+  .axis{position:absolute;z-index:3;font-weight:600;font-size:15px;letter-spacing:.24em;text-transform:uppercase}
+  .axis.order{left:150px;top:300px;color:rgba(22,20,13,.5);writing-mode:vertical-rl}
+  .axis.energy{left:1170px;top:286px;color:#d8412a;transform:rotate(27deg);transform-origin:left center}
+  .foot{position:absolute;left:96px;right:96px;bottom:80px;z-index:5;border-top:1.5px solid #16140d;padding-top:18px;
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .kick{font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,20,13,.55)}
+  .kick b{color:#d8412a;font-weight:700}
+  .cap{max-width:700px;text-align:right;font-size:20px;line-height:1.45;color:#3a362c}
+  .cap b{color:#16140d;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <div class="top"><div>Composition &#8470; 33</div><div class="r">The Cascade</div></div>
+
+  <svg class="ramp" viewBox="0 0 1920 1080">
+    <defs><marker id="ah" markerWidth="14" markerHeight="14" refX="6" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#d8412a"/></marker></defs>
+    <line x1="250" y1="252" x2="1340" y2="812" stroke="#d8412a" stroke-width="4" marker-end="url(#ah)"/>
+  </svg>
+
+  <div id="stage"></div>
+  <div class="axis order">order &darr; 01&ndash;05</div>
+  <div class="axis energy">downhill energy &searr;</div>
+
+  <div class="foot">
+    <div class="kick">JUXTAPOSITION &middot; Diagonal <b>&#10007;</b> Hierarchy</div>
+    <div class="cap"><b>Momentum versus control.</b> A ranked type hierarchy &mdash; headline down to footnote &mdash; tipped onto a steep slope, sliding even as it counts itself in order.</div>
+  </div>
+</div>
+<script>
+  const stage=document.getElementById("stage");
+  const items=[
+    {n:"01",w:"HEADLINE",nf:132,wf:23,bw:360,bh:32},
+    {n:"02",w:"SUBHEAD", nf:112,wf:21,bw:298,bh:26},
+    {n:"03",w:"BODY",    nf:95, wf:19,bw:246,bh:21},
+    {n:"04",w:"CAPTION", nf:80, wf:17,bw:200,bh:16},
+    {n:"05",w:"FOOTNOTE",nf:66, wf:15,bw:162,bh:12},
+  ];
+  const sx=250,sy=252,ex=1340,ey=812;
+  items.forEach((it,i)=>{
+    const t=0.045+i*0.215, px=sx+(ex-sx)*t, py=sy+(ey-sy)*t;
+    const el=document.createElement("div"); el.className="item";
+    el.style.left=px+"px"; el.style.top=py+"px"; el.style.transform="translateY(-50%)";
+    el.innerHTML='<div class="rk" style="font-size:'+it.nf+'px">'+it.n+'</div>'+
+      '<div class="barwrap"><div class="w" style="font-size:'+it.wf+'px">'+it.w+'</div>'+
+      '<div class="bar" style="width:'+it.bw+'px;height:'+it.bh+'px"></div></div>';
+    stage.appendChild(el);
+  });
+</script>
+</body></html>

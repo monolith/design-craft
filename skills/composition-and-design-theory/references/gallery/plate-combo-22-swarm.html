@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Swarm</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+  .name{position:absolute;top:64px;right:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#d8412a}
+  .tag{position:absolute;bottom:120px;left:96px;font-weight:600;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:rgba(22,20,13,.5)}
+  .cap{position:absolute;bottom:62px;left:96px;right:760px;font-weight:400;font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 22</div>
+  <div class="name">The Swarm</div>
+  <svg id="s" viewBox="0 0 1920 1080"></svg>
+  <div class="tag">Mix · Generative vocabulary × Gestalt grouping</div>
+  <div class="cap">One short stroke, repeated with slight variation. <b>Density and shared direction fuse the many into a single arrow</b> — the whole read from the parts.</div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("s");
+  function add(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);}
+  const ink="#16140d", red="#d8412a";
+  function rng(s){return ()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
+  const r=rng(7);
+  const cx=945, cy=560, th=-20*Math.PI/180, ct=Math.cos(th), st=Math.sin(th);
+  // arrow in local frame (points +x): a long shaft, then a clear wide triangular head
+  const shaftX0=-560, shaftX1=130, SH=72, headX1=500, HHbase=260;
+  function edgeH(lx){               // edge half-height at lx, or -1 off-axis
+    if(lx>=shaftX0 && lx<=shaftX1) return SH;
+    if(lx>shaftX1 && lx<=headX1)   return HHbase*(headX1-lx)/(headX1-shaftX1);
+    return -1;
+  }
+  const dir=th, FALL=58, step=25;
+  for(let gx=120; gx<=1820; gx+=step) for(let gy=150; gy<=950; gy+=step){
+    const x=gx+(r()-.5)*step*0.6, y=gy+(r()-.5)*step*0.6;
+    const dx=x-cx, dy=y-cy;
+    const lx=dx*ct + dy*st, ly=-dx*st + dy*ct;
+    const eh=edgeH(lx);
+    if(eh>0 && Math.abs(ly)<=eh){          // inside the arrow — tight flow
+      const head = lx>shaftX1;             // the triangular head burns red
+      const len=24+8*r(), a=dir+(r()-.5)*0.16;
+      const hx=Math.cos(a)*len/2, hy=Math.sin(a)*len/2;
+      add("line",{x1:x-hx,y1:y-hy,x2:x+hx,y2:y+hy,stroke:head?red:ink,
+        "stroke-width":7,"stroke-linecap":"round","stroke-opacity":.95});
+    } else if(eh>0){                        // a slim dispersing fringe
+      const m=Math.abs(ly)-eh;
+      if(m<FALL){
+        const p=1-m/FALL;
+        if(r()<p*0.55){
+          const len=14+9*p, a=dir+(r()-.5)*1.1;
+          const hx=Math.cos(a)*len/2, hy=Math.sin(a)*len/2;
+          add("line",{x1:x-hx,y1:y-hy,x2:x+hx,y2:y+hy,stroke:ink,
+            "stroke-width":4.5,"stroke-linecap":"round","stroke-opacity":.10+.26*p});
+        }
+      }
+    }
+  }
+</script>
+</body></html>

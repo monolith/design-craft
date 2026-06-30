@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Ghost Grid</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+  .name{position:absolute;top:64px;right:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase;color:#d8412a}
+  .tag{position:absolute;bottom:120px;left:96px;font-weight:600;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:rgba(22,20,13,.5)}
+  .cap{position:absolute;bottom:62px;left:96px;right:820px;font-weight:400;font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 19</div>
+  <div class="name">Ghost Grid</div>
+  <svg id="g" viewBox="0 0 1920 1080"></svg>
+  <div class="tag">Mix · Grid × Reduction</div>
+  <div class="cap">A near-empty field. <b>Four marks and edge ticks alone summon a twelve-column system</b> — the structure is felt, never drawn.</div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("g");
+  function add(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);}
+  const ink="#16140d", red="#d8412a";
+  const cols=12, mL=96, mR=1824, gap=24;
+  const cw=(mR-mL-gap*(cols-1))/cols;            // column width
+  const edges=[]; for(let i=0;i<cols;i++) edges.push(mL+i*(cw+gap)); edges.push(mR);
+  const rows=[300,430,560,690];
+  const cA=edges[2], cB=edges[7], cC=edges[9];   // active columns
+  const activeCols=[cA,cB,cC], activeRows=[300,560];
+  const near=(v,arr)=>arr.some(a=>Math.abs(a-v)<1);
+  // margin ticks — column boundaries (top + bottom); active columns run stronger + longer
+  for(const x of edges){
+    const on=near(x,activeCols), o=on?.5:.18, ln=on?34:22;
+    add("line",{x1:x,y1:150,x2:x,y2:150+ln,stroke:ink,"stroke-opacity":o,"stroke-width":on?2:1.5});
+    add("line",{x1:x,y1:930-ln,x2:x,y2:930,stroke:ink,"stroke-opacity":o,"stroke-width":on?2:1.5});
+  }
+  // margin ticks — row baselines (left + right); active rows stronger + longer
+  for(const y of rows){
+    const on=near(y,activeRows), o=on?.5:.18, ln=on?34:22;
+    add("line",{x1:92-ln,y1:y,x2:92,y2:y,stroke:ink,"stroke-opacity":o,"stroke-width":on?2:1.5});
+    add("line",{x1:1828,y1:y,x2:1828+ln,y2:y,stroke:ink,"stroke-opacity":o,"stroke-width":on?2:1.5});
+  }
+  // the marks: their alignments betray the grid
+  // baseline rule (row 0) from column A to column B
+  add("rect",{x:cA,y:rows[0]-2,width:cB-cA,height:4,fill:ink});
+  // accent dot at A,row0 — sits on the rule's left end
+  add("circle",{cx:cA,cy:rows[0],r:18,fill:red});
+  // squares on row 2, columns A and B
+  add("rect",{x:cA-14,y:rows[2]-14,width:28,height:28,fill:ink});
+  add("rect",{x:cB-14,y:rows[2]-14,width:28,height:28,fill:ink});
+  // open ring on row 2, column C — extends the felt baseline
+  add("circle",{cx:cC,cy:rows[2],r:15,fill:"none",stroke:ink,"stroke-width":3});
+</script>
+</body></html>

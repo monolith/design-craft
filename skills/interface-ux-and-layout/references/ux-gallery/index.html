@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interface UX &amp; layout — worked examples</title>
+  <link rel="stylesheet" href="ux-gallery.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Interface UX &amp; layout — structure, navigation, and guiding the eye</h1>
+    <p>~30 interface fragments in the same visual system as the <code>charting</code> and
+      <code>graphical-perception-and-color</code> galleries. Many show <b>weaker vs. better</b>; the
+      dashboard at the end embeds real sparklines, small multiples, and the colour-role status system
+      so all three skills read as one toolkit. Captions tag the evidence: <b>[STRONG]</b> proven ·
+      <b>[CONVENTION]</b> established best practice · <b>[taste]</b> aesthetic choice. Pure
+      HTML/CSS/SVG, offline.</p>
+  </header>
+  <main>
+
+    <div class="part">Part 1 · Foundations — the usability &amp; human-factors evidence</div>
+
+    <section class="demo">
+      <h3>The evidence first — what's proven, what's convention</h3>
+      <p class="why">Interface design has a real research base: human factors, experimental psychology, and accessibility standards. <b>This gallery leads with that evidence</b> — the layout and component examples that follow are applications of it, and the whole pages at the end put them together. Where controlled research runs out, the fallback is <b>established best practice from a named authority</b> (NN/g, Material, Apple HIG, GOV.UK), tagged honestly. Labels: <b><span class="evtag s">STRONG</span></b> controlled study / normative standard · <b><span class="evtag c">CONVENTION</span></b> established practice, weak/observational · <b><span class="evtag m">MYTH</span></b> the evidence contradicts the popular claim.</p>
+      <div class="evmap">
+        <div class="evcard"><h4><span class="ix">A</span>Perception &amp; attention</h4><ul>
+          <li>People <b>scan, don't read</b>; the <b>F-pattern</b> is a failure state of unformatted text, not a layout to design for. <span class="evtag s">STRONG-desc</span></li>
+          <li><b>Front-load</b> the first ~2 words (~11 chars) of headings &amp; links — the rest is skipped.</li>
+          <li>Legibility is driven by <b>luminance / figure-ground contrast</b>, not hue.</li>
+        </ul><div class="src">NN/g eye-tracking · WCAG · graphical-perception-and-color</div></div>
+        <div class="evcard"><h4><span class="ix">B</span>Motor control — Fitts's Law</h4><ul>
+          <li>Movement time falls as targets get <b>bigger and closer</b>; screen edges/corners are "infinite" targets. <span class="evtag s">STRONG</span></li>
+          <li>Empirical touch minimum <b>~9–10 mm</b>; <b>WCAG 2.2 = 24×24 px</b> (or spacing). 44 pt / 48 dp are comfortable defaults, not the floor.</li>
+        </ul><div class="src">Fitts 1954 · Parhi 2006 · WCAG 2.2 SC 2.5.8</div></div>
+        <div class="evcard"><h4><span class="ix">C</span>Choice &amp; memory</h4><ul>
+          <li><b>Hick's Law</b> RT = a + b·log₂(n) is settled — but the slope isn't invariant, so "fewer items is always faster" is a <span class="evtag m">MYTH</span>.</li>
+          <li><b>Response time:</b> ~0.1 s feels instant; ~10 s is the attention limit (Miller — "best guesses"). <span class="evtag c">CONVENTION</span></li>
+          <li><b>Recognition over recall</b> — show the options, don't make people remember them.</li>
+        </ul><div class="src">Hick 1952 · Proctor &amp; Schneider 2018 · Miller 1968 · Nielsen</div></div>
+        <div class="evcard"><h4><span class="ix">D</span>Navigation &amp; IA</h4><ul>
+          <li><b>Visible / combo nav beats hidden</b> (hamburger on desktop): −20% discoverability, ≥39% slower. <span class="evtag s">STRONG</span></li>
+          <li><b>Broad &amp; shallow beats narrow &amp; deep</b> — depth raises reaction time, errors, perceived complexity.</li>
+        </ul><div class="src">NN/g hidden-nav test · Jacko &amp; Salvendy 1996</div></div>
+        <div class="evcard"><h4><span class="ix">E</span>First impressions &amp; fluency</h4><ul>
+          <li>Appeal forms in <b>17–50 ms</b> and barely changes after. <span class="evtag s">STRONG</span></li>
+          <li><b>Processing fluency</b> (clarity, contrast, convention, restraint) → liking; the brain misreads ease as "I like this."</li>
+          <li>For the web, <b>simpler is monotonically better</b>; complexity hurts more than colourfulness.</li>
+        </ul><div class="src">Lindgaard 2006 · Reber 2004 · Tuch 2012 · Reinecke 2013</div></div>
+        <div class="evcard"><h4><span class="ix">F</span>Testing &amp; accessibility</h4><ul>
+          <li><b>Heuristic eval needs 3–5 evaluators</b> (one finds 20–51%); "5 users = 85%" is a floor with huge variance. <span class="evtag s">STRONG</span></li>
+          <li><b>WCAG 2.x contrast:</b> 4.5:1 text, 3:1 marks — from luminance, not hue; <b>never colour alone</b> (1.4.1). <span class="evtag s">normative</span></li>
+        </ul><div class="src">Nielsen &amp; Molich 1990 · Faulkner 2003 · W3C WCAG 2.2</div></div>
+      </div>
+      <p class="cite"><b>Everything below applies this.</b> Part 2 is the evidence as <em>layout</em>, Part 3 as <em>components</em>, Part 4 in practice, and Part 5 assembles whole pages.</p>
+    </section>
+
+    <div class="part">Part 2 · Layout — structuring the page</div>
+
+    <div class="sec">A · Page &amp; screen structure</div>
+
+    <section class="demo">
+      <h3>1 · Page anatomy — decide the focal point first</h3>
+      <p class="why">Global nav, a primary region with <em>one</em> focal point, supporting content,
+        footer. Everything else exists to deliver the eye to the focal point.</p>
+      <div class="frag note solo"><div class="badge">ANATOMY</div><div class="screen">
+        <div class="region" style="margin-bottom:6px"><b>Global nav</b> brand · sections · account</div>
+        <div style="display:flex;gap:6px;margin-bottom:6px">
+          <div class="region" style="width:80px"><b>Sidebar</b> secondary nav</div>
+          <div class="region focal" style="flex:1"><b>Primary — focal point</b><br>the one thing to see first</div>
+          <div class="region" style="width:90px"><b>Aside</b> supporting</div>
+        </div>
+        <div class="region"><b>Footer</b> meta · links</div>
+      </div></div>
+      <p class="cite"><b>Evidence:</b> conventional structure = fluent (Reber et al. 2004); one focal point guides the first fixation. <b>[STRONG mechanism; layout CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>2 · Common layout patterns — pick by task</h3>
+      <p class="why">Single-column for reading/marketing/forms · sidebar shell for tools and consoles ·
+        dashboard grid for monitoring · card grid for catalogues.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">SINGLE-COLUMN</div><div class="screen">
+          <div class="shell lay-single"><div class="bar"><span class="brand">Acme</span><a>Docs</a><a>Pricing</a></div>
+            <div class="body"><div class="ux-h">An article</div><div class="region" style="text-align:left">one readable column, generous measure…</div></div></div>
+        </div></div>
+        <div class="frag note"><div class="badge">SIDEBAR SHELL</div><div class="screen">
+          <div class="shell lay-sidebar"><div class="bar"><span class="brand">Console</span><span class="spacer"></span><a>⚙</a></div>
+            <div class="row"><div class="side"><b style="color:#222">Nav</b><br>Overview<br>Logs<br>Settings</div><div class="main"><div class="region" style="text-align:left">main work area</div></div></div></div>
+        </div></div>
+      </div>
+      <div class="pair" style="margin-top:14px">
+        <div class="frag note"><div class="badge">DASHBOARD GRID</div><div class="screen">
+          <div class="shell lay-dash"><div class="bar"><span class="brand">Metrics</span></div>
+            <div class="grid"><div class="region">tile</div><div class="region">tile</div><div class="region">tile</div><div class="region" style="grid-column:span 2">chart</div><div class="region">status</div></div></div>
+        </div></div>
+        <div class="frag note"><div class="badge">CARD GRID</div><div class="screen">
+          <div class="shell lay-cards"><div class="bar"><span class="brand">Shop</span></div>
+            <div class="grid"><div class="card">item</div><div class="card">item</div><div class="card">item</div><div class="card">item</div><div class="card">item</div><div class="card">item</div></div></div>
+        </div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> pattern–task fit is established best practice (NN/g, Material, Apple HIG). <b>[CONVENTION]</b></p>
+    </section>
+
+    <div class="sec">B · Navigation &amp; wayfinding</div>
+
+    <section class="demo">
+      <h3>3 · Show the active item — the #1 wayfinding miss</h3>
+      <p class="why">Same nav. Without an active state the user can't tell where they are; marking the
+        current section answers "where am I" at a glance.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ NO ACTIVE STATE</div><div class="screen">
+          <div class="topnav"><span class="brand">Acme</span><a class="navlink">Home</a><a class="navlink">Reports</a><a class="navlink">Team</a><a class="navlink">Settings</a></div>
+          <p class="ux-sub" style="margin-top:8px">…which page am I on?</p></div>
+        </div>
+        <div class="frag good"><div class="badge">✓ "YOU ARE HERE"</div><div class="screen">
+          <div class="topnav"><span class="brand">Acme</span><a class="navlink">Home</a><a class="navlink active">Reports</a><a class="navlink">Team</a><a class="navlink">Settings</a></div>
+          <p class="ux-sub" style="margin-top:8px">Reports — clearly current.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> "you are here" feedback (Nielsen heuristic — visibility of system status). <b>[CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>4 · Navigation controls — rail, breadcrumbs, tabs, search+browse</h3>
+      <p class="why">Left rail scales to many sections; breadcrumbs answer "where am I + up"; tabs switch
+        views of the <em>same</em> object; search and browse-by-filter serve different intents — most
+        apps need both.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">SIDE RAIL (active)</div><div class="screen">
+          <div class="siderail"><div class="side-group">Monitor</div><a class="side-item active">Overview</a><a class="side-item">Traces</a><a class="side-item">Logs</a><div class="side-group">Manage</div><a class="side-item">Team</a><a class="side-item">Billing</a></div></div>
+        </div>
+        <div class="frag note"><div class="badge">BREADCRUMBS · TABS</div><div class="screen">
+          <div class="crumbs"><a>Reports</a><span class="sep">›</span><a>2026</a><span class="sep">›</span><span class="cur">June</span></div>
+          <div class="tabs" style="margin-top:10px"><span class="tab active">Summary</span><span class="tab">Detail</span><span class="tab">Raw</span></div>
+          <div class="tabpanel">Summary of the same report object…</div></div>
+        </div>
+      </div>
+      <div class="frag note solo" style="margin-top:14px"><div class="badge">SEARCH + BROWSE</div><div class="screen">
+        <div class="searchbar"><input placeholder="Search invoices…"><span class="ux-btn">Search</span></div>
+        <div class="chips"><span class="chip on">Unpaid</span><span class="chip">This quarter</span><span class="chip">&gt; $1k</span><span class="chip">Vendor</span></div>
+        <div class="ux-sub">Search for a known target; filter-browse to explore.</div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> nav patterns &amp; wayfinding are established best practice (NN/g, design systems); specifics like mega-menus/breadcrumbs-always were unverified in research. <b>[CONVENTION / taste]</b></p>
+    </section>
+
+    <div class="sec">C · Grids &amp; alignment</div>
+
+    <section class="demo">
+      <h3>5 · A column grid gives everything an edge</h3>
+      <p class="why">A few columns + consistent gutters; lay content across spans. The shared edges read
+        as order.</p>
+      <div class="frag note solo"><div class="badge">12-COLUMN GRID</div><div class="screen">
+        <div class="g12"><div class="cell span12">header · span 12</div></div>
+        <div class="g12" style="margin-top:6px"><div class="cell span3">sidebar · 3</div><div class="cell span6">main · 6</div><div class="cell span3">aside · 3</div></div>
+        <div class="g12" style="margin-top:6px"><div class="cell span4">card · 4</div><div class="cell span4">card · 4</div><div class="cell span4">card · 4</div></div>
+      </div></div>
+      <p class="cite"><b>Evidence:</b> grid systems are design-system best practice (Material, Bootstrap); no controlled comprehension evidence found. <b>[CONVENTION / taste]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>6 · Alignment &amp; measure</h3>
+      <p class="why">Misaligned elements read as broken even when they work; one edge reads as deliberate.
+        And over-long lines tire the eye — a sensible measure keeps reading easy.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ RAGGED + TOO WIDE</div><div class="screen">
+          <div class="align-bad"><div class="ln" style="--x:0">Name</div><div class="ln" style="--x:22px">Email</div><div class="ln" style="--x:9px">Address</div></div>
+          <p class="measure wide" style="margin-top:8px">This line of text runs the full width of the panel with no limit, so the eye has to travel a long way back to find the start of the next line, which gets tiring fast.</p></div>
+        </div>
+        <div class="frag good"><div class="badge">✓ ALIGNED + ~65ch</div><div class="screen">
+          <div class="align-good"><div class="ln">Name</div><div class="ln">Email</div><div class="ln">Address</div></div>
+          <p class="measure ok" style="margin-top:8px">A comfortable measure keeps each line short enough that the eye finds the next line without effort.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> alignment = order (fluency); ~45–75ch measure is typographic convention (exact number unverified). <b>[CONVENTION / taste]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>7 · Responsive reflow — the stack order is the reading order</h3>
+      <p class="why">Multi-column collapses to a single stack at narrow widths. Decide that stack order
+        deliberately — it's what mobile users actually read top-to-bottom.</p>
+      <div class="frag note solo"><div class="badge">WIDE → NARROW</div><div class="screen reflow">
+        <div class="frame wide"><div class="cols"><div style="flex:0 0 60px"><div class="blk">nav</div></div><div style="flex:1"><div class="blk">main content</div></div><div style="flex:0 0 50px"><div class="blk">aside</div></div></div></div>
+        <div class="frame narrow"><div class="stack"><div class="blk">nav</div><div class="blk">main content</div><div class="blk">aside</div></div></div>
+      </div></div>
+      <p class="cite"><b>Evidence:</b> responsive reflow is universal best practice (CSS / design systems). <b>[CONVENTION]</b></p>
+    </section>
+
+    <div class="sec">D · Guiding the eye</div>
+
+    <section class="demo">
+      <h3>8 · One entry point</h3>
+      <p class="why">The largest, highest-contrast element wins the first fixation. If everything is
+        loud, nothing leads; give the eye one clear place to land.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ NO FOCAL POINT</div><div class="screen">
+          <span class="ux-btn">Export</span> <span class="ux-btn">Share</span> <span class="ux-btn">Duplicate</span> <span class="ux-btn">Archive</span> <span class="ux-btn">Delete</span>
+          <p class="ux-sub" style="margin-top:8px">Five equal buttons — where do I start?</p></div>
+        </div>
+        <div class="frag good"><div class="badge">✓ ONE PRIMARY</div><div class="screen">
+          <span class="ux-btn primary">Publish</span> <span class="ux-btn ghost">Share</span> <span class="ux-btn ghost">Duplicate</span> <span class="ux-btn ghost">⋯</span>
+          <p class="ux-sub" style="margin-top:8px">One primary action; the rest recede.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> contrast/size drive first fixation (processing fluency; saliency). <b>[STRONG]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>9 · A path, not a pile — and pop-out for the one critical thing</h3>
+      <p class="why">A numbered visual flow leads the eye in order. And a single mark that differs on one
+        channel is found <em>pre-attentively</em> — before conscious search — but only against a calm
+        field. Spend that pop-out once.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">VISUAL PATH</div><div class="screen flow">
+          <div style="margin:5px 0"><span class="flow-num">1</span>Pick a plan</div>
+          <div style="margin:5px 0"><span class="flow-num">2</span>Add your team</div>
+          <div style="margin:5px 0"><span class="flow-num">3</span>Start the trial</div></div>
+        </div>
+        <div class="frag note"><div class="badge">POP-OUT (calm field)</div><div class="screen">
+          <div class="dotsfield"><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark hit"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span><span class="dotmark"></span></div>
+          <p class="ux-sub" style="margin-top:8px">Found before you "look." Colour/contrast values → colour skill.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> preattentive single-feature search (Treisman; Healey &amp; Enns; Wolfe). <b>[STRONG]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>10 · Scanning — headings (layer-cake), not a wall (F-pattern)</h3>
+      <p class="why">People scan. An unbroken wall forces the F-pattern — a failure state. Strong
+        descriptive headings give the layer-cake the eye actually uses.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ WALL → F-PATTERN</div><div class="screen"><p class="wall">Returns are accepted within 30 days for unused items in original packaging, refunds go to the original payment method in 5–7 business days, exchanges process once we receive the item, shipping is non-refundable except for defective goods, and international returns may take longer.</p></div></div>
+        <div class="frag good"><div class="badge">✓ LAYER-CAKE HEADINGS</div><div class="screen">
+          <div class="ux-h">Window</div><p class="ux-text">30 days, unused, original packaging.</p>
+          <div class="ux-h">Refunds</div><p class="ux-text">Original payment method, 5–7 days.</p>
+          <div class="ux-h">Shipping</div><p class="ux-text">Non-refundable unless defective.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> scanning &amp; layer-cake gaze (Nielsen / NN-g eye-tracking). Scanning <b>[STRONG-descriptive]</b>; design-for-F <b>[MYTH]</b>.</p>
+    </section>
+
+    <div class="part">Part 3 · Components &amp; interaction</div>
+
+    <div class="sec">E · Usability heuristics</div>
+
+    <section class="demo">
+      <h3>11 · Visibility of system status</h3>
+      <p class="why">Never act silently. Show loading, progress, and confirmation — the user should always
+        know what the system is doing.</p>
+      <div class="frag note solo"><div class="badge">ALWAYS SHOW STATE</div><div class="screen">
+        <div class="statusline"><span class="spin"></span> Loading results…</div>
+        <div class="statusline"><span class="bar-prog"><span></span></span> Uploading 62%</div>
+        <div class="statusline"><span class="check">✓</span> Saved just now</div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Nielsen heuristic #1; response-time feedback (Miller; Doherty). <b>[CONVENTION; thresholds CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>12 · Recognition over recall</h3>
+      <p class="why">Don't make people remember codes or paths; show the options and let them pick.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ RECALL</div><div class="screen"><label class="inputlbl">Enter status code</label><input class="inp" placeholder="e.g. 2 = shipped"><p class="inline-hint">…what was the code again?</p></div></div>
+        <div class="frag good"><div class="badge">✓ RECOGNITION</div><div class="screen"><label class="inputlbl">Status</label><div><span class="chip on">Shipped</span> <span class="chip">Pending</span> <span class="chip">Cancelled</span></div></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Nielsen heuristic #6. <b>[CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>13 · Error prevention &amp; recovery</h3>
+      <p class="why">Catch problems early, in place, in plain language — and say how to fix them. A vague
+        after-the-fact error is the worst of both.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ VAGUE, TOO LATE</div><div class="screen"><label class="inputlbl">Email</label><input class="inp" value="anatolyexample.com"><div class="inline-err" style="margin-top:8px">Error 0x3 — submission failed.</div></div></div>
+        <div class="frag good"><div class="badge">✓ INLINE + RECOVERY</div><div class="screen"><label class="inputlbl">Email</label><input class="inp bad" value="anatolyexample.com"><div class="inline-err">Missing an "@" — did you mean anatoly@example.com?</div></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Nielsen heuristics #5/#9; inline validation is established best practice (NN/g). <b>[CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>14 · Fitts's law · forgiveness over interrogation</h3>
+      <p class="why">Frequent/important actions should be bigger and closer (and edges are "infinite"
+        targets). And prefer an <em>undo</em> to a confirm dialog — it's faster and less punishing.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">FITTS — SIZE &amp; DISTANCE</div><div class="screen">
+          <div style="margin-bottom:10px"><span class="ux-btn fitts-small">tiny, far primary</span></div>
+          <div><span class="ux-btn primary fitts-big">Primary action</span></div>
+          <p class="ux-sub" style="margin-top:8px">Bigger + nearer = faster to hit.</p></div>
+        </div>
+        <div class="frag note"><div class="badge">UNDO &gt; CONFIRM</div><div class="screen">
+          <div class="toast">Message archived <span class="undo">Undo</span></div>
+          <p class="ux-sub" style="margin-top:8px">Act now, reverse if wrong — beats "Are you sure?".</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Fitts (1954) <b>[STRONG]</b> (sizing specifics a gap); undo/forgiveness Nielsen #3 <b>[CONVENTION]</b>.</p>
+    </section>
+
+    <div class="sec">F · Interaction &amp; states</div>
+
+    <section class="demo">
+      <h3>15 · Every control needs visible states</h3>
+      <p class="why">Default, hover, <em>focus</em> (keyboard — this one is accessibility), active, and
+        disabled. A control with no states reads as not-interactive. (Try the live one.)</p>
+      <div class="frag note solo"><div class="badge">STATES</div><div class="screen">
+        <div class="states">
+          <span class="scol"><span class="sbtn">Button</span><span class="slabel">default</span></span>
+          <span class="scol"><span class="sbtn s-hover">Button</span><span class="slabel">hover</span></span>
+          <span class="scol"><span class="sbtn s-focus">Button</span><span class="slabel">focus (a11y)</span></span>
+          <span class="scol"><span class="sbtn s-active">Button</span><span class="slabel">active</span></span>
+          <span class="scol"><span class="sbtn s-disabled">Button</span><span class="slabel">disabled</span></span>
+          <span class="scol"><button class="tryme" tabindex="0">Try me</button><span class="slabel">live</span></span>
+        </div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> focus-visible is normative (WCAG 2.4.7) <b>[STRONG]</b>; hover/active states are convention <b>[CONVENTION]</b>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>16 · Design the empty, loading, and error states</h3>
+      <p class="why">A data view has three states besides "full." Designing only the happy path is the
+        most common app-UX gap.</p>
+      <div class="frag note solo"><div class="badge">NOT JUST THE HAPPY PATH</div><div class="screen">
+        <div class="state3">
+          <div class="box"><span class="ic">＋</span>No reports yet<br><span style="font-size:11px">Create your first one.</span></div>
+          <div class="box"><span class="ic spin" style="margin:0 auto 4px"></span>Loading…</div>
+          <div class="box"><span class="ic" style="color:#991b1b">⚠</span>Couldn't load<br><span style="font-size:11px">Retry, or check connection.</span></div>
+        </div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> empty/loading/error states are established best practice (NN/g, design systems). <b>[CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>17 · Progressive disclosure &amp; affordance</h3>
+      <p class="why">Show a summary; reveal detail on demand — complexity stays available without
+        crowding. And clickable things should <em>look</em> clickable.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">PROGRESSIVE DISCLOSURE</div><div class="screen">
+          <details class="disc"><summary>Advanced options</summary><div class="more">Region, retention, encryption… revealed only when wanted.</div></details></div>
+        </div>
+        <div class="frag note"><div class="badge">AFFORDANCE</div><div class="screen">
+          <span class="ambig">Save</span> <span class="ux-sub">← ambiguous</span><br><br>
+          <span class="ux-btn primary">Save</span> <span class="ux-sub">← clearly a button</span></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> progressive disclosure (Nielsen) <b>[CONVENTION]</b>; perceived affordance/signifiers (Norman) — specifics a gap <b>[taste]</b>.</p>
+    </section>
+
+    <div class="sec">Data-heavy components — tables · grids · filters · lists · trees</div>
+
+    <section class="demo">
+      <h3>Data tables — sortable, right-aligned numbers, status not colour-alone</h3>
+      <p class="why">The workhorse of data-heavy UIs. Right-align numbers (tabular figures) so digits line up; left-align text; sort on the header you clicked and show the arrow; one row per record; hairline rows, no zebra; status carries an icon + word, never colour alone; keep row actions quiet until hover.</p>
+      <div class="frag note solo"><div class="badge">✓ INVOICES</div><div class="screen">
+        <table class="dtable">
+          <thead><tr><th>Invoice</th><th>Customer</th><th class="num">Amount <span class="ar">▾</span></th><th>Due</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>#1043</td><td>Northwind</td><td class="num">$12,400</td><td>Jul 2</td><td><span class="sbadge ok">● Paid</span></td><td><span class="rowact">View</span></td></tr>
+            <tr><td>#1042</td><td>Globex</td><td class="num">$8,920</td><td>Jun 28</td><td><span class="sbadge warn">▲ Due soon</span></td><td><span class="rowact">View</span></td></tr>
+            <tr><td>#1041</td><td>Initech</td><td class="num">$3,150</td><td>Jun 20</td><td><span class="sbadge sev">■ Overdue</span></td><td><span class="rowact">View</span></td></tr>
+            <tr><td>#1040</td><td>Umbrella</td><td class="num">$21,000</td><td>Jul 10</td><td><span class="sbadge ok">● Paid</span></td><td><span class="rowact">View</span></td></tr>
+          </tbody>
+        </table></div></div>
+      <p class="cite"><b>Evidence:</b> right-aligned numerals + tabular figures = established convention (NN/g, Material data tables); status-not-colour-alone = WCAG 1.4.1 <b>[STRONG]</b>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>Filters &amp; faceted search — visible facets, removable chips, a result count</h3>
+      <p class="why">Browse-by-filter complements search (most data apps need both). Keep facets visible on desktop (not behind a "Filters" button), echo applied filters as <b>removable chips</b>, and always show a <b>result count</b> so the filter's effect is legible.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">FACETS</div><div class="screen"><div class="facets">
+          <div class="facet"><h5>Status</h5><label>☑ Active</label><label>☐ Trialing</label><label>☐ Churned</label></div>
+          <div class="facet"><h5>Plan</h5><label>☑ Pro</label><label>☑ Enterprise</label><label>☐ Hobby</label></div>
+          <div class="facet"><h5>MRR</h5><label>☐ &lt; $1k</label><label>☑ $1k–$10k</label><label>☐ $10k+</label></div>
+        </div></div></div>
+        <div class="frag note"><div class="badge">APPLIED + RESULTS</div><div class="screen">
+          <div class="activefilters"><b>312 results</b><span class="fchip">Active <span class="x">✕</span></span><span class="fchip">Pro <span class="x">✕</span></span><span class="fchip">Enterprise <span class="x">✕</span></span><span class="fchip">$1k–$10k <span class="x">✕</span></span><span class="rowact">Clear all</span></div>
+          <div class="listv dense"><div class="litem"><span class="av">N</span><span class="pri">Northwind</span><span class="meta">$8.4k MRR</span></div><div class="litem"><span class="av">G</span><span class="pri">Globex</span><span class="meta">$6.1k MRR</span></div><div class="litem"><span class="av">I</span><span class="pri">Initech</span><span class="meta">$3.9k MRR</span></div></div>
+        </div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> faceted browse + search, removable filters, result-count feedback — established best practice (NN/g, Baymard). <b>[CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>Lists — the canonical list item, and a dense variant</h3>
+      <p class="why">A list item is: leading thumbnail/avatar · primary + secondary text · trailing meta or action. Keep one clear, front-loaded primary line; demote the rest. Switch to a dense variant when the list is long and scanning beats reading.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">STANDARD LIST</div><div class="screen"><div class="listv">
+          <div class="litem"><span class="av">PN</span><span><div class="pri">Priya Nair</div><div class="sec2">Staff Engineer · Platform</div></span><span class="meta">2h ago</span></div>
+          <div class="litem"><span class="av">JD</span><span><div class="pri">Jordan Diaz</div><div class="sec2">Designer · Growth</div></span><span class="meta">Yesterday</span></div>
+          <div class="litem"><span class="av">RK</span><span><div class="pri">Raj Kapoor</div><div class="sec2">PM · Billing</div></span><span class="meta">3d ago</span></div>
+        </div></div></div>
+        <div class="frag note"><div class="badge">DENSE LIST</div><div class="screen"><div class="listv dense">
+          <div class="litem"><span class="pri">deploy.yml</span><span class="meta">2.1 kB</span></div>
+          <div class="litem"><span class="pri">index.ts</span><span class="meta">8.4 kB</span></div>
+          <div class="litem"><span class="pri">router.ts</span><span class="meta">3.0 kB</span></div>
+          <div class="litem"><span class="pri">styles.css</span><span class="meta">12 kB</span></div>
+          <div class="litem"><span class="pri">README.md</span><span class="meta">1.4 kB</span></div>
+        </div></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> list-item anatomy = design-system convention (Material lists, Apple HIG); front-loaded primary text ties to scanning <b>[STRONG-desc]</b>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>Navigating deep nested data — a tree, plus a breadcrumb for the path</h3>
+      <p class="why">Deep hierarchies (file systems, org units, nested categories, JSON) need two things: a <b>tree</b> to expand/collapse and see structure, and a <b>breadcrumb</b> to answer "where am I + how do I go up." Indent with a guide line, show child counts, mark the current node, and keep the breadcrumb to the real path. Favour broad-shallow where you can (deep nesting raises errors) — but when the data <em>is</em> deep, make the depth navigable.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">TREE — EXPAND / COLLAPSE</div><div class="screen"><div class="tree">
+          <div class="tw"><span class="ico">▾</span>📁 acme-corp <span class="cnt">· 4</span></div>
+          <div class="ch">
+            <div class="tw"><span class="ico">▾</span>📁 Engineering <span class="cnt">· 3</span></div>
+            <div class="ch">
+              <div class="tw"><span class="ico">▸</span>📁 Platform <span class="cnt">· 12</span></div>
+              <div class="tw"><span class="ico">▾</span>📁 Data <span class="cnt">· 2</span></div>
+              <div class="ch"><div class="tw"><span class="ico">▸</span>📁 Pipelines</div><div class="tw cur"><span class="ico">▾</span>📁 Warehouse <span class="cnt">· 8</span></div></div>
+              <div class="tw"><span class="ico">▸</span>📁 Infra <span class="cnt">· 6</span></div>
+            </div>
+            <div class="tw"><span class="ico">▸</span>📁 Design <span class="cnt">· 5</span></div>
+          </div>
+        </div></div></div>
+        <div class="frag note"><div class="badge">BREADCRUMB + BRANCH RAIL</div><div class="screen">
+          <div class="crumbs"><a>acme-corp</a><span class="sep">›</span><a>Engineering</a><span class="sep">›</span><a>Data</a><span class="sep">›</span><span class="cur">Warehouse</span></div>
+          <div class="siderail" style="margin-top:12px"><div class="side-group">Warehouse</div><a class="side-item active">Tables</a><a class="side-item">Views</a><a class="side-item">Schemas</a><div class="side-group">Pipelines</div><a class="side-item">Scheduled</a><a class="side-item">Runs</a></div>
+          <p class="ux-sub" style="margin-top:8px">Tree for structure; breadcrumb for the path; rail for the current branch.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> breadcrumbs answer "where + up", trees expose nested structure — established convention (NN/g, design systems); depth-cost (favour shallow) <b>[STRONG]</b> Jacko &amp; Salvendy 1996.</p>
+    </section>
+
+    <section class="demo">
+      <h3>Metric grid — uniform cards on a column grid</h3>
+      <p class="why">KPIs and entities read fastest as a uniform grid: same card shape, the number as the figure, a small delta in the alert channel, the grid reflowing by wrapping. One accent reserved for the value that crossed a threshold.</p>
+      <div class="frag note solo"><div class="badge">✓ METRICS</div><div class="screen"><div class="dgrid">
+        <div class="dcard"><div class="t">Revenue</div><div class="v">$284k</div><div class="d up">▲ 8.2% MoM</div></div>
+        <div class="dcard"><div class="t">Active users</div><div class="v">18,420</div><div class="d up">▲ 3.1%</div></div>
+        <div class="dcard"><div class="t">Churn</div><div class="v">2.4%</div><div class="d dn">▲ 0.3pts</div></div>
+        <div class="dcard"><div class="t">NRR</div><div class="v">112%</div><div class="d up">▲ 2pts</div></div>
+        <div class="dcard"><div class="t">Tickets</div><div class="v">96</div><div class="d up">▼ 12</div></div>
+        <div class="dcard"><div class="t">p95</div><div class="v">240ms</div><div class="d up">▼ 18ms</div></div>
+      </div></div></div>
+      <p class="cite"><b>Evidence:</b> uniform card grid + a single reserved accent = convention + the colour skill's role system. <b>[CONVENTION]</b></p>
+    </section>
+
+    <div class="part">Part 4 · In practice — dashboards, real sites, newer evidence</div>
+
+    <div class="sec">G · Dashboard — where all three skills meet</div>
+
+    <section class="demo">
+      <h3>18 · A real Tufte-styled dashboard</h3>
+      <p class="why">Everything together: a conventional shell, top-left scan order, a glanceable KPI tier
+        with <em>real sparklines</em>, denser detail below (<em>small multiples</em> + a
+        <em>Cleveland dot plot</em> from the charting skill), status as colour <em>+ icon + word</em>,
+        and a single reserved accent for the one critical alert. One palette, one team.</p>
+      <div class="frag note solo" style="max-width:none"><div class="badge">OVERVIEW → DETAIL · ONE RESERVED ACCENT</div><div class="screen" style="padding:0">
+        <div class="dash">
+          <div class="topnav" style="border-radius:0"><span class="brand">Ops</span><a class="navlink active">Overview</a><a class="navlink">Traces</a><a class="navlink">Alerts</a><span class="spacer"></span><a class="navlink">⚙</a></div>
+          <div class="kpis">
+            <div class="kpi"><div class="lab">Requests</div><div class="num">128k</div><div class="delta up">▲ 4.2%</div><span class="spark" data-v="60,62,61,65,64,68,67,72"></span></div>
+            <div class="kpi"><div class="lab">Errors</div><div class="num">0.8%</div><div class="delta down">▲ 0.3%</div><span class="spark" data-v="2,2,3,2,4,3,5,6"></span></div>
+            <div class="kpi"><div class="lab">p95 latency</div><div class="num">240ms</div><div class="delta up">▼ 12ms</div><span class="spark" data-v="9,8,8,7,7,6,6,5"></span></div>
+            <div class="kpi"><div class="lab">Cost / day</div><div class="num">$312</div><div class="delta down">▲ 6%</div><span class="spark" data-v="5,5,6,6,7,7,8,9"></span></div>
+          </div>
+          <div class="lower">
+            <div><div class="blocklbl">Requests by region (small multiples)</div><div id="dash-sm"></div></div>
+            <div><div class="blocklbl">Top routes</div><div id="dash-dot"></div></div>
+            <div><div class="blocklbl">Status</div>
+              <div class="statusrow"><span class="glyph good">●</span> API <span class="word">OK</span></div>
+              <div class="statusrow"><span class="glyph good">●</span> Queue <span class="word">OK</span></div>
+              <div class="statusrow"><span class="glyph warn">▲</span> Cache <span class="word">WARN</span></div>
+              <div class="alert crit" style="margin-top:8px"><span>■</span> Disk 94% — act now</div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <p class="cite"><b>Composition:</b> layout/scan-order/reserved-accent (this skill) · sparklines, small multiples, dot plot (<code>charting</code>) · status colour + icon + word, one accent (<code>graphical-perception-and-color</code>). Scan-order &amp; "overview→detail" <b>[CONVENTION]</b>; not-colour-alone &amp; pop-out <b>[STRONG]</b>.</p>
+    </section>
+
+    <div class="sec">H · From the wild — moves stripped from real sites</div>
+    <p class="why" style="margin:6px 0 0;max-width:82ch">Each fragment recreates one site's standout move in its <em>verified</em> palette (fonts approximated — the originals aren't bundled). The lesson is the move, not the brand.</p>
+
+    <section class="demo">
+      <h3>19 · Vercel — monochrome canvas, mono eyebrow, inverted CTA</h3>
+      <p class="why">A 0%-saturation gray world: near-black <code>#0a0a0a</code> ground, near-white <code>#ededed</code> ink. The signature is the type contract — a big tight-tracked sans headline over a tiny uppercase monospace eyebrow — and the accent held in reserve: the primary button is an inverted near-white fill, not a colour.</p>
+      <div class="frag note solo"><div class="badge">STRIPPED · VERCEL</div><div class="screen" style="padding:0"><div class="w-vercel">
+        <div class="eyebrow">Core Platform</div>
+        <h2>Ship from zero to millions, instantly.</h2>
+        <div><span class="pri">Deploy</span><a class="lnk">Learn more →</a></div>
+        <hr>
+        <div class="eyebrow">For coding agents</div>
+      </div></div></div>
+      <p class="cite"><b>Verified:</b> bg #0a0a0a · ink #ededed · neutral gray ramp · accent blue #0071f6 defined but unused as fill. <b>Principle:</b> restraint · reserved accent · type scale. <b>[STRONG mechanism]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>20 · Tailwind — docs shell: sticky left nav + hatched gutter + code block</h3>
+      <p class="why">The recreatable docs move (no right-hand TOC in the live v4): a sidebar / hatched-gutter / content grid, one reserved sky accent on a grayscale field, and code blocks with a corner language chip.</p>
+      <div class="frag note solo"><div class="badge">STRIPPED · TAILWIND</div><div class="screen" style="padding:0"><div class="w-tw">
+        <nav class="twnav"><div class="grp">Get started</div><a class="on">Installation</a><a>Editor setup</a><div class="grp">Core</div><a>Styling</a><a>Hover &amp; focus</a><div class="grp">Layout</div><a>Flexbox</a><a>Grid</a></nav>
+        <div class="gutter"></div>
+        <div class="twcontent"><h3>Installation</h3><div class="ux-sub">Install Tailwind via npm and start your build.</div>
+          <div class="code"><span class="chip">Terminal</span>$ npm install tailwindcss<br>$ npx tailwindcss init</div></div>
+      </div></div></div>
+      <p class="cite"><b>Verified:</b> grid <code>18rem | 2.5rem | 1fr</code> · gutter = 45° hatch at gray-950/5% · accent sky #00bcfe · spacing base 4px. <b>Principle:</b> navigation &amp; wayfinding · alignment/grid · whitespace. <b>[CONVENTION]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>21 · Apple — one giant headline carries the hierarchy</h3>
+      <p class="why">A centered single-column unit — eyebrow → giant headline → subhead → one CTA pair — where the whole hierarchy rides on a weight-600 display scale with <em>negative</em> tracking on the big type and a touch of <em>positive</em> tracking on the small eyebrow. Restraint does the rest.</p>
+      <div class="frag note solo"><div class="badge">STRIPPED · APPLE</div><div class="screen"><div class="w-apple">
+        <div class="eyebrow">New</div>
+        <h2>Titanium. So strong. So light.</h2>
+        <div class="sub">Built for what's next.</div>
+        <div><a class="learn">Learn more ›</a><a class="buy">Buy</a></div>
+      </div></div></div>
+      <p class="cite"><b>Verified:</b> scale 80→64→48px weight 600 · tracking −0.015em big / +0.009em eyebrow · leading 1.05 · ~980px column. <b>Principle:</b> type scale · visual hierarchy · restraint. <b>[STRONG]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>22 · Stripe Press — serif + per-card duotone + hairline label leader</h3>
+      <p class="why">Editorial feel from three decisions: one serif family (italic used as a register), two CSS variables that colour the whole card (and invert on button hover), and a short hairline rule that <em>leads</em> into the label. Two cards, two duotones, same structure.</p>
+      <div class="pair">
+        <div class="frag note"><div class="badge">STRIPPED · STRIPE PRESS</div><div class="screen" style="padding:0"><div class="w-press" style="--pbg:#201819;--pfg:#efe9df">
+          <div class="lead">Working in Public</div><h2>Scaling People</h2><div class="by">by Claire Hughes Johnson</div><a class="buy">Buy the book</a>
+        </div></div></div>
+        <div class="frag note"><div class="badge">SAME, OTHER DUOTONE</div><div class="screen" style="padding:0"><div class="w-press" style="--pbg:#f3efe6;--pfg:#442c25">
+          <div class="lead">Essays on craft</div><h2>Poor Charlie's Almanack</h2><div class="by">by Charles T. Munger</div><a class="buy">Buy the book</a>
+        </div></div></div>
+      </div>
+      <p class="cite"><b>Verified:</b> Ivar serif (Georgia fallback) · warm shell #201819 · per-book duotone vars · 60px×1px hairline leader · 1px-border invert-on-hover button. <b>Principle:</b> editorial layout · type scale · figure-ground. <b>[taste, well-executed]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>23 · Aesop — calm by subtraction</h3>
+      <p class="why">~80% of the "quiet, expensive" feel comes from four decisions: a cream (<em>not</em> white) ground, charcoal (<em>not</em> black) ink, <code>border-radius:0</code>, and <code>box-shadow:none</code> — with whitespace and a single hairline doing all the dividing. One sans, hierarchy by weight; a quiet centered nav; an editorial prose heading, not a spec dump.</p>
+      <div class="frag note solo"><div class="badge">STRIPPED · AESOP</div><div class="screen" style="padding:0"><div class="w-aesop">
+        <div class="nav"><a>Skin</a><a>Body</a><a>Home</a><a>Fragrance</a><span class="util">Cart (0)</span></div>
+        <div class="pbody"><h2>The perennial appeal of Geranium Leaf</h2>
+          <p>A crisp, green botanical formulation that has anchored the range for years — described, not bullet-pointed, because the story is the product.</p>
+          <a class="cta">Discover Geranium Leaf →</a></div>
+      </div></div></div>
+      <p class="cite"><b>Verified:</b> bg #FFFEF2 cream · ink #333 · radius 0 · shadow none · hairline #D6D5CC · single sans, weight hierarchy. <b>Principle:</b> restraint · whitespace · alignment. <b>[STRONG mechanism]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>24 · The Pudding — narrow prose, a chart that breaks out</h3>
+      <p class="why">The scrollytelling DNA in one frame: prose held to a comfortable ~62-character measure, then a chart that breaks <em>wider</em> than the text to say "now look, don't read" — with colour reserved for the one data point and the takeaway annotated <em>inside</em> the chart. The chart below is a real SVG (ties to <code>charting</code> + the colour skill).</p>
+      <div class="frag note solo" style="max-width:none"><div class="badge">STRIPPED · THE PUDDING</div><div class="screen"><div class="w-pud">
+        <h2>When did the sizes drift?</h2>
+        <div class="prose">A garment labelled "size 8" has quietly grown for decades. The number on the tag stayed put; the tape measure did not.</div>
+        <figure><div id="wild-pud-chart"></div><div class="figcap">Waist measurement of a nominal US "size 8", 1995–2025 (illustrative)</div></figure>
+        <div class="prose">The prose stays narrow and calm; the figure breaks the column to claim attention — and the one number that matters is the only thing in colour.</div>
+      </div></div></div>
+      <p class="cite"><b>Verified:</b> prose ~601–666px (~62ch) inside a 1260px frame · inline SVG charts · colour encodes data, page monochrome · annotations baked in. <b>Principle:</b> integrated graphics · editorial layout · reserved accent. <b>[STRONG for text+graphics integration]</b></p>
+    </section>
+
+    <div class="sec">I · Newly-verified practical evidence (2026 research)</div>
+
+    <section class="demo">
+      <h3>25 · Don't hide primary navigation behind a ☰</h3>
+      <p class="why">Collapsing desktop nav into a hamburger measurably hurts. In NN/g's controlled test (179 users, 6 sites) hidden nav cut content <b>discoverability &gt;20%</b>, made desktop tasks <b>≥39% slower</b>, and was used far less than visible/combo (desktop 27% vs 48–50%; mobile 57% vs 86%). Keep primary nav <b>visible</b>; reserve fully-hidden nav for genuinely space-constrained mobile.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ HIDDEN · HAMBURGER (desktop)</div><div class="screen">
+          <div class="topnav"><span class="brand">Acme</span><span class="burger">☰</span></div>
+          <p class="ux-sub" style="margin-top:10px">Everything behind one icon — −20% discoverability, ≥39% slower, used by ~27%.</p></div>
+        </div>
+        <div class="frag good"><div class="badge">✓ VISIBLE · COMBO</div><div class="screen">
+          <div class="topnav"><span class="brand">Acme</span><a class="navlink active">Products</a><a class="navlink">Pricing</a><a class="navlink">Docs</a><a class="navlink">About</a><span class="burger">☰</span></div>
+          <p class="ux-sub" style="margin-top:10px">Primary items visible; ☰ kept only for overflow.</p></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> NN/g hidden-navigation test — 179 participants, 6 sites, controlled. <b>[STRONG]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>26 · Broad &amp; shallow beats narrow &amp; deep</h3>
+      <p class="why">Jacko &amp; Salvendy (1996) crossed menu breadth × depth in a controlled study: <b>reaction time, error rate, and perceived complexity all rose</b> as hierarchies got deeper. Fewer levels means fewer clicks to anything and less to hold in mind — go wide before you go deep.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ NARROW · DEEP</div><div class="screen">
+          <div class="tree">
+            <div class="tnode">Home</div>
+            <div class="tnode i1">Section A</div>
+            <div class="tnode i2">A · group</div>
+            <div class="tnode i3">A · subgroup</div>
+            <div class="tnode i4">A · item — 4 levels deep</div>
+          </div></div>
+        </div>
+        <div class="frag good"><div class="badge">✓ BROAD · SHALLOW</div><div class="screen">
+          <div class="tree flat">
+            <div class="tnode">Home</div>
+            <div class="trow"><span>Products</span><span>Pricing</span><span>Docs</span><span>Guides</span></div>
+            <div class="trow"><span>API</span><span>Blog</span><span>About</span><span>Support</span></div>
+            <div class="tnode i1">Any item — 1–2 clicks away</div>
+          </div></div>
+        </div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Jacko &amp; Salvendy 1996 (Perceptual &amp; Motor Skills 82:1187), controlled. <b>[STRONG]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>27 · Touch targets — 24px is the floor, ~1 cm is the evidence</h3>
+      <p class="why">The measured minimum for one-handed thumb use is <b>~9–10 mm</b> (Parhi 2006); error rate stops improving above ~9.6 mm. <b>WCAG 2.2 SC 2.5.8</b> sets a <b>24×24 CSS-px</b> minimum — <em>or</em> an undersized target passes via the <b>spacing exception</b> (a 24px circle on each target must not overlap another). Apple's 44 pt and Material's 48 dp are comfortable <em>defaults</em>, not the floor.</p>
+      <div class="frag note solo"><div class="badge">TARGET-SIZE LADDER</div><div class="screen">
+        <div class="targets">
+          <div class="tgt-wrap"><span class="tgt t16">✕</span><span class="tgt-lbl">16 px — sub-minimum</span></div>
+          <div class="tgt-wrap"><span class="tgt t24">✓</span><span class="tgt-lbl">24 px — WCAG 2.2 min</span></div>
+          <div class="tgt-wrap"><span class="tgt t44">✓</span><span class="tgt-lbl">44 pt — Apple default</span></div>
+          <div class="tgt-wrap"><span class="tgt t48">✓</span><span class="tgt-lbl">48 dp — Material default</span></div>
+        </div>
+        <p class="ux-sub" style="margin-top:12px">If a target must be smaller than 24px, keep ≥24px of clear spacing around it.</p></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Parhi 2006 (MobileHCI), controlled <b>[STRONG]</b>; WCAG 2.2 SC 2.5.8 <b>[normative]</b>.</p>
+    </section>
+
+    <section class="demo">
+      <h3>28 · "Five users finds 85%" — a floor, not a guarantee</h3>
+      <p class="why">For <b>expert review</b>, one evaluator finds only <b>20–51%</b> of problems — run <b>3–5</b> (Nielsen &amp; Molich). For <b>user testing</b>, "5 users = 85%" is a <em>mean with huge variance</em>: random 5-user sets caught 55–99% (Faulkner 2003), and on a large open-task e-commerce site the first five caught only <b>~35%</b> (Spool &amp; Schroeder). Five is a floor for cheap iteration — test more on big, complex, open-ended sites.</p>
+      <div class="frag note solo"><div class="badge">% OF PROBLEMS FOUND</div><div class="screen"><div id="lr-testers"></div></div></div>
+      <p class="cite"><b>Evidence:</b> Nielsen &amp; Molich 1990 <b>[STRONG]</b>; Faulkner 2003 &amp; Spool &amp; Schroeder 2001 — "5 users = a guarantee" <b>[MYTH]</b>.</p>
+    </section>
+
+    <div class="sec">J · Why a web UI feels right — first impressions &amp; fluency</div>
+
+    <section class="demo">
+      <h3>29 · Front-load the first two words</h3>
+      <p class="why">A scanning eye fixates the <b>first ~2 words (~11 characters)</b> of a heading or link and skips the rest — so generic "click here / read more" is nearly invisible to a scanner (and to a screen-reader link list). Put the information-bearing word first.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ GENERIC · BACK-LOADED</div><div class="screen">
+          <ul class="linklist"><li><a>Click here</a> to see our pricing</li><li><a>Read more</a> about the API</li><li>Learn more <a>here</a> →</li></ul></div></div>
+        <div class="frag good"><div class="badge">✓ FRONT-LOADED</div><div class="screen">
+          <ul class="linklist"><li><a>Pricing &amp; plans</a></li><li><a>API reference</a></li><li><a>Security overview</a></li></ul></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> NN/g eye-tracking — fixations concentrate on the first words. <b>[STRONG-descriptive · CONVENTION prescriptive]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>30 · Fluency — the easier it reads, the more it's liked</h3>
+      <p class="why">A first impression forms in <b>17–50 ms</b> and barely changes with more time (Lindgaard 2006). The lever is <b>processing fluency</b>: high figure-ground <b>contrast</b>, clarity, convention and restraint make a screen easy to process, and the brain misreads that ease as "I like this" (Reber 2004). Same content, two levels of fluency:</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ DISFLUENT — low contrast, novel, ornate</div><div class="screen">
+          <div style="background:#d8d8d2;color:#a9a9a2;border-radius:6px;padding:14px;text-align:center">
+            <div style="letter-spacing:4px;font-size:10px;margin-bottom:12px">✦ · ◇ · ⌘ · ≡</div>
+            <div style="font-variant:small-caps;letter-spacing:2px;font-size:17px">wELcoME</div>
+            <div style="font-size:10px">to the experience platform solution</div>
+            <div style="margin-top:12px;font-size:15px">⟶</div></div></div></div>
+        <div class="frag good"><div class="badge">✓ FLUENT — clear, conventional, calm</div><div class="screen">
+          <div style="border:1px solid #e6e6e0;border-radius:6px;overflow:hidden">
+            <div class="topnav" style="padding:8px 10px"><span class="brand">Acme</span><a class="navlink">Product</a><a class="navlink">Pricing</a></div>
+            <div style="padding:12px"><div style="font-size:16px;font-weight:700;color:#16181d">Ship faster</div><div style="font-size:11px;color:#555;margin:3px 0 9px">One plain sentence saying what it does.</div><span class="ux-btn primary">Get started</span></div></div></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Reber, Schwarz &amp; Winkielman 2004; Lindgaard 2006. <b>[STRONG]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>31 · Simpler wins — visual complexity, not colourfulness</h3>
+      <p class="why">For websites the relationship is close to <b>monotonic: lower visual complexity → better first impression</b> (Berlyne's inverted-U does <em>not</em> apply to web UI; Tuch 2012, Reinecke 2013) — and <b>complexity drives appeal more than colourfulness</b>. The same hero, decluttered:</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ BUSY — competing elements</div><div class="screen">
+          <div style="border:1px solid #e6e6e0;border-radius:6px;padding:11px">
+            <div class="chips" style="margin-bottom:7px"><span class="chip on">New</span><span class="chip">v3.2</span><span class="chip">Sale</span><span class="chip">AI</span><span class="chip">Beta</span></div>
+            <div style="font-size:14px;font-weight:700;color:#16181d">The all-in-one platform for everything</div>
+            <div style="font-size:10px;color:#666;margin:3px 0 7px">Powerful. Flexible. Scalable. Intelligent. Trusted by teams everywhere, across every industry, worldwide.</div>
+            <span class="ux-btn primary">Start</span> <span class="ux-btn">Demo</span> <span class="ux-btn">Docs</span> <span class="ux-btn">Pricing</span></div></div></div>
+        <div class="frag good"><div class="badge">✓ SIMPLE — one message, one action</div><div class="screen">
+          <div style="border:1px solid #e6e6e0;border-radius:6px;padding:14px">
+            <div style="font-size:16px;font-weight:700;color:#16181d">Deploy in one command</div>
+            <div style="font-size:11px;color:#555;margin:4px 0 11px">Push to git; we build and ship it.</div>
+            <span class="ux-btn primary">Start free</span></div></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> Tuch et al. 2012; Reinecke et al. 2013. <b>[STRONG — best current evidence]</b></p>
+    </section>
+
+    <section class="demo">
+      <h3>32 · Follow the convention — prototypical layouts are preferred</h3>
+      <p class="why">People prefer <b>prototypical</b> layouts <em>because</em> they're easier to process (fluency mediates the link). Put things where they're expected — logo top-left, primary nav across the top, primary action top-right. <b>MAYA</b>: be novel only <em>within</em> a familiar frame, never by moving the furniture.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ NOVEL — furniture moved</div><div class="screen">
+          <div style="border:1px solid #e1e1db;border-radius:6px;overflow:hidden;font-size:8.5px;color:#67707a">
+            <div style="padding:13px 10px;text-align:center"><div style="font-weight:700;color:#16181d;font-size:11px">◆ Logo (centered)</div></div>
+            <div style="padding:10px;text-align:center">content first, no obvious primary action…</div>
+            <div style="display:flex;justify-content:center;gap:10px;padding:7px;border-top:1px solid #eee">Nav · Nav · Nav · Search</div></div></div></div>
+        <div class="frag good"><div class="badge">✓ CONVENTIONAL</div><div class="screen">
+          <div style="border:1px solid #e1e1db;border-radius:6px;overflow:hidden;font-size:8.5px;color:#67707a">
+            <div style="display:flex;align-items:center;padding:6px 8px;border-bottom:1px solid #eee"><span style="font-weight:700;color:#16181d;margin-right:auto">◆ Logo</span><span style="margin:0 6px">Nav</span><span style="margin:0 6px">Nav</span><span style="background:#16181d;color:#fff;border-radius:3px;padding:2px 7px">Sign up</span></div>
+            <div style="padding:16px 10px;text-align:center"><div style="font-size:12px;font-weight:700;color:#16181d">Headline</div><div style="margin:6px 0">subhead · one clear action below</div><span style="background:#1f4fa0;color:#fff;border-radius:3px;padding:3px 9px">Get started</span></div></div></div></div>
+      </div>
+      <p class="cite"><b>Evidence:</b> prototypicality-as-fluency (Hekkert; Reber 2004); MAYA. <b>[STRONG for products · CONVENTION for web]</b></p>
+    </section>
+
+    <div class="part">Part 5 · Putting it all together — whole pages</div>
+
+    <div class="sec">K · Whole pages — assembled from the good components</div>
+
+    <section class="demo">
+      <h3>33 · Five complete pages, each in a colour-skill palette</h3>
+      <p class="why">The components above, assembled into <b>entire pages</b> — a SaaS landing, an app dashboard, a docs page, an e-commerce category, and an editorial article. Each is styled with one of the established themes from the <code>graphical-perception-and-color</code> skill (its exact ground / ink / emphasis / link / alert tokens), and built from the evidence-backed moves: visible nav, one hero message + one primary action, front-loaded scannable headings, restraint, and a single reserved accent. <a href="pages.html" target="_blank" rel="noopener" style="font-weight:600">↗ Open full-screen</a></p>
+      <iframe src="pages.html" title="Full-page layout examples" loading="lazy" style="width:100%;height:82vh;border:1px solid #dcdcd6;border-radius:9px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06)"></iframe>
+    </section>
+
+  </main>
+  <script src="ux-gallery.js"></script>
+</body>
+</html>

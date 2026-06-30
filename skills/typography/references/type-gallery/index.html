@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typography — a visual reference</title>
+<!-- Demo faces; display=swap is itself the §7 advice. Everything degrades to a system stack offline. -->
+  <link rel="stylesheet" href="fonts.css">
+<style>
+  :root{
+    --bg:#efe7d6; --fg:#2f2624; --muted:#6f6657; --emph:#3a5a8e; --link:#0f4d40;
+    --info:#727f83; --warn:#855810; --sev:#9c2128; --rule:#d8d0c1; --panel:#e7dfcf;
+    --sys: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --inter:"Inter",var(--sys); --plex:"IBM Plex Sans",var(--sys);
+    --plexserif:"IBM Plex Serif",Georgia,serif; --plexmono:"IBM Plex Mono",ui-monospace,monospace;
+    --sourceserif:"Source Serif 4",Georgia,serif; --news:"Newsreader",Georgia,serif;
+    --lora:"Lora",Georgia,serif; --atkinson:"Atkinson Hyperlegible",var(--sys);
+    --jb:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--bg);color:var(--fg);margin:0;font-family:var(--inter);font-size:15px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  header{padding:30px 30px 10px;max-width:1080px;margin:0 auto;}
+  header h1{font-family:var(--news);font-weight:500;font-size:36px;letter-spacing:-.5px;margin:0 0 8px;}
+  header p{color:var(--muted);max-width:80ch;font-size:14.5px;margin:0;}
+  header .tags{margin-top:14px;font-size:12.5px;color:var(--muted);}
+  main{max-width:1080px;margin:0 auto;padding:6px 30px 80px;}
+  .part{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--sev);
+    margin:46px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--rule);}
+  .demo{border-top:1px solid var(--rule);padding:22px 0;}
+  .demo:first-of-type{border-top:none;}
+  .demo h3{font-size:16px;margin:0 0 5px;font-weight:600;}
+  .demo .why{color:var(--muted);font-size:13px;margin:0 0 14px;max-width:88ch;}
+  .demo .why b{color:var(--fg);}
+  .cite{color:#8d857a;font-size:11px;margin:14px 0 0;}
+  .cite b{color:var(--muted);}
+  .tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.4px;padding:1px 7px;border-radius:10px;margin-left:6px;vertical-align:1px;}
+  .tag.s{background:#e7efe7;color:#2c6e3f;} .tag.c{background:#efe7d2;color:#7a5a13;} .tag.m{background:#f3e0df;color:#9c2128;}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:760px){.pair{grid-template-columns:1fr;}}
+  .frag{border:1px solid var(--rule);border-radius:9px;overflow:hidden;background:#fbf8f1;}
+  .frag .badge{font-size:10px;font-weight:700;letter-spacing:.3px;padding:5px 11px;}
+  .frag.bad .badge{background:#f3e0df;color:#9c2128;} .frag.good .badge{background:#e7efe7;color:#2c6e3f;}
+  .frag.note .badge{background:var(--panel);color:var(--muted);}
+  .frag .body{padding:15px 16px;}
+  .specimen{padding:16px;border:1px solid var(--rule);border-radius:9px;background:#fbf8f1;}
+  .lbl{font-size:11px;color:var(--muted);font-family:var(--plexmono);margin-bottom:6px;}
+  .big{font-size:40px;line-height:1.05;letter-spacing:-.4px;margin:2px 0;}
+  .row{display:flex;gap:22px;flex-wrap:wrap;align-items:baseline;}
+  .prose{font-size:15px;line-height:1.6;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);
+    padding:6px 10px;border-bottom:1px solid var(--rule);font-weight:600;}
+  td{padding:7px 10px;border-bottom:1px solid #efe9dc;}
+  .num{text-align:right;}
+  .tnum{font-variant-numeric:tabular-nums lining-nums;}
+  .pnum{font-variant-numeric:proportional-nums lining-nums;}
+  .onum{font-variant-numeric:oldstyle-nums proportional-nums;}
+  .swatchgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+  .scard{border:1px solid var(--rule);border-radius:9px;background:#fbf8f1;padding:14px 15px;}
+  .scard .nm{font-size:12px;font-family:var(--plexmono);color:var(--emph);margin-bottom:6px;}
+  .scard .sample{font-size:24px;line-height:1.1;margin-bottom:3px;}
+  .scard .role{font-size:11.5px;color:var(--muted);}
+  .ui-mock{border:1px solid var(--rule);border-radius:9px;overflow:hidden;}
+  .ui-mock .top{background:var(--fg);color:var(--bg);padding:9px 13px;font-size:13px;font-weight:600;}
+  .ui-mock .content{padding:14px;}
+  .ramp > div{margin:3px 0;}
+  .scalerow{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid #efe9dc;padding:5px 0;}
+  .scalerow .meta{font-family:var(--plexmono);font-size:10px;color:var(--muted);min-width:96px;}
+  .keyline{border-left:3px solid var(--emph);padding-left:14px;}
+  .a11ybox{border:1px dashed var(--info);border-radius:8px;padding:12px 14px;background:#fbf8f1;font-size:13.5px;}
+  code{font-family:var(--plexmono);font-size:.88em;background:var(--panel);border-radius:4px;padding:1px 5px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Typography — a visual reference</h1>
+  <p>See-it-on-screen demonstrations of the type decisions behind this skill: what controlled research
+  proves, what is established convention from named authorities, and what is myth. Set in the
+  <code>graphical-perception-and-color</code> skill's Corbusier-Light palette; headings in Newsreader,
+  text in Inter, data in IBM Plex — a deliberate three-voice pairing (§4).</p>
+  <p class="tags"><span class="tag s">STRONG</span> controlled study / standard &nbsp;
+  <span class="tag c">CONVENTION</span> named-authority best practice &nbsp;
+  <span class="tag m">MYTH</span> the evidence contradicts it</p>
+</header>
+<main>
+
+  <div class="part">Part 1 · Legibility — proven vs myth</div>
+
+  <section class="demo">
+    <h3>1 · Serif vs sans — no inherent reading advantage <span class="tag s">STRONG</span><span class="tag m">MYTH: "serif reads better"</span></h3>
+    <p class="why">Under matched conditions, fonts that differ only in serifs show <b>no</b> legibility or reading-speed difference (Arditi &amp; Cho 2005; Times and Helvetica are "interchangeable", Daxer 2022). The same paragraph below reads equally well either way — so choose serif or sans for <b>voice</b>, not for "readability".</p>
+    <div class="pair">
+      <div class="frag note"><div class="badge">SERIF — Source Serif</div><div class="body"><p class="prose" style="font-family:var(--sourceserif)">A standard is a promise. The number on the tag stayed put; the tape measure did not. No single decision broke it — the absence of anyone defending it did.</p></div></div>
+      <div class="frag note"><div class="badge">SANS — Inter</div><div class="body"><p class="prose" style="font-family:var(--inter)">A standard is a promise. The number on the tag stayed put; the tape measure did not. No single decision broke it — the absence of anyone defending it did.</p></div></div>
+    </div>
+    <p class="cite"><b>Source:</b> Arditi &amp; Cho 2005 (Vision Research); Daxer 2022. <i>Pick by tone; set it legibly.</i></p>
+  </section>
+
+  <section class="demo">
+    <h3>2 · Preference ≠ reading speed <span class="tag s">STRONG</span></h3>
+    <p class="why">Within one person, reading speed varies ~<b>35%</b> across fonts with no comprehension loss, and which font someone <em>prefers</em> correlates near-zero with how fast they read it (r≈−0.13; Wallace et al., TOCHI 2022). "This one looks fresher / feels nicer" is a real signal about <b>taste</b> — not a claim about performance. Label it as such.</p>
+    <div class="specimen keyline">"Looks better" and "reads faster" are different measurements. This skill keeps them separate: legibility levers (size, x-height, spacing, contrast, hierarchy) are proven; the choice of voice is taste, chosen on top of a legible setting.</div>
+    <p class="cite"><b>Source:</b> Wallace et al. 2022 (ACM TOCHI); Rello &amp; Baeza-Yates 2016.</p>
+  </section>
+
+  <section class="demo">
+    <h3>3 · ALL-CAPS and wide tracking don't help body text <span class="tag s">STRONG against</span></h3>
+    <p class="why"><b>ALL-CAPS</b> only helps at tiny / low-vision sizes (the letters are physically bigger); at body size the advantage vanishes (Arditi &amp; Cho 2007). <b>Wide letter-spacing</b> speeds single-word recognition but gives no words-per-minute gain and can <em>slow</em> skilled readers (Korinth 2020). Both hurt a paragraph.</p>
+    <div class="pair">
+      <div class="frag bad"><div class="badge">✗ ALL-CAPS + LOOSE TRACKING</div><div class="body"><p class="prose" style="text-transform:uppercase;letter-spacing:.12em">A standard is a promise. The number on the tag stayed put; the tape measure did not. No single decision broke it.</p></div></div>
+      <div class="frag good"><div class="badge">✓ SENTENCE CASE, NORMAL TRACKING</div><div class="body"><p class="prose">A standard is a promise. The number on the tag stayed put; the tape measure did not. No single decision broke it.</p></div></div>
+    </div>
+    <p class="cite"><b>Source:</b> Arditi &amp; Cho 2007; Korinth, Gerstenberger &amp; Fiebach 2020. Caps/tracking are for short labels &amp; display, not prose.</p>
+  </section>
+
+  <div class="part">Part 2 · Size, measure &amp; leading</div>
+
+  <section class="demo">
+    <h3>4 · x-height, not point size, is the legibility metric <span class="tag s">STRONG</span></h3>
+    <p class="why">The x-height fraction ranges 0.28–0.58 of body size across faces (mean 0.46; Karow) — so two fonts at the <em>same</em> px can differ ~2× in actual letter height. Both lines below are <b>28px</b>; the taller x-height reads bigger and clearer at a glance. Judge size by x-height, and prefer high-x-height faces for UI, body and data.</p>
+    <div class="row specimen">
+      <div><div class="lbl">28px · high x-height (Inter)</div><div class="big" style="font-family:var(--inter);font-size:28px">Handgloves x</div></div>
+      <div><div class="lbl">28px · low x-height (Lora)</div><div class="big" style="font-family:var(--lora);font-size:28px">Handgloves x</div></div>
+    </div>
+    <p class="cite"><b>Source:</b> Karow 1993; Legge &amp; Bigelow 2011. Critical print size ≈ 0.2° x-height (~9pt at 40cm); a broad "fluent range" above it where bigger buys comfort, not speed.</p>
+  </section>
+
+  <section class="demo">
+    <h3>5 · Measure — keep lines ~45–75 characters <span class="tag s">long-line harm</span><span class="tag c">the 66 target</span></h3>
+    <p class="why">Very long lines (~100 characters) measurably <b>hurt comprehension</b> vs ~55 (Dyson &amp; Haselgrove 2001). The ~45–75 / "66" target is Bringhurst convention and the literature is mixed — so treat it as a sane band. The eye loses the start of the next line when the measure runs too wide.</p>
+    <div class="frag bad"><div class="badge">✗ ~110 CHARACTERS — too wide</div><div class="body"><p class="prose" style="max-width:none">A garment labelled "size 8" has quietly grown for decades, and the story of that drift is, in miniature, the story of how a standard erodes when no one in particular is accountable for keeping it honest over time.</p></div></div>
+    <div class="frag good" style="margin-top:14px"><div class="badge">✓ ~62 CHARACTERS — comfortable</div><div class="body"><p class="prose" style="max-width:62ch">A garment labelled "size 8" has quietly grown for decades, and the story of that drift is, in miniature, the story of how a standard erodes when no one in particular is accountable for keeping it honest over time.</p></div></div>
+    <p class="cite"><b>Source:</b> Dyson &amp; Haselgrove 2001 (IJHCS); Bringhurst (convention). WCAG 1.4.8 (AAA) caps measure at 80.</p>
+  </section>
+
+  <section class="demo">
+    <h3>6 · Leading — ~1.4–1.6× for prose <span class="tag c">CONVENTION</span><span class="tag s">WCAG 1.4.12</span></h3>
+    <p class="why">Lines set too tight crowd vertically and the eye loses its place; comfortable leading (~1.4–1.6× the body size) lets each line breathe. WCAG 1.4.12 also requires text to survive a user setting line-height to <b>1.5×</b> without breaking.</p>
+    <div class="pair">
+      <div class="frag bad"><div class="badge">✗ line-height 1.05 — cramped</div><div class="body"><p class="prose" style="line-height:1.05;max-width:42ch">Each individual adjustment was defensible. A label nudged half a centimetre to flatter; a competitor matched; a decade passed. No single decision broke the standard.</p></div></div>
+      <div class="frag good"><div class="badge">✓ line-height 1.55 — comfortable</div><div class="body"><p class="prose" style="line-height:1.55;max-width:42ch">Each individual adjustment was defensible. A label nudged half a centimetre to flatter; a competitor matched; a decade passed. No single decision broke the standard.</p></div></div>
+    </div>
+    <p class="cite"><b>Source:</b> Material 3 (1.5× body heuristic); W3C WCAG 2.2 SC 1.4.12. Tighter for big display, looser for small/long measure.</p>
+  </section>
+
+  <div class="part">Part 3 · Scale &amp; hierarchy</div>
+
+  <section class="demo">
+    <h3>7 · Clear hierarchy aids scanning AND recall <span class="tag s">STRONG</span></h3>
+    <p class="why">Hierarchy isn't just looks. Eye-tracking shows the "layer-cake" scan (gaze rides headings) is the <b>most effective</b> scanning mode (NN/g), and controlled reading studies show <b>headings raise recall</b> and memory of topic structure (Lorch; Hyönä). A flat wall of text tends to push readers into the less-efficient F-pattern (NN/g).</p>
+    <div class="pair">
+      <div class="frag bad"><div class="badge">✗ FLAT — one size, no signposts</div><div class="body"><div class="prose" style="font-size:13px;max-width:46ch"><b>Deploying.</b> Every push creates a deployment. Promoting to production. Promote by merging or with one command. Rollbacks. Any previous deploy can be restored instantly. Build cache. Dependencies are cached between builds.</div></div></div>
+      <div class="frag good"><div class="badge">✓ HIERARCHY — scannable headings</div><div class="body"><div style="max-width:46ch">
+        <div style="font-family:var(--news);font-size:18px;font-weight:500;margin-bottom:2px">Deploying</div>
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:9px">Every push creates a deployment.</div>
+        <div style="font-weight:600;font-size:13px">Promoting to production</div>
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:7px">Merge or run one command.</div>
+        <div style="font-weight:600;font-size:13px">Rollbacks</div>
+        <div style="font-size:12.5px;color:var(--muted)">Restore any previous deploy instantly.</div>
+      </div></div></div>
+    </div>
+    <p class="cite"><b>Source:</b> NN/g layer-cake eye-tracking; Lorch &amp; Lorch; Hyönä &amp; Lorch. <i>Emphasis is contrastive — mark the few things that matter; if everything's bold, nothing is.</i></p>
+  </section>
+
+  <section class="demo">
+    <h3>8 · A type scale is for consistency, not because a ratio is "correct" <span class="tag c">CONVENTION</span></h3>
+    <p class="why">Modular scales (a constant ratio between steps) are a useful <b>consistency</b> tool but not evidence-based — major systems (Material 3, IBM Carbon) deliberately use <b>non-constant</b> ramps. Use a scale to keep sizes in a tidy set; build hierarchy first with <b>size, weight, space and colour</b> within one family.</p>
+    <div class="specimen">
+      <div class="scalerow"><span class="meta">display · 40/600</span><span style="font-family:var(--news);font-size:40px;font-weight:500;line-height:1">Headline</span></div>
+      <div class="scalerow"><span class="meta">title · 22/600</span><span style="font-size:22px;font-weight:600">Section title</span></div>
+      <div class="scalerow"><span class="meta">body · 15/400</span><span style="font-size:15px">Body text, the anchor of the system.</span></div>
+      <div class="scalerow"><span class="meta">label · 12/600 caps</span><span style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Label</span></div>
+    </div>
+    <p class="cite"><b>Source:</b> Material 3 type scale; IBM Carbon (additive, non-geometric); Tim Brown (Modular Scale tool — a tool, not a proof).</p>
+  </section>
+
+  <div class="part">Part 4 · Pairing &amp; functional differentiation</div>
+
+  <section class="demo">
+    <h3>9 · Pair by contrast, not near-sameness <span class="tag c">CONVENTION — Lupton</span></h3>
+    <p class="why">Two faces that are clearly different read as <b>intentional</b>; two that are almost-but-not-quite the same <b>clash</b> ("too close for comfort" — Lupton). Below: two similar humanist sans fight; a clear serif + sans contrast reads as a deliberate pairing.</p>
+    <div class="pair">
+      <div class="frag bad"><div class="badge">✗ TOO SIMILAR — Inter heading + Plex Sans body</div><div class="body"><div style="font-family:var(--inter);font-size:19px;font-weight:600">A standard is a promise</div><div style="font-family:var(--plex);font-size:13.5px;color:var(--muted);margin-top:3px">Two near-identical sans — looks like a mistake, not a choice.</div></div></div>
+      <div class="frag good"><div class="badge">✓ CLEAR CONTRAST — Newsreader heading + Inter body</div><div class="body"><div style="font-family:var(--news);font-size:21px;font-weight:500">A standard is a promise</div><div style="font-family:var(--inter);font-size:13.5px;color:var(--muted);margin-top:3px">Serif voice + sans text — obviously deliberate.</div></div></div>
+    </div>
+    <p class="cite"><b>Source:</b> Ellen Lupton, <i>Thinking with Type</i>; Tim Brown (compatibility ≠ similarity).</p>
+  </section>
+
+  <section class="demo">
+    <h3>10 · One family is often enough — emphasis within it first <span class="tag c">CONVENTION — Tim Brown</span></h3>
+    <p class="why">Before reaching for a second typeface, exhaust <b>weight, size, space, case and colour</b> in one good family. A single family (here IBM Plex Sans) carries a full hierarchy on its own — Brown's rule: pick the <b>body face as the anchor</b> first, since text faces survive every size.</p>
+    <div class="specimen" style="font-family:var(--plex)">
+      <div style="font-size:22px;font-weight:700;margin-bottom:2px">Bold weight = primary heading</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:2px">Semibold = subheading</div>
+      <div style="font-size:14px">Regular = body text, the anchor of the whole system.</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.5px">Caps + muted = metadata</div>
+      <div style="font-size:14px;margin-top:3px">One emphasised phrase uses <span style="color:var(--emph);font-weight:600">the reserved accent</span>.</div>
+    </div>
+    <p class="cite"><b>Source:</b> Tim Brown, <i>A Pocket Guide to Combining Typefaces</i>. <i>Two typefaces is usually plenty; rarely more than three.</i></p>
+  </section>
+
+  <section class="demo">
+    <h3>11 · Functional differentiation — type as a signal of content type <span class="tag c">CONVENTION</span></h3>
+    <p class="why">A change of face can <b>communicate "this is a different kind of thing"</b>: a quiet sans for UI, a voice face for editorial headings, monospace for code and aligned data, tabular figures for numbers. The mock below is a true <b>superfamily</b> — IBM Plex <b>Serif</b> heading, Plex <b>Sans</b> body/UI/table, Plex <b>Mono</b> code — one type system giving all that contrast with guaranteed harmony, the lowest-risk way to use multiple faces.</p>
+    <div class="ui-mock">
+      <div class="top" style="font-family:var(--plex)">⌘ Console · deployments</div>
+      <div class="content">
+        <div style="font-family:var(--plexserif);font-size:20px;font-weight:500;margin-bottom:2px">Build &amp; ship, explained</div>
+        <div style="font-family:var(--plex);font-size:13.5px;color:var(--muted);max-width:60ch;margin-bottom:10px">Editorial heading in the Plex serif voice; this running explanation is set in Plex Sans for comfortable reading — same type system, different job.</div>
+        <div style="font-family:var(--plexmono);font-size:12.5px;background:var(--panel);border-radius:6px;padding:9px 11px;margin-bottom:10px">$ atlas deploy <span style="color:var(--emph)">--prod</span><br><span style="color:var(--muted)"># → https://atlas-7f3a.app</span></div>
+        <table class="tnum" style="font-family:var(--plex)"><thead><tr><th>Run</th><th class="num">AUC</th><th class="num">Duration</th></tr></thead>
+        <tbody><tr><td>#4821</td><td class="num">0.912</td><td class="num">14m</td></tr><tr><td>#4820</td><td class="num">0.905</td><td class="num">13m</td></tr><tr><td>#4819</td><td class="num">0.881</td><td class="num">22m</td></tr></tbody></table>
+      </div>
+    </div>
+    <p class="cite"><b>Source:</b> Tim Brown (functional differentiation); IBM Plex superfamily / Carbon. Serif = voice · sans = UI/body · mono = code &amp; data.</p>
+  </section>
+
+  <section class="demo">
+    <h3>12 · Recommended faces — fresh, screen-readable, data-ready <span class="tag c">CONVENTION / taste</span></h3>
+    <p class="why">Safe modern defaults that read well small and ship real tabular figures + a slashed zero, so they compose with the colour palettes and Tufte charts. Personality is taste — choose on top of a legible setting.</p>
+    <div class="swatchgrid">
+      <div class="scard"><div class="nm">Inter</div><div class="sample" style="font-family:var(--inter)">Handgloves 0123</div><div class="role">One-face default · UI &amp; body · tall x-height, tabular nums</div></div>
+      <div class="scard"><div class="nm">IBM Plex Sans</div><div class="sample" style="font-family:var(--plex)">Handgloves 0123</div><div class="role">Superfamily anchor · data UIs (Carbon)</div></div>
+      <div class="scard"><div class="nm">Source Serif 4</div><div class="sample" style="font-family:var(--sourceserif)">Handgloves 0123</div><div class="role">Editorial body/display serif · pairs with Source Sans</div></div>
+      <div class="scard"><div class="nm">Newsreader</div><div class="sample" style="font-family:var(--news)">Handgloves 0123</div><div class="role">Editorial heading voice · sits on a sans body</div></div>
+      <div class="scard"><div class="nm">Atkinson Hyperlegible</div><div class="sample" style="font-family:var(--atkinson)">Handgloves 0123</div><div class="role">Maximum letterform disambiguation</div></div>
+      <div class="scard"><div class="nm">JetBrains Mono</div><div class="sample" style="font-family:var(--jb)">Handgloves 0123</div><div class="role">Code &amp; strict alignment · "this is data"</div></div>
+      <div class="scard"><div class="nm">IBM Plex Mono</div><div class="sample" style="font-family:var(--plexmono)">Handgloves 0123</div><div class="role">Mono member of the Plex superfamily</div></div>
+      <div class="scard"><div class="nm">system-ui stack</div><div class="sample" style="font-family:var(--sys)">Handgloves 0123</div><div class="role">Zero-latency UI default · native rendering</div></div>
+    </div>
+    <p class="cite"><b>Source:</b> rsms/inter; IBM Plex/Carbon; Adobe Source; Braille Institute (Atkinson Hyperlegible). All free/open.</p>
+  </section>
+
+  <div class="part">Part 5 · Data typography (composes with charting)</div>
+
+  <section class="demo">
+    <h3>13 · Tabular lining figures for any column of numbers <span class="tag c">CONVENTION</span><span class="tag s">+ mechanical fact</span></h3>
+    <p class="why">In a number column, <b>tabular</b> figures (every digit the same width, <code>tabular-nums</code>) align vertically so the eye scans magnitude instantly; <b>proportional</b> figures (varying widths) wobble and break the column. Old-style figures (with descenders) are for running prose, not tables. Same numbers below, three settings:</p>
+    <div class="pair">
+      <div class="frag bad"><div class="badge">✗ PROPORTIONAL — misaligned column</div><div class="body"><table class="pnum" style="font-family:var(--inter)"><thead><tr><th>Account</th><th class="num">Balance</th></tr></thead><tbody><tr><td>Operating</td><td class="num">$1,141,090</td></tr><tr><td>Reserve</td><td class="num">$98,300</td></tr><tr><td>Payroll</td><td class="num">$1,011,777</td></tr><tr><td>Petty</td><td class="num">$4,182</td></tr></tbody></table></div></div>
+      <div class="frag good"><div class="badge">✓ TABULAR LINING — digits align</div><div class="body"><table class="tnum" style="font-family:var(--inter)"><thead><tr><th>Account</th><th class="num">Balance</th></tr></thead><tbody><tr><td>Operating</td><td class="num">$1,141,090</td></tr><tr><td>Reserve</td><td class="num">$98,300</td></tr><tr><td>Payroll</td><td class="num">$1,011,777</td></tr><tr><td>Petty</td><td class="num">$4,182</td></tr></tbody></table></div></div>
+    </div>
+    <div class="specimen" style="margin-top:14px"><div class="lbl">old-style figures (onum) — for running prose, where they sit like lowercase letters</div><p class="prose onum" style="font-family:var(--sourceserif);font-size:15px;margin:0;max-width:64ch">In 1botanical surveys from 1847 to 1903, all 270 specimens were re-measured at least 12 times — the descending 3, 4, 7, 9 blend into the text instead of standing apart as a column would want.</p></div>
+    <p class="cite"><b>Source:</b> MDN <code>font-variant-numeric</code>; OpenType spec. <code>tabular-nums</code> for tables/axes/dashboards; <code>oldstyle-nums</code> only in prose (above).</p>
+  </section>
+
+  <section class="demo">
+    <h3>14 · Small-size legibility — open apertures, disambiguated digits, ≥14px charts <span class="tag s">STRONG</span><span class="tag c">ONS 14px</span></h3>
+    <p class="why">Chart and table text is small and read at a glance, where <b>letter recognition is the bottleneck</b> (Legge). <b>Open apertures</b> measurably raise glance recognition (Beier &amp; Oderkerk 2021), and a <b>slashed zero / distinct 1·l·I</b> prevents misreads. Keep chart text ≥<b>14px</b> (ONS; 12px only in small multiples) and direct-label over legends.</p>
+    <div class="row specimen">
+      <div><div class="lbl">disambiguation: 0 O o · 1 l I · 5 S · rn m</div><div style="font-family:var(--plexmono);font-size:24px;letter-spacing:1px">0 O o &nbsp; 1 l I &nbsp; 5 S &nbsp; rn m</div></div>
+      <div><div class="lbl">Atkinson Hyperlegible — built to disambiguate</div><div style="font-family:var(--atkinson);font-size:24px;letter-spacing:1px">0 O o &nbsp; 1 l I &nbsp; 5 S &nbsp; rn m</div></div>
+    </div>
+    <p class="cite"><b>Source:</b> Legge &amp; Bigelow 2011; Beier &amp; Oderkerk 2022 (Applied Ergonomics); ONS Service Manual; IBM Carbon (direct labels).</p>
+  </section>
+
+  <div class="part">Part 6 · Cognitive load &amp; the disfluency myth</div>
+
+  <section class="demo">
+    <h3>15 · Effortless reading lowers load — don't degrade type to "help" <span class="tag s">STRONG</span><span class="tag m">MYTH: "ugly fonts aid memory"</span></h3>
+    <p class="why">Easy-to-process text (legible, conventional, well-spaced, high-contrast) lowers reading effort and even reads as more likeable (fluency). The famous claim that <b>harder-to-read fonts improve memory</b> came from a tiny study (n=28) and <b>failed to replicate</b> at scale — Sans Forgetica showed no benefit across ~300 people and a 1-week test. Don't make type harder to read; spend the proven levers.</p>
+    <div class="pair">
+      <div class="frag bad"><div class="badge">✗ DISFLUENT — low contrast, small, tight</div><div class="body"><p class="prose" style="color:#a99f8f;font-size:12px;line-height:1.15;letter-spacing:-.3px">Each individual adjustment was defensible. A label nudged half a centimetre to flatter; a competitor matched; a decade passed. No single decision broke the standard.</p></div></div>
+      <div class="frag good"><div class="badge">✓ FLUENT — clear, conventional, spaced</div><div class="body"><p class="prose" style="font-size:14px;line-height:1.6">Each individual adjustment was defensible. A label nudged half a centimetre to flatter; a competitor matched; a decade passed. No single decision broke the standard.</p></div></div>
+    </div>
+    <p class="cite"><b>Source:</b> disfluency replication failures — Huff &amp; Maxwell 2022 (~300 participants); Taylor et al.; review Thiessen, Beier &amp; Keage 2020. Genuine desirable difficulties (self-testing) work; disfluent type does not.</p>
+  </section>
+
+  <div class="part">Part 7 · Accessibility of type</div>
+
+  <section class="demo">
+    <h3>16 · Respect the user's spacing &amp; size <span class="tag s">WCAG 2.2 AA</span></h3>
+    <p class="why">Build so users can override type without breakage. Set sizes in <code>rem</code>/<code>em</code> (not <code>px</code>), never disable zoom, and don't justify body text.</p>
+    <div class="a11ybox">
+      <b>1.4.12 Text Spacing</b> — survive line-height <b>1.5×</b>, paragraph <b>2×</b> font size, letter <b>0.12em</b>, word <b>0.16em</b>.<br>
+      <b>1.4.4 Resize Text</b> — usable at <b>200%</b> zoom.<br>
+      <b>1.4.10 Reflow</b> — no 2-D scrolling down to <b>320 CSS px</b> (≡ 1280px @ 400%).<br>
+      <b>1.4.8 (AAA)</b> — measure ≤ 80 chars, leading ≥ 1.5×, not justified.
+    </div>
+    <p class="cite"><b>Source:</b> W3C WCAG 2.2 Understanding docs (1.4.4 / 1.4.8 / 1.4.10 / 1.4.12). Contrast itself lives in <code>graphical-perception-and-color</code>.</p>
+  </section>
+
+  <section class="demo">
+    <h3>17 · "Dyslexia-friendly fonts" don't help — plain sans + spacing does <span class="tag m">MYTH</span></h3>
+    <p class="why">Controlled studies find <b>no</b> reading benefit from OpenDyslexic/Dyslexie — often they read <b>worse</b> than Arial/Verdana (Wery &amp; Diliberto 2017; Rello &amp; Baeza-Yates 2016). The British Dyslexia Association's own guidance recommends <b>plain sans-serif</b> and never names a special font. What actually helps dyslexic <em>and</em> low-vision readers is the same proven set: larger size, generous spacing, shorter measure, good contrast, left-aligned.</p>
+    <div class="frag good solo"><div class="badge">✓ WHAT HELPS — for everyone</div><div class="body"><p class="prose" style="font-size:15px;line-height:1.7;max-width:54ch;letter-spacing:.01em">Larger size · generous line &amp; letter spacing · a shorter measure · good contrast · left-aligned, ragged right. Doubling line/word spacing raised low-vision reading speed ~26–46% and more than halved errors.</p></div></div>
+    <p class="cite"><b>Source:</b> Wery &amp; Diliberto 2017; Rello &amp; Baeza-Yates 2016; British Dyslexia Association style guide; Blackmore-Wright 2013 (PLoS ONE).</p>
+  </section>
+
+  <div class="part">Part 8 · Font kits — up to 3 faces that work together, in full pages</div>
+
+  <section class="demo">
+    <h3>18 · The default — the Modernist kit (3 fonts) on Corbusier <span class="tag c">RECOMMENDED DEFAULT</span></h3>
+    <p class="why"><b>The lean for any open brief — beauty-forward.</b> <b>Bricolage Grotesque</b> (headings) · <b>Plus Jakarta Sans</b> (body/UI/labels) · <b>IBM Plex Mono</b> (numbers/data), on the three <b>Corbusier themes</b>. Chosen to be genuinely beautiful — a contemporary grotesque in the modernist (Corbusier) lineage, <b>not dated</b> — while staying data-honest (Plex Mono tabular figures, Tufte). Shown doing <b>both jobs</b>: a beautiful editorial/brand page and a Tufte data page. <a href="default-modernist.html" target="_blank" rel="noopener" style="font-weight:600">↗ Open full-screen</a></p>
+    <iframe src="default-modernist.html" title="The default — Modernist kit" loading="lazy" style="width:100%;height:84vh;border:1px solid var(--rule);border-radius:9px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06)"></iframe>
+    <p class="cite"><b>Why this kit:</b> modernist grotesque (Corbusier lineage), restrained &amp; data-honest (Tufte), current not dated, beautiful. <i>Beauty is taste — set on a legible, data-honest foundation.</i> Easy swaps: Instrument Serif (elegant) / Fraunces (warm) / Space Grotesk (geometric) display; body &amp; data unchanged.</p>
+  </section>
+
+  <section class="demo">
+    <h3>19 · Dense data — PM, program &amp; quant, in the modernist kit <span class="tag c">composing under load</span></h3>
+    <p class="why">The hardest test: <b>compact many-column tables, program/project management dashboards &amp; lists, and quant data science</b> — all in the default kit, on Corbusier grounds. A program portfolio (dense 9-column table + milestone Gantt), a compact project task list (8 columns, dense rows), and a quant strategy (an <b>11-column</b> returns/risk table, range-frame equity curve, factor exposures, correlation matrix). The discipline that makes it legible: <b>Plex Mono tabular numerals</b> (every digit one width → columns align), small-but-readable sizing, quiet labels, right-aligned numbers, status by colour <em>and</em> glyph. <a href="data-dense.html" target="_blank" rel="noopener" style="font-weight:600">↗ Open full-screen</a></p>
+    <iframe src="data-dense.html" title="Dense data — PM, program, quant" loading="lazy" style="width:100%;height:84vh;border:1px solid var(--rule);border-radius:9px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06)"></iframe>
+    <p class="cite"><b>Same kit, different job.</b> Dense data lives on tabular figures + restraint — the typography skill doing its part while <code>graphical-perception-and-color</code>, <code>charting</code> and <code>interface-ux-and-layout</code> do theirs.</p>
+  </section>
+
+  <section class="demo">
+    <h3>20 · Five more kits for other registers — complete sample pages <span class="tag c">CONVENTION / taste</span></h3>
+    <p class="why">The principles above, assembled into <b>named kits</b> — one to three screen-readable, free typefaces that pair well — each shown as a <b>whole page</b> in a colour-skill palette, with the job each face does (display / body / UI / mono): <b>Plex superfamily</b> (technical), <b>Newsreader + Inter</b> (editorial), <b>Fraunces + Inter</b> (premium), <b>Space Grotesk + Inter + JetBrains Mono</b> (startup), and <b>Inter alone</b> (one family is often enough) — then a sixth page where type does real work <b>inside Tufte charts &amp; tables</b> (range-frame line, Cleveland dot plot, sparklines, bullet graph): tabular figures, ≥14px quiet labels, one reserved accent, status by icon + word — the four skills composing. <a href="pages.html" target="_blank" rel="noopener" style="font-weight:600">↗ Open full-screen</a></p>
+    <iframe src="pages.html" title="Font-kit sample pages" loading="lazy" style="width:100%;height:84vh;border:1px solid var(--rule);border-radius:9px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06)"></iframe>
+    <p class="cite"><b>Pair by contrast, body face is the anchor, fewest faces that do the job</b> (Tim Brown; Lupton). Every kit is free/open and ships tabular figures so it composes with the colour and charting skills.</p>
+  </section>
+
+  <section class="demo">
+    <h3>21 · Sleek &amp; beautiful — art-director kits a designer would be proud of <span class="tag c">TASTE · beauty-forward</span></h3>
+    <p class="why">When the brief is <b>brand, editorial, or art</b> rather than a dashboard — beauty-forward kits in genuinely modern, free faces on the Corbusier grounds: an <b>exhibition</b> (Instrument Serif + Plus Jakarta Sans), a <b>design studio</b> (Bricolage Grotesque + Inter), and an <b>editorial journal</b> (Fraunces + Plus Jakarta Sans). Big confident display type, generous whitespace, refined detail — the legibility rules still hold underneath (quiet body, breathing measure, tabular figures in the works index). <a href="sleek.html" target="_blank" rel="noopener" style="font-weight:600">↗ Open full-screen</a></p>
+    <iframe src="sleek.html" title="Sleek & beautiful art-director kits" loading="lazy" style="width:100%;height:84vh;border:1px solid var(--rule);border-radius:9px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06)"></iframe>
+    <p class="cite"><b>Beauty is taste — set on a legible foundation.</b> High-contrast display serifs (Instrument Serif, Fraunces) and characterful grotesques (Bricolage) for voice; a quiet sans for reading; mono for labels. The <code>charting</code> data forms still defer to <code>graphical-perception-and-color</code> for the palette.</p>
+  </section>
+
+</main>
+</body>
+</html>

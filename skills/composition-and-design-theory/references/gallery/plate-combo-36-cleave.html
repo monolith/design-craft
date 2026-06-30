@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>The Cleave</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;position:relative;overflow:hidden;
+    font-family:'Space Grotesk',sans-serif;background:#ece7da}
+  svg{position:absolute;inset:0}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:16px;letter-spacing:.24em;
+    text-transform:uppercase;color:#16140d;z-index:3}
+  .name{position:absolute;top:64px;right:96px;font-weight:600;font-size:16px;letter-spacing:.24em;
+    text-transform:uppercase;color:#d8412a;z-index:3}
+  .tag{position:absolute;bottom:172px;right:96px;text-align:right;font-weight:600;font-size:14px;
+    letter-spacing:.24em;text-transform:uppercase;color:rgba(239,231,212,.55);z-index:3}
+  .cap{position:absolute;bottom:62px;right:96px;width:660px;text-align:right;font-family:'Inter',sans-serif;
+    font-size:20px;line-height:1.45;color:#cfc6b3;z-index:3}
+  .cap b{color:#d8412a;font-weight:600}
+</style></head>
+<body><div class="plate">
+  <svg viewBox="0 0 1920 1080">
+    <defs>
+      <clipPath id="ul"><polygon points="0,0 1440,0 480,1080 0,1080"/></clipPath>
+      <clipPath id="lr"><polygon points="1440,0 1920,0 1920,1080 480,1080"/></clipPath>
+    </defs>
+    <polygon points="0,0 1440,0 480,1080 0,1080" fill="#ece7da"/>
+    <polygon points="1440,0 1920,0 1920,1080 480,1080" fill="#141310"/>
+    <g clip-path="url(#ul)"><circle cx="960" cy="540" r="300" fill="#16140d"/></g>
+    <g clip-path="url(#lr)"><circle cx="960" cy="540" r="300" fill="#ece7da"/></g>
+    <line x1="1440" y1="0" x2="480" y2="1080" stroke="#d8412a" stroke-width="3"/>
+  </svg>
+  <div class="lab">Composition № 36</div>
+  <div class="name">The Cleave</div>
+  <div class="cap"><b>One diagonal splits the field in two.</b> The disc is dark figure on the light side and light figure on the dark — figure becomes ground across the blade.</div>
+  <div class="tag">Juxtaposition · Diagonal ✗ Figure-ground</div>
+</div></body></html>

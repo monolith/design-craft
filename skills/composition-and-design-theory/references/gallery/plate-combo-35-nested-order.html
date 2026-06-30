@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- size: 1920x1080 -->
+<title>Nested Order</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  html,body{margin:0;padding:0}
+  .plate{box-sizing:border-box;width:1920px;height:1080px;background:#f0ece1;color:#16140d;
+    font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden}
+  .lab{position:absolute;top:64px;left:96px;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+  .name{position:absolute;top:64px;right:96px;font-weight:600;font-size:16px;letter-spacing:.24em;
+    text-transform:uppercase;color:#d8412a}
+  .tag{position:absolute;bottom:120px;left:96px;font-weight:600;font-size:14px;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(22,20,13,.5)}
+  .cap{position:absolute;bottom:62px;left:96px;right:780px;font-weight:400;font-family:'Inter',sans-serif;
+    font-size:20px;line-height:1.45;color:#3a3527}
+  .cap b{color:#d8412a;font-weight:600}
+  svg{position:absolute;inset:0}
+</style></head>
+<body><div class="plate">
+  <div class="lab">Composition № 35</div>
+  <div class="name">Nested Order</div>
+  <svg id="f" viewBox="0 0 1920 1080"></svg>
+  <div class="tag">Juxtaposition · Hierarchy ✗ Gestalt grouping</div>
+  <div class="cap">Identical marks group by similarity into one equal crowd — <b>until a single scaled, accented mark seizes rank.</b> The many against the one.</div>
+</div>
+<script>
+  const NS="http://www.w3.org/2000/svg", svg=document.getElementById("f");
+  function add(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);}
+  const ink="#16140d", red="#d8412a";
+  const cols=17, rows=9, sx=82, sy=82;
+  const W=(cols-1)*sx, H=(rows-1)*sy;
+  const ox=(1920-W)/2, oy=216;
+  const hc=11, hr=3;                       // hero node (upper-right third)
+  const hx=ox+hc*sx, hy=oy+hr*sy, hR=54;   // hero radius
+  const clear=hR+34;                       // breathing ring round the dominant mark
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const x=ox+c*sx, y=oy+r*sy;
+    if(c===hc&&r===hr) continue;
+    if(Math.hypot(x-hx,y-hy)<clear) continue;   // push the crowd back from the one
+    add("circle",{cx:x,cy:y,r:11,fill:ink,"fill-opacity":.9});
+  }
+  add("circle",{cx:hx,cy:hy,r:hR,fill:red});
+</script>
+</body></html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colour theory — a visual reference</title>
+  <link rel="stylesheet" href="findings.css">
+</head>
+<body>
+  <header>
+    <h1>Colour theory — a visual reference</h1>
+    <p>Side-by-side demonstrations of the colour science behind this skill: what is proven, what is
+      convention, and what is myth. Many of the findings are <em>debunks</em>, which is why they read
+      well as side-by-side contrasts.</p>
+    <div class="flag"><b>How to read this:</b> sections <b>A–B</b> are the evidence (harmony, preference,
+      emotion, gradients, contrast, perception, the colour wheel); sections <b>C–G</b> apply it — the
+      role-based palette system, art &amp; architectural palettes, the <b>Corbusier</b> house default, and
+      the chart palettes. Claims are tagged <span class="tag strong">STRONG</span> (proven),
+      <span class="tag conv">CONVENTION</span> (established practice), or <span class="tag myth">MYTH</span>.</div>
+  </header>
+  <main>
+
+    <h2 class="block">Recommended default — Corbusier (light · dark · watercolour)
+      <span class="pnote">The house style, for both UI and charts: a restrained earth-tone family in three grounds. It is the default because it stacks what the evidence below endorses — a low-chroma ground, one reserved emphasis accent, lightness before hue — and it pairs with Tufte's data-ink. (For chart series a muted palette can't keep apart, switch the chart only to Tableau — §F.) The three theme cards are right below; full sample pages in §E, the 16-form chart gallery in §G; the evidence that justifies all of it is §A–B.</span></h2>
+
+    <section class="demo">
+      <h3>The 3 preferred grounds — watercolour · light · dark</h3>
+      <div class="themes" id="preferred-themes"></div>
+      <p class="cite">The recommended starting point — a watercolour (white matt), a light (limestone) and a dark (charcoal) ground, all built from the same Le Corbusier <i>Polychromie</i> pigments. Detailed cards, sample pages and the Tufte chart gallery follow below.</p>
+    </section>
+
+    <h2 class="block">A · What survived verification
+      <span class="pnote">Harmony and colour-emotion — the two areas with the strongest controlled-study support. Mostly debunks of popular beliefs, which is why they read as contrasts.</span></h2>
+
+    <section class="demo">
+      <h3>1 · "Harmony rules" don't predict a good pair — lightness contrast does <span class="tag conv">CONVENTION</span><span class="tag strong">STRONG</span></h3>
+      <p class="why">The complementary/analogous/triadic hue-wheel "schemes" have no validated power to
+        predict preference (the foundational algorithm itself admits there's no empirical definition of
+        harmony). A textbook-complementary pair can be unreadable; what actually predicts preference and
+        legibility is <em>liked component colours + lightness contrast</em>.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ "COMPLEMENTARY", EQUILUMINANT</div>
+          <div class="screen"><div class="ctile" style="background:#2ca25f;color:#d7191c">Read this label</div>
+            <p class="sub">red + green = a "correct" complementary scheme, contrast <b id="c-bad"></b> — unreadable</p></div></div>
+        <div class="frag good"><div class="badge">✓ LIKED COLOURS + LIGHTNESS CONTRAST</div>
+          <div class="screen"><div class="ctile" style="background:#eaf2fb;color:#14418a">Read this label</div>
+            <p class="sub">contrast <b id="c-good"></b> — the actual predictor of preference &amp; legibility</p></div></div>
+      </div>
+      <p class="cite"><b>Source:</b> Cohen-Or et al. 2006 (no empirical harmony definition); Schloss &amp; Palmer 2011 — harmony↔preference r=.79; full model with lightness-difference explains 80.8% of pair-preference variance.</p>
+    </section>
+
+    <section class="demo">
+      <h3>2 · People reliably like some hues and dislike others (Ecological Valence) <span class="tag strong">STRONG</span></h3>
+      <p class="why">Single-colour preference isn't innate or geometric — it tracks the average valence of
+        the objects associated with a colour. A no-free-parameter model (WAVE) predicts it at r=0.893.
+        Preference <em>peaks at blue/cyan</em> (clear sky, clean water) and <em>troughs at chartreuse /
+        dark-yellow / brown</em> (rot, decay). Bar height = average preference.</p>
+      <div class="mount" id="evt"></div>
+      <p class="cite"><b>Source:</b> Palmer &amp; Schloss 2010, <i>PNAS</i> 107:8877 — WAVE r=+0.893, ~80% of variance, no fitted parameters.</p>
+    </section>
+
+    <section class="demo">
+      <h3>3 · Colour→emotion is real and dimensional — but many-to-many <span class="tag strong">STRONG</span><span class="tag myth">MYTH: one→one</span></h3>
+      <p class="why">Associations are systematic and broadly cross-cultural (132 studies, 42k people, 64
+        countries; cross-nation similarity r=.88), organised on stable dimensions — warm/cool, heavy/light,
+        active/passive (predictable from colour coordinates at r≈.78–.81). They're driven by
+        lightness/saturation/temperature, <em>not the hue label</em>. Swatches placed on two of those axes:</p>
+      <div class="mount" id="emotion"></div>
+      <div class="note"><b>Why "blue = trust" is a myth:</b> the mapping is many-to-many. Red also reads as
+        love, danger, excitement, <em>and</em> anger by context; "calm" maps to blue, green, <em>and</em>
+        pale pastels. The dimensions are real; the one-colour-one-emotion shortcut is not.</div>
+      <p class="cite"><b>Source:</b> Ou et al. 2018 (CIE TC1-86, 12 regions) — warm/cool .78, heavy/light .80, active/passive .81; Jonauskaite et al. 2020 (30 nations); 132-study systematic review (1895–2022).</p>
+    </section>
+
+    <section class="demo">
+      <h3>4 · "Romantic red" (red boosts attractiveness) — the cautionary myth <span class="tag myth">MYTH / weak-null</span></h3>
+      <p class="why">The textbook example of overstated colour psychology. The meta-analytic effect is small,
+        shrinks when an outlier is removed, and <em>reverses to ~zero in pre-registered studies</em> — with
+        significant publication bias. Each row is a point estimate + 95% CI against the no-effect line (a
+        forest plot — the charting-skill form).</p>
+      <div class="mount" id="forest"></div>
+      <p class="cite"><b>Source:</b> Lehmann, Elliot &amp; Calin-Jageman 2018 (meta-analysis, 41 studies / 6,682 participants) — men→women d=0.26→0.19; women→men d=0.13; pre-registered d=−0.10; publication-bias r=.52.</p>
+    </section>
+
+    <h2 class="block">B · More — established colour science
+      <span class="pnote">These rest on canonical, well-cited colour and perception science — established results (gradients, contrast, simultaneous contrast, Mach bands, the colour wheel) that the palette system downstream leans on.</span></h2>
+
+    <section class="demo">
+      <h3>5 · A perceptually-smooth gradient vs naive RGB <span class="tag strong">STRONG</span></h3>
+      <p class="why">Interpolating two colours straight in RGB drags the midpoint toward a muddy grey "dead zone"; a perceptually-uniform map (viridis) keeps lightness rising smoothly with no false bands.</p>
+      <div class="grad">
+        <div class="gradlbl">✗ blue→yellow interpolated in RGB — note the grey dead-zone mid-way</div><div id="grad-rgb"></div>
+        <div class="gradlbl" style="margin-top:12px">✓ viridis — perceptually uniform, monotonic lightness</div><div id="grad-vir"></div>
+      </div>
+      <p class="cite"><b>Source:</b> Kovesi 2015 (uniform-lightness colormaps); viridis — Smith &amp; van der Walt 2015. <i>Established colour science.</i></p>
+    </section>
+
+    <section class="demo">
+      <h3>6 · Vibrating boundaries — saturated complementaries at equal lightness <span class="tag conv">PERCEPTION</span></h3>
+      <p class="why">Pure saturated red on pure blue (similar luminance, opposite hue) does two distinct things. The edge <b>shimmers</b> — an <b>equiluminant-border instability</b>: the luminance channel sees almost no contrast across the edge, so the form system can't lock it down. And the red seems to <b>float forward</b> — that's <b>chromostereopsis</b> (long-wavelength red focuses slightly nearer than short-wavelength blue). The fix for both is the same: give the pair luminance contrast, not just a hue difference.</p>
+      <div class="pair">
+        <div class="frag poor"><div class="badge">✗ SATURATED RED ON BLUE</div><div class="screen"><div class="ctile" style="background:#0010d0;color:#ff1020">This text vibrates</div></div></div>
+        <div class="frag good"><div class="badge">✓ LIGHTNESS CONTRAST</div><div class="screen"><div class="ctile" style="background:#0010d0;color:#dfe6ff">This text sits still</div></div></div>
+      </div>
+      <p class="cite"><b>Source:</b> the float/depth is chromostereopsis (Einthoven 1885; Thompson, May &amp; Stone 1993); the edge shimmer is equiluminant-border instability (the luminance system can't localise an iso-luminant edge). <i>Established perception.</i></p>
+    </section>
+
+    <section class="demo">
+      <h3>7 · Simultaneous contrast — the same grey, two surrounds <span class="tag strong">STRONG</span></h3>
+      <p class="why">Both centre squares are the <em>identical</em> grey (#8a8a8a). On the dark surround it looks lighter; on the light surround, darker. A colour's appearance depends on what's around it — always judge colours in context, never in isolation.</p>
+      <div class="scrow"><div class="surround dark"><div class="sc-chip"></div></div><div class="surround light"><div class="sc-chip"></div></div></div>
+      <p class="cite"><b>Source:</b> simultaneous contrast (Chevreul 1839; Albers, <i>Interaction of Color</i>). <i>Established colour science.</i></p>
+    </section>
+
+    <section class="demo">
+      <h3>8 · Functional palette roles + alert tiers <span class="tag conv">CONVENTION + WCAG</span></h3>
+      <p class="why">Assign colour to <em>roles</em>, not vibes: a dominating quiet background, a high-contrast foreground, one reserved highlight, and a critical channel with multiple tiers (info → warning → severe) that stay distinguishable <em>and</em> not-colour-alone (icon + word, differing in lightness so they survive colourblindness).</p>
+      <div class="roleui" style="--r-bg:#fdfdfb;--r-fg:#1a1a18;--r-hl:#1558c0">
+        <div class="rbar"><h4>Account overview</h4><span style="font-size:12px;color:#6b6b6b">general foreground on a quiet background</span> · <a class="hl">a reserved highlight</a></div>
+        <div class="alerts"><div class="ralert info"><span>ⓘ</span> Info — sync completed</div><div class="ralert warn"><span>▲</span> Warning — quota at 85%</div><div class="ralert sev"><span>■</span> Severe — payment failed</div></div>
+      </div>
+      <div class="rolelegend"><span class="sw" style="background:#fdfdfb;box-shadow:0 0 0 1px #ddd"></span>background<span class="sw" style="background:#1a1a18"></span>foreground<span class="sw" style="background:#1558c0"></span>highlight<span class="sw" style="background:#1558c0"></span>info<span class="sw" style="background:#b8860b"></span>warn<span class="sw" style="background:#991b1b"></span>severe</div>
+      <p class="cite"><b>Source:</b> semantic colour roles + WCAG 1.4.1 / 1.4.11 (not-colour-alone, contrast). The 60-30-10 split is <b>[taste]</b>, unverified. <i>Convention.</i></p>
+    </section>
+
+    <section class="demo">
+      <h3>9 · Mach bands — the eye sharpens every edge (lean on it) <span class="tag strong">STRONG</span></h3>
+      <p class="why">At each step in this grey ramp, a brighter sliver appears on the lighter side of the edge and a darker one on the darker side — bands that aren't in the pixels. The visual system enhances luminance edges; it's free edge-pop for stepped legends and banded encodings.</p>
+      <div class="mach"><span style="background:#1f1f1f"></span><span style="background:#3a3a3a"></span><span style="background:#565656"></span><span style="background:#737373"></span><span style="background:#909090"></span><span style="background:#aeaeae"></span><span style="background:#cccccc"></span></div>
+      <p class="cite"><b>Source:</b> Mach bands (Mach 1865; Ratliff 1965 — lateral inhibition). <i>Established perception.</i></p>
+    </section>
+
+    <section class="demo">
+      <h3>10 · The colour wheel — a real circle, unproven rules <span class="tag strong">STRONG: the circle</span><span class="tag conv">CONVENTION: the harmony spokes</span></h3>
+      <p class="why">The wheel isn't arbitrary: hue is carried by two <b>opponent channels</b> — red–green and blue–yellow (Hering 1878; modelled psychophysically by Hurvich &amp; Jameson 1957, then confirmed in opponent neurons by De Valois et al. 1958) — so arranging hue in a ring is genuine perceptual structure. But it's usually drawn in two misleading ways.
+        <b>(1) Equal angles ≠ equal perceptual steps.</b> The familiar <b>HSL / RGB wheel</b> (left) spaces hue by maths, so its yellows and cyans read pale and its blues read dark — the ring is lumpy (its WCAG lightness swings from ≈0.07 at blue to ≈0.93 at yellow). A <b>perceptually-uniform wheel</b> (right — OKLCh, Ottosson 2020, the model modern tools use) holds lightness even all the way round. Choose categorical colours on the uniform ring, not the lumpy one.
+        <b>(2) The "harmony" spokes</b> — complementary (opposite), triadic (120° apart) — are <b>convention, not a validated recipe for a good pairing</b> (§1: what actually predicts a liked pair is lightness contrast + how much each colour is liked). Use the wheel to <em>space hues apart</em> and to navigate — not to certify beauty.</p>
+      <div class="scrow">
+        <figure style="margin:0"><div class="gradlbl">HSL / RGB — equal <b>angles</b>, uneven lightness</div><div id="wheel-hsl"></div></figure>
+        <figure style="margin:0"><div class="gradlbl">OKLCh — equal <b>perceptual</b> steps, even lightness</div><div id="wheel-oklch"></div></figure>
+      </div>
+      <p class="why" style="margin-top:14px"><b>(3) How to actually use the wheel — the standard combinations.</b> Pick a base hue, then read the conventional relationships straight off the ring: <b>complementary</b> (the hue opposite, 180°) for maximum contrast; <b>monochromatic</b> (one hue varied by <b>tint</b> [+ white], <b>tone</b> [+ grey] and <b>shade</b> [+ black]) — the most versatile, and the scheme that leans hardest on lightness contrast rather than hue; <b>analogous</b> (neighbours, ±30°) for a calm, low-contrast set; <b>triadic</b> (evenly-spaced thirds, 120°) for a balanced multi-category set; <b>split-complementary</b> (the two hues flanking the complement) for contrast with less tension; <b>tetradic</b> (two complementary pairs forming a square) for four categories. The spokes below show each as a shape on the wheel — the same combinations interactive pickers (Canva, Adobe Color) expose. <b>The honest caveat (§1):</b> these are <em>convention</em> — a shared vocabulary and a reliable way to <em>space categorical hues apart</em>, <b>not</b> a guarantee of a pleasing result. Read the scheme off the wheel to get candidates, then pick the actual colours by <b>lightness contrast + CVD-safety + liked-hue</b>, and verify.</p>
+      <div class="scrow" id="scheme-wheels" style="align-items:flex-start"></div>
+      <p class="cite"><b>Source:</b> opponent-process colour vision (Hering 1878; Hurvich &amp; Jameson, <i>Psychological Review</i> 1957; physiological confirmation De Valois et al. 1958); OKLab / OKLCh perceptual space (Ottosson 2020); harmony-as-convention per §1 (Schloss &amp; Palmer 2011). <i>The hue circle is perceptual; the spokes off it are taste.</i></p>
+    </section>
+
+    <h2 class="block">C · A refined palette system — modern, light, airy, timeless
+      <span class="pnote">Perception rules + Tufte restraint + the verified colour research + modern design, in one light-leaning family. Colour is spent on two jobs only: one bold emphasis for text, and an escalating state channel.</span></h2>
+
+    <section class="demo">
+      <h3>11 · One palette, five themes — White · Off-white · Linen · Dark · Paper</h3>
+      <p class="why">One role system across a true <b>White</b>, a neutral <b>Off-white</b>, a warm <b>Linen</b>, a clean <b>Dark</b>, and a soft-gray <b>Paper</b> — each on a strict <b>dominance budget</b> (the proportion bar on every card):
+        <b>Two dominant tones</b> — a single <b>ground</b> and the <b>ink</b> — fill the screen (off-white not pure white, near-black not pure black; perception §6: drop the luminance, keep the contrast). There is <b>no separate "surface" colour</b>: panels are split by a <b>hairline</b>, not a second fill — Tufte's smallest effective difference, so no ink is spent where a line will do.
+        <b>Up to two supporting colours</b>, used sparingly — a <b>bold emphasis</b> for important text and a quiet <b>info</b> that blends;
+        and <b>alerts in reserve</b> — <b>warning</b> gentle but alerting, <b>severe</b> set clearly apart (most saturated, thickest rule), each with icon + word, never colour alone.
+        Components stay in-palette: <b>header / nav</b> from ground + ink, <b>links</b> from the emphasis accent. (<b>White</b> keeps black ink but draws its accents from the art/photography register.)
+        Live contrast under every card.</p>
+      <div class="themes" id="themes"></div>
+      <p class="cite"><b>Source:</b> semantic colour-role tokens (Material 3, Radix Colors, IBM Carbon); WCAG 1.4.3 / 1.4.11 contrast; 1.4.1 not-colour-alone. <i>Structure = established best practice; the per-theme contrast is verified live on screen.</i></p>
+    </section>
+
+    <h2 class="block">D · Palettes from art &amp; photography
+      <span class="pnote">Beyond the professional family above, these palettes pull their colours from galleries, film and painting — same role discipline (emphasis + escalating state), a warmer and more painterly register. <b>The three Corbusier variants — light, dark and watercolour — are the recommended house default</b> for both UI and charts (see the gallery, §G).</span></h2>
+
+    <section class="demo">
+      <h3>12 · Gallery · Darkroom · Corbusier (light, dark &amp; watercolour)</h3>
+      <p class="why"><b>Gallery</b> — warm museum-white walls + charcoal, the editorial register. <b>Darkroom</b> — a moody warm near-black with film-grade highlights. <b>Corbusier</b> — drawn straight from Le Corbusier's <i>Polychromie Architecturale</i> (1931/59): mineral limestone, umber ink, deep-ultramarine emphasis, ochre and vermilion alerts — his own pigment keyboard, now as <b>three</b> general UI themes: a <b>light</b> (on limestone), a <b>dark</b> (on charcoal, accents brightened so severe still out-shouts the amber warning), and a <b>watercolour</b> wash — softer, more luminous pigments on a standard white matt board. Each keeps the same roles (a bold emphasis, info that blends, a gentle warning, severe set clearly apart) — the palette just comes from art, not dashboards.</p>
+      <div class="themes" id="art-themes"></div>
+      <p class="cite"><b>Source:</b> Gallery / Darkroom — gallery, film &amp; photographic practice. Corbusier — <i>Polychromie Architecturale</i>, the 63 named pigments (1931/59), Fondation Le Corbusier / Les Couleurs. Structure + contrast per §C (WCAG 1.4.1 / 1.4.3 / 1.4.11). <i>Taste, labelled — the discipline is the constant.</i></p>
+    </section>
+
+    <h2 class="block">E · The palette as a real page — each theme, with a chart in its own colours
+      <span class="pnote">Every theme gets a full sample webpage, and inside each: a Tufte diagram or a dashboard rendered in that theme's palette — showing ground, ink, emphasis and the alert hues doing real work in a figure, not just on swatches.</span></h2>
+
+    <section class="demo">
+      <h3>13 · Sample pages — White · Off-white · Linen · Dark · Gallery · Darkroom · Paper · Corbusier Watercolour · Corbusier Light · Corbusier Dark</h3>
+      <p class="why">Ten pages, each a header + article with running text, an emphasised phrase, links, a callout, and a footer — plus a figure: a <b>diagram</b> on some (annotated line, small multiples, Cleveland dot plot) and a <b>dashboard</b> on others (KPI tiles, sparklines, status). Every figure is drawn from <em>that page's</em> colours — ink for the data, the emphasis accent for the one value worth noticing, alert hues only at a threshold.</p>
+      <div class="samples" id="samples"></div>
+      <p class="cite"><b>Cohesion:</b> the figures are the <code>charting</code> skill's forms wearing this skill's palette — same team. Ground + ink dominate; emphasis + alerts are slivers; every divider a hairline. Tufte's data-ink, applied to a whole page <em>and</em> its charts.</p>
+    </section>
+
+    <h2 class="block">F · Chart palettes — Corbusier for restraint, Tableau for many categories (each light &amp; dark)
+      <span class="pnote">These colour <em>charts</em>, not chrome — they ride on top of whatever UI theme is in use. Default to the restrained Corbusier set (it pairs with Tufte: ink does the work, one accent marks what matters); switch to Tableau only when more distinguishable categories are needed than a muted palette can give. Each comes in a light and a dark variant — match it to the surrounding theme's ground.</span></h2>
+
+    <section class="demo">
+      <h3>14 · Corbusier charts — light &amp; dark (Tufte forms)</h3>
+      <p class="why">The same Polychromie earth tones as the Corbusier UI themes, now in charts: <b>ink carries the data</b>, the <b>ultramarine emphasis</b> marks the one value worth noticing — Tufte's data-ink, in colour. Best for a handful of series (here, a range-frame line and a Cleveland dot plot). Light rides on limestone, dark on charcoal (accents brightened for the dark ground so they stay legible, ≥3:1 marks), and watercolour on white matt board — three grounds, one earth-tone family. More forms live in the <code>charting</code> skill.</p>
+      <div class="scrow" id="corb-charts"></div>
+      <p class="cite"><b>Source:</b> Le Corbusier <i>Polychromie Architecturale</i>; Tufte data-ink; one-accent emphasis = preattentive pop-out (Healey &amp; Enns). <i>The chart palette and the UI theme are one family.</i></p>
+    </section>
+
+    <section class="demo">
+      <h3>15 · Tableau charts — light &amp; dark (the categorical fallback)</h3>
+      <p class="why">When the muted set can't separate enough series, switch the chart (only the chart) to a <b>proven categorical palette</b> — Tableau 10 / 20 (Maureen Stone), engineered for categorical <em>separation</em> and reasonable colourblind spacing. The <b>light</b> variant is the standard Tableau 20; the <b>dark</b> variant is brightened so each hue clears the dark ground. Two rules still bind: cap rapidly-identified categories at <b>~7</b> (Healey) — the rest of the 20 is for legend / reference / one-colour-per-panel — and <b>direct-label the series</b> so colour is never the only cue (the labels survive colourblindness). The swatch strip under each chart is the full 20.</p>
+      <div class="scrow" id="tab-charts"></div>
+      <p class="cite"><b>Source:</b> Tableau 10 / 20 categorical palettes (Maureen Stone, Tableau); ≤7 rapid-ID cap (Healey 1996); direct labelling not colour-only (WCAG 1.4.1 / §2). <i>For data, not chrome — and only when Corbusier's restraint isn't enough.</i></p>
+    </section>
+
+    <h2 class="block">G · The 3 preferred options — Corbusier across 16 Tufte forms (light → dark)
+      <span class="pnote">The recommended default for charts: <b>Corbusier</b> in its three grounds — <b>watercolour</b> (white matt), <b>light</b> (limestone), <b>dark</b> (charcoal). Each panel below renders the <em>same</em> sixteen Tufte forms in that ground's palette, so every chart type is visible in all three before committing. Ink carries the data, the ultramarine accent marks the one thing worth noticing.</span></h2>
+
+    <section class="demo">
+      <h3>16 · Corbusier Tufte gallery — 16 forms × 3 grounds</h3>
+      <p class="why">Sixteen distinct Tufte forms — <b>sparkline, win/loss, range-frame line, slopegraph, small multiples, bar, Cleveland dot plot, lollipop, Tufte boxplot, dot-dash scatter, histogram, horizon, bullet graph, candlestick, forest plot, calendar heatmap</b> — each drawn in <b>Corbusier watercolour, then light, then dark</b>. Every form uses only the ground's own colours (ink for the data, emphasis for the one accent), so the same chart reads correctly on white matt, limestone and charcoal. This is the house style: pick the ground to match the UI, and the charts come with it.</p>
+      <div id="corb-gallery"></div>
+      <p class="cite"><b>Forms:</b> the <code>charting</code> skill's Tufte catalogue, rendered here in this skill's palette. <b>Colour:</b> the Corbusier family (Le Corbusier <i>Polychromie Architecturale</i>). <i>One earth-tone family, three grounds, sixteen forms — the preferred default for data.</i></p>
+    </section>
+
+  </main>
+  <script src="findings.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "design-craft",
+  "owner": {
+    "name": "Anatoly"
+  },
+  "allowCrossMarketplaceDependenciesOn": [
+    "claude-plugins-official"
+  ],
+  "metadata": {
+    "description": "Evidence-based visual & interface design \u2014 nine skills: composition & design-theory (the art-director layer), colour, charting, UX/layout, typography, branding, plus visual-style (design-craft's house look), developing-style (an evidence-based method to build your own style), and brand-absorption (capture an existing brand for a facelift/reskin). Depends on Anthropic's frontend-design plugin."
+  },
+  "plugins": [
+    {
+      "name": "design-craft",
+      "source": ".",
+      "description": "Nine skills: composition-and-design-theory (the art-director layer that coordinates the rest), graphical-perception-and-color, charting (Tufte), interface-ux-and-layout, typography, branding \u2014 proven vs convention vs myth, with worked galleries \u2014 plus visual-style (the house look), developing-style (a method to build your own style/identity), and brand-absorption (absorb an existing brand for a facelift)."
+    }
+  ]
+}
