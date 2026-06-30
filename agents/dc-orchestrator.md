@@ -40,9 +40,14 @@ Each dispatched agent returns, through its lever: a **score 0–10** (10 = highe
 
 **0 — Frame.** State the decision, the **content/section contract** (everything that must appear — never silently drop a section), the constraints, and the output path (under `/home/anatoly/**`).
 
-**1 — Propose & CONFIRM direction.** Review what's available (the brief, any reference material, prior rounds). Dispatch `dc-art-director` to propose the **theme, mood, concept, structural signature, and the stated goal**. Present that direction to Anatoly and **stop for his confirmation or amendment — do NOT build until he confirms.** (If you are a dispatched subagent that cannot reach the user, return the proposed direction and HALT for confirmation rather than proceeding.)
+**1 — Define & CONFIRM the creative DIRECTION (intent) first.** Direction means the **creative intent**, not the mechanics. For each piece, articulate it **in detail** — a real paragraph, not a one-word label:
+- **Genre / reference-world** it is going for — name it: luxury maison · sci-fi / HUD · editorial broadsheet · field-science instrument · brutalist · organic / botanical · retro-terminal · constructivist print · etc.
+- **Emotional register / mood** — e.g. cold-precise, opulent, utilitarian, alive, austere, playful.
+- **Positioning** — who it's for and what it signals.
+- **The feeling** a viewer should leave with.
+Review what's available first (the brief, reference material, prior rounds) so the read is grounded. Then present these directions to Anatoly and **stop for him to confirm or REDIRECT each one** — he decides whether a style goes for luxury vs sci-fi vs editorial, etc. **Do NOT propose structural signatures or weights yet, and do NOT build.** (If you are a dispatched subagent that cannot reach the user, return the proposed directions and HALT for confirmation rather than proceeding.)
 
-**2 — Weight & brief the team.** With the confirmed direction, assign each agent its **weight** and name the **leading agent** (Weighting, above). Write ONE shared brief — the confirmed direction + the weights — and ensure **every specialist receives it** so all of them design toward the same direction.
+**2 — Derive signature, weight & brief the team.** Only after the direction of each piece is confirmed: **derive the structural signature from that confirmed direction** (the borrowed-from-elsewhere form that expresses it), assign each agent its **weight**, and name the **leading agent** (Weighting, above) — the goal in the confirmed direction picks the lead (luxury → branding; graphic → composition; data → charting; etc.). Write ONE shared brief — confirmed direction + signature + weights — and ensure **every specialist receives it** so all of them design toward the same direction.
 
 **3 — Build draft.** Produce the first artifact honoring the confirmed direction, the content contract, the weights, the floors, and frontend-design implementation quality.
 
