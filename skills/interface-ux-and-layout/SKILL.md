@@ -29,6 +29,8 @@ weak/observational support · [extracted] = primary-sourced but not adversariall
 this skill's research · [MYTH] = evidence contradicts the popular framing · [taste] = no
 evidence either way; an aesthetic choice, labelled as such.
 
+**Full research trail:** built from four deep-research runs (~437 agents). Distilled findings in [references/ux-evidence-findings.md](references/ux-evidence-findings.md), [references/aesthetic-preference-findings.md](references/aesthetic-preference-findings.md), and [references/ux-practical-findings.md](references/ux-practical-findings.md); the **complete raw per-agent corpus** — 107 source extractions + 280 adversarial verifications, verbatim — is in [references/interface-ux-and-layout-corpus.md](references/interface-ux-and-layout-corpus.md).
+
 ## Boundary — and how the three skills compose
 
 - **Chart / graph / dashboard *forms*** → **[[charting]]**
