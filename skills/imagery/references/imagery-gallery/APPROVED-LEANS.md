@@ -1,15 +1,18 @@
 # Validated code-illustration leans
 
 Two leans that passed the render → look → refine (vision-loop) test and Anatoly's like/not
-review on a real subject (the Indiana travel poster, `variations.html`). These are the
-**endorsed** directions for imagery's *code-buildable* illustration — reusable as starting
-templates. Both are flat, geometric, no faces (code-illustration's proven-good zone).
+review on **two** unrelated subjects — the Indiana travel poster (`variations.html`) *and* the
+NASA→Mars poster (`mars.html`). Winning the same pair on both a landscape brief and a space brief
+is the point: **they generalize.** These are the **endorsed** directions for imagery's
+*code-buildable* illustration — reusable as starting templates. Both are flat, geometric, no faces
+(code-illustration's proven-good zone).
 
-The generator for all five Indiana leans is `indiana_variations.py`; the two below are the keepers.
+Generators: `indiana_variations.py` (five Indiana leans) and `mars_variations.py` (five Mars leans);
+the two below are the keepers from each.
 
 ---
 
-## Lean A — Swiss / subtractive  (`v2.svg`, `indiana_variations.py::v2`)
+## Lean A — Swiss / subtractive  (Indiana `v2.svg`::v2 · Mars `m1.svg`::m1)
 
 **Favre pole — "less, but better."** One dominant form, huge negative space, three colours, a
 single small subject on the horizon, type set flush-left on a grid.
@@ -21,7 +24,7 @@ editorial rather than a busy scene. Fails if you add a second focal point.
 Mechanism: pick ONE hero shape → let it dominate ~⅓ of the field → everything else is a whisper
 → flush-left grotesque title anchoring one corner.
 
-## Lean B — Duotone blockprint  (`v5.svg`, `indiana_variations.py::v5`)
+## Lean B — Duotone blockprint  (Indiana `v5.svg`::v5 · Mars `m2.svg`::m2)
 
 **The treatment lane — two inks + carved marks.** A dark ground and one warm light, bold tapered
 ray-wedges, a disc with concentric "carved" rings, subject silhouettes in the light ink, a faint
