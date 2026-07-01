@@ -1,6 +1,6 @@
 # Developing a Visual Style — Research Findings
 
-*Deep-research run, 2026-06-27 · 105 agents · 23 sources fetched · 102 claims extracted → 25 adversarially verified (3 independent refute-attempts each) → **19 confirmed, 6 killed**. Raw: [`developing-style-raw.json`](developing-style-raw.json).*
+*Deep-research run, 2026-06-27 · 105 agents · 23 sources fetched · 102 claims extracted → 25 adversarially verified (3 independent refute-attempts each) → **19 confirmed, 6 killed**. Raw per-agent corpus: [`developing-style-corpus.md`](developing-style-corpus.md).*
 
 ---
 

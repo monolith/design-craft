@@ -7,7 +7,7 @@ description: Use when art-directing the look and feel of visual work — setting
 
 ## Overview
 
-A repeatable method for building **your own** distinct visual style — a personal or brand **identity of your choosing**, instead of adopting design-craft's predefined house look. **Distilled entirely from the bundled study of how style forms** ([`references/style-formation-research.md`](references/style-formation-research.md)); nothing here is house opinion.
+A repeatable method for building **your own** distinct visual style — a personal or brand **identity of your choosing**, instead of adopting design-craft's predefined house look. **Distilled entirely from the bundled study of how style forms** ([`references/style-formation-research.md`](references/style-formation-research.md); full raw per-agent corpus — 23 source extractions + 75 adversarial verifications — in [`references/developing-style-corpus.md`](references/developing-style-corpus.md)); nothing here is house opinion.
 
 > **The three look-source skills:** [[house-style-templates]] = apply design-craft's *own* house look (the default); **developing-style** (this skill) = invent *your own* new look; [[brand-absorption]] = lift and follow an *existing* brand's look. Same input (study a reference), opposite intent — developing-style studies it to **deviate**, brand-absorption studies it to **preserve**.
 
