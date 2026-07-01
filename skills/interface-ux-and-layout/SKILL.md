@@ -25,7 +25,8 @@ guide the eye and the hand.** Full evidence detail lives in the two research ref
 file is the craft.
 
 **Confidence labels:** [STRONG] = controlled studies / normative standard · [CONVENTION] = taught,
-weak/observational support · [MYTH] = evidence contradicts the popular framing · [taste] = no
+weak/observational support · [extracted] = primary-sourced but not adversarially vote-verified in
+this skill's research · [MYTH] = evidence contradicts the popular framing · [taste] = no
 evidence either way; an aesthetic choice, labelled as such.
 
 ## Boundary — and how the three skills compose
@@ -67,6 +68,9 @@ reserved accent. The worked gallery deliberately uses all three together so they
   important up top" rule). Put the one thing that orients the user where the eye lands first.
 - **Responsive:** multi-column reflows to a single stack; nav collapses; touch targets grow. Design
   the stack order deliberately — it's the true reading order.
+- **[CONVENTION] Concrete breakpoints** (Material 3 window size classes): Compact <600 · Medium
+  600–839 · Expanded 840–1199 · Large 1200–1599 · Extra-large ≥1600 dp; target pane count ≈ 1 / 1 /
+  2 / 2 / 3; as width grows, swap the bottom **navigation bar → side navigation rail**.
 - Most of this is **[CONVENTION]**; the *why it works* (conventional = fluent) is [STRONG].
 
 ## 2. Navigation & wayfinding
@@ -79,8 +83,11 @@ Good navigation answers three questions at all times: **where am I, where can I 
   participants, 6 sites) hidden/hamburger nav cut content **discoverability >20%**, made desktop tasks
   **≥39% slower**, and was used far less than visible/combo (desktop 27% vs 48–50%). Reserve fully-hidden
   nav for genuinely space-constrained mobile; prefer visible or combo elsewhere.
-- **[STRONG] Broad &amp; shallow beats narrow &amp; deep.** Jacko &amp; Salvendy (1996), controlled: reaction
-  time, error rate, and perceived complexity all rose with menu depth and/or breadth. Favour fewer levels.
+- **[CONVENTION] Moderate breadth + shallow depth beats narrow-deep — but extreme breadth also costs.**
+  Reaction time and error rate rise with breadth *and* with depth (Jacko &amp; Salvendy 1996, controlled),
+  and Larson &amp; Czerwinski (1998) found a **16×16 tree beat the broadest-shallowest** layout. So favour
+  fewer levels *and moderate* breadth — the *direction* holds; the "more alternatives per screen is
+  cost-free" *mechanism* does not (see §8).
 - **Top vs side:** top bar for few sections / marketing; **left rail** for many sections / apps and
   dashboards (scales vertically, room for grouping).
 - **Breadcrumbs** for deep hierarchies (where am I + one-click up). **Tabs** for switching views of
@@ -90,14 +97,18 @@ Good navigation answers three questions at all times: **where am I, where can I 
   paths or codes.
 - Keep top-level choices few and stable. ("Fewer is faster" is **not** a law — see §8 — but a
   *stable, learnable* nav is fluency.)
-- The *visible-nav* and *broad-shallow* findings are **[STRONG]**; finer specifics (mega-menus,
-  breadcrumbs-always, search-vs-browse defaults) remain **[taste]** — don't assert.
+- The *visible-nav* finding is **[STRONG]**; the *broad-shallow direction* is **[CONVENTION]** (its
+  cost-free mechanism is refuted — §8). Finer specifics (mega-menus, breadcrumbs-always,
+  search-vs-browse defaults) remain **[taste]** — don't assert.
 
 ## 3. Grids & alignment
 
 - **Align everything to a few columns.** A shared left edge / column structure reads as order and
   eases processing (= fluency). Misalignment reads as "broken," even when nothing is.
 - **One spacing step** (e.g. a 4/8px scale) for gaps and padding; the regularity is the point.
+- **[upheld] Gestalt proximity is the mechanism under spacing.** Items set close together read as a
+  group; a larger gap reads as a boundary — proximity groups the related and separates the unrelated
+  (verified via Material 3 spacing). Whitespace establishes hierarchy; it isn't filler.
 - **Measure** (line length) ~45–75 characters is the common convention; the exact number is **[taste]**.
 - **Gutters and breakpoints**: consistent gutters; reflow columns → stack at narrow widths.
 - Grids are **[CONVENTION]/[taste]** as systems (12-column, modular scale) — useful defaults, not
@@ -109,17 +120,23 @@ The core of "easy to use" is controlling *where the eye goes first, next, and la
 controls — **size, weight, contrast, and whitespace** — plus one power tool: **preattentive pop-out.**
 
 - **One entry point.** The largest/highest-contrast element wins the first fixation — make it the
-  thing you want seen first. If everything is loud, nothing leads.
+  thing you want seen first. If everything is loud, nothing leads. **But designed salience is only
+  one of five sources that steer eye-landing** — the others are the viewer's goals, priming, reward,
+  and learned page structure (Wolfe, guided search). So "the loudest element wins" competes with what
+  the user came to do: salience proposes, goals dispose.
 - **A path, not a pile.** After the focal point, a clear second tier and consistent alignment let
   the eye flow in a deliberate order. Whitespace **separates** (groups) and **directs** (channels).
 - **Pop-out for the one critical thing** [STRONG]: a single mark differing on one channel (colour,
-  size, motion) against a calm field is found *pre-attentively* — before conscious search. This is
+  size, orientation, motion) against a calm field is found *pre-attentively* — before conscious search. This is
   the hand-off to **[[graphical-perception-and-color]]** (which channel, which contrast) and the
   perception gallery's pop-out demo. Spend it once; reserve the accent.
 - **Reading patterns, honestly:** the **F-pattern** is a *failure* state of unformatted text, **not
   a target** [MYTH to design for it]; the **layer-cake** (gaze lands on clear headings) is the mode
   to support — write strong headings. The **Z-pattern** for sparse landing pages is **[taste]** —
   use it, don't cite it.
+- **[CONVENTION] Banner blindness.** Don't put important content in ad-shaped boxes or the right
+  rail — the avoidance is *learned and location-based*, not about the pixels (NN/g eyetracking;
+  Benway 1998). If it matters, it goes in the main column and mustn't look like an ad.
 
 ## 5. Usability heuristics
 
@@ -162,10 +179,32 @@ The popular **"5 users finds 85%"** is a high-variance *floor*, not a guarantee 
   the happy path is the most common app-UX gap.
 - **Feedback fast:** for direct manipulation, response should feel immediate (~0.1s convention; even
   lower for drag); if it can't, show progress.
+- **[CONVENTION, data-backed] Sub-second response is a productivity lever, not just polish.** Below
+  ~1 s, throughput rises non-linearly (180 transactions/hr @3s → 252 @1.0s → 371 @0.3s), and a faster
+  response saves the user *more* time than the latency cut itself — a slow response breaks the held
+  sequence of the action they were mid-way through (Doherty & Thadani, IBM 1982).
 - **Forgiveness over interrogation:** prefer undo to "Are you sure?"; preserve user input on error.
 - **Progressive disclosure:** summary first, detail on demand — reduces complexity without losing it.
-- **Affordance/signifiers:** clickable things should *look* clickable (the specifics are [taste];
-  the principle — perceived action matches real action — is sound).
+- **[STRONG-adjacent] Affordance/signifiers.** Clickable things must *look* clickable: NN/g
+  eyetracking found weak or absent clickability signifiers **measurably cut efficiency and attention**
+  (significant, p<.05). Flat design is fine *if* interactive elements still read as interactive — the
+  failure is removing the cues, not the style itself.
+
+## Forms
+
+The skill's biggest gap — a form is a screen with its own strong evidence base.
+
+- **[STRONG] One column.** Single-column layouts beat multi-column — multiple columns break the
+  vertical scan and get misread across questions. Exception: naturally grouped short fields
+  (City / State / Zip) may share a row.
+- **[CONVENTION] Labels above the field**, left-aligned. **Never use the placeholder as the label** —
+  it vanishes on focus and fails accessibility.
+- **[STRONG] Validate inline, on *blur*** — not per-keystroke (premature, nags mid-entry) and not
+  submit-only (drives abandonment). Baymard: inline validation ≈ **22% higher success, ~42% faster
+  completion, ~47% fewer eye fixations**.
+- **[CONVENTION] Put the error adjacent to the field and preserve the bad input** — never clear the form.
+- **Compliance pays:** compliant forms hit **78% first-try submission vs 42%** for non-compliant ones
+  (Seckler et al. 2014, CHI).
 
 ## 7. Dashboards (where all three skills meet)
 
@@ -186,19 +225,40 @@ The popular **"5 users finds 85%"** is a high-variance *floor*, not a guarantee 
   depending on stimulus-response compatibility (Proctor & Schneider 2018). A stable, learnable nav
   matters more than raw item count.
 - **[MYTH]** "Design for the F-pattern." It's a failure state, not a goal (§4).
-- **[MYTH as sold]** "Beautiful is more usable." It's a *first-impression* halo; it did **not** raise
-  *measured* usability when isolated (Grishin & Gillan 2019). Don't use looks to excuse a bad flow.
-- **[REFUTED — re-source first]** the "1.0s flow-of-thought" limit and "broad-shallow menus beat
-  narrow-deep" both failed verification.
-- **[CONVENTION, not "minimum"]** 44×44pt touch targets are a platform *default* (min 28×28pt).
+- **[MYTH as sold, but contested]** "Beautiful is more usable." It's largely a *first-impression*
+  halo; isolated, it did **not** raise *measured* usability (Grishin & Gillan 2019). The other side:
+  **[extracted]** Sonderegger & Sauer 2010 (*Applied Ergonomics*) found a functionally identical but
+  *attractive* phone produced **shorter task-completion times.** So treat beauty↔performance as
+  *contested*, not a settled null — but don't use looks to excuse a bad flow.
+- **[STRONG] Appearance *does* drive trust — a separate axis from usability.** In Fogg et al. 2003
+  (Stanford, N=2,684; Prominence-Interpretation Theory), visual "design look" was the single
+  most-cited credibility factor — **46.1% of comments, ahead of every content factor.** Looks buy
+  *perceived* credibility even where they don't buy measured usability.
+- **[RESOLVED — mechanism refuted, direction holds]** "broad-shallow menus beat narrow-deep": the
+  *mechanism* ("more alternatives per screen is cost-free") is refuted; the *direction* (moderate
+  breadth + shallow depth over narrow-deep) still stands — see §2. *(The old "1.0s flow-of-thought"
+  threshold stays unverified as an exact number, but sub-second response is separately evidenced as a
+  throughput lever — see §6.)*
+- **[CONVENTION] Touch-target gloss, corrected.** Apple's **44×44 pt is the minimum *tappable /
+  hit-target* area**; the separate **28 pt** figure is the minimum *visual control footprint* — not a
+  relaxation of the touch target, and the two must not be conflated. The real accessibility floors are
+  unchanged: **WCAG 2.5.8 = 24 CSS px**, Parhi ≈ **9.6 mm** (§5).
 
 ## 9. Honest taste — label, never assert as proven
 
-No verified evidence surfaced for: **60-30-10 colour split · golden ratio / symmetry · exact line
-measure · 12-column / modular-scale grids · Z-pattern · breadcrumbs-vs-not · mega-menus ·
-search-vs-browse defaults · Doherty 400ms · dark-mode "better" performance · flat vs. skeuomorphic
-"modern" looks.** Fine as defaults — present them as taste, not fact. **Colour-emotion** ("blue =
-trust") returned **zero** verified claims across two runs; treat as taste and defer to the colour skill.
+No verified evidence surfaced for: **60-30-10 colour split · exact line measure · 12-column /
+modular-scale grids · Z-pattern · breadcrumbs-vs-not · mega-menus · search-vs-browse defaults ·
+dark-mode "better" performance.** Fine as defaults — present them as taste, not fact.
+**Colour-emotion** ("blue = trust") returned **zero** verified claims across two runs; treat as taste
+and defer to the colour skill.
+
+- **Golden ratio / symmetry — not "no evidence," but evidence *against* them as beauty drivers.**
+  People do **not** prefer the golden rectangle (Devlin; Berkeley Haas found a preferred range of
+  **1.414–1.732**, not φ). Symmetry raises appeal for *abstract blocks* but **not on real web pages**,
+  and it **reverses for art experts** — so this is nearer **[MYTH]** / context-dependent than open.
+  **[extracted]**
+- **Clickability-cue *strength* is NOT taste** — it's evidenced (NN/g eyetracking; see §6). The flat
+  vs. skeuomorphic *style* is free to choose; whether interactive elements still *look* interactive is not.
 
 ## 10. Data tables & data grids
 
