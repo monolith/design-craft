@@ -114,6 +114,19 @@ stands — so: genuinely unsettled, treat as taste.)
   where hue changes fast. Use **Viridis** (or **Cividis**, tuned to look the same to CVD
   viewers). Nuance: rainbow isn't *always* wrong (it aids pure hue-segmentation), but never
   use it to show magnitude.
+- **[caveat — "uniform" isn't universally best]** Perceptual uniformity is a strong *default*, not a
+  law. For **gradient-steepness discrimination Viridis tested *worst*** of three maps (cool-warm 2.86%
+  and rainbow 3.05% JND both beat Viridis 3.61%; Reda 2019), and single-hue maps can be faster though
+  less accurate (Cho et al. 2019, n=35). Keep Viridis/Cividis as the default, but the best map is
+  **task- and span-dependent** — test it when the read is critical.
+- **[bounding]** **CIELAB distance ≠ uniform perception.** Equal CIELAB steps don't guarantee equal
+  *feature detectability* — CIELAB over-weights chroma for small features (Ware, Turton, Bujack et al.
+  2018), and is uniform only at **low spatial frequency**, so trust its lightness (not its chroma/hue)
+  at fine detail (Kovesi 2015). Judge a colormap behaviourally, not from colour-space spacing.
+- **[diverging]** Interpolate gradients in a **perceptual space** (naive RGB gives grey dead-zones) —
+  but even piecewise-linear **CIELAB** leaves a **Mach band at a diverging map's white midpoint**
+  (luminance reverses there); Moreland's polar **Msh** interpolation smooths it (Moreland 2009, the
+  coolwarm map). Comparisons that straddle a diverging map's centre also cost accuracy (Liu & Heer 2018).
 - Sequential = ordered low→high (lightness-dominated). Diverging = emphasize a midpoint/break
   (hue+lightness both sides). Match the scheme type to the data (ColorBrewer typology).
 - **Convention worth knowing:** "darker = more" is a real viewer expectation (dark-is-more
@@ -144,7 +157,10 @@ stands — so: genuinely unsettled, treat as taste.)
   "is this required to understand the content?"
 - **[DRAFT — not a standard]** APCA (perceptual Lc, polarity/size-aware) was **removed from
   the WCAG 3 draft in 2023**; WCAG 3 has *no* contrast method as of 2026 and is years away.
-  You may use APCA's nicer model for tuning, but **conform to WCAG 2 as the pass/fail gate.**
+  You may use APCA's nicer model for tuning, but **conform to WCAG 2 as the pass/fail gate.** In
+  production the two majors already split — **Radix** specs text in APCA Lc (Lc 60 / 90), **Material 3**
+  maps tone to WCAG-2 ratios (3:1, 7:1) — so "which metric" is an unsettled, system-dependent
+  convention (Radix docs; Material 3 docs).
 - Practical: thin lines and small marks need higher contrast (no normative thickness number
   exists). A tinted/colored background shrinks the palette that passes 3:1 — retest every
   series against the actual background.
@@ -367,3 +383,9 @@ dark grounds) — pick the one that matches the ground. Either way: cap rapidly-
 - Ou et al. (2018), *Color Res. Appl.* (CIE TC1-86) — universal colour-emotion & harmony models.
 - Lehmann, Elliot & Calin-Jageman (2018), *Evolutionary Psychology* — "romantic red" meta-analysis (weak/null).
 - Healey & Enns (2012), *IEEE TVCG*; Treisman (1985) — preattentive pop-out / feature search.
+- Reda et al. (2019), *IEEE VIS* — preregistered JND; Viridis worst of three for gradient-steepness discrimination.
+- Cho et al. (2019), *Appl. Sci.* (n=35) — colormap speed vs accuracy (single-hue fastest, Viridis most accurate).
+- Ware, Turton, Bujack et al. (2018), *IEEE TVCG* — CIELAB distance ≠ colormapped feature-detection thresholds.
+- Liu & Heer (2018), *CHI* — colormap perception; uniformity benefit is span-dependent.
+- Moreland (2009), *ISVC* — diverging "coolwarm" map; polar Msh interpolation removes the white-midpoint Mach band.
+- Radix (2026) docs; Material 3 docs — live production split: APCA Lc steps vs WCAG-2 tonal ratios.
