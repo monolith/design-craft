@@ -24,10 +24,13 @@ objectives and contexts. "Always do X" claims are where the myths live.
   **[STRONG, single-source]** — top-tier and verified, but not yet meta-analytically replicated.
 - **[ESTABLISHED]** — a canonical, heavily-cited peer-reviewed finding included from the literature
   but **not** run through this skill's adversarial verifier (see *Provenance* below). Stated
-  conceptually — direction and downstream effect only, no extracted effect sizes. Now used only for
-  the two emotional mechanisms a verification run could not confirm — brand experience and processing
-  fluency (§I3–§I4). Treat as a strong prior, one notch below [STRONG] only because *we* didn't
-  cross-examine it.
+  conceptually — direction and downstream effect only, no extracted effect sizes. Used for two kinds
+  of claim: the two emotional mechanisms a verification run could not confirm — brand experience and
+  processing fluency (§I3–§I4) — and four findings **extracted** from the research corpus in a later
+  gap analysis but never submitted to the verifier (logo shape §C′, the further Aaker critiques in §H,
+  typeface personality §D′, handwritten-type attachment §I5), each flagged *(extracted in the research
+  pass, not cross-examined here)*. Treat as a strong prior, one notch below [STRONG] only because *we*
+  didn't cross-examine it.
 - **[CONVENTION]** — widely taught, weak or mixed empirical support.
 - **[MYTH]** — the evidence contradicts a popular claim.
 
@@ -36,7 +39,10 @@ layer (§I1–§I2) come from three adversarial research passes that fetched pri
 claims, and required a 3-of-3 verifier vote. A dedicated third run verified brand attachment and brand
 love to [STRONG]. Two emotional mechanisms — brand experience and processing fluency (§I3–§I4) —
 produced zero surviving claims across the runs and stay [ESTABLISHED] (sourced from the canonical
-literature, not cross-examined here); a future pass could lift them too.
+literature, not cross-examined here); a future pass could lift them too. A later gap analysis added
+four more **[ESTABLISHED]** findings — logo shape (§C′), the two further Aaker critiques (§H), typeface
+personality (§D′), and handwritten-type attachment (§I5) — which were *extracted* from that corpus but
+never themselves run through the verifier.
 
 **Full research trail:** the distilled cited findings from the three runs are in
 [references/branding-research.md](references/branding-research.md); the complete raw per-agent corpus — 72 source
@@ -71,6 +77,7 @@ Branding composes *under* the sibling skills for technical floors; it owns the i
 | Descriptive, familiar brand | Benefit considerably attenuated. | [STRONG] |
 | Descriptive, negative-valence category | Effect *reverses* — descriptive hurts. | [STRONG] |
 | Logo symmetry | Symmetrical by default; asymmetrical *only* when the brand personality is "exciting". | [STRONG] |
+| Logo shape (circular/angular) | Circular lifts *soft* attributes (comfort), angular *hard* ones (durability); no overall liking edge, and the attitude effect is gated by fit with the verbal positioning. | [ESTABLISHED] |
 | Incomplete typeface | Scoped trade-off: trustworthiness ↓, innovativeness ↑. Use only when innovation > trust. | [STRONG] |
 | Logo redesign | Committed audiences punish *inconsistent* redesigns hardest. Measure commitment first. | [STRONG] |
 | Logo complexity | A media-budget multiplier: complex logos need more/better-spaced exposures for equal fluency. | [STRONG] |
@@ -153,6 +160,34 @@ carries negative affect.
 **Rule:** exciting brand → asymmetry is evidence-backed. Every other personality → symmetry is the
 default. Do not generalise "asymmetry is better" beyond excitement.
 
+*(The evaluation leg is experimental; the "boosts financial valuations" leg rests on
+archival/correlational BrandAsset/Interbrand data — causality is established only in the lab
+evaluation studies.)*
+
+---
+
+## C′. Logo shape — circular vs angular attribute-congruence — Jiang, Gorn, Galli & Chattopadhyay (2016) [ESTABLISHED]
+
+*(Extracted in the research pass, not cross-examined here. Fills the skill's "shape" scope, which §C
+covers only for symmetry and §E only for redesign.)*
+
+**Source:** Jiang, Y., Gorn, G. J., Galli, M., & Chattopadhyay, A. (2016). Does your company have the
+right logo? *Journal of Consumer Research*, 42(5), 709–726.
+
+- **Effect:** **circular** logos raise *soft* attribute judgments (e.g. comfortableness); **angular**
+  logos raise *hard* ones (e.g. durability). Each shape moves **only its matching attribute** — not a
+  general halo.
+- **No liking advantage either way:** there is **no overall difference in logo liking or brand
+  attitude** between the shapes (Exp 1, *F* < 1). Neither shape is "better" in the abstract.
+- **Congruence gate — and reversal:** the effect on brand attitude and willingness-to-pay is
+  **conditional on fit with the verbal positioning, and reverses**: a *durability* message → angular
+  wins; a *comfort* message → circular wins.
+- **Mechanism:** effortful visual imagery — the effect **disappears under visual (imagery) load**,
+  confirming it runs through deliberate mental picturing rather than automatic affect.
+
+**Rule:** pick shape to match the attribute the positioning promises (soft→circular, hard→angular);
+do not expect either shape to lift liking on its own; a shape that fights the verbal message backfires.
+
 ---
 
 ## D. Incomplete typeface logos — Hagtvedt (2011) [STRONG]
@@ -172,10 +207,31 @@ tech, fashion, creative). Avoid for finance, healthcare, legal, or anywhere trus
 
 ---
 
-## E. Logo redesign risk — Walsh, Winterich & Mittal (2010) [STRONG]
+## D′. Typeface → brand personality — Henderson, Giese & Cote (2004) [ESTABLISHED]
 
-**Source:** Walsh, M. F., Winterich, K. P., & Mittal, V. (2010). Do logo redesigns help or hurt your
-brand? The role of brand commitment. *Journal of Product & Brand Management*, 19(2), 76–84.
+*(Extracted in the research pass, not cross-examined here. This is the brand-personality layer of type;
+face selection — size, measure, pairing, web-font loading — is owned by **[[typography]]**.)*
+
+**Sources:** Henderson, P. W., Giese, J. L., & Cote, J. A. (2004). Impression management using typeface
+design. *Journal of Marketing*, 68(4), 60–72; Grohmann, Giese & Parkman (2013), *J. Brand Management*.
+
+- **Effect:** six typeface **design** dimensions (e.g. elaborateness, harmony, naturalness, flourish,
+  weight, compression) map to four **impression** dimensions — **pleasing, engaging, reassuring,
+  prominent**. Type choice is a deliberate personality lever, not decoration.
+- **Strongest drivers:** **naturalness, harmony, and flourish** carry the most impression weight.
+- **New brands:** for a *new* brand with no prior associations, **naturalness** is the single key
+  driver of a favourable impression.
+
+**Rule:** treat the typeface as a personality instrument — choose design dimensions to hit the target
+impression (naturalness/harmony for warmth and approval), and lean hardest on naturalness for a new
+brand. Hand the *selection* mechanics to **[[typography]]**.
+
+---
+
+## E. Logo redesign risk — Walsh, Winterich & Mittal (2011) [STRONG]
+
+**Source:** Walsh, M. F., Winterich, K. P., & Mittal, V. (2011). Do logo redesigns help or hurt your
+brand? The role of brand commitment. *Journal of Consumer Marketing*, 28(6), 438–447.
 
 - **Effect:** higher brand commitment → more *negative* evaluation of an inconsistent (angular→rounded)
   redesign, and that negative logo evaluation **mediates** the hit to brand attitude. Commitment is a
@@ -241,8 +297,9 @@ Preference* 64:103–110.** Functional products are judged more appropriate in "
 sensory-social products in "sensory-social" colours; knowing a brand's intended positioning shifts
 which colours read as appropriate. **But** Lyons & Wien show a clean reversal: for *hedonic* products
 colour-message *congruency* raises premiumness, while for *utilitarian* products *incongruency* does.
-So "always pick the congruent colour" is false. *(Reversal is single-paper and food-specific —
-[STRONG] but domain-narrow.)*
+So "always pick the congruent colour" is false. *(The Lyons & Wien reversal rests on a single,
+food-specific study — code it **[moderate — single study]**, not [STRONG] meta-analytic. The Bottomley
+& Doyle congruity effect is the [STRONG] core of this section.)*
 
 ### G5. Differentiate-vs-conform is conditional [STRONG; refutes a MYTH]
 **Labrecque & Milne (2013), *Marketing Letters* 24(2):165–176; Garaus & Halkias (2020), *Review of
@@ -283,10 +340,19 @@ Azoulay & Kapferer (2003), *J. Brand Management* 11:143–155 *(critique origin)
   stereotyped user, not the brand**. Geuens et al. (2009; 12,789 respondents, 193 brands) built a
   personality-*only* 12-item scale (Activity, Responsibility, Aggressiveness, Simplicity, Emotionality),
   reliable and cross-culturally valid.
+- **Two further documented critiques [ESTABLISHED]** *(Austin, Siguaw & Mattila 2003; Aaker,
+  Benet-Martínez & Garolera 2001 — extracted in the research pass, not cross-examined here):*
+  - **Aggregate-only:** the five-factor structure holds *across* brands but **does not hold at the
+    individual-brand level** — precisely the per-brand "reading" this skill invokes. A five-dimension
+    profile is safe as category-level vocabulary, shaky as one brand's fingerprint.
+  - **Cross-cultural non-replication:** across US / Japan / Spain only **Sincerity, Excitement, and
+    Sophistication** recur; **Ruggedness is US-specific** and **Competence is absent in Spain**. So
+    "ruggedness" (used as a working dimension in §G1) is not a safe cross-context lever.
 
 **Rule:** use Aaker's dimensions as the shared language for targeting personality; when you need a
 *rigorous* measurement (research, A/B, valuation), prefer Geuens et al. and remember the user-stereotype
-confound.
+confound. Treat a *single brand's* five-factor profile, and any use of "ruggedness"/"competence"
+outside the US, as provisional.
 
 ---
 
@@ -295,8 +361,9 @@ confound.
 > **Provenance:** §I1–§I2 are adversarially verified **[STRONG]** (a dedicated third research run,
 > 104 agents, 3-of-3 votes). §I3–§I4 (brand experience, processing fluency) produced zero surviving
 > claims across the runs and stay **[ESTABLISHED]** — canonical literature, not cross-examined here.
-> This is the layer that explains *why* the §A–H rules move equity, and what they are ultimately
-> building toward.
+> §I5 (handwritten type → attachment) is **[ESTABLISHED]**, extracted in the gap-analysis pass and
+> likewise not cross-examined here. This is the layer that explains *why* the §A–H rules move equity,
+> and what they are ultimately building toward.
 
 ### I1. Brand attachment — Thomson, MacInnis & Park (2005); Park et al. (2010) [STRONG]
 *"The ties that bind,"* J. Consumer Psychology 15(1):77–91; *"Brand attachment and brand attitude
@@ -337,6 +404,20 @@ verified rules: descriptiveness (§B), moderate-not-maximal complexity (§A, §F
 congruity (§G4) all work by *raising fluency*. When the §A–H rules conflict, "which choice is easier
 to process for this audience?" is the tie-breaker the established literature supports — though, unlike
 §I1–§I2, fluency itself was not confirmed in this skill's runs.
+
+### I5. Handwritten typeface → humanization → attachment — Schroll & Schnurr (2018) [ESTABLISHED]
+*(Extracted in the research pass, not cross-examined here. A type→attachment bridge; face selection is
+owned by **[[typography]]**.)* *"Humanizing products with handwritten typefaces,"* *Journal of Consumer
+Research*, 45(3).
+- **Effect:** **handwritten** (vs machine-written) type signals **human presence**, which raises
+  **emotional attachment** (§I1), which lifts favourable evaluation. Reported field experiment: **30.4%
+  vs 5.6%** purchase; a 12-study internal meta gives **g ≈ .28**.
+- **Bounded / reversing:** the lift is **not universal** — machine-written type wins for *functionally*
+  positioned products, and there is **no lift for brands consumers are already attached to**. It is a
+  **new-brand / relationship-building** tool, not a default.
+- **Design implication:** reach for handwritten type when the goal is warmth and a *forming* bond on an
+  *emotionally* positioned brand; keep machine type where the promise is function or the bond already
+  exists.
 
 ### The ladder (synthesis) [STRONG]
 The emotional constructs form a differentiated hierarchy, not synonyms: **satisfaction / brand attitude**
@@ -400,7 +481,7 @@ A repeatable sequence that orders the verified findings. Each step names its sec
 2. Luffarelli, Mukesh & Mahmood (2019). Let the logo do the talking. *JMR*, 56(5), 862–878.
 3. Luffarelli, Stamatogiannakis & Yang (2019). The visual asymmetry effect. *JMR*, 56(1), 86–103.
 4. Hagtvedt (2011). The impact of incomplete typeface logos. *JM*, 75(4), 86–93.
-5. Walsh, Winterich & Mittal (2010). Do logo redesigns help or hurt? *JPBM*, 19(2), 76–84.
+5. Walsh, Winterich & Mittal (2011). Do logo redesigns help or hurt? *Journal of Consumer Marketing*, 28(6), 438–447.
 6. Janiszewski & Meyvis (2001). Brand logo complexity, repetition, spacing & fluency. *JCR*, 28(1), 18–32.
 7. Labrecque & Milne (2012). Exciting red and competent blue. *JAMS*, 40(5), 711–727.
 8. Labrecque (2020). Color research in marketing. *Psychology & Marketing*, 37(7).
@@ -425,6 +506,14 @@ A repeatable sequence that orders the verified findings. Each step names its sec
 24. Brakus, Schmitt & Zarantonello (2009). Brand experience. *JM*, 73(3), 52–68.
 25. Reber, Schwarz & Winkielman (2004). Processing fluency and aesthetic pleasure. *PSPR*, 8(4), 364–382.
 
+**[ESTABLISHED] — extracted in the gap-analysis pass, not cross-examined here (§C′, §D′, §H, §I5):**
+26. Jiang, Gorn, Galli & Chattopadhyay (2016). Does your company have the right logo? *JCR*, 42(5), 709–726. *(§C′)*
+27. Austin, Siguaw & Mattila (2003). A re-examination of the generalizability of the Aaker brand personality framework. *Journal of Strategic Marketing*, 11(2), 77–92. *(§H)*
+28. Aaker, Benet-Martínez & Garolera (2001). Consumption symbols as carriers of culture (US/Japan/Spain). *Journal of Personality and Social Psychology*, 81(3), 492–508. *(§H)*
+29. Henderson, Giese & Cote (2004). Impression management using typeface design. *JM*, 68(4), 60–72. *(§D′)*
+30. Grohmann, Giese & Parkman (2013). Type font characteristics & brand personality of new brands. *J. Brand Management*, 20(5), 389–403. *(§D′)*
+31. Schroll & Schnurr (2018). Humanizing products with handwritten typefaces. *JCR*, 45(3). *(§I5)*
+
 **Full research trail** (recovered clean from the transcripts): the distilled cited findings in
 [references/branding-research.md](references/branding-research.md), and the complete raw per-agent corpus — 72
 source extractions + 195 adversarial verifications across the three runs — in
@@ -434,5 +523,8 @@ source extractions + 195 adversarial verifications across the three runs — in
 ---
 
 *§A–H + §I1–§I2: adversarially verified (3-of-3) across three research passes. §I3–§I4 (brand
-experience, processing fluency): canonical literature, not yet verified here. Citation #6 corrected
-from a prior misattribution.*
+experience, processing fluency) and the four gap-analysis additions (§C′ logo shape, §D′ typeface
+personality, the further §H Aaker critiques, §I5 handwritten type): canonical/extracted literature, not
+yet verified here. Citation #6 corrected from a prior misattribution; the §E redesign citation
+repointed to the verified Walsh, Winterich & Mittal (2011, *Journal of Consumer Marketing*, 28(6),
+438–447) paper.*
