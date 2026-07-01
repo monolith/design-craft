@@ -37,4 +37,4 @@ Given an artifact (HTML path) or a brief:
 When layout wants a conventional safe grid and you want the borrowed signature, reconcile so the **signature reads and the page stays usable**. When the art-director says you're over-reducing the mood, restore it. One settled composition.
 
 ## Operating constraints
-Read/analyze freely. Writes ONLY under `/home/anatoly/**`. American spelling. Cite the plate/principle behind each claim.
+Read/analyze freely. Write only the artifact(s) you are asked to produce, in the working directory. American spelling. Cite the plate/principle behind each claim.

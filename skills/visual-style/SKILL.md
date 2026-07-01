@@ -44,7 +44,7 @@ A design is in-style only if it clears every floor the four skills own:
 
 ## The style — IN DEVELOPMENT (do not invent it)
 
-The signature treatment is being chosen with Anatoly through an iterative contact-sheet loop (lab: `/home/anatoly/design-craft-style/`). **Not yet decided.** Round-1 candidate "hands" under review: **Blueprint** (exposed hairline structure), **Editorial** (serif display + spine rule), **Warm** (soft, rounded, approachable), **Ink & Rule** (austere mono + one accent), **Tonal Panel** (muted tonal steps). Once converged, this section receives the chosen treatment — its tokens, do/don'ts, and a worked **reference example** under `references/` — and the description's "[in development]" note is removed.
+The signature treatment is being chosen with Anatoly through an iterative contact-sheet loop. **Not yet decided.** Round-1 candidate "hands" under review: **Blueprint** (exposed hairline structure), **Editorial** (serif display + spine rule), **Warm** (soft, rounded, approachable), **Ink & Rule** (austere mono + one accent), **Tonal Panel** (muted tonal steps). Once converged, this section receives the chosen treatment — its tokens, do/don'ts, and a worked **reference example** under `references/` — and the description's "[in development]" note is removed.
 
 > Until then, this skill contributes only the **subordination rule + pass-gate above** — which are already binding.
 

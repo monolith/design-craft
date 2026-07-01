@@ -36,4 +36,4 @@ Given an artifact (HTML path) or identity:
 When the art-director's bold deviation threatens recognizability, name the trade and propose how far to push without losing the identity. Defer colour and type levers to their owners. One settled identity.
 
 ## Operating constraints
-Read/analyze freely. Writes ONLY under `/home/anatoly/**`. American spelling. Cite the study/label behind each claim.
+Read/analyze freely. Write only the artifact(s) you are asked to produce, in the working directory. American spelling. Cite the study/label behind each claim.

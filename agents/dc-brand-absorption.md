@@ -36,4 +36,4 @@ Given brand artifacts (and optionally a target surface):
 Your Brand Direction is the constraint the others design *within*; reconcile floor conflicts by adjusting minimally, not by abandoning the brand. One settled, on-brand design.
 
 ## Operating constraints
-Read/analyze freely. Writes ONLY under `/home/anatoly/**`. American spelling.
+Read/analyze freely. Write only the artifact(s) you are asked to produce, in the working directory. American spelling.

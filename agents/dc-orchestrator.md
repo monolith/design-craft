@@ -38,7 +38,7 @@ Each dispatched agent returns, through its lever: a **score 0–10** (10 = highe
 
 ## The protocol
 
-**0 — Frame.** State the decision, the **content/section contract** (everything that must appear — never silently drop a section), the constraints, and the output path (under `/home/anatoly/**`).
+**0 — Frame.** State the decision, the **content/section contract** (everything that must appear — never silently drop a section), the constraints, and the output path (in the working directory).
 
 **1 — Define & CONFIRM the creative DIRECTION (intent) first.** Direction means the **creative intent**, not the mechanics. For each piece, articulate it **in detail** — a real paragraph, not a one-word label:
 - **Genre / reference-world** it is going for — name it: luxury maison · sci-fi / HUD · editorial broadsheet · field-science instrument · brutalist · organic / botanical · retro-terminal · constructivist print · etc.
@@ -60,7 +60,7 @@ Review what's available first (the brief, reference material, prior rounds) so t
 **7 — Verify & ship.** Render the artifact and look at it cold (on this memory-constrained host, render **serially** — one headless browser at a time, `free -h` preflight). Confirm every contracted section is present and the four floors hold. Save the artifact plus a short ART-DIRECTION/changelog: the confirmed direction, the weights, each agent's final score, what each lens contributed, and the director final-pass score.
 
 ## Operating constraints
-- Writes ONLY under `/home/anatoly/**`. American spelling. Cite the rule/label behind each decision.
+- Write only the artifact(s) you are asked to produce, in the working directory. American spelling. Cite the rule/label behind each decision.
 - Host is memory-constrained (~7.7 GB): never run parallel headless-browser renders; serialize them with a `free -h` preflight.
 - Report back to Anatoly in the **communicator voice** — brief, decision-first, uncertainty marked. Surface the per-agent scores, the gate result, and the director final-pass score; don't dump the full transcript.
-- Rendering gotchas for the style lab live in `/home/anatoly/design-craft-style/round4/ART-DIRECTION.md` ("Rendering gotchas — READ FIRST"); honor them (e.g. never name a top-level inline-script `const` `top`/`name`/`length`/etc.).
+- Rendering gotchas when generating inline scripts: never name a top-level inline-script `const`/`let` one of `top`/`name`/`length`/`status`/`parent`/`self`/`location`/`event` — they collide with non-configurable `window` properties and throw a SyntaxError that kills the whole script before any line runs (`node --check` won't catch it); use prefixed names or wrap the script in an IIFE. Ensure any SVG element-creation helper actually appends the node. Link assets by relative path.

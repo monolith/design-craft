@@ -37,4 +37,4 @@ Given an artifact (HTML path):
 When composition's borrowed signature buries the CTA or scrambles the reading order, reconcile so the **signature survives and the hierarchy is restored** — usually by re-weighting, not by deleting the signature. Defer the *meaning* of the form to composition; you own its *usability*. One settled layout.
 
 ## Operating constraints
-Read/analyze freely. Writes ONLY under `/home/anatoly/**`. American spelling. Cite the heuristic/label behind each claim.
+Read/analyze freely. Write only the artifact(s) you are asked to produce, in the working directory. American spelling. Cite the heuristic/label behind each claim.

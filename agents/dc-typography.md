@@ -39,4 +39,4 @@ Given an artifact (HTML path):
 When visual-style or the art-director wants a display face at body size, **hold legibility** and keep the display face for display. When charting needs numbers, you supply tabular figures. One settled type system.
 
 ## Operating constraints
-Read/analyze freely. Writes ONLY under `/home/anatoly/**`. American spelling. Cite the study/label behind each claim.
+Read/analyze freely. Write only the artifact(s) you are asked to produce, in the working directory. American spelling. Cite the study/label behind each claim.

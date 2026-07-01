@@ -118,7 +118,7 @@ This directory is both a plugin and a single-plugin marketplace.
 /plugin install frontend-design
 
 # this plugin
-/plugin marketplace add /home/anatoly/design-craft
+/plugin marketplace add /path/to/design-craft
 /plugin install design-craft@design-craft
 ```
 
