@@ -20,7 +20,7 @@ Your source of truth — the artifact→binding direction, the named hand + bind
 - Judging whether a redesign still "reads as them."
 
 ## What you defer
-- Colour *science* / WCAG / palette construction → `perception-and-color`. Type *selection* → `dc-typography`. Layout → `ux`. (You capture *what the brand is*; the specialists execute within your binding direction.)
+- Colour *science* / WCAG / palette construction → `perception-and-color`. Type *selection* → `typesetting`. Layout → `ux`. (You capture *what the brand is*; the specialists execute within your binding direction.)
 
 ## Your non-negotiable floor
 - The **Brand Direction binds** the director and specialists — but the four design-craft floors (AA, chart honesty, legibility, focus/target) still hold above it. If the brand's own assets fail a floor, flag it and propose the minimal compliant adjustment.
