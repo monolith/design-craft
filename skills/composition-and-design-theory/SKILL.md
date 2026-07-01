@@ -181,9 +181,9 @@ became a diverging change-bar; tidying the slopegraph's layout did not.)
    both at full volume. *[CONVENTION — Kidd] · plate 07*
 8. **Reduction / active space** — emptiness is the field that gives a single mark its force.
    *[CONVENTION — Maeda, Sutnar, Vignelli] · plate 08*
-9. **Hierarchy & contrast** — scale and weight set the order of reading; one dominant element.
-   *[STRONG — distinct hierarchy aids scanning + recall] · plate 09*
-10. **Gestalt grouping** — proximity and similarity bind separate marks into wholes.
+9. **Hierarchy & contrast** — scale and weight set the order of reading; one dominant element (but
+   **overlap/occlusion can outrank size** — see deeper cuts). *[STRONG — distinct hierarchy aids scanning + recall] · plate 09*
+10. **Gestalt grouping** — proximity, similarity, and **closure** bind separate marks into wholes.
     *[STRONG — Wagemans 2012] · plate 10*
 11. **Type that recedes** — for sustained reading, the letterform's duty is to disappear into even
     texture. *[STRONG legibility floor / CONVENTION — Garamond tradition] · plate 11*
@@ -234,7 +234,11 @@ Not headline principles, but documented and useful once the pair is set:
 
 - **Compose as one field** — Prägnanz (perception resolves to the simplest whole) + non-additivity (the
   whole ≠ the sum of parts). *[STRONG perception; the design reading is convention]*
-- **Controlled visual flow** — route the eye deliberately (upper-left start, explicit stops). *[CONVENTION — Sutnar]*
+- **Controlled visual flow** — route the eye deliberately (the upper-right corner, explicit starts and stops). *[CONVENTION — Sutnar]*
+- **Overlap/occlusion outranks size for hierarchy** — when one element occludes another, the occluder reads as
+  figure and ranks higher; a within-subjects study found layout *structure* (overlapping > tangential >
+  separated) drove perceived hierarchy **more than size**, and proximity alone doesn't create hierarchy without a
+  size difference. Grounds in figure-ground (#2) + closure (#10). *[extracted — one study, N=57, abstract shapes on a touchscreen; a bounded lever, not a law]*
 - **Abstract to a timeless symbol** rather than illustrate literally. *[CONVENTION — Nitsche]*
 - **Semantics → syntactics → pragmatics** — find the meaning, structure it, then test it is understood. *[CONVENTION — Vignelli]*
 - **Meaning by appropriation** — recontextualise a charged found image; sometimes omit type to intensify it. *[CONVENTION — Saville]*

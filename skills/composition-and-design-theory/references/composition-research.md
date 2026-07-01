@@ -216,15 +216,18 @@ or **perform (display)**.
 
 ### Group D — First impression, meaning-by-placement & generative rule
 
-**Lance Wyman** — *VERIFIED in the deep-research pass (high confidence). Group D's anchor.*
-- Contribution: a **generative single-rule system fused with culture**. Mexico '68: one compositional rule
-  (the parallel-line geometry of the five-ring logo) extended to build the numerals "68" *and* the word
-  MEXICO — one mark encoding event, place, year.
-- Transferable rule: **derive an entire identity from one structural rule, then bind that rule to culturally
-  resonant style** — distinct from copying the style itself. (Geometry came *first*; the Huichol/Op-art/
-  pre-Hispanic resonance was steered in once the rule's resemblance became apparent.)
-- Source: Walker Art Center (designer's own first-person account, P), corroborated V&A, Cooper Hewitt, olympics.com.
-  *Verified 3-vote in the workflow.*
+**Lance Wyman** — *Group D's anchor. The generative-system lesson is verified; the popular "single rule" origin story is NOT.*
+- Contribution: a **generative system fused with culture**. Mexico '68 propagated one repeating
+  parallel-line motif across the numerals "68", the word MEXICO, and the whole identity — one mark encoding
+  event, place, year.
+- **Correction [V27 — REFUTED, high]:** the radiating parallel lines were **Huichol / pre-Hispanic-derived,
+  NOT extended from the circular five-ring Olympic logo**, and the motif drew on **three influences (Huichol
+  yarn-painting + 1960s Op-art + the Olympic context), not one compositional rule.** The tidy "one rule from
+  the five-ring logo" story is a simplification the research killed — don't repeat it.
+- Transferable rule (this part holds): **derive an identity from one structural motif, then bind that motif to
+  culturally resonant style** — distinct from copying the style itself.
+- Source: Walker Art Center (designer's own first-person account, P), corroborated V&A, Cooper Hewitt. The
+  generative-system principle was upheld 3-vote; the single-rule / five-ring specifics were refuted (V27).
 
 **Peter Saville** — *medium-agnostic (appropriation is a fine-art lineage: Duchamp, Warhol).*
 - Contribution: **recontextualization / appropriation as the composing act** — meaning is manufactured by
