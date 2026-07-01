@@ -1,6 +1,6 @@
 ---
 name: developing-style
-description: Use when art-directing the look and feel of visual work — setting the theme, mood, concept and direction and coordinating the other design-craft skills to execute it — and when creating a NEW, original, distinctive visual style or identity from scratch — not applying an existing one; when a design keeps coming out generic, derivative, or "like every other site/app"; when a brief asks for something unlike convention, recognizable, ownable, "like nothing else"; or when deriving a new style by deviating from unfamiliar reference material. To absorb and *follow* an existing brand instead — a facelift or reskin — use brand-absorption, not this skill. An evidence-based method (style-formation research, bundled). Subordinate to the four design-craft floors — anything it produces must still pass them. **This is the design-craft art-director / creative-direction layer** — it sets the theme and feel and coordinates the other skills (composition, colour, type, charting, layout, branding) as levers it deploys, choosing restraint or boldness by fit, not by reflex; composition is a supporting craft, not the director.
+description: Use when creating a NEW, original, distinctive visual style or identity from scratch — not applying an existing one; when a design keeps coming out generic, derivative, or "like every other site/app"; when a brief asks for something unlike convention, recognizable, ownable, "like nothing else"; or when deriving a new style by deviating from unfamiliar reference material. An evidence-based method (style-formation research, bundled): map the convention, imitate-then-deviate from an *unfamiliar* domain, reduce to a small vocabulary, hold a few constants. To absorb and *follow* an existing brand instead — a facelift or reskin — use brand-absorption, not this skill. A **specialist** skill: the design-craft orchestrator (which is the art-director) dispatches it when a brief needs a new, ownable look — this skill invents the style; it does not direct the team. Subordinate to the four design-craft floors.
 ---
 
 # Developing Style
@@ -14,17 +14,6 @@ A repeatable method for building **your own** distinct visual style — a person
 **Core principle — distinctiveness is deviation from convention.** A treatment reads as distinctive only by departing from the *surrounding* convention, not by any element in isolation. So the whole method reduces to: **learn the convention, then break from it.**
 
 Labels: **[STRONG]** = peer-reviewed evidence (gate-verified 3-of-3) · **[CONVENTION]** = sound practice, thin evidence · **[extracted]** = primary-sourced, not gate-verified in this skill's pass · **[MYTH]** = claim that failed adversarial verification, do not use. Sources + the full proven/convention/myth split are in the reference.
-
-## Direct the work — design-craft's art-director
-
-This skill is the **director** of the design-craft toolkit. On any look-and-feel brief it:
-
-1. **Names the objective, audience, and the *feel*** the piece must carry — before any craft decision.
-2. **Chooses the direction by fit** — restraint vs boldness, convention vs deviation, rich vs reduced — letting the objective decide. **"Always deviate" and "always reduce" are both failure modes.** (The style-invention method below leans novel + minimal, but those are *tools*, not defaults — a corporate report wants restraint; a heritage brand wants rich atmosphere; an ownable identity wants deviation.)
-3. **Protects the feel.** Imagery, texture, atmosphere, and material richness are legitimate craft. Never strip or over-structure a piece whose power *is* its mood — reach for the crafts to *serve* the feel, not replace it. *(This is the guard against the prior failure mode: a structure/reduce reflex cheapening atmospheric and luxury work.)*
-4. **Deploys the specialists and judges each against the feel** — **composition** (arrangement, hierarchy, gestalt, meaning), **graphical-perception-and-color** (colour), **typography** (type), **charting** (data), **interface-ux-and-layout** (screen), **branding** (identity, personality, mood, luxury cues). The specialists serve; none of them directs. **All of these apply on *every* piece** — directing means conducting the whole set, not picking one lever. *(brand-absorption is the only conditional skill — it activates solely for adopting an existing brand: facelift, reskin, or working inside a client's identity.)*
-
-*(The style-invention method below — map the convention, imitate-then-deviate, reduce, hold constants — is the mode the director runs when the brief calls for a new, ownable style. It is one mode, not the only one.)*
 
 ## When to use
 
