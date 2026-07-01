@@ -12,8 +12,9 @@ forms, screen layout. This skill owns the **composition**: what goes where, at w
 relationship, so the whole field reads as one deliberate, meaningful piece. It brings composition and
 design-theory judgment to a brief and directs the other skills to supply their levers.
 
-Distilled from a research pass on graphic-design theory and ~17 masters (full record + sources:
-[`references/composition-research.md`](references/composition-research.md)); a worked gallery of 41 plates
+Distilled from a research pass on graphic-design theory and ~17 masters (the synthesis:
+[`references/composition-research.md`](references/composition-research.md); the raw per-agent corpus — 29 source
+extractions + 75 adversarial verifications, verbatim — in [`references/composition-corpus.md`](references/composition-corpus.md)); a worked gallery of 41 plates
 applies it: [`references/gallery/index.html`](references/gallery/index.html).
 
 **Core principle — meaning is in the arrangement, not the inventory.** Three identical lines become a
