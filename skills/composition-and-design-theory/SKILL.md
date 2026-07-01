@@ -10,7 +10,7 @@ description: Use when composing a graphic artifact — poster, identity, album/b
 The **arrangement / composition specialist** of design-craft. The sibling skills each own one lever — colour, type, chart
 forms, screen layout. This skill owns the **composition**: what goes where, at what size, in what
 relationship, so the whole field reads as one deliberate, meaningful piece. It brings composition and
-design-theory judgment to a brief and directs the other skills to supply their levers.
+design-theory judgment to a brief and requests the levers it needs from the skills that own them (the orchestrator art-directs).
 
 Distilled from a research pass on graphic-design theory and ~17 masters (the synthesis:
 [`references/composition-research.md`](references/composition-research.md); the raw per-agent corpus — 29 source
@@ -79,7 +79,8 @@ figure-ground binds the piece even when it isn't your lever; #18's first version
 canon before shipping, not only what you used — this is the guardrail that lets you juxtapose freely.
 
 **Confidence labels:** **[STRONG]** peer-reviewed study or normative standard · **[CONVENTION]** canonical
-practice / named authority, thin empirical support · **[MYTH]** failed verification — do not use.
+practice / named authority, thin empirical support · **[extracted]** primary-sourced but not adversarially
+re-verified in this skill's pass (same band as [ESTABLISHED] elsewhere) · **[MYTH]** failed verification — do not use.
 
 **Honest premise.** Design is teachable and the findings here are real *where labelled* [STRONG]; that
 following the skill *guarantees* a better result is not itself proven. Treat it as disciplined craft, not a
@@ -89,8 +90,8 @@ formula — the labels mark where the ground is firm.
 
 - Composing any artifact where arrangement carries meaning: posters, identities, covers, slides, key art,
   editorial, data reports, signage, screens.
-- Art-directing across the other design-craft skills — decide the composition here, then hand type/colour/
-  charts/layout to the skill that owns each.
+- Composing across the other design-craft skills — decide the arrangement here, then request type/colour/
+  charts/layout from the skill that owns each (the orchestrator art-directs).
 - Diagnosing why a layout feels generic, cluttered, derivative, or like a "stock graphic."
 
 Not for: the colour palette itself (→ `graphical-perception-and-color`), typeface/legibility (→
@@ -274,7 +275,7 @@ not just on a monitor.
 
 **Accessibility & legibility** (owned by the siblings, binding here): AA contrast and palette roles →
 `graphical-perception-and-color`; minimum sizes / measure / tabular figures → `typography`; chart honesty
-/ data-ink → `charting`. Never relax these for effect.
+/ data-ink → `charting`; focus-visible + adequate target size → `interface-ux-and-layout`. Never relax these for effect.
 
 ## Making one — execute, then iterate
 
@@ -342,13 +343,14 @@ atmosphere, then deploys the specialists and judges each against the feel:
 - typefaces, scale, measure → **typography**
 - which chart form, data-ink → **charting**
 - screen layout, navigation → **interface-ux-and-layout**
-- identity, personality, mood, luxury cues → **branding**
-- applying design-craft's own house look → **house-style-templates**
+- identity, personality, luxury / status cues → **branding** *(mood & atmosphere are the director's, not branding's)*
+- the house look → the **director**, drawing on the **house-style-templates** reference library
 
-**All skills apply on every piece** — the director (the orchestrator) plus all the specialists (composition,
-colour, type, charting, layout, branding, developing-style, house-style-templates) work together, every time; the director doesn't pick
-one lever, it conducts the whole set. **brand-absorption is the one exception** — it activates only when
-working inside an *existing* brand (facelift / reskin / client identity); see below.
+**All the evidence skills apply on every piece** — the director (the orchestrator) plus composition, colour,
+type, charting, layout, and branding work together, every time; the director doesn't pick one lever, it conducts
+the whole set. The **look-source is one of three**, chosen by intent: *apply* the house look
+(**house-style-templates**, the default), *invent* a new one (**developing-style**), or *absorb* an existing brand
+(**brand-absorption**, which activates only for a facelift / reskin / client identity; see below).
 
 **Working inside an existing brand** (facelift, reskin, client identity): get the binding **Brand Direction**
 from **brand-absorption** first — it **overrides design-craft's own defaults and the house look**
@@ -356,8 +358,8 @@ from **brand-absorption** first — it **overrides design-craft's own defaults a
 data-grid rule, where design-craft overrides a *library's* defaults.)
 
 **The floors bind everyone** — WCAG contrast + never-colour-alone (colour), legibility and minimum sizes
-(type), chart honesty / no truncated baselines (charting), and composition's medium-agnostic +
-demonstrate-don't-reproduce guards. None yields for effect.
+(type), chart honesty / no truncated baselines (charting), focus-visible + adequate target size
+(interface-ux-and-layout), and composition's medium-agnostic + demonstrate-don't-reproduce guards. None yields for effect.
 
 *In one line:* **the orchestrator directs the feel and coordinates; developing-style invents a new style when the
 brief needs one · composition and the rest are levers it deploys · the floors bind all — and an absorbed Brand
