@@ -43,13 +43,13 @@ in one word *or* fine-tune on top. That is how you get precise direction without
 | Dial | Options | Binds to |
 |---|---|---|
 | **purpose** (artifact + brand-source fork) | data-report/dashboard · poster/cover/editorial · app/tool/form · brand/logo identity · marketing/landing · **adopt-existing-brand** | Step-2 leading-agent pick; layout page-pattern + nav; charting form-family + whether a chart belongs; developing-style objective emphasis. `adopt-existing` IS the brand-absorption activation gate. |
-| **mood** | luxury · corporate · mystical · brutalist · editorial · playful · (free word) | developing-style name-the-feel + protect-the-feel; branding mood→Aaker (gates saturation/value/hue/B&W/symmetry/typeface-completeness); colour register/temp/ground/accent seed; type kit+expressiveness; layout ornament; composition clarity↔mystery; visual-style hand. **Sets the default for every dial below.** |
+| **mood** | luxury · corporate · mystical · brutalist · editorial · playful · (free word) | developing-style name-the-feel + protect-the-feel; branding mood→Aaker (gates saturation/value/hue/B&W/symmetry/typeface-completeness); colour register/temp/ground/accent seed; type kit+expressiveness; layout ornament; composition clarity↔mystery; developing-style hand. **Sets the default for every dial below.** |
 
 ### REFINING (one-tap, preset-defaulted)
 | Dial | Options | Binds to |
 |---|---|---|
 | **density** | airy · balanced · dense | layout whitespace; charting glance↔analyst + annotation; composition active-space; type leading+measure. *Bounded by real content volume.* |
-| **distinctiveness** | safe/familiar · balanced · ownable/unlike-anything | developing-style convention↔deviation + deviation-dose (ownable → runs the full invent-a-style method); branding differentiate↔conform + congruity + descriptiveness + typeface-completeness; composition grid stated↔ghost↔broken; layout headless↔kit; visual-style hand-bend. *Bounded by novel-AND-coherent.* |
+| **distinctiveness** | safe/familiar · balanced · ownable/unlike-anything | developing-style convention↔deviation + deviation-dose (ownable → runs the full invent-a-style method); branding differentiate↔conform + congruity + descriptiveness + typeface-completeness; composition grid stated↔ghost↔broken; layout headless↔kit; developing-style hand-bend. *Bounded by novel-AND-coherent.* |
 | **energy** (volume) | calm · balanced · loud | developing-style restraint↔boldness; composition scale-drama + axis energy; type display expressiveness. *(colour bindings removed — see fixes)* |
 
 ### ADVANCED (optional expert bundle; each rides the preset default)
@@ -86,7 +86,7 @@ substantive + 1 confirm.
 
 - **Leading agent** from *purpose* (the job), pinned top weight + strictest ≥9 gate. `adopt-existing` →
   brand-absorption leads, captures mood/distinctiveness/hand/colour/type from real artifacts; its Brand
-  Direction overrides the preset and binds everyone; visual-style yields.
+  Direction overrides the preset and binds everyone; developing-style yields.
 - **Mood** raises secondary weights and fills every dial default; **refining dials** scale their
   specialists; **distinctiveness=ownable** authorizes developing-style's full invent-a-style method.
 - **dc-orchestrator writes ONE shared brief** from the FINAL dial values — a named line per specialist.
