@@ -51,7 +51,7 @@ art-director breaks ties toward concept and mood — never through a floor.
 
 ## Three style skills (the layer on top)
 
-Above the six evidence skills sit three skills about *style* — all **strictly subordinate** to the four floors (AA contrast, chart honesty, legibility, focus/target/zoom). They add a look; they never break a rule, and all run the four-floor **pass-gate** before anything ships. They are three *look-sources*, one per intent:
+Above the seven evidence skills sit three skills about *style* — all **strictly subordinate** to the four floors (AA contrast, chart honesty, legibility, focus/target/zoom). They add a look; they never break a rule, and all run the four-floor **pass-gate** before anything ships. They are three *look-sources*, one per intent:
 
 | Skill | Owns | One-line |
 |---|---|---|

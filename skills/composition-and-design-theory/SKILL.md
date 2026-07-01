@@ -329,7 +329,7 @@ source you wrote), and read it as a stranger would — every worked plate took a
 
 ## How the design-craft skills fit together
 
-design-craft is **one toolkit of nine skills**, and **the orchestrator is the art-director** — it sets the
+design-craft is **one toolkit of ten skills**, and **the orchestrator is the art-director** — it sets the
 theme, feel and concept of a piece and coordinates the rest; **developing-style** invents a new style when the
 brief needs one. This skill, composition-and-design-theory, is a
 **specialist lever** the director deploys (arrangement, hierarchy, gestalt, figure-ground, meaning) — it does
