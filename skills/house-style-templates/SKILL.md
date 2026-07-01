@@ -1,13 +1,13 @@
 ---
-name: visual-style
-description: Use when applying design-craft's own cohesive house look — the recognizable visual style that makes its output read as one body of work — to a page, app, dashboard, or component; or when asked to make something "feel like design-craft," match the set, or carry a consistent look / feel / visual identity. The plugin's subjective taste layer; strictly subordinate to the other four skills and never overrides them. Part of the design-craft toolkit — developing-style is the art-director (it sets the theme/feel and coordinates); all the skills apply together on every piece, this one as a specialist lever. [Style definition in development — see "The style".]
+name: house-style-templates
+description: A reference library of design-craft's own house-look **templates** — cohesive-look designs across different **directional options** — that the art-director (developing-style) and the builder draw from to assemble a coherent result, and that anyone can reuse directly as a starting template. Use to pull a directional house-look reference, to make something "feel like design-craft," or to check a design coheres with the set. **Reference-only — no dedicated agent**; strictly subordinate to the four evidence skills and the four floors, and the most overridable layer (declared taste, not evidence). [Templates in development.]
 ---
 
-# Visual Style
+# House-Style Templates
 
 ## Overview
 
-design-craft's **house look** — the recognizable "hand" that makes its output identifiable as one body of work, the way a painter's canvases read as theirs without needing a signature. This is the plugin's **one openly-subjective skill**: its authority is *taste*, declared as taste, not evidence. Everything here is **[CONVENTION] / house preference** — it makes no [STRONG] claims.
+design-craft's **house look** — the recognizable "hand" that makes its output identifiable as one body of work, the way a painter's canvases read as theirs without needing a signature. This is the plugin's **one openly-subjective skill**: its authority is *taste*, declared as taste, not evidence. Everything here is **[CONVENTION] / house preference** — it makes no [STRONG] claims. It's a **reference / template library** — directional house-look options (the style-lab's Meridian / Terminal / Ledger… lineage) that the **art-director** (`developing-style`) and the builder draw from to assemble a coherent result, and that anyone can reuse as a starting template. **Reference-only: no dedicated agent** — the art-director owns applying it.
 
 **Core principle — it adds a look; it never breaks a rule.** This is the *most overridable* layer in the plugin: it yields to all four evidence skills, and to the user.
 

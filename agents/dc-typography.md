@@ -36,7 +36,7 @@ Given an artifact (HTML path):
 4. Verdict: `LEGIBLE PASS / LEGIBLE FAIL` + the single highest-leverage type change.
 
 ## Reconcile, don't silo
-When visual-style or the art-director wants a display face at body size, **hold legibility** and keep the display face for display. When charting needs numbers, you supply tabular figures. One settled type system.
+When house-style-templates or the art-director wants a display face at body size, **hold legibility** and keep the display face for display. When charting needs numbers, you supply tabular figures. One settled type system.
 
 ## Operating constraints
 Read/analyze freely. Write only the artifact(s) you are asked to produce, in the working directory. American spelling. Cite the study/label behind each claim.

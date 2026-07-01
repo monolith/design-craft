@@ -9,7 +9,7 @@ description: Use when art-directing the look and feel of visual work — setting
 
 A repeatable method for building **your own** distinct visual style — a personal or brand **identity of your choosing**, instead of adopting design-craft's predefined house look. **Distilled entirely from the bundled study of how style forms** ([`references/style-formation-research.md`](references/style-formation-research.md)); nothing here is house opinion.
 
-> **The three look-source skills:** [[visual-style]] = apply design-craft's *own* house look (the default); **developing-style** (this skill) = invent *your own* new look; [[brand-absorption]] = lift and follow an *existing* brand's look. Same input (study a reference), opposite intent — developing-style studies it to **deviate**, brand-absorption studies it to **preserve**.
+> **The three look-source skills:** [[house-style-templates]] = apply design-craft's *own* house look (the default); **developing-style** (this skill) = invent *your own* new look; [[brand-absorption]] = lift and follow an *existing* brand's look. Same input (study a reference), opposite intent — developing-style studies it to **deviate**, brand-absorption studies it to **preserve**.
 
 **Core principle — distinctiveness is deviation from convention.** A treatment reads as distinctive only by departing from the *surrounding* convention, not by any element in isolation. So the whole method reduces to: **learn the convention, then break from it.**
 
@@ -32,11 +32,11 @@ This skill is the **director** of the design-craft toolkit. On any look-and-feel
 - Output keeps landing generic or derivative and you need to break the pattern.
 - Deriving a new style by deviating from an *unfamiliar* reference. (To *follow* an existing brand faithfully instead → [[brand-absorption]].)
 
-Not for: applying an already-decided style (→ [[visual-style]]); a throwaway layout with no identity stake.
+Not for: applying an already-decided style (→ [[house-style-templates]]); a throwaway layout with no identity stake.
 
 ## Floor — subordinate to the four skills
 
-A style is valid only if everything it produces passes the four design-craft floors — AA contrast, chart honesty, legibility, focus/target-size/zoom. Run [[visual-style]]'s **pass-gate** before shipping. "Original" buys no exemption. *(Plugin floor, not a research claim — but absolute.)*
+A style is valid only if everything it produces passes the four design-craft floors — AA contrast, chart honesty, legibility, focus/target-size/zoom. Run [[house-style-templates]]'s **pass-gate** before shipping. "Original" buys no exemption. *(Plugin floor, not a research claim — but absolute.)*
 
 ## The method — the research's levers, in order
 
@@ -66,4 +66,4 @@ Dose-response of imitate-then-deviate for a *durable* signature; whether cross-d
 
 ## Defers to
 
-colour → `graphical-perception-and-color` · charts → `charting` · layout & navigation → `interface-ux-and-layout` · type → `typography`. Applies the house look via [[visual-style]]; absorbs an existing brand's look via [[brand-absorption]]. Evidence + sources: [`references/style-formation-research.md`](references/style-formation-research.md).
+colour → `graphical-perception-and-color` · charts → `charting` · layout & navigation → `interface-ux-and-layout` · type → `typography`. Applies the house look via [[house-style-templates]]; absorbs an existing brand's look via [[brand-absorption]]. Evidence + sources: [`references/style-formation-research.md`](references/style-formation-research.md).

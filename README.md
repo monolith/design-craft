@@ -52,10 +52,10 @@ Above the four evidence skills sit two skills about *style* — both **strictly 
 
 | Skill | Owns | One-line |
 |---|---|---|
-| **visual-style** | design-craft's own house look | The recognizable "hand" that makes its output read as one body of work. Pure taste, declared as taste — the most overridable layer. *[Signature in development.]* |
+| **house-style-templates** | design-craft's own house look | The recognizable "hand" that makes its output read as one body of work. Pure taste, declared as taste — the most overridable layer. *[Signature in development.]* |
 | **developing-style** | a method for creating a *new* style | An evidence-based, repeatable process for an original, distinctive style: learn the convention, then deviate — imitate-then-deviate from an *unfamiliar* domain, reduce to a small vocabulary, hold a few constants. Style-formation research bundled in `references/`. |
 
-`visual-style` *applies* a settled look; `developing-style` is the method to *invent* one.
+`house-style-templates` *applies* a settled look; `developing-style` is the method to *invent* one.
 
 ## The worked galleries
 
@@ -105,7 +105,7 @@ Corbusier) is a house-standard call, not a proof claim.
 The plugin ships a matching **agent team** — one agent per skill plus an orchestrator — so a design can be produced *by the plugin, through its agents*, not by one skill-load:
 
 - **`dc-orchestrator`** — runs the whole team. Its protocol every run: review what's available and **propose a direction, then CONFIRM it with the user before building** → assign each agent a **weight** by goal (luxury → branding leads; graphic/poster → composition; data/dashboard → charting; app → layout) and name the leading agent → brief every agent with that direction → build → **scored refinement loop** (each agent scores the result 0–10 and flags critical blockers; the gate passes only when the **leading agent ≥9**, **developing-style + branding ≥8**, **all others ≥7**, and **no blocker**) → a **director final pass** that scores the result against the confirmed direction and must hit **≥9**, else it refines again with shortfall feedback → render and ship. design-craft decides, frontend-design implements.
-- **`dc-art-director`** (developing-style) sets theme/feel and arbitrates; **`dc-composition`, `perception-and-color`, `tufte-charting`, `dc-typography`, `ux`, `dc-branding`** are the specialist levers; **`dc-visual-style`** is the house hand; **`dc-brand-absorption`** is conditional (only when adopting an existing brand).
+- **`dc-art-director`** (developing-style) sets theme/feel and arbitrates; **`dc-composition`, `perception-and-color`, `tufte-charting`, `dc-typography`, `ux`, `dc-branding`** are the specialist levers; **`dc-brand-absorption`** is conditional (only when adopting an existing brand). **`house-style-templates`** is a **reference-only skill** — a library of directional house-look templates the art-director draws from — **not an agent**.
 
 Collisions resolve by a **deference map** (each lever's owner wins on its lever; a floor always outranks a look or direction; the art-director breaks ties toward concept and mood, never through a floor). The four floors — AA contrast, chart honesty, legibility, focus-visible/≥44px — are absolute.
 

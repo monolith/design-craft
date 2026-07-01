@@ -30,7 +30,7 @@ design-craft has four ways to relate to a "look." Pick by verb:
 |---|---|---|
 | **[[branding]]** | *design / evaluate* identity; judge **redesign risk** | making or grading an identity |
 | **[[developing-style]]** | *invent* a new, original look | "like nothing else," ownable, from scratch |
-| **[[visual-style]]** | *apply* design-craft's own house look | the default when no brand is given |
+| **[[house-style-templates]]** | *apply* design-craft's own house look | the default when no brand is given |
 | **brand-absorption** (this) | ***read* an existing look, *set* direction** | facelift / reskin / inside a client's brand |
 
 This skill **captures what they have and sets direction**; **[[branding]]** judges **how far you can
@@ -77,7 +77,7 @@ voice samples). The test: anyone can hold a screen against it and judge fit in t
 **Precedence — the inverse of the library rule.** Where the data-grid rule (interface-ux-and-layout §11)
 says design-craft overrides a *library's* defaults, here **the absorbed Brand Direction overrides
 design-craft's own defaults and house look.** When a Brand Direction exists, the colour, type, layout,
-and composition skills serve *it*, and **[[visual-style]]** yields entirely. The Brand Direction states
+and composition skills serve *it*, and **[[house-style-templates]]** yields entirely. The Brand Direction states
 this at its top; the art-director (**[[developing-style]]**) consumes it as the binding
 constraint set for the work.
 

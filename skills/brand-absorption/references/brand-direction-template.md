@@ -4,7 +4,7 @@ The output of an absorption. Fill it from the **artifacts**, not from memory. Ke
 substance plus attached evidence. Delete rows that don't apply; never pad with the generic floor.
 
 > **PRECEDENCE (state this at the top, verbatim intent):** This Brand Direction is *binding*. For this
-> work it **overrides design-craft's own defaults and house look** — `visual-style` yields, and the
+> work it **overrides design-craft's own defaults and house look** — `house-style-templates` yields, and the
 > colour, type, layout, and composition skills serve the values below. Deviations are a `branding`
 > decision (redesign-risk), not a styling choice.
 

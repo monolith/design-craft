@@ -1,6 +1,6 @@
 ---
 name: composition-and-design-theory
-description: Use when composing a graphic artifact — poster, identity, album/book cover, title card, key art, slide, editorial spread, data report, signage, or screen — arranging type, image, shape, colour, and space into a deliberate composition that reads as finished work rather than a template. A specialist craft in the design-craft toolkit — it owns the composition (arrangement, hierarchy, gestalt, figure-ground, meaning) as one lever the director deploys; the art-director is developing-style, which sets theme and feel and coordinates the crafts. Evidence-based — separates proven findings from convention from myth. Defers colour to graphical-perception-and-color, type to typography, chart forms to charting, screen layout/navigation to interface-ux-and-layout; feeds developing-style and visual-style. Also use to judge why a composition feels generic, cluttered, derivative, or like a "stock graphic."
+description: Use when composing a graphic artifact — poster, identity, album/book cover, title card, key art, slide, editorial spread, data report, signage, or screen — arranging type, image, shape, colour, and space into a deliberate composition that reads as finished work rather than a template. A specialist craft in the design-craft toolkit — it owns the composition (arrangement, hierarchy, gestalt, figure-ground, meaning) as one lever the director deploys; the art-director is developing-style, which sets theme and feel and coordinates the crafts. Evidence-based — separates proven findings from convention from myth. Defers colour to graphical-perception-and-color, type to typography, chart forms to charting, screen layout/navigation to interface-ux-and-layout; feeds developing-style and house-style-templates. Also use to judge why a composition feels generic, cluttered, derivative, or like a "stock graphic."
 ---
 
 # Composition & Design Theory
@@ -337,16 +337,16 @@ atmosphere, then deploys the specialists and judges each against the feel:
 - which chart form, data-ink → **charting**
 - screen layout, navigation → **interface-ux-and-layout**
 - identity, personality, mood, luxury cues → **branding**
-- applying design-craft's own house look → **visual-style**
+- applying design-craft's own house look → **house-style-templates**
 
 **All skills apply on every piece** — the director (developing-style) plus all the specialists (composition,
-colour, type, charting, layout, branding, visual-style) work together, every time; the director doesn't pick
+colour, type, charting, layout, branding, house-style-templates) work together, every time; the director doesn't pick
 one lever, it conducts the whole set. **brand-absorption is the one exception** — it activates only when
 working inside an *existing* brand (facelift / reskin / client identity); see below.
 
 **Working inside an existing brand** (facelift, reskin, client identity): get the binding **Brand Direction**
 from **brand-absorption** first — it **overrides design-craft's own defaults and the house look**
-(**visual-style** yields), and the director and every specialist serve *its* values. (The inverse of the
+(**house-style-templates** yields), and the director and every specialist serve *its* values. (The inverse of the
 data-grid rule, where design-craft overrides a *library's* defaults.)
 
 **The floors bind everyone** — WCAG contrast + never-colour-alone (colour), legibility and minimum sizes
