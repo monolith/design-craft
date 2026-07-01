@@ -23,6 +23,8 @@ weight/size/space/colour within one family run out.
 established practice from a named authority/design system, weak or no controlled support ·
 **[MYTH]** = the evidence contradicts the popular claim.
 
+**Full research trail:** this skill's evidence comes from four deep-research runs (~415 agents) — no distilled findings doc was ever saved, so the recovered record is the **complete raw per-agent corpus** (87 source extractions + 246 adversarial verifications, verbatim): [references/typography-corpus.md](references/typography-corpus.md).
+
 **How to apply (default posture).** The **[STRONG]** findings and WCAG criteria are *binding* — don't
 relax one on your own. The labelled **defaults** (the recommended typefaces, tabular figures for data,
 a ~16px body floor, the system-font stack) are the *starting point* — use them unless the brief says
