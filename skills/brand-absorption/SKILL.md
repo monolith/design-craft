@@ -1,6 +1,6 @@
 ---
 name: brand-absorption
-description: Use when adopting, absorbing, or extracting an EXISTING brand's visual identity to set direction for a redesign, facelift, refresh, reskin, or any work that must stay inside a client's established look — capturing their colours, type, logo, imagery, tone, and the structural "hand" into a binding Brand Direction the rest of the design follows. Also when a redesign must still "read as them," or when matching brand guidelines you've been handed. NOT for inventing a new original style (→ developing-style), nor for designing/evaluating an identity from scratch or judging redesign risk (→ branding). Defers colour science to graphical-perception-and-color, type selection to typography, layout to interface-ux-and-layout. Part of the design-craft toolkit — developing-style is the art-director that coordinates the set; this is the toolkit's one conditional skill (it activates only for adopting an existing brand), and its Brand Direction binds the director and every specialist.
+description: Use when adopting, absorbing, or extracting an EXISTING brand's visual identity to set direction for a redesign, facelift, refresh, reskin, or any work that must stay inside a client's established look — capturing their colours, type, logo, imagery, tone, and the structural "hand" into a binding Brand Direction the rest of the design follows. Also when a redesign must still "read as them," or when matching brand guidelines you've been handed. NOT for inventing a new original style (→ developing-style), nor for designing/evaluating an identity from scratch or judging redesign risk (→ branding). Defers colour science to graphical-perception-and-color, type selection to typography, layout to interface-ux-and-layout. Part of the design-craft toolkit — the orchestrator is the art-director that coordinates the set; this is the toolkit's one conditional skill (it activates only for adopting an existing brand), and its Brand Direction binds the director and every specialist.
 ---
 
 # Brand absorption
@@ -78,7 +78,7 @@ voice samples). The test: anyone can hold a screen against it and judge fit in t
 says design-craft overrides a *library's* defaults, here **the absorbed Brand Direction overrides
 design-craft's own defaults and house look.** When a Brand Direction exists, the colour, type, layout,
 and composition skills serve *it*, and **[[house-style-templates]]** yields entirely. The Brand Direction states
-this at its top; the art-director (**[[developing-style]]**) consumes it as the binding
+this at its top; the art-director (the orchestrator) consumes it as the binding
 constraint set for the work.
 
 ## Common mistakes

@@ -1,13 +1,13 @@
 ---
 name: composition-and-design-theory
-description: Use when composing a graphic artifact — poster, identity, album/book cover, title card, key art, slide, editorial spread, data report, signage, or screen — arranging type, image, shape, colour, and space into a deliberate composition that reads as finished work rather than a template. A specialist craft in the design-craft toolkit — it owns the composition (arrangement, hierarchy, gestalt, figure-ground, meaning) as one lever the director deploys; the art-director is developing-style, which sets theme and feel and coordinates the crafts. Evidence-based — separates proven findings from convention from myth. Defers colour to graphical-perception-and-color, type to typography, chart forms to charting, screen layout/navigation to interface-ux-and-layout; feeds developing-style and house-style-templates. Also use to judge why a composition feels generic, cluttered, derivative, or like a "stock graphic."
+description: Use when composing a graphic artifact — poster, identity, album/book cover, title card, key art, slide, editorial spread, data report, signage, or screen — arranging type, image, shape, colour, and space into a deliberate composition that reads as finished work rather than a template. A specialist craft in the design-craft toolkit — it owns the composition (arrangement, hierarchy, gestalt, figure-ground, meaning) as one lever the director deploys; the art-director is the orchestrator, which sets theme and feel and coordinates the crafts. Evidence-based — separates proven findings from convention from myth. Defers colour to graphical-perception-and-color, type to typography, chart forms to charting, screen layout/navigation to interface-ux-and-layout; feeds developing-style and house-style-templates. Also use to judge why a composition feels generic, cluttered, derivative, or like a "stock graphic."
 ---
 
 # Composition & Design Theory
 
 ## Overview
 
-The **art-director layer** of design-craft. The sibling skills each own one lever — colour, type, chart
+The **arrangement / composition specialist** of design-craft. The sibling skills each own one lever — colour, type, chart
 forms, screen layout. This skill owns the **composition**: what goes where, at what size, in what
 relationship, so the whole field reads as one deliberate, meaningful piece. It brings composition and
 design-theory judgment to a brief and directs the other skills to supply their levers.
@@ -328,12 +328,13 @@ source you wrote), and read it as a stranger would — every worked plate took a
 
 ## How the design-craft skills fit together
 
-design-craft is **one toolkit of nine skills**, and **developing-style is the art-director** — it sets the
-theme, feel and concept of a piece and coordinates the rest. This skill, composition-and-design-theory, is a
+design-craft is **one toolkit of nine skills**, and **the orchestrator is the art-director** — it sets the
+theme, feel and concept of a piece and coordinates the rest; **developing-style** invents a new style when the
+brief needs one. This skill, composition-and-design-theory, is a
 **specialist lever** the director deploys (arrangement, hierarchy, gestalt, figure-ground, meaning) — it does
 *not* direct, set the feel, or own theme/mood.
 
-**The director (developing-style)** names the objective and the *feel*, chooses the approach **by fit**
+**The director (the orchestrator)** names the objective and the *feel*, chooses the approach **by fit**
 (restraint or boldness, convention or deviation, rich or reduced — never by reflex), protects imagery and
 atmosphere, then deploys the specialists and judges each against the feel:
 - arrangement / hierarchy / structure / meaning → **composition** *(this skill)*
@@ -344,8 +345,8 @@ atmosphere, then deploys the specialists and judges each against the feel:
 - identity, personality, mood, luxury cues → **branding**
 - applying design-craft's own house look → **house-style-templates**
 
-**All skills apply on every piece** — the director (developing-style) plus all the specialists (composition,
-colour, type, charting, layout, branding, house-style-templates) work together, every time; the director doesn't pick
+**All skills apply on every piece** — the director (the orchestrator) plus all the specialists (composition,
+colour, type, charting, layout, branding, developing-style, house-style-templates) work together, every time; the director doesn't pick
 one lever, it conducts the whole set. **brand-absorption is the one exception** — it activates only when
 working inside an *existing* brand (facelift / reskin / client identity); see below.
 
@@ -358,8 +359,9 @@ data-grid rule, where design-craft overrides a *library's* defaults.)
 (type), chart honesty / no truncated baselines (charting), and composition's medium-agnostic +
 demonstrate-don't-reproduce guards. None yields for effect.
 
-*In one line:* **developing-style directs the feel and coordinates · composition and the rest are levers it
-deploys · the floors bind all — and an absorbed Brand Direction outranks design-craft's own defaults.**
+*In one line:* **the orchestrator directs the feel and coordinates; developing-style invents a new style when the
+brief needs one · composition and the rest are levers it deploys · the floors bind all — and an absorbed Brand
+Direction outranks design-craft's own defaults.**
 
 ## References
 

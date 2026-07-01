@@ -1,6 +1,6 @@
 ---
 name: graphical-perception-and-color
-description: Use when choosing colors, palettes, backgrounds, contrast, or visual encodings for any chart, graph, plot, dashboard, or data visualization — or when judging claims about color and the eye/brain (dark mode, "easy on the eyes", blue light, eye strain). Evidence-based rules from graphical-perception and color science (Cleveland & McGill, Heer & Bostock, ColorBrewer, Healey, WCAG, CVD/colorblindness) that separate proven findings from convention and myth. Part of the design-craft toolkit — developing-style is the art-director (it sets the theme/feel and coordinates); all the skills apply together on every piece, this one as a specialist lever.
+description: Use when choosing colors, palettes, backgrounds, contrast, or visual encodings for any chart, graph, plot, dashboard, or data visualization — or when judging claims about color and the eye/brain (dark mode, "easy on the eyes", blue light, eye strain). Evidence-based rules from graphical-perception and color science (Cleveland & McGill, Heer & Bostock, ColorBrewer, Healey, WCAG, CVD/colorblindness) that separate proven findings from convention and myth. Part of the design-craft toolkit — the orchestrator is the art-director (it sets the theme/feel and coordinates the whole set); all the skills apply together on every piece, this one as a specialist lever.
 ---
 
 # Graphical Perception & Colour (evidence-based)

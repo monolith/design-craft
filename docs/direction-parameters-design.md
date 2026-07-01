@@ -89,7 +89,7 @@ substantive + 1 confirm.
   Direction overrides the preset and binds everyone; visual-style yields.
 - **Mood** raises secondary weights and fills every dial default; **refining dials** scale their
   specialists; **distinctiveness=ownable** authorizes developing-style's full invent-a-style method.
-- **dc-art-director writes ONE shared brief** from the FINAL dial values — a named line per specialist.
+- **dc-orchestrator writes ONE shared brief** from the FINAL dial values — a named line per specialist.
   Every dial lists its consumer, so a dial no one reads is a defect.
 - **mood→Aaker** translation is mandatory before briefing branding (luxury→sophistication;
   corporate→competence; mystical→sophistication+excitement; brutalist→ruggedness;
@@ -134,7 +134,7 @@ binds to a lever + floors never params); (B) replace Step-1 free-prose-first wit
 + preset library + question protocol + propose-then-confirm/stop rule/adopt-existing branch, keeping the
 four-axis paragraph as the interview's *output*; (C) retitle Step 2 to derive from confirmed dial values
 + add the dial→brief propagation table + mood→Aaker block + weight-scaling + brand-absorption override +
-charting-is-mood-deaf reminder; (D) add "floors are never dials" clause; (E) `dc-art-director.md` gets a
+charting-is-mood-deaf reminder; (D) add "floors are never dials" clause; (E) `dc-orchestrator.md` gets a
 step-0 "consume the confirmed dials, write one shared brief with a named line per specialist, verify
 every dial has a consumer before dispatch."
 
