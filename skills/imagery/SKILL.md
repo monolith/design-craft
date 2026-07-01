@@ -160,9 +160,15 @@ DEVIATE** — never adopt any one signature whole.
   piece survives without**; let negative space (the ground) carry as much meaning as the figure; fix a
   grid/module first, then place freely inside it. *(Favre, F2/F3 — "design by subtraction & suggestion"; "fix a rigid scaffold, improvise inside it".)*
 - **Data-encoded polygonal marks + a bespoke legend** — derive the encoding *from the data*, not from a chart
-  menu; build in an explicit order (organising matrix → shaped polygons carrying quantitative **and**
-  qualitative params → colour categories → links → labels → **a custom legend that carries the meaning** →
-  fine-tune for hierarchy). *(Lupi, F7/F8/F9 — she anchors the reproducible-encoding pole, not an anti-code one.)*
+  menu; build in an explicit order (organising matrix → shaped marks carrying quantitative **and** qualitative
+  params → colour categories → labels → **a custom legend that carries the meaning** → fine-tune for hierarchy).
+  *(Lupi, F7/F8/F9 — she anchors the reproducible-encoding pole, not an anti-code one.)*
+  **This lane composes WITH [[charting]] and [[graphical-perception-and-color]], never around them:** the
+  underlying encoding must stay **Tufte-honest** — position/length over area, honest baseline, data-ink — and
+  *form + honesty defer to [[charting]]* (build on a real chart form, e.g. a Cleveland dot plot, not a
+  prettier-but-dishonest one); *palette defers to [[graphical-perception-and-color]]*. Imagery adds only the
+  **humanistic layer** on top of an honest chart — a bespoke-but-honest mark, a qualitative annotation, and a
+  legend that carries the *why* — it never trades honesty for decoration.
 - **Planned, tested palettes + layer-compositing** — treat colour "like a designer, not a painter": plan and
   test a small palette, composite in layers. Colour values → [[graphical-perception-and-color]]. *(Ngai, F4.)*
 

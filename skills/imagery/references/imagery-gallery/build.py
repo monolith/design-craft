@@ -131,32 +131,31 @@ def plate_negative_gaze():
 
 # ============================ LANE C — data-encoded marks (Lupi) ==============================
 def plate_data_week():
-    # "A week of focus": 7 days, each a shaped polygon in a grid cell.
-    # size(radius)=hours; colour=dominant category; notch=a qualitative flag (a hard day).
-    data = [  # day, hours, category, hard?
-        ("M",6.5,"deep",False),("T",4.0,"meet",True),("W",7.5,"deep",False),
-        ("T",5.0,"admin",False),("F",6.0,"deep",True),("S",2.5,"admin",False),("S",1.5,"meet",False)]
+    # Tufte-HONEST base (form defers to charting: a Cleveland dot plot — position=hours, honest baseline,
+    # data-ink minimal), given only the imagery HUMANISTIC layer on top: colour=category (from the colour
+    # skill's palette) + a sienna ring = a qualitative flag (a hard day) + a legend that carries the WHY.
+    data = [("Mon",6.5,"deep",False),("Tue",4.0,"meet",True),("Wed",7.5,"deep",False),
+            ("Thu",5.0,"admin",False),("Fri",6.0,"deep",True),("Sat",2.5,"admin",False),("Sun",1.5,"meet",False)]
     catcol = {"deep":ULTRA,"meet":OCHRE,"admin":SLATE}
-    out = []; x0=40; y0=90; cw=32
-    out.append(f'<rect x="30" y="30" width="240" height="240" fill="{GROUND}"/>')
+    out = [f'<rect x="0" y="0" width="300" height="300" fill="{GROUND}"/>']
+    x0, x1, y0, row, hmax = 76, 268, 60, 23, 8
+    def X(h): return x0 + (h/hmax)*(x1-x0)
+    ybot = y0 + 7*row - row + 12
+    for hv in range(0, 9, 2):                       # honest, minimal x-axis
+        xx = X(hv)
+        out.append(f'<line x1="{xx:.1f}" y1="{y0-9:.0f}" x2="{xx:.1f}" y2="{ybot:.0f}" stroke="{_mul(GROUND,0.8)}" stroke-width="1"/>')
+        out.append(f'<text x="{xx:.1f}" y="{ybot+12:.0f}" text-anchor="middle" font-size="9" fill="{_mul(INK,1.7)}" font-family="ui-monospace,monospace">{hv}h</text>')
     for i,(day,hrs,cat,hard) in enumerate(data):
-        cx = x0 + i*cw + 8; cy = y0 + 60
-        r = 6 + hrs*3.4
-        # polygon mark: hexagon sized by hours, coloured by category
-        pts = []
-        n = 6
-        for k in range(n):
-            a = math.pi/2 + k*2*math.pi/n
-            pts.append((cx + r*math.cos(a), cy - r*math.sin(a)))
-        out.append(poly(pts, catcol[cat], stroke=INK, sw=1.3))
-        if hard:  # qualitative flag: a small sienna notch = "a hard day"
-            out.append(f'<circle cx="{cx:.0f}" cy="{cy-r-7:.0f}" r="3.4" fill="{SIENNA}"/>')
-        out.append(f'<text x="{cx:.0f}" y="{y0+150:.0f}" text-anchor="middle" font-size="11" fill="{INK}" font-family="ui-monospace,monospace">{day}</text>')
-    # bespoke legend (carries the grammar — the WHY, not just keys)
-    ly = 250
-    out.append(f'<text x="40" y="{ly}" font-size="10.5" fill="{INK}" font-family="ui-monospace,monospace">size = hours · colour = focus type · </text>')
-    out.append(f'<circle cx="222" cy="{ly-3.5:.0f}" r="3.4" fill="{SIENNA}"/>')
-    out.append(f'<text x="230" y="{ly}" font-size="10.5" fill="{INK}" font-family="ui-monospace,monospace">= a hard day</text>')
+        yy = y0 + i*row
+        out.append(f'<line x1="{x0}" y1="{yy}" x2="{X(hrs):.1f}" y2="{yy}" stroke="{_mul(GROUND,0.76)}" stroke-width="1.4"/>')   # leader = honest position
+        out.append(f'<circle cx="{X(hrs):.1f}" cy="{yy}" r="5.4" fill="{catcol[cat]}" stroke="{INK}" stroke-width="1"/>')
+        if hard:
+            out.append(f'<circle cx="{X(hrs):.1f}" cy="{yy}" r="9.6" fill="none" stroke="{SIENNA}" stroke-width="1.7"/>')
+        out.append(f'<text x="{x0-9}" y="{yy+3.6:.0f}" text-anchor="end" font-size="10.5" fill="{INK}" font-family="ui-monospace,monospace">{day}</text>')
+    ly = 256                                         # legend carries the WHY, not just keys
+    for lx,(col,lab) in zip((46,104,162),((ULTRA,"deep"),(OCHRE,"meet"),(SLATE,"admin"))):
+        out.append(f'<circle cx="{lx}" cy="{ly-3.5}" r="5" fill="{col}" stroke="{INK}" stroke-width="1"/><text x="{lx+9}" y="{ly}" font-size="10" fill="{INK}" font-family="ui-monospace,monospace">{lab}</text>')
+    out.append(f'<circle cx="220" cy="{ly-3.5}" r="7" fill="none" stroke="{SIENNA}" stroke-width="1.7"/><text x="231" y="{ly}" font-size="10" fill="{INK}" font-family="ui-monospace,monospace">a hard day</text>')
     return out
 
 # ============================ LANE D — the synthesised deviation ==============================
@@ -188,19 +187,18 @@ def card(num, title, artist, svg_inner, note, viewbox="0 0 300 300"):
   <em>{html.escape(artist)}</em><span class="note">{note}</span></figcaption>
 </figure>'''
 
+# Round 2: A1 (tower) dropped per feedback; C rebuilt as a Tufte-honest chart with the imagery layer.
 PLATES = [
-    card("A1","Isometric construction — a terraced tower","Pohl · build from a projection system, expose the scaffold",
-         plate_iso_tower(),"[extracted] Fully code-built: iso projection + extruded prisms + gridded windows. Density is <b>constructed</b>, not hand-composed."),
-    card("A2","Isometric block cluster + exposed wireframe","Pohl · construction is the illustration",
-         plate_iso_cluster(),"[extracted] Same projection; the ochre wireframe shows the scaffold Pohl leaves visible. Palette/subject taste is the layer above."),
+    card("A","Isometric block cluster + exposed wireframe","Pohl · construction is the illustration",
+         plate_iso_cluster(),"[extracted] Iso projection + extruded prisms; the ochre wireframe shows the scaffold Pohl leaves visible. Palette/subject taste is the layer above. <i>(A1 tower dropped.)</i>"),
     card("B1","Figure-ground — Rubin's vase","Favre · one shape does double duty; ground carries meaning",
          "".join(plate_rubin()),"[extracted] One contour reads as a vase <i>or</i> two faces. Negative space is the subject. <b>Where</b> to cut is the taste layer."),
     card("B2","Subtraction — the crescent bite","Favre · remove anything the piece survives without",
          "".join(plate_negative_gaze()),"[extracted] A disc subtracted from a disc; the absence is the image + one reserved accent. Reads as moon / eye."),
-    card("C1","Data-encoded marks — a week of focus","Lupi · derive the encoding from the data; the legend carries the WHY",
-         "".join(plate_data_week()),"[extracted] size=hours, colour=focus type, a sienna notch = a hard day. Bespoke encoding + a legend that carries qualitative meaning."),
-    card("D1","The deviation — isometric marks carrying data","Synthesis · combine moves no single artist uses together",
-         plate_deviation(),"[taste] iso geometry (Pohl) + data→height/colour (Lupi) + a few-palette (Favre) + one mark. Not any one signature — the <b>ownable</b> lane. Style-invention → developing-style."),
+    card("C","Data-illustration ON an honest chart","Lupi × Tufte · humanistic layer over a Cleveland dot plot",
+         "".join(plate_data_week()),"[extracted] Form + honesty defer to <b>charting</b> (position=hours, honest baseline, data-ink). Imagery adds only the humanistic layer: colour=category, the sienna ring = a hard day, a legend that carries the <i>why</i>. Palette from the <b>colour skill</b>."),
+    card("D","The deviation — isometric marks carrying data","Synthesis · combine moves no single artist uses together",
+         plate_deviation(),"[taste] iso geometry (Pohl) + data→height/colour + a few-palette + one mark. <i>Decorative data-texture, not a chart to read precisely — for exact values, use <b>charting</b>.</i> The ownable lane; style-invention → developing-style."),
 ]
 
 HTML = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
