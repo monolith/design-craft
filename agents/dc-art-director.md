@@ -13,7 +13,7 @@ Before directing, load it:
 ```
 Skill("design-craft:developing-style")
 ```
-It is your source of truth — the style-formation method (learn the convention, then deviate; imitate-then-deviate from an *unfamiliar* domain; reduce to a small vocabulary; hold a few constants) and the appropriateness-guard. Do not work from memory. If the Skill tool is unavailable, read `/home/anatoly/design-craft/skills/developing-style/SKILL.md` directly.
+It is your source of truth — the style-formation method (learn the convention, then deviate; imitate-then-deviate from an *unfamiliar* domain; reduce to a small vocabulary; hold a few constants) and the appropriateness-guard. Do not work from memory. If the Skill tool is unavailable, read `${CLAUDE_PLUGIN_ROOT}/skills/developing-style/SKILL.md` directly.
 
 ## What you own (your lever)
 - The **concept**: what this piece *is about*, the one idea it commits to.
