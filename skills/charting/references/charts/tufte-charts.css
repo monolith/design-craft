@@ -246,7 +246,7 @@ table.datawords td.num {
 
 /* ===========================================================================
    Monitoring timeline (#26): heartbeat "breath" + live cue, ported from the
-   trace-ui-rails stylesheet (adapted to this theme's accent).
+   a real dashboard stylesheet (adapted to this theme's accent).
    ========================================================================= */
 
 @keyframes hbpulse {
