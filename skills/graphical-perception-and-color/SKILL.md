@@ -61,7 +61,7 @@ demonstrates the colour wheel and its harmony schemes, the chart palettes, and t
 | Rainbow/jet | Don't use for ordered/continuous data. | [STRONG] |
 | Colorblind safety | Assume ~8% of male viewers have CVD; ensure marks differ in **lightness**, not just hue; simulate deuteranopia. | [STRONG] |
 | Contrast: text | 4.5:1 (normal), 3:1 (≥18pt or 14pt bold). | [STRONG] |
-| Contrast: data marks/lines | **3:1** vs adjacent colors (background *and* neighboring marks) if needed to read the chart (WCAG 1.4.11). | [STRONG] |
+| Contrast: data marks/lines | **3:1** vs the **background** if needed to read the chart (WCAG 1.4.11); marks need not contrast with *each other*. | [STRONG] |
 | Background hue ("paper", green) | Hue is preference; it does **not** reduce strain independent of brightness. | [MYTH to claim otherwise] |
 | Background brightness | Avoid a blazing pure-white field; lower absolute luminance while keeping high text/mark contrast. | [STRONG-ish] |
 | Light vs dark mode | For glanceable **charts**, no clear winner — offer both. Light wins only for **small dense text**. | mixed; text=[STRONG] |
@@ -104,7 +104,9 @@ stands — so: genuinely unsettled, treat as taste.)
   colorblind viewers** (see §4).
 - **[STRONG]** WCAG 1.4.1 *Use of Color*: never let hue be the *only* differentiator. Add
   shape, direct labels, or position. A hue-only legend (match line to swatch) is a known
-  failure pattern — label series in place.
+  failure pattern — label series in place. **The threshold that makes "distinguish by lightness"
+  actually satisfy 1.4.1:** the lightness difference must itself reach **≥3:1 contrast** — below that it
+  doesn't count as the non-colour cue, so add shape/label/position (W3C 1.4.1 Understanding).
 
 ## 3. Sequential / diverging (continuous magnitude as color)
 
@@ -114,8 +116,11 @@ stands — so: genuinely unsettled, treat as taste.)
 - **[STRONG]** **Rainbow/jet is harmful** for ordered data (Borland & Taylor 2007): no
   perceived value order, non-monotonic luminance hides detail, and false boundaries appear
   where hue changes fast. Use **Viridis** (or **Cividis**, tuned to look the same to CVD
-  viewers). Nuance: rainbow isn't *always* wrong (it aids pure hue-segmentation), but never
-  use it to show magnitude.
+  viewers). Nuance — **rainbow isn't *always* wrong**: it aids pure hue-segmentation, discrete colour
+  *bands* can even help gradient reading (viewers use band size/frequency as a proxy), and its harms are
+  task-dependent (Ware, Stone, Szafir & Rhyne 2023, *Rainbow Colormaps Are Not All Bad*; a 37,000-figure
+  cross-discipline survey confirms both its prevalence and that dependence). Still: never use it to show a
+  **magnitude you must read as a value**.
 - **[caveat — "uniform" isn't universally best]** Perceptual uniformity is a strong *default*, not a
   law. For **gradient-steepness discrimination Viridis tested *worst*** of three maps (cool-warm 2.86%
   and rainbow 3.05% JND both beat Viridis 3.61%; Reda 2019), and single-hue maps can be faster though
@@ -149,11 +154,17 @@ stands — so: genuinely unsettled, treat as taste.)
 - **[STRONG / normative]** Contrast ratio = (L1+0.05)/(L2+0.05) on relative luminance
   L = 0.2126R + 0.7152G + 0.0722B (linearized). Range 1:1–21:1.
   - Text: **4.5:1**; large text (≥18pt or ≥14pt bold): **3:1**.
-  - **Non-text / graphical objects (SC 1.4.11): 3:1** — and W3C's own examples state this
-    **covers chart lines, points, bars, and data-bearing gridlines** against *adjacent
-    colors* (the background **and** neighboring marks/crossing lines).
+  - **Non-text / graphical objects (SC 1.4.11): 3:1** — this covers chart lines, points, bars, and
+    data-bearing gridlines against their **background**. W3C's Understanding text is explicit that
+    adjacent data lines/marks **do *not* need to contrast with each other** — only with the background;
+    distinguishing neighbouring marks by 3:1 is good practice, not a 1.4.11 requirement.
   - Exemptions: purely decorative elements, and "essential" color-as-data (e.g. heatmap
     gradients) are exempt from 1.4.11.
+- **[STRONG] Luminance contrast — not colour contrast — drives reading** (the mechanism behind this
+  skill's "contrast/brightness before hue"). Visual-search time, fixation count, and fixation duration
+  all rise sharply as **luminance** contrast drops, *even when colour contrast stays high*; at
+  equiluminance (hues differ, luminance matched) acuity collapses and edges destabilise (Mullen 1985;
+  luminance-search evidence, *Displays* S0141938204000046). Spend the contrast budget on lightness first.
 - **Reference/threshold/gridlines:** 3:1 *if a reader must use them to read a value*; if the
   chart labels values directly, faint decorative gridlines are exempt. Decide per chart on
   "is this required to understand the content?"
@@ -180,6 +191,8 @@ stands — so: genuinely unsettled, treat as taste.)
   - **[STRONG]** *Positive polarity* (dark text on light) improves acuity/proofreading for
     **small, dense text** in normal light — brighter background → smaller pupil → more depth
     of field → sharper retinal image (Buchner & Baumgartner 2007; Piepenbrock 2013/2014).
+    Caveat: this is an **emissive-screen / luminance** effect, not a hard technology law — the old
+    print/CRT legibility rankings don't transfer to LCDs (the polarity ranking actually *reversed* on CRT).
   - **[mixed]** For **glanceable chart/dashboard** tasks there's **no clear polarity winner**
     (While & Sarvghad 2024). Dark mode helps in dim rooms, photophobia, and cloudy-media low
     vision (Legge 1985; Dobres 2017).
@@ -303,11 +316,19 @@ across ten themes in the colour-theory gallery.
   second fill — don't spend a colour where a line will do. (Tufte restraint = **[taste]**, not proven
   comprehension; see §1 — but it does keep the field calm, which the next point needs.)
 - **One reserved emphasis colour** for important *text*, distinct from info and from the error red.
-  **Reserving it is [STRONG]:** a single distinct mark is found *preattentively* only against a **calm
-  field** (Healey & Enns; Treisman) — if everything is coloured, nothing pops.
+  **Reserving it is sound [ESTABLISHED — vision science, but *not* adversarially verified in this skill's
+  research]:** a single distinct mark is found *preattentively* only against a **calm field** (Healey &
+  Enns; Treisman) — if everything is coloured, nothing pops. (Pop-out is real, but this research's
+  preattentive topic produced no surviving verified claim, so don't over-weight the label.)
 - **Escalating alert channel: info < warning < severe.** Info blends, warning is gentle, **severe must
   be the most prominent** — by hue *and* contrast — each backed by an icon + word (never colour alone, 1.4.1).
 - **Components reuse the palette:** header/nav from ground + ink, links from the accent.
+- **Real-world role systems to model this on [CONVENTION]:** **Radix** ships every colour as a fixed
+  **12-step scale** with semantic roles — 1–2 app/subtle backgrounds, 3–5 component bg
+  (normal/hover/active), 6–8 borders, 9–10 solid, 11–12 text — a concrete instance of the dominance/role
+  budget above. **Material 3's HCT** does the same mechanically: because **tone (= luminance) can be held
+  fixed while hue and chroma vary** (which RGB/HSL can't), a token system can *guarantee* contrast
+  independent of hue (tones 50/98 → 3:1, 30/98 → 7:1).
 
 **Build notes (each verified by on-screen contrast audit):**
 - **On a dark ground a gold/amber "warning" out-contrasts a red "severe"** — amber is intrinsically more
@@ -385,6 +406,8 @@ dark grounds) — pick the one that matches the ground. Either way: cap rapidly-
 - Ou et al. (2018), *Color Res. Appl.* (CIE TC1-86) — universal colour-emotion & harmony models.
 - Lehmann, Elliot & Calin-Jageman (2018), *Evolutionary Psychology* — "romantic red" meta-analysis (weak/null).
 - Healey & Enns (2012), *IEEE TVCG*; Treisman (1985) — preattentive pop-out / feature search.
+- Ware, Stone, Szafir & Rhyne (2023), *IEEE CG&A* — "Rainbow Colormaps Are Not All Bad"; task-dependent, discrete bands can aid gradient reading.
+- Mullen (1985), *J. Physiology* 359:381 — equiluminant contrast-sensitivity collapse (colour carries far less spatial detail than luminance) — basis for "luminance drives reading."
 - Reda et al. (2019), *IEEE VIS* — preregistered JND; Viridis worst of three for gradient-steepness discrimination.
 - Cho et al. (2019), *Appl. Sci.* (n=35) — colormap speed vs accuracy (single-hue fastest, Viridis most accurate).
 - Ware, Turton, Bujack et al. (2018), *IEEE TVCG* — CIELAB distance ≠ colormapped feature-detection thresholds.
