@@ -47,6 +47,8 @@ palette-role system** (dominance budget, escalating alerts, components, ten them
 demonstrates the colour wheel and its harmony schemes, the chart palettes, and the practical-colour topics
 (screens, gradients, anti-patterns, modern design systems) drawn from established best practice.
 
+**Full research trail:** the deep-research behind this skill — every claim with its confidence label, named study, one-line evidence, and adversarial verdict (26 findings across 3 research + 3 review workflows) — in [references/graphical-perception-and-color-research.md](references/graphical-perception-and-color-research.md). Read it to audit any claim below against its source.
+
 ## Quick Reference (decision rules)
 
 | Decision | Rule | Confidence |
