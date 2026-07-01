@@ -23,7 +23,7 @@ Labels: **[STRONG]** = peer-reviewed evidence (gate-verified 3-of-3) · **[CONVE
 
 Not for: applying an already-decided style (→ [[house-style-templates]]); a throwaway layout with no identity stake.
 
-## Floor — subordinate to the four skills
+## Floor — subordinate to the four floors
 
 A style is valid only if everything it produces passes the four design-craft floors — AA contrast, chart honesty, legibility, focus/target-size/zoom. Run [[house-style-templates]]'s **pass-gate** before shipping. "Original" buys no exemption. *(Plugin floor, not a research claim — but absolute.)*
 
