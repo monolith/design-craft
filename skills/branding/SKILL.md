@@ -425,8 +425,11 @@ A repeatable sequence that orders the verified findings. Each step names its sec
 24. Brakus, Schmitt & Zarantonello (2009). Brand experience. *JM*, 73(3), 52–68.
 25. Reber, Schwarz & Winkielman (2004). Processing fluency and aesthetic pleasure. *PSPR*, 8(4), 364–382.
 
-Full machine-readable evidence (claims, quotes, verifier votes): `references/raw/research-logo-design.json`,
-`references/raw/research-colour-personality.json`, `references/raw/research-emotional-mechanisms.json`.
+**Full research trail** (recovered clean from the transcripts): the distilled cited findings in
+[references/branding-research.md](references/branding-research.md), and the complete raw per-agent corpus — 72
+source extractions + 195 adversarial verifications across the three runs — in
+[references/branding-corpus.md](references/branding-corpus.md). A worked visual gallery of the principles:
+[references/plates/index.html](references/plates/index.html).
 
 ---
 
