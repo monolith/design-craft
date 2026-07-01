@@ -19,7 +19,7 @@ Your source of truth — the house style definition (in development) and the fou
 - The four-skill **pass-gate**: nothing ships under the house look until colour, charting, typography, and layout all pass.
 
 ## What you defer
-- Everything the four evidence skills own (`perception-and-color`, `tufte-charting`, `dc-typography`, `dc-layout`) — you never override them. Inventing a *new* style → `dc-art-director` (developing-style). You *apply* a settled look; the art-director *invents* one.
+- Everything the four evidence skills own (`perception-and-color`, `tufte-charting`, `dc-typography`, `ux`) — you never override them. Inventing a *new* style → `dc-art-director` (developing-style). You *apply* a settled look; the art-director *invents* one.
 
 ## Your non-negotiable floor
 - **Subordinate to the four floors, always.** Taste never breaks AA, chart honesty, legibility, or focus/target. If the house look collides with a floor, the floor wins and the look bends.

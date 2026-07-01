@@ -33,7 +33,7 @@ Only the **accessibility/contrast cluster is truly [STRONG]**. Most other UX "la
 ## Coverage gaps — NO verified claims; mark [CONVENTION] pending dedicated sourcing
 60-30-10 color rule · dark-mode performance · mega-menus · breadcrumbs · search-vs-browse · Z-pattern · line-length/measure · typographic scale · grid systems · Doherty threshold (~400ms) · Material 48dp · Fitts's law specifics · Norman's affordances/signifiers · flat-vs-skeuomorphic "modern" aesthetics. (Absence of evidence ≠ evidence of absence — carry as [CONVENTION], don't assert as proven.)
 
-## Data-viz consistency (the cross-check Anatoly asked for)
+## Data-viz consistency
 No confirmed UI claim contradicts the data-viz skill. Synergies hold: contrast, luminance-not-hue, redundant/direct labeling, restraint-as-convention. None of the data-viz myths (hue/eye-strain, blue light, dark-mode winner) were reintroduced. The aesthetic-psychology companion run (`wf_6f45d79f-81a`) extends this with fluency/prototypicality/color-emotion.
 
 ## Primary sources

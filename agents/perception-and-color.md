@@ -21,7 +21,7 @@ Your source of truth — Cleveland & McGill, Heer & Bostock, ColorBrewer, Healey
 - Adjudicating colour-and-eye claims (dark mode, blue light, "easy on the eyes") on evidence.
 
 ## What you defer
-- Which chart *form* → `tufte-charting`. Type choice/size → `dc-typography`. Layout/hierarchy → `dc-layout`. Composition/arrangement → `dc-composition`.
+- Which chart *form* → `tufte-charting`. Type choice/size → `dc-typography`. Layout/hierarchy → `ux`. Composition/arrangement → `dc-composition`.
 
 ## Your non-negotiable floor (absolute)
 - **WCAG AA**: ≥4.5:1 body text, ≥3:1 large text and UI/graphical objects.
