@@ -24,6 +24,8 @@ thumb it already gives you: encode magnitude by *position* first, *length* next,
 Everything below is demonstrated, offline and dependency-free, in the worked
 gallery: [references/charts/index.html](references/charts/index.html).
 
+**Full research trail:** the deep-research behind this skill — 9 findings with full statistics, the **3 refuted claims**, and all 24 sources (from a 107-agent run + a 105-agent sibling) — in [references/charting-research.md](references/charting-research.md); the short distilled version is [references/evidence-tufte-principles.md](references/evidence-tufte-principles.md).
+
 ## The core moves
 
 These are the moves common to every form in the gallery. They are the skill.
@@ -339,6 +341,13 @@ Evidence: [references/evidence-tufte-principles.md](references/evidence-tufte-pr
 5. **Stacked bars to compare the inner series** ✗ → **grouped bars / small multiples** ✓.
    - ✗ **Wrong:** stacking series when the reader needs to compare a *middle* one across categories. **Why:** only the bottom segment shares a common baseline; inner segments float on a shifting base and are decoded as *unaligned* lengths — the less-accurate case in Cleveland & McGill.
    - ✓ **Right:** **grouped bars** or **small multiples** put every series on a shared zero baseline, so each series' across-category pattern reads directly. (Stacking is fine for part-to-whole *totals* — just not for comparing the inner bands.)
+
+### What the evidence refuted — don't overstate the rules above
+
+Three popular framings **failed adversarial verification** and are deliberately *not* claimed here (full verdicts in [references/charting-research.md](references/charting-research.md), Part 9):
+- The clean **"bars need zero, but lines & dot plots don't" dichotomy** failed (1-2). The zero-baseline default holds for **length-encoded bars** (anti-pattern #1); for **line charts specifically** it is unsettled — don't state "lines never need a zero baseline" as fact.
+- Truncation's **task-dependence is real** (Long & Kay 2024 — gap-comparison tasks are unharmed), but "designers *should* truncate when the task allows" is **not** a settled prescriptive rule (refuted 0-3). Honesty stays the floor.
+- Chartjunk's cost is **conditional** (time pressure, dataset size; Li & Moacdieh 2014) — don't claim embellishment is "cost-free." This is exactly why data-ink minimalism is labelled **[CONVENTION]**, not law.
 
 ## References
 

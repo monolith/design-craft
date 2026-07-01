@@ -114,9 +114,10 @@ intent**, not a fixed convention.
   two bars, truncating the y-axis does not affect task performance"; for relative growth,
   "truncating monotonically has similar performance to no truncation, while truncating
   non-monotonically is very likely to impair performance."
-- *Citation note (transcript honesty):* the verified finding cites this paper as **"Long & Kay 2024,"**
-  while one source-scoping agent titled the same DOI (10.1145/3613904.3642102) **"Hofman et al. 2024."**
-  The synthesis used Long & Kay; the discrepancy is in the raw material and unresolved here.
+- *Citation note (RESOLVED 2026-07):* the paper (DOI 10.1145/3613904.3642102) is by **Sheng Long &
+  Matthew Kay** (Northwestern / mucollective), verified against the ACM record — so **"Long & Kay 2024"
+  is correct**. One source-scoping agent mis-titled the same DOI as "Hofman et al. 2024"; that was a
+  scoping error, not a real alternative attribution.
 **Key non-contradiction (do not miss this).** 1.1 and 1.4 do NOT conflict. 1.1 measures a
 *perception* variable (inflated), 1.4 measures a *task-accuracy* variable (unharmed on gap tasks).
 Conflating the two DVs produces the false impression that the studies disagree — they don't.
