@@ -13,7 +13,7 @@ evidence instead of preference. **The shared label taxonomy (used across every s
 - **[MYTH]** — the evidence contradicts the popular claim; do not use
 
 Most skills ship a **zero-dependency worked gallery** (pure HTML/CSS/SVG, self-hosted fonts) so you
-can see each rule on screen, and name the study or expert behind every claim. *(imagery's gallery is pending.)*
+can see each rule on screen, and name the study or expert behind every claim. *(imagery's is a first-round set, refining via the like/not loop.)*
 
 ## The seven evidence skills
 

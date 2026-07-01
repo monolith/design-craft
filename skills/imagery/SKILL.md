@@ -217,3 +217,7 @@ Level A).** Owned here; never skipped.
 - [references/illustrator-synthesis-research.md](references/illustrator-synthesis-research.md) — the §4
   illustration direction, synthesised (not copied) from Coen Pohl, Malika Favre, Victo Ngai, Giorgia Lupi
   (10 findings, 20 sources; the reproducible-vs-commission split).
+- [references/imagery-gallery/](references/imagery-gallery/) — a worked gallery of the **code-buildable
+  illustration lanes** (isometric construction · flat-colour negative space · data-encoded marks · the
+  synthesised deviation), generated parametrically by `build.py` (the generator *is* the proof the lanes are
+  code-buildable). The vehicle for the like/not refinement loop.
