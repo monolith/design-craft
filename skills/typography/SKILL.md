@@ -249,7 +249,8 @@ face quiet and legible regardless.
 **Curated kits (1–3 faces that work together; all free/open, screen-built, with tabular figures).** The first is
 the default above; the rest are for other registers. Sample pages: the default across the three Corbusier grounds
 in [references/type-gallery/corbusier-type.html](references/type-gallery/corbusier-type.html); the others in
-[references/type-gallery/pages.html](references/type-gallery/pages.html):
+[references/type-gallery/pages.html](references/type-gallery/pages.html), plus the art-director / sleek kits
+on the Corbusier grounds in [references/type-gallery/sleek.html](references/type-gallery/sleek.html):
 
 | Kit | Faces (display · body/UI · mono) | Register / message |
 |---|---|---|
