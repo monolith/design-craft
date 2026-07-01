@@ -219,6 +219,12 @@ Level A).** Owned here; never skipped.
   illustration direction, synthesised (not copied) from Coen Pohl, Malika Favre, Victo Ngai, Giorgia Lupi
   (10 findings, 20 sources; the reproducible-vs-commission split).
 - [references/imagery-gallery/](references/imagery-gallery/) — a worked gallery of the **code-buildable
-  illustration lanes** (isometric construction · flat-colour negative space · data-encoded marks · the
-  synthesised deviation), generated parametrically by `build.py` (the generator *is* the proof the lanes are
-  code-buildable). The vehicle for the like/not refinement loop.
+  illustration lanes** (isometric construction · flat-colour negative space · the synthesised deviation),
+  generated parametrically by `build.py` (the generator *is* the proof the lanes are code-buildable). The
+  vehicle for the like/not refinement loop.
+- [references/imagery-gallery/APPROVED-LEANS.md](references/imagery-gallery/APPROVED-LEANS.md) — the two
+  **validated** code-illustration leans (Swiss/subtractive · duotone-blockprint) that passed the vision-loop
+  and like/not review on a real subject. **Never author blind:** always *generate → render (`@resvg/resvg-js`,
+  SVG→PNG, no system libs) → look → refine*. Code-illustration is proven-good on flat/geometric/scene/poster
+  subjects; representational people, animals, and photographs stay **select-or-commission** (Anthropic has no
+  image-generation model — "generate" here means code + the vision-loop, nothing more).
