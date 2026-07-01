@@ -17,8 +17,11 @@ the eye reads poorly (area/color), and (2) fiddling with background hue when the
 lever is luminance contrast.
 
 **Confidence labels used below:** **[STRONG]** = controlled studies or a normative standard ·
-**[CONVENTION]** = widely taught, weak/mixed empirical support · **[MYTH]** = popular claim
-the evidence contradicts.
+**[ESTABLISHED]** = canonical, heavily-cited literature — sourced but *not* adversarially re-verified in
+this skill's pass; one notch below [STRONG] · **[CONVENTION]** = widely taught, weak/mixed empirical
+support · **[taste]** = no evidence either way, a declared aesthetic choice · **[MYTH]** = popular claim
+the evidence contradicts. **[ESTABLISHED] and [extracted] denote the same sourced-but-not-verified-here
+band** — [ESTABLISHED] from canonical external literature, [extracted] from a skill's own research corpus.
 
 **Precedence with `frontend-design` (Anthropic) — design-craft sets the colour, frontend-design builds it.** This skill owns the colour decisions (palette system, theme, contrast, CVD); `frontend-design` is the production-code implementer that turns them into clean, distinctive code. Lean on it for code quality and technical execution — not for overriding the palette. It steps into a *colour* decision only as a fallback when: (1) this skill doesn't cover it — e.g. a brand's exact required logo hex that isn't in the palette logic (we still check it for contrast/CVD); (2) the guidance is only a weak lean — two accent hues both pass and read equally well; (3) the user rejects the options here; or (4) the user wants a drastic directional change — e.g. "bold neon," not the muted Corbusier default. **Hard floor (never yields to frontend-design; only an explicit user override crosses it, and then name the cost): WCAG contrast, never-colour-alone, CVD-safety.** The evidence labels below are unchanged — leading on Corbusier (a [CONVENTION]) is a house-standard call, not a proof claim.
 

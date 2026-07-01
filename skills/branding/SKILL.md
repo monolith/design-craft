@@ -33,6 +33,9 @@ objectives and contexts. "Always do X" claims are where the myths live.
   didn't cross-examine it.
 - **[CONVENTION]** — widely taught, weak or mixed empirical support.
 - **[MYTH]** — the evidence contradicts a popular claim.
+- **Cross-skill note:** **[ESTABLISHED] and [extracted] denote the same band** — this skill uses
+  [ESTABLISHED] for external canon; the sibling skills use [extracted] for findings surfaced from their
+  own research corpus.
 
 **Provenance (read once).** The logo (§A–F), colour/personality (§G–H), and most of the emotional
 layer (§I1–§I2) come from three adversarial research passes that fetched primary journals, extracted
@@ -54,6 +57,8 @@ extractions + 195 adversarial verifications, verbatim — is in [references/bran
 2. **Legibility** — never drop below legibility standards. The incomplete-typeface trade-off
    (trust ↓, innovation ↑, §D) is a *deliberate, scoped* choice, not a loophole.
 3. **Chart honesty** — **[[charting]]** governs data displays; branding never overrides data-ink discipline.
+4. **Focus-visible & adequate target size** — defer to **[[interface-ux-and-layout]]**. Branding builds
+   interactive identities (sites, apps, buttons), so it must hold the UX floor too.
 
 ## Boundary with sibling skills
 
@@ -454,7 +459,7 @@ A repeatable sequence that orders the verified findings. Each step names its sec
 6. **Pressure-test for fluency** (§I4): of the choices that survive, prefer the one that is *easiest to
    process* for the intended audience — that is the literature-backed tie-breaker, and the route to
    attachment (§I1–§I2).
-7. **Clear the floors** (Hard floors, top): WCAG contrast, legibility, chart honesty. These override
+7. **Clear the floors** (Hard floors, top): WCAG contrast, legibility, chart honesty, focus/target size. These override
    any step above.
 
 ---

@@ -1,6 +1,6 @@
 ---
 name: house-style-templates
-description: **[WORK IN PROGRESS — the directional style templates are not built yet; this skill is a scaffold, not a finished library.]** A reference library of design-craft's own house-look **templates** — cohesive-look designs across different **directional options** — that the art-director (the orchestrator) and the builder draw from to assemble a coherent result, and that anyone can reuse directly as a starting template. Use to pull a directional house-look reference, to make something "feel like design-craft," or to check a design coheres with the set. **Reference-only — no dedicated agent**; strictly subordinate to the four evidence skills and the four floors, and the most overridable layer (declared taste, not evidence). The template set is **not finished** — treat this as a scaffold, not a complete library.
+description: **[WORK IN PROGRESS — the directional style templates are not built yet; this skill is a scaffold, not a finished library.]** A reference library of design-craft's own house-look **templates** — cohesive-look designs across different **directional options** — that the art-director (the orchestrator) and the builder draw from to assemble a coherent result, and that anyone can reuse directly as a starting template. Use to pull a directional house-look reference, to make something "feel like design-craft," or to check a design coheres with the set. **Reference-only — no dedicated agent**; strictly subordinate to the four floors and the evidence skills, and the most overridable layer (declared taste, not evidence). The template set is **not finished** — treat this as a scaffold, not a complete library.
 ---
 
 # House-Style Templates
@@ -11,9 +11,9 @@ description: **[WORK IN PROGRESS — the directional style templates are not bui
 
 design-craft's **house look** — the recognizable "hand" that makes its output identifiable as one body of work, the way a painter's canvases read as theirs without needing a signature. This is the plugin's **one openly-subjective skill**: its authority is *taste*, declared as taste, not evidence. Everything here is **[CONVENTION] / house preference** — it makes no [STRONG] claims. It's a **reference / template library** — directional house-look options (the style-lab's Meridian / Terminal / Ledger… lineage) that the **art-director** (the orchestrator) and the builder draw from to assemble a coherent result, and that anyone can reuse as a starting template. **Reference-only: no dedicated agent** — the art-director owns applying it.
 
-**Core principle — it adds a look; it never breaks a rule.** This is the *most overridable* layer in the plugin: it yields to all four evidence skills, and to the user.
+**Core principle — it adds a look; it never breaks a rule.** This is the *most overridable* layer in the plugin: it yields to the four floors, every evidence skill, and the user.
 
-## The iron rule — subordinate to the four skills
+## The iron rule — subordinate to the four floors
 
 This skill is **subordinate to** `graphical-perception-and-color`, `charting`, `interface-ux-and-layout`, and `typography`. It may **never contradict** them. Anything produced under this style **must pass their binding floors**. When the look and a binding rule collide, **the rule wins and the look bends** — every time.
 
@@ -21,16 +21,29 @@ A beautiful design that fails a binding rule is **not in this style.** Recogniza
 
 ## The pass-gate — run before shipping any design
 
-A design is in-style only if it clears every floor the four skills own:
+A design is in-style only if it clears every **absolute floor** the evidence skills own. The **house
+defaults** below are the starting point — they hold unless the brief or the user overrides them.
+
+**Absolute floors (never yield — only an explicit user override).**
 
 | From | Must hold |
 |---|---|
-| **colour** | WCAG **AA contrast** on every text/UI pair · **never colour alone** (pair with text/shape/icon) · **CVD-safe** · **off-white, not pure-white** grounds · ≤ ~7 categorical hues · one reserved accent |
-| **typography** | legibility floor (min body size, AA body contrast) · **tabular figures** in tables/charts · measure ~45–75ch · the kit + scale |
-| **charting** | **chart honesty** (no truncated bar/area baseline, no area/radius lie, no dual-axis trick) · data-ink minimal · chart marks stay quiet |
-| **ux/layout** | clear hierarchy · **focus-visible** · adequate **target size** · survives text zoom / resize |
+| **colour** | WCAG **AA contrast** on every text/UI pair · **never colour alone** (pair with text/shape/icon) · **CVD-safe** |
+| **typography** | legibility floor — **min body size**, AA body contrast |
+| **charting** | **chart honesty** (no truncated bar/area baseline, no area/radius lie, no dual-axis trick) |
+| **ux/layout** | **focus-visible** · adequate **target size** · survives text zoom / resize |
 
-**Method:** don't eyeball contrast — *compute* it (WCAG ratio ≥ 4.5 normal text, ≥ 3 large/UI). The gate is pass/fail: a single fail means fix, not ship.
+**House defaults (yield to the brief / user).**
+
+| From | Default |
+|---|---|
+| **colour** | **off-white, not pure-white** grounds · ≤ ~7 categorical hues · one reserved accent |
+| **typography** | **tabular figures** in tables/charts · measure ~45–75ch |
+| **typography** + the house look | the kit + scale |
+| **charting** | data-ink minimal · chart marks stay quiet |
+| **ux/layout** | clear hierarchy |
+
+**Method:** don't eyeball contrast — *compute* it (WCAG ratio ≥ 4.5 normal text, ≥ 3 large/UI). The gate is pass/fail: a single **floor** fail means fix, not ship.
 
 ## Don't rationalize the look past the floor
 

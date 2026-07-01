@@ -22,7 +22,11 @@ weight/size/space/colour within one family run out.
 
 **Confidence labels:** **[STRONG]** = controlled study or normative standard · **[CONVENTION]** =
 established practice from a named authority/design system, weak or no controlled support ·
-**[MYTH]** = the evidence contradicts the popular claim.
+**[extracted]** = surfaced from this skill's own research corpus — sourced but *not* adversarially
+re-verified in this skill's pass; one notch below [STRONG] · **[taste]** = no evidence either way, a
+declared aesthetic choice · **[MYTH]** = the evidence contradicts the popular claim. **[ESTABLISHED] and
+[extracted] denote the same sourced-but-not-verified-here band** — [ESTABLISHED] from canonical external
+literature, [extracted] from a skill's own research corpus.
 
 **Full research trail:** this skill's evidence comes from five deep-research runs (~521 agents, incl. a cognitive/mental-load pass) — no distilled findings doc was ever saved, so the recovered record is the **complete raw per-agent corpus** (111 source extractions + 301 adversarial verifications, verbatim): [references/typography-corpus.md](references/typography-corpus.md).
 
@@ -66,7 +70,7 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
 | ALL-CAPS body / wide tracking | Don't — no body-size benefit; tracking can slow skilled readers. Caps only help at tiny sizes. | [STRONG against] |
 | "Dyslexia-friendly font" (OpenDyslexic) | No benefit; often **worse**. Use plain sans + size/spacing. | [MYTH] |
 | "Ugly/hard fonts improve memory" | Failed replication. Don't degrade type to aid learning. | [MYTH] |
-| Web-font loading | `font-display: swap` + **metric-matched fallback** (size-adjust) to kill layout shift; WOFF2; subset; budget the families/weights. | [CONVENTION / best-practice] |
+| Web-font loading | **`font-display: optional` for body (lowest CLS); `swap` for branding/display** + **metric-matched fallback** (size-adjust); WOFF2; subset; budget the families/weights. | [CONVENTION / best-practice] |
 
 ## 1. Legibility — what's proven, what's myth
 

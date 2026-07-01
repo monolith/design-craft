@@ -35,6 +35,7 @@ evidence either way; an aesthetic choice, labelled as such.
 
 - **Chart / graph / dashboard *forms*** → **[[charting]]**
 - **Colour, palettes, contrast values, dark mode, CVD** → **[[graphical-perception-and-color]]**
+- **Type / typeface selection / measure** → **[[typography]]** (this skill owns layout/structure; type is typography's lever)
 - **Producing distinctive, polished frontend code** → **frontend-design** (the implementation layer — builds design-craft's decisions in code)
 
 This skill owns **structure, navigation, grids, usability, eye-flow, and interaction.** A real
@@ -162,9 +163,12 @@ so make frequent/important controls **bigger and closer**, and exploit **screen 
 (place frequent targets near the pointer, enlarge far ones) are **[CONVENTION]** (Soukoreff &amp; MacKenzie 2004).
 
 - **[STRONG] Target-size minimum ≈ 1 cm.** Parhi (2006, controlled): ≥**9.2 mm** discrete / **9.6 mm** serial
-  for thumb use; error rate stops improving past ~9.6 mm. **WCAG 2.2 SC 2.5.8 (AA): 24×24 CSS px** minimum, or
-  pass via the **spacing exception** (a 24px circle on each target must not overlap another). Apple **44 pt** /
-  Material **48 dp** are comfortable *defaults*, not the floor.
+  for thumb use; error rate stops improving past ~9.6 mm. **WCAG 2.2 SC 2.5.8 (AA): 24×24 CSS px** is the
+  normative minimum, or pass via the **spacing exception** (a 24px circle on each target must not overlap
+  another). **design-craft elevates the target-size floor to 44 CSS px as a house standard** (Apple **44 pt**;
+  Material **48 dp** is larger still) — a deliberate house floor above WCAG's own 24×24px minimum, not merely a
+  comfortable default. This skill is the source of that house-elevated 44px floor (WCAG min 24×24px); the rest
+  of the toolkit asserts ≥44px on its authority.
 
 **Usability testing & inspection [STRONG]:** **heuristic evaluation needs 3–5 evaluators** — one expert finds
 only **20–51%** of problems, ~5 catch about two-thirds (Nielsen &amp; Molich 1990); aggregate ~4 raters for severity.
@@ -243,8 +247,9 @@ The skill's biggest gap — a form is a screen with its own strong evidence base
   throughput lever — see §6.)*
 - **[CONVENTION] Touch-target gloss, corrected.** Apple's **44×44 pt is the minimum *tappable /
   hit-target* area**; the separate **28 pt** figure is the minimum *visual control footprint* — not a
-  relaxation of the touch target, and the two must not be conflated. The real accessibility floors are
-  unchanged: **WCAG 2.5.8 = 24 CSS px**, Parhi ≈ **9.6 mm** (§5).
+  relaxation of the touch target, and the two must not be conflated. The WCAG accessibility *minimum* is
+  unchanged — **WCAG 2.5.8 = 24 CSS px**, Parhi ≈ **9.6 mm** (§5) — but **design-craft's own floor is the
+  house-elevated 44 CSS px** (§5), above that WCAG minimum.
 
 ## 9. Honest taste — label, never assert as proven
 

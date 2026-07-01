@@ -17,6 +17,13 @@ When you reach a color or luminance decision here, defer to that skill. (Rule of
 thumb it already gives you: encode magnitude by *position* first, *length* next,
 *area/color* last; and pick lightness/contrast before hue.)
 
+**Confidence labels:** **[STRONG]** = controlled study or normative standard · **[CONVENTION]** =
+widely taught / named-authority practice, thin or mixed empirical support · **[extracted]** = surfaced
+from this skill's own research corpus — sourced but *not* adversarially vote-verified here; one notch
+below [STRONG] · **[MYTH]** = the evidence contradicts the popular claim. **[ESTABLISHED] and [extracted]
+denote the same sourced-but-not-verified-here band** — [ESTABLISHED] from canonical external literature,
+[extracted] from a skill's own research corpus.
+
 **Precedence with `frontend-design` (Anthropic) — charting sets the chart, frontend-design builds it.** For anything that *is* a chart or data visualization, this skill is the authority: chart form, data-ink, encoding, honesty, and annotation are design-craft's call and are **not** restyled for aesthetics. `frontend-design` is the production-code implementer — it writes the clean, distinctive code that renders these charts and styles the page *around* them, never the chart marks themselves. It enters a *chart* decision only as a fallback when this skill doesn't cover it (e.g. a bespoke non-analytical data-art piece) or the user asks for a drastic restyle — and even then **chart honesty is an absolute floor**: no truncated bar/area baselines, no area/radius encoding of a single quantity, no dual-axis correlation tricks.
 
 **The interface *around* a chart** — page layout, app chrome, scan order — is **[[interface-ux-and-layout]]**'s call (a sibling design-craft skill), implemented in code by `frontend-design`. Keep the chart marks quiet and data-ink-minimal even when the surrounding page is bold; pointing "make it distinctive" energy at the chart itself is how you get the chartjunk the anti-patterns below forbid. Unlike colour, frontend-design is **not** a hard dependency here — the charts render standalone without it.
