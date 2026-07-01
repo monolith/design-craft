@@ -38,6 +38,10 @@ love to [STRONG]. Two emotional mechanisms — brand experience and processing f
 produced zero surviving claims across the runs and stay [ESTABLISHED] (sourced from the canonical
 literature, not cross-examined here); a future pass could lift them too.
 
+**Full research trail:** the distilled cited findings from the three runs are in
+[references/branding-research.md](references/branding-research.md); the complete raw per-agent corpus — 72 source
+extractions + 195 adversarial verifications, verbatim — is in [references/branding-corpus.md](references/branding-corpus.md).
+
 **Hard floors (never yield).**
 1. **Accessibility & contrast** — defer to **[[graphical-perception-and-color]]**. "Desaturated reads
    as premium" (§G6) and black-and-white-for-status never license failing WCAG AA text contrast.
