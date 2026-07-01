@@ -159,16 +159,11 @@ DEVIATE** — never adopt any one signature whole.
 - **Subtractive flat-colour figure-ground on a rigid grid** — 2–4 colour separations; **remove anything the
   piece survives without**; let negative space (the ground) carry as much meaning as the figure; fix a
   grid/module first, then place freely inside it. *(Favre, F2/F3 — "design by subtraction & suggestion"; "fix a rigid scaffold, improvise inside it".)*
-- **Data-encoded polygonal marks + a bespoke legend** — derive the encoding *from the data*, not from a chart
-  menu; build in an explicit order (organising matrix → shaped marks carrying quantitative **and** qualitative
-  params → colour categories → labels → **a custom legend that carries the meaning** → fine-tune for hierarchy).
-  *(Lupi, F7/F8/F9 — she anchors the reproducible-encoding pole, not an anti-code one.)*
-  **This lane composes WITH [[charting]] and [[graphical-perception-and-color]], never around them:** the
-  underlying encoding must stay **Tufte-honest** — position/length over area, honest baseline, data-ink — and
-  *form + honesty defer to [[charting]]* (build on a real chart form, e.g. a Cleveland dot plot, not a
-  prettier-but-dishonest one); *palette defers to [[graphical-perception-and-color]]*. Imagery adds only the
-  **humanistic layer** on top of an honest chart — a bespoke-but-honest mark, a qualitative annotation, and a
-  legend that carries the *why* — it never trades honesty for decoration.
+- **Data visualisation is NOT this skill's — it is [[charting]]'s (Tufte).** Imagery illustrates
+  (photographs and non-data illustration); for **any** chart, data mark, or data-driven graphic, defer
+  **entirely** to [[charting]]. Do not build "data illustration" here. *(Lupi's data-humanism, F7–F9, informs
+  charting, not imagery — kept in the research only as a lesson that a distinctive hand can ride a systematic
+  base; the transferable, code-buildable illustration lanes are the geometric and flat ones above.)*
 - **Planned, tested palettes + layer-compositing** — treat colour "like a designer, not a painter": plan and
   test a small palette, composite in layers. Colour values → [[graphical-perception-and-color]]. *(Ngai, F4.)*
 
@@ -179,9 +174,9 @@ DEVIATE** — never adopt any one signature whole.
   the output is later code-built.
 
 **How to DEVIATE into something ownable, not pastiche** *[taste; style-invention → [[developing-style]]]*:
-- **Cross-combine moves no single artist uses together** — e.g. isometric geometry that *carries* data-encoded
-  ornament and a Lupi-style qualitative legend, reduced to a Favre-few palette and one authored mark treatment.
-  The mix, not any single source, is the signature. *(Ngai's fuse-named-traditions method, F6; synthesis F10.)*
+- **Cross-combine moves no single artist uses together** — e.g. an isometric construction reduced to a
+  Favre-few flat palette with one authored mark, or a flat figure-ground built on an isometric grid. The mix,
+  not any single source, is the signature. *(Ngai's fuse-named-traditions method, F6; synthesis F10.)*
 - **Fix a small constant set** — one projection, one palette logic, one mark treatment — held across everything.
   This *is* [[developing-style]]'s method (imitate an *unfamiliar* domain → reduce → hold constants): **hand
   style-invention to it.** This skill executes the *reproducible* build and *selects/commissions* the hand.
