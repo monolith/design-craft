@@ -57,7 +57,7 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
 | Serif vs sans for reading | No inherent difference under matched conditions — pick by voice, not "readability". | [STRONG / MYTH-buster] |
 | "This font reads faster / feels better" | Preference does **not** predict reading speed; no universal fast font. Treat as taste. | [STRONG] |
 | Body size | Comfortable size with enough **x-height**; ~**16px** web body floor; never below the legibility floor. | [STRONG floor / CONVENTION 16px] |
-| Measure (line length) | Aim ~**45–75** characters; avoid ~100 (hurts comprehension). The "66" target is convention. | mixed; long-line harm=[STRONG] |
+| Measure (line length) | Aim ~**45–75** characters as a *compromise*: short lines aid comprehension, but ~95–100 cpl read **as fast or faster** on screen (no comprehension penalty). Not "avoid 100". | mixed [CONVENTION] |
 | Leading (line-height) | ~**1.4–1.6×** body size for prose; support 1.5× without breakage (WCAG 1.4.12). | CONVENTION / WCAG |
 | Hierarchy | Distinct headings/levels — proven to aid scanning **and** recall. Build it. | [STRONG] |
 | Second typeface | Only after weight/size/space/colour in one family are exhausted; then pair by **contrast**. | [CONVENTION] |
@@ -88,15 +88,21 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
 
 - **[STRONG] x-height, not point size, is the legibility metric.** The x-height fraction ranges 0.28–0.58
   of body size across faces (mean 0.46; Karow), so two fonts at the same px can differ ~2× in actual letter
-  height. Choose **high-x-height** faces for UI/body/data and judge by x-height, not the px number.
+  height. Choose **high-x-height** faces for UI/body/data and judge by x-height, not the px number — but
+  **x-height has a ceiling:** pushed too far it shrinks ascenders/descenders and *harms* letterform distinction
+  (h/n, o/d), so favour a *generous* x-height, not a maximal one (Cooreman & Beier 2024).
 - **[STRONG] The legibility floor (critical print size) ≈ 0.2° x-height** (~9pt Times at 40cm). Above it
   there's a broad **"fluent range" (~0.2°–2°, ≈4–40pt x-height)** where reading speed is flat — so once text
   clears the floor, bigger buys no speed, only comfort/emphasis (Legge; the "Does Print Size Matter" review).
 - **[CONVENTION] ~16px web body floor** — widely taught (Material, iOS, Refactoring UI); comfortable, not a
   controlled constant. Treat as a default, and **set it in `rem`** so the user's zoom/base size is respected.
-- **Measure (line length):** **[STRONG]** very long lines (~100 cpl) hurt comprehension vs ~55 (Dyson &
-  Haselgrove 2001). The broad **~45–75 character** target (Bringhurst's "66") is **[CONVENTION]** and the
-  literature is mixed — so treat 45–75 as a sane band, not a law. WCAG 1.4.8 (AAA) caps at 80.
+  The **BDA's** own target — **12–14pt (≈16–19px)**, **60–70 chars** — corroborates 16px as a *minimum*, not a comfortable target.
+- **Measure (line length): mixed — [CONVENTION].** The evidence cuts both ways. **Short lines aid
+  comprehension:** ~55 cpl beat ~100 in one study (Dyson & Haselgrove 2001). **But longer lines are read as
+  fast or faster on screen:** reading speed was *highest at 95 cpl* (Shaikh & Chaparro 2005) and 100 cpl were
+  read *faster* than 55 (Dyson & Kipping 1998), both with **no comprehension penalty**. So the honest read is
+  *short helps comprehension, longer is at least as fast to read* — **not "avoid 100".** The **~45–75 character**
+  band (Bringhurst's "66") is a **[CONVENTION] compromise** between the two, not a law. WCAG 1.4.8 (AAA) caps at 80.
 - **Leading (line-height):** **[CONVENTION]** ~**1.4–1.6×** for prose, tighter for big display, looser for
   small/long measure (Material uses 1.5× body / ~1.2× display). **[WCAG 1.4.12, AA]** must not break when the
   user sets leading **1.5×**, paragraph spacing **2×**, letter-spacing **0.12em**, word-spacing **0.16em**.
@@ -105,10 +111,11 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
 
 ## 3. Type scale & hierarchy
 
-- **[STRONG] Clear hierarchy aids scanning AND comprehension/recall** — not just looks. Eye-tracking shows the
-  "layer-cake" scan (gaze rides headings/subheads) is the *most effective* scanning mode (NN/g); controlled
-  reading studies show adding **headings raises recall and topic-structure memory** (Lorch & Lorch; Hyönä).
-  **So build distinct, scannable hierarchy.** Tie page-level structure to **[[interface-ux-and-layout]]**.
+- **Clear hierarchy aids scanning AND comprehension/recall** — not just looks. **[CONVENTION]** eye-tracking
+  shows the "layer-cake" scan (gaze rides headings/subheads) is an effective scanning mode (NN/g — *observational*,
+  not a controlled trial). **[STRONG]** controlled reading studies show adding **headings raises recall and
+  topic-structure memory** (Lorch & Lorch; Hartley & Trueman; Hyönä). **So build distinct, scannable hierarchy.**
+  Tie page-level structure to **[[interface-ux-and-layout]]**.
 - **[STRONG] Emphasis works by contrast — selective, not blanket.** When only *half* the topics carried
   headings, the signalled ones were remembered *even more*, the unsignalled *less* — marking everything dilutes
   the signal (Lorch). Emphasise the few things that matter; if everything's bold, nothing is.
@@ -117,6 +124,13 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
   15-style role×size ramp; IBM Carbon's additive, non-geometric scale). Use a scale for *consistency*, not
   because a ratio is "correct". Hierarchy's first levers are **size, weight, space, and colour** — reach for a
   second typeface only when those run out (§4).
+- **[extracted — IBM Carbon, upheld] Restraint is itself a finding, not just taste.** The Carbon superfamily
+  approach holds up; its sub-rules extract to: keep **running text neutral**; **reserve ONE accent** for
+  actions/links (mirrors the Corbusier reserved-accent system in **[[graphical-perception-and-color]]**); use
+  only **three weights** (Light / Regular / SemiBold — SemiBold for headers, *not* long text); and let **size
+  override weight** (a larger lighter cut can outrank a bolder smaller one). For **defer-to-data chart text (ONS):**
+  off-black **#222, not pure black**, plus muted greys; chart-text **line-height 1.2–1.3**; OpenType **ss01** for
+  accessible letterforms.
 
 ## 4. Pairing & functional differentiation
 
@@ -127,6 +141,9 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
   read as intentional; almost-but-not-quite-the-same **clash** ("too close for comfort"). What matters is
   underlying *compatibility* (shared structure), not surface sameness — a square and a circle pair better than
   a square and a slightly-rounded square (Brown).
+- **[extracted — dissent] Contrast isn't the *only* way.** Fernando Mello (Fontsmith) holds that near-similar
+  faces *can* coexist when separated by **weight + function**, and that a **role-based system of several faces**
+  can cohere — so "never pair similar" is a strong default, not an absolute.
 - **[CONVENTION — Tim Brown] One anchor, chosen first; make body text the anchor.** Body text is most of the
   content and text faces survive many sizes/resolutions where display faces fail — so pick the body face first
   and let everything reference it. **Two typefaces is usually plenty; rarely more than three.**
@@ -151,9 +168,17 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
 - **[STRONG] Small/glance legibility is driven by letterform clarity.** Chart/axis/table text is small and read
   at a glance, where *letter recognition is the bottleneck* (Legge). **Open apertures** measurably raise
   recognition for glance reading (closed apertures hurt; Beier & Oderkerk 2021, 2022), and **disambiguated
-  digits** (slashed/dotted zero, distinct 1/l/I, 6/8) reduce misreads. Prefer faces built for this.
-- **[CONVENTION — ONS] Chart-text size floor ≈ 14px**, 12px only in small multiples. Keep labels quiet (no
-  heavy weights or ALL-CAPS competing with the data), let **direct-labelling** (owned by **[[charting]]**) carry series names over legends where possible,
+  digits** reduce misreads. **[STRONG] Per-digit specifics** (Beier, Bernard & Castet 2018, peripheral vision):
+  **'1'** narrow with **no bottom crossbar**; **'7'** a straight leg with **no serif**; **'3'/'9'** with **open
+  apertures**; plus a slashed/dotted zero and distinct **1/l/I**, **6/8** — and a **simpler skeleton beats added
+  detail**. Prefer faces built for this.
+- **[STRONG] Small text wants LOW stroke contrast, sturdier stems, and a "Text" optical size — don't just scale a
+  display face down.** Low-contrast sans read better at small sizes; thin high-contrast strokes disappear
+  (Minakata & Beier 2022). At data sizes reach for the **Text/optical cut** of a family, not its display cut.
+- **[extracted — Datawrapper/Muth; Cesal] Sans-serif is the default for chart/data text** — serif reserved for
+  titles or an accent, not the numbers and labels. Pair with the **[CONVENTION — ONS]** conventions: **chart-text
+  floor ≈ 14px** (12px only in small multiples); keep labels quiet (no heavy weights or ALL-CAPS competing with
+  the data); let **direct-labelling** (owned by **[[charting]]**) carry series names over legends where possible;
   and let the type defer to the data-ink and the restrained palette (Tufte; the sibling skills).
 - **Good data faces** ship these features: **IBM Plex Sans/Mono** (Carbon's data-viz anchor), **Inter**
   (tabular nums + slashed zero), **Source Sans**, **Atkinson Hyperlegible** (built for letterform
@@ -178,18 +203,25 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
 
 ## 7. Web-font performance & rendering
 
-- **[CONVENTION / best-practice] `font-display: swap`** shows text immediately in a fallback then swaps
-  (FOUT) — avoid `block`'s invisible-text (FOIT) for body. Consider `optional` for non-critical faces.
+- **[extracted] Pick `font-display` by role.** **`optional`** is the recommended default for **body text**
+  (~100ms block, no swap, so the **lowest CLS**); **`swap`** for **branding/display** where the exact face matters
+  (shows a fallback immediately, then swaps — FOUT); avoid **`block`** for body, which hides text for **2–3s**
+  (FOIT). (Earlier this skill leaned `swap` everywhere; `optional` is the better body default.)
 - **[CONVENTION] Kill the swap layout shift (CLS) with a metric-matched fallback.** The swap jumps because the
   fallback and web font differ in size; tune a local fallback with `size-adjust` / `ascent-override` /
   `descent-override` / `line-gap-override` so it occupies the same space (tooling: **Fontaine**, Fontsource).
   Fontaine's own demo dropped CLS 0.34→0.013 (vendor demo, not an independent trial).
-- **[STRONG-ish fact] Shared-CDN caching no longer helps.** Chrome (and other browsers) **partition the HTTP
-  cache** by site, so a font fetched on site A is re-downloaded on site B (Google 2020). Combined with privacy,
-  this favours **self-hosting**. Add `preconnect`/`preload` for the critical face.
+- **[STRONG] Shared-CDN caching no longer helps** (cache-partitioning *does* favour first-party). Chrome (and
+  other browsers) **partition the HTTP cache** by site, so a font fetched on site A is re-downloaded on site B
+  (Google 2020). **[extracted] But "self-hosting is faster" is only conditional** — 2022 Web Almanac field data
+  found Google Fonts sometimes rendered *faster* than self-hosted; self-hosting wins **only** with a CDN + HTTP/2
+  + `preload` + correct config. Combined with privacy it's still the default lean. Add `preconnect`/`preload` for
+  the critical face.
 - **[CONVENTION] Budget & format:** **WOFF2**, **subset** with `unicode-range`, and limit families/weights
-  (each weight is bytes). **Variable fonts** save bytes when you use *many* weights/widths from one file but
-  cost more for just one or two — decide by how many axes you actually ship.
+  (each weight is bytes). **[extracted] Concrete budget: past ~4–5 web fonts *or* ~100KB total, move to a heavier
+  loading strategy (FOFT)** (Leatherman). **Variable fonts** save bytes when you use *many* weights/widths from
+  one file but cost more for just one or two — one **subsetted variable font dropped 90KB → 25.8KB (71%)** versus
+  five statics — decide by how many axes you actually ship.
 - **[CONVENTION] The zero-latency default is the system-font stack** (`system-ui, -apple-system, "Segoe UI",
   Roboto, …`): no download, native rendering, instant — at the cost of cross-platform consistency. A fine
   default for UI; bring a web font when voice matters.
@@ -205,6 +237,9 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
 
 - **[STRONG / normative — WCAG 2.x AA]** Build so users can override spacing and size without breakage:
   - **1.4.12 Text Spacing:** survive line-height **1.5×**, paragraph **2×**, letter **0.12em**, word **0.16em**.
+    **[STRONG — upgrade]** these numbers are **empirically grounded, not arbitrary convention** — they derive from
+    the **McLeish** reading-speed study (benefit rises to ~**0.25em** letter-spacing, flattens by ~**0.20em**),
+    which is the evidence behind the **0.12em** floor.
   - **1.4.4 Resize Text:** usable at **200%** zoom, no lost content/function.
   - **1.4.10 Reflow:** no two-dimensional scrolling down to **320 CSS px** (≡ 1280px @ 400%).
   - Practical: size in **`rem`/`em`, not `px`**; never disable zoom (`user-scalable=no`).
@@ -214,6 +249,11 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
   & Baeza-Yates 2016). The British Dyslexia Association's own guidance recommends **plain sans-serif** (Arial,
   Verdana, Open Sans…) and never names a special font. **What actually helps:** larger size, generous
   line/letter spacing, shorter measure, good contrast, left-aligned — the same proven levers, for everyone.
+- **[STRONG] Spacing is an inverted-U, not "more is better."** The optimum sits **at or near standard** spacing;
+  **over-tracking *slows* both normal and fast readers** (Chung 2002; Yu, Cheung, Legge & Chung 2007). So the §2
+  low-vision gain is a *correction toward* comfortable spacing, not a licence to keep widening. And for dyslexia,
+  **raising letter-spacing without also raising word-spacing backfires** — keep **word-spacing ≥ 3.5× letter-spacing**
+  (BDA), or the words fuse into a wall.
 
 ## Recommended default — the Modernist kit, beauty-forward, on Corbusier
 
@@ -232,6 +272,16 @@ under heavy load (program/PM and quant data science, compact many-column tables)
 **This is the lean — hold it unless the user's need calls for something else** (then surface the trade-off, per
 the default-posture rule at the top). Every pick is screen-built, free/open, with tabular figures, so it composes
 with Tufte data-ink and the restrained palette. Beauty is taste — set on the legible, data-honest foundation above.
+
+**[taste vs finding — read this] The specific kit faces are the author's taste, not a research result.**
+**Bricolage Grotesque, Plus Jakarta Sans, Instrument Serif, Fraunces, and Space Grotesk appear ZERO times in the
+883KB research corpus** — the corpus neither backs nor refutes these particular picks, so the trio is a **[taste]
+synthesis** built on the proven legibility foundation above, not a finding. **What the research *does* back for this
+restrained register — [STRONG / upheld]:** the **IBM Plex superfamily**; **Inter** (tall x-height, tabular numerals,
+slashed zero); **Atkinson Hyperlegible** (letterform disambiguation); and **Roboto / Lato / Source Sans / Noto**
+(tabular-lining figures by default). **Söhne** is research-backed too but is **paid** — off this skill's free/open
+constraint. Net: keep the Modernist kit as the *house default* (it's sound and beautiful), but know the split —
+**the foundation is finding, the specific faces are taste.**
 
 - **The default trio:** **Bricolage Grotesque · Plus Jakarta Sans · IBM Plex Mono** on a Corbusier theme.
 - **More elegant / editorial voice:** swap the display to **Instrument Serif** (high-contrast, refined) or
@@ -283,17 +333,26 @@ Rule of thumb: **two faces is plenty, three is the ceiling, one is often enough*
 - Arditi & Cho (2007), *Vision Research* — uppercase advantage is size-dependent (tiny sizes only).
 - Korinth, Gerstenberger & Fiebach (2020), *Frontiers in Psychology* — wide tracking helps words, not reading rate.
 - Dyson & Haselgrove (2001), *IJHCS* 54:585 — 55 cpl beats 100 cpl on comprehension.
+- Shaikh & Chaparro (2005) — screen reading speed highest at ~95 cpl; Dyson & Kipping (1998) — 100 cpl read *faster* than 55, no comprehension loss (the measure-is-mixed evidence).
 - Legge, Mansfield & Chung (2001) + Legge & Bigelow (2011) review — critical print size ≈0.2° x-height, fluent range, letter-recognition bottleneck.
 - Karow (1993) — x-height fraction 0.28–0.58 across 1049 faces.
+- Cooreman & Beier (2024) — excessive x-height shrinks ascenders/descenders and impairs letterform distinction (h/n, o/d): x-height has a ceiling.
 - Beier & Oderkerk (2021) — open apertures (a, c, e, r, s) raise glance recognition; Beier & Oderkerk (2022), *Applied Ergonomics* 101:103709 — closed letter counters impair recognition.
-- Lorch & Lorch; Hyönä & Lorch — headings raise recall and topic-structure memory; signalling is contrastive.
-- NN/g — layer-cake scanning is the most effective scan pattern.
+- Beier, Bernard & Castet (2018) — per-digit disambiguation (peripheral vision): narrow '1' with no bottom crossbar, serif-less straight-leg '7', open-aperture '3'/'9'; a simpler skeleton beats added detail.
+- Minakata & Beier (2022) — low stroke contrast / sturdier stems read better at small sizes; don't scale a display face down — use the Text/optical cut.
+- Lorch & Lorch; Hyönä & Lorch; Hartley & Trueman — controlled studies: headings raise recall and topic-structure memory; signalling is contrastive (the [STRONG] side of hierarchy).
+- NN/g — layer-cake scanning is an effective scan pattern (observational, [CONVENTION] — not a controlled trial).
 - Tim Brown, *A Pocket Guide to Combining Typefaces* — anchor = body face; compatibility ≠ similarity.
 - Ellen Lupton, *Thinking with Type* — pair by contrast; "too close for comfort".
+- Fernando Mello (Fontsmith) — dissent: near-similar faces can coexist when separated by weight + function; a role-based multi-face system can cohere.
 - Material 3; IBM Carbon / IBM Plex; ONS Service Manual (14px chart floor) — type-scale & data conventions.
+- Lisa Charlotte Muth / Datawrapper; Cesal — sans-serif is the default for chart/data text; serif reserved for titles/accents.
 - MDN `font-variant-numeric`; OpenType spec — tabular/lining/old-style/proportional figures.
 - W3C WCAG 2.2 — SC 1.4.4, 1.4.8, 1.4.10, 1.4.12 (exact thresholds).
-- Wery & Diliberto (2017); Rello & Baeza-Yates (2016); British Dyslexia Association style guide — OpenDyslexic no benefit; plain sans recommended.
+- McLeish (2007) — reading-speed study behind WCAG 1.4.12 letter-spacing: benefit rises to ~0.25em, flattens ~0.20em (the empirical basis for the 0.12em floor).
+- Wery & Diliberto (2017); Rello & Baeza-Yates (2016); British Dyslexia Association style guide — OpenDyslexic no benefit; plain sans recommended; keep word-spacing ≥ 3.5× letter-spacing; measure 60–70 chars at 12–14pt (≈16–19px).
 - Huff & Maxwell (2022), *Cognitive Research: Principles and Implications* — ~300-participant DRM replication, no memory benefit from Sans Forgetica; Geller et al.; Taylor et al.; Thiessen, Beier & Keage (2020) — disfluency-aids-memory failed to replicate.
 - Blackmore-Wright et al. (2013), *PLoS ONE* — spacing raises low-vision reading speed ~26–46%, halves errors.
+- Chung (2002); Yu, Cheung, Legge & Chung (2007) — letter-spacing is an inverted-U; over-tracking slows normal *and* fast readers (optimum at/near standard).
 - web.dev / Chrome (font-display, metric overrides); Google (2020) HTTP cache partitioning; Fontaine — web-font performance.
+- Zach Leatherman — font-loading budget: past ~4–5 fonts or ~100KB total, adopt FOFT. HTTP Archive Web Almanac (2022) — Google Fonts sometimes rendered *faster* than self-hosted; self-hosting wins only with CDN + HTTP/2 + preload + correct config.
