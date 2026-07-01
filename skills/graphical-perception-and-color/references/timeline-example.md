@@ -1,4 +1,4 @@
-# Worked example — OpenClaw trace timeline
+# Worked example — agent-run trace timeline
 
 One real UI with this skill's rules applied. Read it for the **reasoning**, not the
 palette: the value of each choice is the rule it satisfies, not the hex code. Copying
@@ -6,7 +6,7 @@ our colors into a different chart, on a different background, would break the ve
 contrast guarantees that make them correct here.
 
 Source of the snippets below: `app/assets/stylesheets/application.css` in the
-trace-ui-rails project (the `/timeline` and tree views).
+trace-timeline dashboard (the `/timeline` and tree views).
 
 The UI ships two themes from one set of CSS variables: a **dark** default and a
 **paper** (light) theme scoped to the timeline page. Several examples below are about

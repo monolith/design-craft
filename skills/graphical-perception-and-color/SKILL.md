@@ -30,7 +30,7 @@ says otherwise. **[CONVENTION] / [taste]** items are softer — follow them unle
 applies, and **surface the trade-off** instead of switching silently. The user can override anything; absent that,
 hold the defaults.
 
-**Worked example:** these rules applied to one real UI (the OpenClaw trace timeline) —
+**Worked example:** these rules applied to one real UI (the agent-run trace timeline) —
 length-encoded magnitude, color-never-alone severity, a dark→light re-contrast pass, and an
 honest "this part is taste" label — in [references/timeline-example.md](references/timeline-example.md).
 
