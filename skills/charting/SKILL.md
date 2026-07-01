@@ -24,7 +24,7 @@ thumb it already gives you: encode magnitude by *position* first, *length* next,
 Everything below is demonstrated, offline and dependency-free, in the worked
 gallery: [references/charts/index.html](references/charts/index.html).
 
-**Full research trail:** the deep-research behind this skill — 9 findings with full statistics, the **3 refuted claims**, and all 24 sources (from a 107-agent run + a 105-agent sibling) — in [references/charting-research.md](references/charting-research.md); the short distilled version is [references/evidence-tufte-principles.md](references/evidence-tufte-principles.md).
+**Full research trail:** the deep-research behind this skill — 9 findings with full statistics, the **3 refuted claims**, and all 24 sources (from a 107-agent run + a 105-agent sibling) — in [references/charting-research.md](references/charting-research.md); the short distilled version is [references/evidence-tufte-principles.md](references/evidence-tufte-principles.md). The **complete raw per-agent corpus** — all 47 source extractions and 150 adversarial verifications, verbatim — is in [references/charting-research-corpus.md](references/charting-research-corpus.md).
 
 ## The core moves
 
