@@ -1,9 +1,9 @@
 # Design Craft
 
-**Evidence-based visual & interface design — six evidence skills that compose into one toolkit, plus three style skills, art-directed by an orchestrator.**
+**Evidence-based visual & interface design — seven evidence skills that compose into one toolkit, plus three style skills, art-directed by an orchestrator.**
 
 Most design advice is taste or folklore. A smaller set is backed by controlled experiments and
-standards. The **six evidence skills** are that backed set, each with confidence labels so decisions cite
+standards. The **seven evidence skills** are that backed set, each with confidence labels so decisions cite
 evidence instead of preference. **The shared label taxonomy (used across every skill):**
 
 - **[STRONG]** — controlled study or normative standard (and, where a skill ran its own adversarial verifier, confirmed by it)
@@ -12,10 +12,10 @@ evidence instead of preference. **The shared label taxonomy (used across every s
 - **[taste]** — no evidence either way; a declared aesthetic choice
 - **[MYTH]** — the evidence contradicts the popular claim; do not use
 
-Every skill ships a **zero-dependency worked gallery** (pure HTML/CSS/SVG, self-hosted fonts) so you
-can see each rule on screen, and names the study or expert behind every claim.
+Most skills ship a **zero-dependency worked gallery** (pure HTML/CSS/SVG, self-hosted fonts) so you
+can see each rule on screen, and name the study or expert behind every claim. *(imagery's gallery is pending.)*
 
-## The six evidence skills
+## The seven evidence skills
 
 | Skill | Owns | One-line |
 |---|---|---|
@@ -25,6 +25,7 @@ can see each rule on screen, and names the study or expert behind every claim.
 | **interface-ux-and-layout** | page structure, navigation, grids, hierarchy, usability | Control where the eye goes first/next/last. Fluency, accessibility, usability heuristics — taste labelled as taste. |
 | **typography** | type choice, size, measure, scale, pairing, web-font loading, text a11y | Legibility before personality. The Modernist default kit (Bricolage · Plus Jakarta · Plex Mono) on Corbusier. |
 | **branding** | logo/identity design, brand colour intent, personality, redesign risk | Design or evaluate a visual identity by *fit* to objective, not a universal best. Evidence-ranked; a 12-plate gallery. |
+| **imagery** | selecting / critiquing / directing photos & illustration, treatment, alt text | The image must *carry the message*. Select good photos, critique them, direct light treatment; the illustration direction is a **constructed scaffold** (Pohl / Favre / Ngai / Lupi, synthesised not copied). Does **not** generate photos. |
 
 ## How they compose (the wiring)
 
@@ -41,6 +42,7 @@ together:
   and *owns* the type inside charts/tables (tabular figures, ≥14px labels).
 - **interface-ux-and-layout** owns page structure / nav / grids / usability; defers chart forms to charting and colour to colour.
 - **branding** owns logo / identity / personality; defers colour science to colour and type selection to typography.
+- **imagery** owns image selection / critique / treatment / alt text and the illustration direction; defers colour to colour, arrangement to composition, style-invention to developing-style. Does not generate photographs.
 
 The shared house look is **Corbusier** (the colour skill's muted palette + the type skill's Modernist kit),
 demonstrated end-to-end in the typography galleries (`default-modernist.html`, `data-dense.html`). Collisions
@@ -90,10 +92,10 @@ distinctive, production-grade code, and is leaned on for code quality and techni
 
 | Question | Owner |
 |---|---|
-| What the design *is* — composition/arrangement, chart form, colour/theme, layout & hierarchy, type, brand identity | **design-craft** — leads on everything it covers |
+| What the design *is* — composition/arrangement, chart form, colour/theme, layout & hierarchy, type, brand identity, imagery | **design-craft** — leads on everything it covers |
 | How it's *built* — production code, code quality, technical execution | **frontend-design** — implements design-craft's decisions |
 | A *design* call where design-craft (a) doesn't cover it, (b) only weakly leans, (c) the user rejects its options, or (d) the user wants a drastic directional change | **frontend-design** — steps in as a fallback helper |
-| Accessibility + chart honesty (WCAG contrast, CVD-safety, never-colour-alone, focus-visible, target size, legibility, chart integrity) | **design-craft** — an **absolute floor**; a fallback never crosses it, only an explicit user override does |
+| Accessibility + chart honesty (WCAG contrast, CVD-safety, never-colour-alone, focus-visible, target size, legibility, chart integrity, alt-text/non-text-content) | **design-craft** — an **absolute floor**; a fallback never crosses it, only an explicit user override does |
 
 In short: **design-craft decides the design and `frontend-design` builds it.** frontend-design is pulled into a
 design decision only in the four fallback cases above — never through the accessibility/honesty floor. The
@@ -109,9 +111,9 @@ Corbusier) is a house-standard call, not a proof claim.
 The plugin ships a matching **agent team** — one agent per skill plus an orchestrator — so a design can be produced *by the plugin, through its agents*, not by one skill-load:
 
 - **`dc-orchestrator`** — runs the whole team. Its protocol every run: review what's available and **propose a direction, then CONFIRM it with the user before building** → assign each agent a **weight** by goal (luxury → branding leads; graphic/poster → composition; data/dashboard → charting; app → ux; new style → developing-style) and name the leading agent → brief every agent with that direction → build → **scored refinement loop** (each agent scores the result 0–10 and flags critical blockers; the gate passes only when the **leading agent ≥9**, **branding — and developing-style if a style was invented — ≥8**, **all others ≥7**, and **no blocker**) → an **art-director final pass** that scores the result against the confirmed direction and must hit **≥9**, else it refines again with shortfall feedback → render and ship. design-craft decides, frontend-design implements.
-- **`dc-orchestrator`** is the **art-director** — it sets theme/feel and arbitrates; **`developing-style`** (invents a new, distinctive style when the brief needs one), **`graphic-composition`, `perception-and-color`, `tufte-charting`, `typesetting`, `ux`, `brand-design`** are the specialist levers; **`brand-capture`** is conditional (only when adopting an existing brand). **`house-style-templates`** is a **reference-only skill** — a library of directional house-look templates the art-director draws from — **not an agent**.
+- **`dc-orchestrator`** is the **art-director** — it sets theme/feel and arbitrates; **`developing-style`** (invents a new, distinctive style when the brief needs one), **`graphic-composition`, `perception-and-color`, `tufte-charting`, `typesetting`, `ux`, `brand-design`, `imagery`** are the specialist levers; **`brand-capture`** is conditional (only when adopting an existing brand). **`house-style-templates`** is a **reference-only skill** — a library of directional house-look templates the art-director draws from — **not an agent**.
 
-Collisions resolve by a **deference map** (each lever's owner wins on its lever; a floor always outranks a look or direction; the art-director breaks ties toward concept and mood, never through a floor). The four floors — AA contrast, chart honesty, legibility, focus-visible/≥44px — are absolute.
+Collisions resolve by a **deference map** (each lever's owner wins on its lever; a floor always outranks a look or direction; the art-director breaks ties toward concept and mood, never through a floor). The four floors — AA contrast, chart honesty, legibility, focus-visible/≥44px — are absolute, plus **imagery's non-text-content/alt-text floor** on any piece with images.
 
 ## Install
 
@@ -126,7 +128,7 @@ This directory is both a plugin and a single-plugin marketplace.
 /plugin install design-craft@design-craft
 ```
 
-The nine skills then activate automatically — the six evidence skills (composition, colour, charts, layout, type, branding); the three style skills when you are applying, inventing, or absorbing a look.
+The ten skills then activate automatically — the seven evidence skills (composition, colour, charts, layout, type, branding, imagery); the three style skills when you are applying, inventing, or absorbing a look.
 
 > Note: if you already have these as personal skills under `~/.claude/skills/`, remove those copies
 > after installing the plugin to avoid duplicate skill names.
