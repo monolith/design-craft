@@ -15,8 +15,9 @@ fonts help) get called out instead of repeated.
 **Core principle.** **Legibility before personality.** What a face *says* (mood, freshness) is
 real but is **taste, not performance** — controlled work finds no universal "faster" font and
 shows reader preference does not predict reading speed. So spend the proven levers first —
-**comfortable size, enough x-height, generous leading, a sane measure, conventional letterforms,
-and clear hierarchy** — then choose a face for voice. Reach for a *second* typeface only after
+**comfortable size, enough x-height, generous leading, a sane measure, and clear hierarchy** — then choose a
+face for voice (conventional letterforms are a sensible *default*, but they move preference more than proven
+speed — see §1). Reach for a *second* typeface only after
 weight/size/space/colour within one family run out.
 
 **Confidence labels:** **[STRONG]** = controlled study or normative standard · **[CONVENTION]** =
@@ -81,8 +82,15 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
   bigger); the advantage vanishes at comfortable body sizes — so no caps for body text (Arditi & Cho 2007).
 - **[STRONG against]** **Wide letter-spacing (tracking)** speeds single-*word* recognition but gives **no
   words-per-minute gain** and can **slow skilled readers** — don't add tracking to body text to "improve
-  readability" (Korinth et al. 2020). Tracking is for caps/small-caps and tight display, not prose.
-- **The real legibility levers** are size, x-height, spacing, and conventional letterforms (next sections).
+  readability" (Korinth et al. 2020). **[upheld] Why & who:** wider spacing cut reading rate **−9.45 wpm**, and
+  the *faster* the reader the bigger the hit — extra spacing pushes word recognition from parallel toward serial,
+  so more words must be fixated (Korinth 2020). Tracking is for caps/small-caps and tight display, not prose.
+- **The real legibility levers** are size, x-height, and spacing (next sections). **[extracted — honest flag]
+  Conventional letterforms are more a preference lever than a proven speed/effort one.** Once letterform
+  *visibility* is controlled, unfamiliar/uncommon shapes do **not** slow reading after brief exposure — they move
+  *preference*, not speed (Beier 2009). The corpus is internally mixed (Beier's own familiarity work also finds
+  conventional forms "read more easily"), so treat conventional forms as a taste lean, **not** an asserted
+  performance lever — the inverse of the usual "labelled a lever, soften toward taste."
 
 ## 2. Size, measure & leading
 
@@ -94,6 +102,9 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
 - **[STRONG] The legibility floor (critical print size) ≈ 0.2° x-height** (~9pt Times at 40cm). Above it
   there's a broad **"fluent range" (~0.2°–2°, ≈4–40pt x-height)** where reading speed is flat — so once text
   clears the floor, bigger buys no speed, only comfort/emphasis (Legge; the "Does Print Size Matter" review).
+  **[extracted] But the floor is age-graded:** critical print size grows from ~**0.08 logMAR** at 16–40 to
+  ~**0.21** by 68 and ~**0.34** by 81 — older readers need measurably larger type even with normal vision, so the
+  "bigger buys no speed" ceiling sits **higher** for an older audience (Calabrese 2016, MNREAD).
 - **[CONVENTION] ~16px web body floor** — widely taught (Material, iOS, Refactoring UI); comfortable, not a
   controlled constant. Treat as a default, and **set it in `rem`** so the user's zoom/base size is respected.
   The **BDA's** own target — **12–14pt (≈16–19px)**, **60–70 chars** — corroborates 16px as a *minimum*, not a comfortable target.
@@ -106,8 +117,14 @@ palettes) live in the visual gallery: [references/type-gallery/index.html](refer
 - **Leading (line-height):** **[CONVENTION]** ~**1.4–1.6×** for prose, tighter for big display, looser for
   small/long measure (Material uses 1.5× body / ~1.2× display). **[WCAG 1.4.12, AA]** must not break when the
   user sets leading **1.5×**, paragraph spacing **2×**, letter-spacing **0.12em**, word-spacing **0.16em**.
-- **[STRONG, for impaired readers]** Generous spacing is a real load lever: doubling line/word spacing raised
-  reading speed ~26–46% and **more than halved errors** for low-vision (macular) readers (Blackmore-Wright 2013).
+- **[contested / mixed — was [STRONG]]** Generous spacing as a **low-vision** load lever is **not clean**.
+  **Pro:** doubling line/word spacing raised reading speed ~26–46% and **more than halved errors** for low-vision
+  (macular) readers (Blackmore-Wright 2013). Within that finding, two rankings §2's leading line lacks: **leading
+  is the DOMINANT spacing lever — ~15–20× the effect of word-spacing** — and **spacing × contrast interact:** the
+  gain was **+26% at high contrast but +46% at low contrast**, and **triple** spacing was *worse* than double (an
+  optimum, not "more is better"). **Con:** Chung (2008/2012) found increased line/letter spacing gave **no**
+  benefit in AMD. So rank leading first, expect a bigger payoff at low contrast, don't over-space — but treat
+  low-vision spacing as **contested/mixed**, not a settled [STRONG].
 
 ## 3. Type scale & hierarchy
 
@@ -187,17 +204,39 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
 
 ## 6. Cognitive load — type that's effortless to read
 
-- **[STRONG / mechanism] Fluency lowers effort and reads as "I like it".** Easy-to-process text (legible,
-  conventional letterforms, high figure-ground contrast, adequate size/spacing) lowers reading effort and lifts
-  affect — and the brain misattributes the ease as liking (Reber/Winkielman; the UX skill's fluency findings).
-  **The biggest load levers are the proven ones in §§1–2: size, x-height, contrast, spacing, conventional
-  forms, restraint.** Reducing *extraneous* typographic load (low contrast, crowding, tight tracking, too-small
-  text, long measure, justified rivers, decorative faces) frees attention for meaning.
-- **[MYTH] "Harder-to-read / ugly fonts improve memory" (desirable difficulty).** The famous 2011 result
-  (tiny n=28, just-significant) **failed to replicate** at scale — Sans Forgetica showed *no* memory benefit
+- **[STRONG / mechanism] Fluency lowers effort and reads as "I like it".** Easy-to-process text (legible, high
+  figure-ground contrast, adequate size/spacing, uncrowded) lowers reading effort and lifts affect — and the brain
+  misattributes the ease as liking (Reber/Winkielman; the UX skill's fluency findings). **The biggest load levers
+  are the proven ones in §§1–2: size, x-height, contrast, spacing, restraint** (conventional letterforms move
+  *preference* more than proven effort — see §1). Reducing *extraneous* typographic load (low contrast, crowding,
+  tight tracking, too-small text, long measure, justified rivers, decorative faces) frees attention for meaning —
+  the theoretical spine is **[CONVENTION / CLT-derived]** *reducing extraneous typographic load frees working
+  memory for comprehension* (Sweller's cognitive-load theory applied to type). Tag it a hypothesis, not a finding:
+  the corpus states it as "may," **not** demonstrated by eye-tracking/pupillometry.
+- **[extracted] The metamemory trap — easy/large type feels more learnable but is barely better remembered.**
+  Meta-analysis of 93 experiments: larger font size lifts *judgments of learning* **g=.38** but actual recall only
+  **g=.05** (a ~7–8× gap). The effect is driven by *beliefs*, not fluency — it **vanishes** when readers are told
+  "large = less memorable" (PMC8883023). A metacognition angle on **preference ≠ performance:** readers *misjudge*
+  how well big type is teaching them. Distinct from the fluency-lifts-affect mechanism above.
+- **[extracted] Speed is not a complete measure of reading effort.** Highly legible text can make readers spend
+  *less effort* rather than read *faster* — large margins **reduced** reading speed yet **raised** comprehension
+  (Chaparro 2004). So a speed test can miss a real cognitive-load difference; don't read "same wpm" as "same
+  effort" (Beier 2009).
+- **[extracted] How to measure reading effort.** The operationalized eye-tracking indices are **fixation count,
+  total reading time, mean fixation duration, saccade length, skip rate, regressions** — more-readable text yields
+  **fewer fixations and regressions**. Simple text proxies (word length, sentence length) capture most of the
+  signal (Nahatame). Reach for these when a claim rests on "lower load."
+- **[MYTH] "Harder-to-read / ugly fonts improve memory" (perceptual desirable difficulty).** The famous 2011
+  result (tiny n=28, just-significant) **failed to replicate** at scale — Sans Forgetica showed *no* memory benefit
   across ~300 participants and a 1-week test; the literature is mixed-to-null and sometimes shows a memory
-  *cost* (Huff & Maxwell 2022, ~300 participants; also Geller; Taylor; review by Thiessen, Beier & Keage 2020). **Do not degrade type to aid
-  learning.** Genuine desirable difficulties (e.g. self-testing) work; disfluent type does not.
+  *cost* (Huff & Maxwell 2022, ~300 participants; also Geller; Taylor; review by Thiessen, Beier & Keage 2020).
+  **[upheld] Stronger backing:** Xie et al. 2018 meta-analysis (recall **d≈−0.01**) and Eitel & Kühl 2017 ("not
+  generalizable"); **mechanism** — low perceptual fluency is an *aversive* signal that triggers trial-level
+  cognitive control ("try harder," or avoid/switch), **not** a memory effect. **Do not degrade type to aid
+  learning.** **[upheld] The myth is about *perceptual* disfluency only — not "difficulty never helps."** Real
+  *desirable difficulties* — retrieval practice / self-testing, spaced practice, interleaving — **do** replicate;
+  in the very Sans Forgetica study, self-testing beat restudy (an in-experiment positive control). It's disfluent
+  *type* that fails, not effortful *study* (Wetzler 2021).
 - **[CONVENTION] Left-aligned / ragged-right** over justified for screen text — justification opens "rivers"
   and uneven spacing; WCAG 1.4.8 (AAA) explicitly says don't justify.
 
@@ -249,6 +288,11 @@ authorities; the *value of hierarchy itself* (§3) is the [STRONG] part.
   & Baeza-Yates 2016). The British Dyslexia Association's own guidance recommends **plain sans-serif** (Arial,
   Verdana, Open Sans…) and never names a special font. **What actually helps:** larger size, generous
   line/letter spacing, shorter measure, good contrast, left-aligned — the same proven levers, for everyone.
+  **[extracted] The mechanism is *crowding*** (visual clutter from neighboring letters), and the spacing benefit
+  is **universal, not dyslexia-specific:** +2.5pt letter-spacing ~**doubled** dyslexic children's accuracy (~20%
+  faster; Zorzi 2012), yet dyslexic **and** control readers showed the **same** benefit, and across 189 unselected
+  readers extra spacing raised **accuracy but not rate** (van den Boer 2017). Added spacing relieves crowding for
+  *all* readers — it isn't a dyslexia cure.
 - **[STRONG] Spacing is an inverted-U, not "more is better."** The optimum sits **at or near standard** spacing;
   **over-tracking *slows* both normal and fast readers** (Chung 2002; Yu, Cheung, Legge & Chung 2007). So the §2
   low-vision gain is a *correction toward* comfortable spacing, not a licence to keep widening. And for dyslexia,
@@ -352,7 +396,14 @@ Rule of thumb: **two faces is plenty, three is the ceiling, one is often enough*
 - McLeish (2007) — reading-speed study behind WCAG 1.4.12 letter-spacing: benefit rises to ~0.25em, flattens ~0.20em (the empirical basis for the 0.12em floor).
 - Wery & Diliberto (2017); Rello & Baeza-Yates (2016); British Dyslexia Association style guide — OpenDyslexic no benefit; plain sans recommended; keep word-spacing ≥ 3.5× letter-spacing; measure 60–70 chars at 12–14pt (≈16–19px).
 - Huff & Maxwell (2022), *Cognitive Research: Principles and Implications* — ~300-participant DRM replication, no memory benefit from Sans Forgetica; Geller et al.; Taylor et al.; Thiessen, Beier & Keage (2020) — disfluency-aids-memory failed to replicate.
-- Blackmore-Wright et al. (2013), *PLoS ONE* — spacing raises low-vision reading speed ~26–46%, halves errors.
+- Blackmore-Wright et al. (2013), *PLoS ONE* — spacing raises low-vision reading speed ~26–46% (+26% high contrast, +46% low contrast), halves errors; leading dominates word-spacing (~15–20×), triple spacing worse than double (an optimum). Chung (2008/2012) — no spacing benefit in AMD (the contested-side bound; low-vision spacing is mixed, not clean [STRONG]).
 - Chung (2002); Yu, Cheung, Legge & Chung (2007) — letter-spacing is an inverted-U; over-tracking slows normal *and* fast readers (optimum at/near standard).
 - web.dev / Chrome (font-display, metric overrides); Google (2020) HTTP cache partitioning; Fontaine — web-font performance.
 - Zach Leatherman — font-loading budget: past ~4–5 fonts or ~100KB total, adopt FOFT. HTTP Archive Web Almanac (2022) — Google Fonts sometimes rendered *faster* than self-hosted; self-hosting wins only with CDN + HTTP/2 + preload + correct config.
+- Font-size metamemory meta-analysis, 93 experiments (PMC8883023) — larger type lifts judgments-of-learning g=.38 but recall only g=.05; belief-driven, vanishes when readers are told large=less memorable.
+- Chaparro et al. (2004) — large margins reduced reading *speed* yet raised comprehension; Beier (2009) — highly legible text can lower *effort* rather than raise speed (speed alone under-measures load), and with letterform *visibility* controlled unfamiliar letterforms move preference, not speed (conventional forms are a preference lean, not a proven performance lever).
+- Nahatame (eye-tracking readability) — operationalized effort indices: fixation count, total reading time, mean fixation duration, saccade length, skip rate, regressions; simple word/sentence-length proxies capture most of the signal.
+- Calabrese et al. (2016), MNREAD — critical print size grows with age: ~0.08 logMAR (16–40) → ~0.21 (68) → ~0.34 (81).
+- Zorzi et al. (2012) — +2.5pt letter-spacing ~doubled dyslexic children's accuracy (~20% faster); van den Boer & Hakvoort (2017) — dyslexic and control readers show the *same* spacing benefit, and extra spacing raises accuracy but not rate (crowding relief is universal, not dyslexia-specific).
+- Xie et al. (2018) meta-analysis (disfluency recall d≈−0.01); Eitel & Kühl (2017) ("not generalizable"); Wetzler et al. (2021) — perceptual disfluency fails to aid memory, but genuine desirable difficulties (self-testing, spacing, interleaving) replicate; self-testing beat restudy as an in-experiment positive control. Mechanism: low fluency is an aversive signal producing trial-level cognitive control, not a memory effect.
+- Sweller — cognitive-load theory applied to type: reducing extraneous typographic load frees working memory for comprehension ([CONVENTION / CLT-derived] — a hypothesis in the corpus, not demonstrated by eye-tracking/pupillometry).
