@@ -13,7 +13,7 @@ A repeatable method for building **your own** distinct visual style — a person
 
 **Core principle — distinctiveness is deviation from convention.** A treatment reads as distinctive only by departing from the *surrounding* convention, not by any element in isolation. So the whole method reduces to: **learn the convention, then break from it.**
 
-Labels: **[STRONG]** = peer-reviewed evidence · **[CONVENTION]** = sound practice, thin evidence · **[MYTH]** = claim that failed adversarial verification, do not use. Sources + the full proven/convention/myth split are in the reference.
+Labels: **[STRONG]** = peer-reviewed evidence (gate-verified 3-of-3) · **[CONVENTION]** = sound practice, thin evidence · **[extracted]** = primary-sourced, not gate-verified in this skill's pass · **[MYTH]** = claim that failed adversarial verification, do not use. Sources + the full proven/convention/myth split are in the reference.
 
 ## Direct the work — design-craft's art-director
 
@@ -40,11 +40,14 @@ A style is valid only if everything it produces passes the four design-craft flo
 
 ## The method — the research's levers, in order
 
-1. **[STRONG] Map the convention first.** Distinctiveness is produced by deviation from the *surrounding* convention, and it is time-relative — so you cannot deviate from what you have not named. List the defaults of the category before you leave them behind.
+1. **Map the convention first.** **[STRONG]** that a distinctive hand is *real and measurable* — attribution runs far above chance and distinctiveness is quantifiable (Gabora, r=.98, upheld). That the deviation is judged against the *surrounding* convention and is *time-relative* is the **weaker leg — [MEDIUM, single-source]** (Elgammal, whose time-machine measure is partly self-validating; the synthesis rates this cluster MEDIUM, not STRONG). Either way you cannot deviate from what you have not named — so list the category's defaults first. **[extracted]** A tool for *locating* a convention on formal axes (what "list the defaults" otherwise lacks): **Wölfflin's five opposed pairs** — linear/painterly, plane/recession, closed/open form, multiplicity/unity, absolute/relative clarity. Place the norm on each, then choose which axis to leave.
 
 2. **[STRONG] Imitate-then-deviate from an *unfamiliar* domain.** The evidenced route to an original hand: deeply study a model from a domain you do *not* normally draw from, then deviate. Copying restructures your internal model of the task and yields output unlike the source. **The source must be UNFAMILIAR** — familiar high-quality exemplars cause *design fixation*, the opposite effect.
 
-3. **[STRONG] Reduce to a small fixed vocabulary.** Self-imposed constraint and reduction are a documented lever for a recognizable hand ("less, but better"). A tight, repeatable move-set *is* the mechanism, not a limit on it.
+3. **[STRONG] Reduce to a small fixed vocabulary.** Self-imposed constraint and reduction are a documented lever for a recognizable hand ("less, but better"). A tight, repeatable move-set *is* the mechanism, not a limit on it. **This [STRONG] rests on a single verified master (Rams)** — thin; the inverted-U below now grounds it.
+    - **[extracted] Constraint has a dose — inverted-U** (Cromwell & Acar, *Org. Psych. Review* 2024, integrative review of ~145 empirical studies): creative output peaks at *moderate* constraint — too little → complacency/cliché, too much → stifles. This is the empirical spine for the director's rule that **"always deviate" and "always reduce" are both failure modes**. *Caveat: the inverted-U is directional, not settled — extreme constraint may change the problem type rather than sit on one curve. Read it as a direction, not a law.*
+    - **[extracted] How to deviate — paired constraints** (Stokes): one constraint **precludes** the conventional element, a second **specifies its substitute**; the recognizable style **emerges as that substitution chain**, and step one is deviating from a *well-structured* convention (Matisse negating Beaux-Arts). This is the procedure lever 1's "map the convention" was missing.
+    - **[extracted] Widen the authority base past Rams:** Vignelli (≤6 typefaces across a whole career; the grid as *enabling* structure) and Sagmeister ("almost any limitation helps if known in advance").
 
 4. **[STRONG] Put the signature in a few held *constants*.** Style is the set of constant features across a body of work; the individual hand lives in **constant, often minor handling repeated across everything** — not a single hero flourish. Pick a few constants; hold them everywhere.
 
@@ -55,6 +58,7 @@ A style is valid only if everything it produces passes the four design-craft flo
 - **[MYTH]** "Be first within a trend." Timing-of-originality / first-mover advantage is **unsupported**; originality matters, being early does not.
 - **[MYTH]** "Style is unconscious / can't be taught." **Refuted** — it is a deliberate, teachable practice.
 - **[MYTH]** "Style is fully measurable from the image." Texture/colour statistics capture a *surface* signature, **not** the compositional hand — the key caveat for [[brand-absorption]].
+- **[extracted]** "10,000 hours / drilling builds a signature." **The opposite** (Macnamara & Hambrick 2019 meta-analysis): in *creative* domains, consistently practised, replicable behaviours are *detrimental* to distinctiveness — practice builds the hand, but originality requires deviating from the very conventions practice instils. Reinforces the core: learn *then* deviate.
 
 ## Absorbing an existing brand → [[brand-absorption]]
 

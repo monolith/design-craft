@@ -43,6 +43,7 @@ Distinctiveness is **deviation from the surrounding convention** — so the oper
 - ❌ Being a **first-mover within a movement** boosts esteem. *(Timing-of-originality advantage unsupported.)*
 - ❌ Style is **fully measurable from images alone.** *(Texture stats miss composition/semantics.)*
 - ❌ The Paula Scher style-formation account. *(0-3.)*
+- ❌ The Elgammal directed-graph **formalizes know-convention-then-deviate as style formation.** *(Refuted 0-3 — this is the 6th killed claim, reconciling the header count. The skill correctly never asserts it, so no myth is needed; noted here only for the tally.)*
 
 ---
 
