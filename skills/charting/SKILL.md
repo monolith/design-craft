@@ -341,6 +341,15 @@ Evidence: [references/evidence-tufte-principles.md](references/evidence-tufte-pr
 5. **Stacked bars to compare the inner series** ✗ → **grouped bars / small multiples** ✓.
    - ✗ **Wrong:** stacking series when the reader needs to compare a *middle* one across categories. **Why:** only the bottom segment shares a common baseline; inner segments float on a shifting base and are decoded as *unaligned* lengths — the less-accurate case in Cleveland & McGill.
    - ✓ **Right:** **grouped bars** or **small multiples** put every series on a shared zero baseline, so each series' across-category pattern reads directly. (Stacking is fine for part-to-whole *totals* — just not for comparing the inner bands.)
+6. **Inverted / flipped axis** ✗ → **conventional orientation, labelled** ✓.
+   - ✗ **Wrong:** running the value axis in reverse (e.g. a "deaths" line that climbs *downward*). **Why:** readers decode the *shape*, not the ticks — an inverted line-area chart made **~79% of viewers draw the opposite conclusion, vs 2.5% for the control** (Pandey et al. 2015), and inverted axes are among the strongest real-world deceivers (Rho et al. 2024).
+   - ✓ **Right:** keep the conventional up-is-more orientation; if a reversed scale is genuinely required, label it unmistakably and drop the area fill.
+7. **Aspect-ratio manipulation** ✗ → **honest ratio; bank to ~45°** ✓.
+   - ✗ **Wrong:** stretching or squashing a line chart to exaggerate or flatten a trend. **Why:** aspect-ratio distortion was the **single strongest distortion measured** in the research corpus (r=0.66, beating truncation's 0.37 and radius' 0.34; Pandey et al. 2015).
+   - ✓ **Right:** choose height:width honestly — Cleveland's **"banking to 45°"**: set the ratio so the average line segment slopes ≈45°, which maximizes slope discrimination (Heer & Agrawala 2006).
+8. **Irregular time-axis spacing** ✗ → **equal spacing per unit time** ✓.
+   - ✗ **Wrong:** placing time points at unequal x-spacing (skipping gaps, bunching recent points). **Why:** irregular x-axis spacing was the **top deceiver among 14 graph types** (odds ratio ~15, far exceeding 3D or truncation; Rho et al. 2024).
+   - ✓ **Right:** space the axis by real elapsed time (a true time scale), so slope and rate read truthfully.
 
 ### What the evidence refuted — don't overstate the rules above
 
@@ -348,6 +357,18 @@ Three popular framings **failed adversarial verification** and are deliberately 
 - The clean **"bars need zero, but lines & dot plots don't" dichotomy** failed (1-2). The zero-baseline default holds for **length-encoded bars** (anti-pattern #1); for **line charts specifically** it is unsettled — don't state "lines never need a zero baseline" as fact.
 - Truncation's **task-dependence is real** (Long & Kay 2024 — gap-comparison tasks are unharmed), but "designers *should* truncate when the task allows" is **not** a settled prescriptive rule (refuted 0-3). Honesty stays the floor.
 - Chartjunk's cost is **conditional** (time pressure, dataset size; Li & Moacdieh 2014) — don't claim embellishment is "cost-free." This is exactly why data-ink minimalism is labelled **[CONVENTION]**, not law.
+- **Embellishment measurably *hurts* precise comparison** — in relative-magnitude tasks *every* embellishment except below-zero bars raised reading error vs plain bars, **including merely rounding the bar tops** (Skau, Harrison & Kosara 2015); the cost is task-specific (absolute single-bar reading is only hurt by area-encoding). So "[CONVENTION]" cuts both ways: decoration is *not* free for tasks that need accurate reading.
+- **"Chartjunk aids memory" is image *recognition*, not comprehension** — memorability rises with embellishment and density (Borkin et al. 2013), but the authors are explicit it's recognition of the *image*, not understanding, and may interfere with it. Don't cite it to justify decoration on an analytical chart.
+
+### Evidence notes from the deep-research corpus (some extracted, not vote-verified)
+
+Beyond the labels above, the full corpus ([references/charting-research-corpus.md](references/charting-research-corpus.md)) surfaced findings worth carrying — a few adversarially **[upheld]**, several primary-sourced **[extracted]** claims not put to the verification vote:
+- **Sparklines are measured, and it's mixed** (not "unvalidated"): an inline sparkline gave **no accuracy gain over text alone**, but its information was *more salient* — when text and graphic conflicted, readers took the sparkline's answer far more often (Goffin et al. 2015). Use them for glanceable salience, not precise reading.
+- **Data density has a measured floor ≈24px** [upheld]: value-estimation error is flat above ~24px and rises linearly below it, and ~24px *minimized* estimation time (Heer, Kong & Agrawala 2009, *Sizing the Horizon*). Bigger isn't better — but don't shrink a data-bearing chart below ~24px tall.
+- **For clutter, organization beats raw density** [extracted]: high density roughly doubled search time, but *organization* predicted misses more strongly than density did (Moacdieh & Sarter 2017). Layering/arrangement is the dominant lever — a hedge on the "trust the reader with detail" move above.
+- **Annotation: more is preferred, and placement by type matters** [extracted]: readers preferred the most-annotated charts (no clutter penalty), and uptake depends on placement — facts by the axis, statistics at the data point, trend statements in the title; mismatch cut uptake ~11× (Stokes, Hearst et al.). Extends "direct-label over legend."
+- **The one dashboard data-ink test is confounded** [weak]: high-data-ink displays gave faster out-of-range detection on a live monitor (Blasio & Bisantz 2002), but the high-ink display was a numeric table vs gauges — so treat dashboard data-ink as still unvalidated.
+- **Context — most real-world chart deception is *not* a visual trick** [extracted]: in misleading COVID-chart posts, only ~11% violated design guidelines and <1% involved actual visual misreading; deception ran through framing/reasoning (CHI 2023). The honesty floor prevents a real but minority slice of harm — necessary, not sufficient.
 
 ## References
 
