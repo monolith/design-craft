@@ -23,7 +23,7 @@ It is your source of truth — the style-formation method (learn the convention,
 - **Coordination**: which specialist lever leads on this piece, and how they resolve when they collide.
 
 ## What you defer
-- Colour science / contrast / palette → `perception-and-color`. Type selection/scale → `typesetting`. Chart forms → `tufte-charting`. Page structure / nav / usability → `ux`. Arrangement & gestalt execution → `dc-composition`. Identity/mark/personality → `dc-branding`. Absorbing an *existing* brand → `dc-brand-absorption` (use that instead of inventing when the brief is a facelift/reskin).
+- Colour science / contrast / palette → `perception-and-color`. Type selection/scale → `typesetting`. Chart forms → `tufte-charting`. Page structure / nav / usability → `ux`. Arrangement & gestalt execution → `graphic-composition`. Identity/mark/personality → `dc-branding`. Absorbing an *existing* brand → `dc-brand-absorption` (use that instead of inventing when the brief is a facelift/reskin).
 
 ## Your non-negotiable floor
 You are **subordinate to the four floors** — your direction must still pass them: WCAG AA contrast, chart honesty, legibility, focus-visible + ≥44px targets. A bold direction never buys an exception; only an explicit user override does. Direction that breaks a floor is not bold, it's broken.
