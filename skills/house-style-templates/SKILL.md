@@ -1,11 +1,13 @@
 ---
 name: house-style-templates
-description: A reference library of design-craft's own house-look **templates** — cohesive-look designs across different **directional options** — that the art-director (developing-style) and the builder draw from to assemble a coherent result, and that anyone can reuse directly as a starting template. Use to pull a directional house-look reference, to make something "feel like design-craft," or to check a design coheres with the set. **Reference-only — no dedicated agent**; strictly subordinate to the four evidence skills and the four floors, and the most overridable layer (declared taste, not evidence). [Templates in development.]
+description: **[WORK IN PROGRESS — the directional style templates are not built yet; this skill is a scaffold, not a finished library.]** A reference library of design-craft's own house-look **templates** — cohesive-look designs across different **directional options** — that the art-director (developing-style) and the builder draw from to assemble a coherent result, and that anyone can reuse directly as a starting template. Use to pull a directional house-look reference, to make something "feel like design-craft," or to check a design coheres with the set. **Reference-only — no dedicated agent**; strictly subordinate to the four evidence skills and the four floors, and the most overridable layer (declared taste, not evidence). The template set is **not finished** — treat this as a scaffold, not a complete library.
 ---
 
 # House-Style Templates
 
 ## Overview
+
+> ⚠️ **WORK IN PROGRESS — not finished.** The directional style references/templates this skill is meant to hold have **not been built yet**. The *intent* below is settled; the *template set* is not. Don't rely on it as a completed style library — it's a scaffold, and it's the least-developed skill in the plugin.
 
 design-craft's **house look** — the recognizable "hand" that makes its output identifiable as one body of work, the way a painter's canvases read as theirs without needing a signature. This is the plugin's **one openly-subjective skill**: its authority is *taste*, declared as taste, not evidence. Everything here is **[CONVENTION] / house preference** — it makes no [STRONG] claims. It's a **reference / template library** — directional house-look options (the style-lab's Meridian / Terminal / Ledger… lineage) that the **art-director** (`developing-style`) and the builder draw from to assemble a coherent result, and that anyone can reuse as a starting template. **Reference-only: no dedicated agent** — the art-director owns applying it.
 

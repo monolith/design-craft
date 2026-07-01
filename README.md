@@ -52,10 +52,10 @@ Above the four evidence skills sit two skills about *style* — both **strictly 
 
 | Skill | Owns | One-line |
 |---|---|---|
-| **house-style-templates** | design-craft's own house look | The recognizable "hand" that makes its output read as one body of work. Pure taste, declared as taste — the most overridable layer. *[Signature in development.]* |
+| **house-style-templates** | design-craft's own house look (reference-only, no agent) | A library of **directional house-look templates** the art-director draws from. **⚠️ WORK IN PROGRESS — the templates are not built yet;** the most overridable layer, declared taste. |
 | **developing-style** | a method for creating a *new* style | An evidence-based, repeatable process for an original, distinctive style: learn the convention, then deviate — imitate-then-deviate from an *unfamiliar* domain, reduce to a small vocabulary, hold a few constants. Style-formation research bundled in `references/`. |
 
-`house-style-templates` *applies* a settled look; `developing-style` is the method to *invent* one.
+`house-style-templates` is a reference library of directional house-look templates (**still being built**); `developing-style` is the method to *invent* a new look.
 
 ## The worked galleries
 
