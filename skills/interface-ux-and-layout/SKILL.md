@@ -352,6 +352,11 @@ as above, executed by teams that do this well.
   base for UX/interface claims (proven/convention/myth + refuted list + gaps).
 - [references/aesthetic-preference-findings.md](references/aesthetic-preference-findings.md) — why
   people intuitively like a UI (processing fluency, prototypicality, first impressions).
+- [references/ux-practical-findings.md](references/ux-practical-findings.md) — navigation, inspection,
+  targets, attention (the practical gaps the first run left open).
+- [references/interface-ux-and-layout-corpus.md](references/interface-ux-and-layout-corpus.md) — the
+  **full raw per-agent corpus**: 107 source extractions + 280 adversarial verifications, verbatim from
+  ~437 research agents across four workflows (the distilled docs above were synthesised from this).
 - **[[charting]]** · **[[graphical-perception-and-color]]** — the sibling skills this composes with.
 
 ## Common mistakes
