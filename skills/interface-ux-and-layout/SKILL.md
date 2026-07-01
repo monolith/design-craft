@@ -29,7 +29,7 @@ weak/observational support · [extracted] = primary-sourced but not adversariall
 this skill's research · [MYTH] = evidence contradicts the popular framing · [taste] = no
 evidence either way; an aesthetic choice, labelled as such.
 
-**Full research trail:** built from four deep-research runs (~437 agents). Distilled findings in [references/ux-evidence-findings.md](references/ux-evidence-findings.md), [references/aesthetic-preference-findings.md](references/aesthetic-preference-findings.md), and [references/ux-practical-findings.md](references/ux-practical-findings.md); the **complete raw per-agent corpus** — 107 source extractions + 280 adversarial verifications, verbatim — is in [references/interface-ux-and-layout-corpus.md](references/interface-ux-and-layout-corpus.md).
+**Full research trail:** built from three deep-research runs (~331 agents). Distilled findings in [references/ux-evidence-findings.md](references/ux-evidence-findings.md), [references/aesthetic-preference-findings.md](references/aesthetic-preference-findings.md), and [references/ux-practical-findings.md](references/ux-practical-findings.md); the **complete raw per-agent corpus** — 83 source extractions + 225 adversarial verifications, verbatim — is in [references/interface-ux-and-layout-corpus.md](references/interface-ux-and-layout-corpus.md).
 
 ## Boundary — and how the three skills compose
 
@@ -417,7 +417,7 @@ as above, executed by teams that do this well.
 - [references/ux-practical-findings.md](references/ux-practical-findings.md) — navigation, inspection,
   targets, attention (the practical gaps the first run left open).
 - [references/interface-ux-and-layout-corpus.md](references/interface-ux-and-layout-corpus.md) — the
-  **full raw per-agent corpus**: 107 source extractions + 280 adversarial verifications, verbatim from
+  **full raw per-agent corpus**: 83 source extractions + 225 adversarial verifications, verbatim from
   ~437 research agents across four workflows (the distilled docs above were synthesised from this).
 - **[[charting]]** · **[[graphical-perception-and-color]]** — the sibling skills this composes with.
 

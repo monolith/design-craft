@@ -1,15 +1,15 @@
 # Typography — FULL research corpus (recovered from transcripts)
 
 > **What this is.** The complete per-agent deep-research behind the `typography` skill, extracted
-> **verbatim** from the `StructuredOutput` of every research agent across the four typography research
+> **verbatim** from the `StructuredOutput` of every research agent across the five typography research
 > workflows. The skill had **no** saved research doc — this recovers it. **De-noised by construction**
 > (only StructuredOutput content; no prompts, tool logs, rate-limit/retry/token text). Deterministic extract.
 
-> **Scale:** 87 source extractions · 246 adversarial verifications · 25 synthesis records, ~415 agents / 4 workflows.
+> **Scale:** 111 source extractions · 301 adversarial verifications · 31 synthesis records, ~521 agents / 5 workflows (incl. cognitive/mental-load).
 
 ---
 
-## Part A — Source extractions (87)
+## Part A — Source extractions (111)
 
 ### Type that reads easily & pairs with the restrained palette
 
@@ -999,9 +999,269 @@
 - **[supporting]** [MYTH-correction] All-caps text is harder to read than sentence case because word-shape recognition is lost; uppercase should be reserved for short labels/legends/axis or group labels, and when used needs added letter-spacing (e.g., 0.1–0.3em, up to 0.75em for emphasis).
   > "Uppercase ("all caps") text is...harder to read than 'sentence case' text... the shapes of letters help people to recognize words – and in uppercase, the whole text looks like a rectangle."
 
+### Typography & cognitive / mental load — what reduces the effort of reading
+
+#### Source `a0fd7550` — quality: **primary** · published: 2017-12 (online 2017-08-12)
+- **[central]** Increased interletter spacing reduced reading errors (improved accuracy) but did not improve reading speed/rate in children.
+  > "Participants made fewer errors in the increased LS condition than in the standard LS condition. Reading rates were not affected"
+- **[central]** The accuracy benefit of increased letter spacing was NOT specific to dyslexia — it affected children with dyslexia and typically-developing controls in similar ways, so spacing benefits are universal rather than a dyslexia-specific intervention.
+  > "increased LS affected children with dyslexia and controls in similar ways ... the findings do not support claims that increased LS specifically affects poor readers"
+- **[supporting]** The benefit was tested across two samples (30 dyslexic + 30 control children, mean age ~9y11m; and 189 unselected readers, mean age ~9y3m), with the larger unselected sample replicating the non-specific pattern.
+  > "Experiment 1: 30 children with dyslexia and 30 controls (mean age 9 years 11 months); Experiment 2: 189 unselected readers (mean age 9 years 3 months)"
+- **[tangential]** The spacing benefit appeared to operate at the interword level rather than at word-by-word processing, indicating the mechanism is about visual word separation rather than letter-identity decoding.
+  > "The spacing benefit appeared to function "at the interword level" rather than affecting word-by-word processing."
+
+#### Source `a1c4e2d3` — quality: **primary** · published: 2018-08-28
+- **[central]** Larger font size (48pt vs 18pt) produced significantly better free recall in children, contradicting the disfluency-aids-memory hypothesis — easier-to-read type helped, not hurt, retention (small effect, η²=0.04).
+  > "Children "correctly recalled more large font words (M = 3.08) than small font words (M = 2.67), F(1,98) = 4.26, p = 0.042." The effect was small but statistically significant."
+- **[central]** Across both children and adults, more legible (larger) font produced both higher predicted memory and higher actual memory — fluency cues here tracked, rather than inversely tracked, real retention.
+  > "As did adults, children predicted they would remember large font size words better than small font size words and, in fact, actually remembered the large font size words better."
+- **[supporting]** Font size affected subjective metamemory judgments (confidence/JOLs) far more strongly than it affected actual memory — a mismatch where perceived ease over-predicts the real performance benefit.
+  > "The mismatch: JOL effect was large (η² = 0.14), memory effect was small (η² = 0.04)."
+- **[supporting]** Larger font reliably raised judgments of learning (confidence in remembering), demonstrating font size operates as a salient fluency/ease cue for learners.
+  > "Children "gave higher JOLs for large font words (M = 3.78) than for small font words (M = 3.56), F(1,98) = 16.02, p < 0.001.""
+- **[tangential]** The font-size memory benefit was measured on isolated single-word lists (24 Hebrew words, 8s each) with young children, not on continuous reading comprehension — bounding how far the effect generalizes to UI/body-text reading.
+  > "24 Hebrew words presented on screen for 8 seconds each in either 48-point (large) or 18-point (small) font, followed by immediate JOL ratings ... then free recall after 30-second maze task."
+
+#### Source `a1fbe2ec` — quality: **secondary** · published: 2005-08-01
+- **[central]** The review's bottom-line recommendation is that line length (measure) should not exceed roughly 70 characters per line, giving a concrete upper-bound lever for the 'moderate measure' typographic guideline.
+  > "line length should not exceed about 70 characters per line"
+- **[central]** Line length affects reading effort non-monotonically: both very short and very long lines slow reading by disrupting the normal eye-movement pattern, so there is a comfortable middle range rather than 'longer is always worse.'
+  > "both very short and very long lines slow down reading by interrupting the normal pattern of eye movements and movements throughout the text"
+- **[supporting]** Line length measurably influences multiple objective reading outcomes — comprehension, reading speed, navigation method (paging/scrolling), and eye movements — establishing measure as a real performance lever, not merely an aesthetic preference.
+  > "comprehension, reading speed, method of movement (e.g., paging and scrolling) and eye movements are affected by changes in line length"
+- **[tangential]** The review explicitly raises (but, in the retrievable content, does not resolve) the question of whether reader preference aligns with objective performance, e.g. multiple narrow columns vs. one wide column — flagging the preference-vs-performance distinction central to fluency claims.
+  > "Which view is more preferred by readers – multiple narrow columns or one wide column?"
+
+#### Source `a3a45a95` — quality: **primary** · published: 2022-12-09
+- **[central]** Across four experiments (~300 participants), the disfluent Sans Forgetica font produced no improvement in correct or false memory relative to a standard Arial control font in the DRM false-memory paradigm.
+  > "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font."
+- **[central]** Sans Forgetica failed to improve memory accuracy even after accounting for associative false-memory errors, indicating its disfluency does not produce the 'desirable difficulties' needed to aid learning.
+  > "Our results indicate that Sans Forgetica is ineffective for improving memory accuracy even when accounting for associative memory errors."
+- **[supporting]** The null result was statistically supported by Bayesian analysis, not merely an absence of significance; e.g., Experiment 1A showed near-identical correct recall (Arial .53 vs Sans Forgetica .54) with Bayesian evidence favoring the null.
+  > "Bayesian p_BIC = 0.77 (supporting null hypothesis)"
+- **[supporting]** Prior independent work found that disfluent fonts can impose a memory COST rather than a benefit, and the lack of benefit persisted even though readers subjectively rated the disfluent font as harder to read.
+  > "Taylor et al. ([2020]) reported that Sans Forgetica font yielded a memory cost for target memory...The lack of Sans Forgetica benefits occurred despite participants rating Sans Forgetica items as being subjectively more challenging to read."
+- **[central]** The broader literature on disfluent fonts and memory is mixed and unreliable, with results ranging from no effect on correct memory to outright memory costs, contradicting the original positive claims.
+  > "the effects of disfluent fonts on memory are mixed...others produced no effects on correct memory...and in some cases, have produced a memory cost."
+
+#### Source `a3ab61e3` — quality: **primary** · published: 2011 (Cognition, Vol. 118, pp. 111-115; this open-access copy is the eScholarship/CogSci proceedings version)
+- **[central]** The headline causal claim under scrutiny: across two studies, the authors assert that making text harder to read with a disfluent font improved learning/retention, i.e. that disfluency acts as a 'desirable difficulty.' This is precisely the claim later large replication attempts (Yue/Castel; Eitel & Kühl) failed to confirm.
+  > "In two studies we showed that making the text disfluent by using a hard to read font improved learning... It appears as though perceptual disfluency can function as a desirable difficulty in education."
+- **[central]** Study 1 (the lab study) was small: only 28 participants (one outlier dropped, leaving 27). The disfluent group recalled ~14% more (86.5% vs 72.8% accuracy), t(26)=2.3, p<.05 — a single just-significant result on a tiny sample, which is the underpowered original effect that later high-powered replications did not reproduce.
+  > "Twenty eight participants were recruited through the Princeton University paid subject pool... Participants in the fluent condition were accurate 72.8% of the time. Meanwhile, participants in the disfluent condition successfully remembered the information 86.5% of the time. This difference was statistically significant (t(26) =2.3, p < .05)."
+- **[central]** Study 2 was a 222-student high-school field study, but only five classrooms were usable; disfluent-font supplementary materials yielded higher average exam z-scores (M=.164 vs control M=-.295), t(220)=3.38, p<.001. The classroom design is uncontrolled (different teachers/subjects, fonts applied to PowerPoint/handouts), which bounds how strongly this supports the general claim.
+  > "students in the disfluent condition scored higher on their tests (M= .164, SD = .1.03) than those in the control (M = -.295, SD = 1.05)... Average z-score for fluent and disfluent supplementary materials across the 5 usable classrooms."
+- **[supporting]** The specific 'harder-to-read' fonts were Comic Sans MS and Bodoni MT in greyscale (Study 1 disfluent) vs 16pt Arial in black (fluent), and Haettenschweiler, Monotype Corsiva, or italicized Comic Sans (Study 2 disfluent) — the concrete 'ugly font' manipulations whose effect the literature later judged non-replicable.
+  > "In the disfluent condition, the stimuli were presented in either 12 point Comic Sans MS 75% greyscale ... or 12 point Bodoni MT 75% grayscale font. In the fluent condition, the stimuli were presented in 16-point Arial 100% black font."
+- **[supporting]** The authors themselves acknowledge bounds consistent with processing-fluency findings: too much disfluency impairs function, and disfluent materials are reliably liked less than fluent ones — directly supporting the UX-skill fluency→liking link and cautioning that any retention benefit trades against affect/motivation.
+  > "at some level disfluency will necessarily impair functioning. After all, if the font is impossible to read, then the information cannot be encoded... a large literature has demonstrated that disfluent materials are liked less than fluent materials."
+
+#### Source `a50e7293` — quality: **primary** · published: 2021-11 (SAGE Open, Vol 11 Issue 4, Oct-Dec 2021)
+- **[central]** A disfluent font (Sans Forgetica) did NOT improve memory retention at a practically meaningful 1-week interval: in a 2x2 design (font x study method, N=120), the font main effect and the font-by-method interaction were both nonsignificant. This is a direct replication failure of the disfluency-aids-memory claim.
+  > "Students (N = 120) learned two passages via different methods (study then re-study vs. study then self-test). Half the students saw the passages in Times New Roman and half in Sans Forgetica. Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+- **[central]** Self-testing (a genuine desirable difficulty) DID significantly improve later recall over restudying in the same experiment, providing a within-study positive control that distinguishes effective desirable difficulties from ineffective disfluent type.
+  > "Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+- **[supporting]** Prior Sans Forgetica / disfluent-font studies were inconsistent and confined to very short retention intervals (0-5 minutes); this study deliberately extended to 1 week and still found no font benefit, undercutting the idea that disfluency benefits only emerge after a delay.
+  > "the few studies on Sans Forgetica have been inconsistent, and focused on short retention intervals (0–5 minutes). We investigated a 1-week interval to increase practical relevance and because some benefits only manifest after a delay."
+- **[supporting]** The authors explicitly bound the desirable-difficulties principle: difficulty alone is not sufficient — disfluent typefaces yield inconsistent results and not every difficulty that adds effort produces a memory benefit.
+  > "Not all difficulties are desirable, however. Difficult-to-read (disfluent) typefaces yield inconsistent results."
+- **[tangential]** Proposed mechanism for the null: disfluency raises local, per-word (orthographic) processing effort but may impair broader relational/comprehension processing, whereas testing and generation effects engage relational processing — explaining why testing helps and font does not.
+  > "disfluency increases the local (orthographic) processing effort on each word"
+
+#### Source `a58f757d` — quality: **primary** · published: 2025-10-16
+- **[central]** Multiple studies have failed to replicate the memory benefit of perceptual disfluency (harder-to-read fonts like Sans Forgetica), finding no benefit over normal fonts — directly bounding the Diemand-Yauman et al. (2011) claim.
+  > "multiple studies have failed to replicate its benefits, finding it produces no memory benefit over and beyond normal fonts"
+- **[central]** Perceptual disfluency only enhanced memory when the disfluency was strong enough (high blur) to disrupt both early and late processing stages; mild disfluency (low blur) produced no memory benefit — the effect is condition-specific, not general.
+  > "for perceptual disfluency to benefit memory it must be disfluent enough to affect both early and late stages of processing"
+- **[central]** Even where a disfluency memory benefit appears, it is small and of doubtful practical/educational value, undercutting 'ugly fonts help learning' as a usable intervention.
+  > "perceptual disfluency can enhance memory in specific contexts but appears limited as an educational intervention"
+- **[supporting]** High-blur (strongly disfluent) words traded off lower recognition accuracy for a memory advantage, showing the benefit comes coupled with a processing/comprehension cost rather than being free.
+  > "high-blur words had lower accuracy than clear and low-blurred words but had better memory"
+- **[supporting]** Distributional RT analysis showed strong disfluency shifts the whole response-time distribution and increases skew (slower, more effortful tail), whereas mild disfluency leaves the distribution's mu and skew unchanged — an objective effort measure tied to the disfluency dose.
+  > "high-blurred words induced a more pronounced shift in the RT distribution (µ) and exhibited a higher degree of skew (β/τ)"
+
+#### Source `a664445f` — quality: **primary** · published: 2022-12-09
+- **[central]** Across four experiments with nearly 300 participants, the disfluent/distinctive Sans Forgetica font produced no benefit to correct memory (recall or recognition) of studied DRM list items relative to a standard Arial control font.
+  > "Sans Forgetica consistently failed to improve correct memory for studied items... Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+- **[central]** Sans Forgetica did not reduce false memories in the DRM paradigm; false recall/recognition rates were equivalent across Sans Forgetica and Arial, so the harder-to-read font did not protect against associative memory errors.
+  > "Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+- **[central]** Participants subjectively rated Sans Forgetica as more difficult/effortful to read, yet this added perceptual disfluency did not translate into any memory benefit — directly disconfirming the 'disfluency aids memory' prediction.
+  > "Participants rated Sans Forgetica as subjectively more challenging to read, but this didn't translate to memory benefits"
+- **[supporting]** This null result replicates multiple prior studies that already failed to find a Sans Forgetica memory advantage, indicating the original 'distinctive font improves retention' claim does not reliably reproduce.
+  > "we further replicated existing research showing that Sans Forgetica produced no benefit on correct recall/recognition of list items compared to Arial font"
+- **[supporting]** The null effect held regardless of experimental design — whether font was manipulated within or between subjects and whether memory was tested by free recall or recognition — bounding the failure as robust across methods.
+  > "the present study adds to the existing literature showing Sans Forgetica is not an effective tool for promoting retention."
+
+#### Source `a67336b3` — quality: **primary** · published: 2021-07 (Information Design Journal, Vol. 26, Issue 1, pp. 73-88)
+- **[central]** In low-vision readers (AMD), increasing letter spacing and letter width produces a small but measurable improvement in reading acuity near critical font sizes — supporting size/spacing/width as concrete reading-effort levers, especially for impaired readers (research-question topics 4 and 5).
+  > "The results demonstrated a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes."
+- **[supporting]** The benefit is bounded: it is small and condition-specific, appearing only near the acuity threshold (critical print size), not as a large general reading gain — an important bound against overclaiming spacing/width as universal load-reducers.
+  > "a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes"
+- **[supporting]** The study measured reading-effort/performance via reading acuity (logRAD), maximum reading speed, and critical print size in 20 AMD patients using the Radner Reading Chart, grounding the claim in controlled measures relevant to reading-effort assessment.
+  > "Participants: 20 low-vision patients with age-related macular degeneration (AMD) ... Reading acuity (logRAD), Maximum reading speed, Critical print size"
+- **[tangential]** Plain magnification has costs — it reduces how much text can be overviewed and hampers navigation — which is the rationale for adjusting spacing/width instead of (or in addition to) simply enlarging text for low-vision readers.
+  > "Low vision readers depend on magnification, but magnification reduces the amount of text that can be overviewed and hampers text navigation."
+
+#### Source `a793d896` — quality: **secondary** · published: 2023-02 (online 2022-08-21)
+- **[supporting]** This 2022/2023 peer-reviewed synthesis of desirable difficulties names only retrieval practice, spaced practice, and interleaved practice as the evidence-based desirable-difficulty strategies in medical education research; disfluency / harder-to-read fonts is NOT among the endorsed strategies (it appears only in the reference list as Diemand-Yauman 2011). This is consistent with disfluency not being treated as a robust desirable difficulty.
+  > "We then illustrate how three common Desirable Difficulty strategies in medical education research-retrieval practice, spaced practice and interleaved practice-can be understood through these theoretical lenses."
+- **[supporting]** The defining mechanism of a 'desirable difficulty' is that added effort impedes short-term/immediate performance but benefits long-term retention — the exact prediction the disfluency-font studies attempted to instantiate, and against which their replication failures should be judged.
+  > "Difficulties that require more effort from learners may impede short-term learning but are ultimately beneficial for long-term learning and are therefore termed Desirable Difficulties."
+- **[tangential]** The review frames desirable difficulty through three theoretical lenses, including Cognitive Load Theory, situating effortful-learning effects within CLT rather than treating typographic disfluency as a standalone established effect.
+  > "We introduce three theoretical perspectives that provide a comprehensive overview of the theoretical underpinnings of the Desirable Difficulty effect: the New Theory of Disuse, the Challenge Point Framework and Cognitive Load Theory."
+
+#### Source `a7c1d12d` — quality: **primary** · published: 2011
+- **[central]** Low perceptual fluency (hard-to-read/degraded stimuli) acts as an aversive signal that triggers mobilization of cognitive effort even when there is no response conflict. This is the proposed mechanism behind 'disfluency makes you try harder' — but it is demonstrated at the level of trial-to-trial cognitive control in lab tasks, NOT memory/retention, so it does not by itself validate disfluency-aids-learning claims.
+  > "Low perceptual fluency, which is known to evoke negative affective reactions, triggers the mobilization of cognitive effort even in the absence of response conflicts."
+- **[central]** Processing difficulty (disfluency) is not uniformly beneficial: experiencing difficulty can be used either as a signal to invest more effort ('try harder') OR as an avoidance signal to disengage/switch away ('avoid and switch'). This bounds the disfluency-aids claim — the same hard-to-read input can prompt avoidance rather than deeper engagement.
+  > "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ("try harder"), or as avoidance signal for future action selection ("avoid and switch")."
+- **[supporting]** An aversive fluency signal influences not only predicted effort but actual effort allocation, extending Song & Schwarz (2008) effort-prediction findings to measured effort adjustment.
+  > "An aversive signal (here: low fluency) is not only used for effort prediction but also for effort adjustments."
+- **[supporting]** Across three experiments, effort adjustments in response to fluency were observed as statistically significant sequential interactions (current-trial fluency by previous-trial fluency), i.e., the effect was a within-task trial-level effect rather than a learning/retention outcome.
+  > "Effort adjustments in reaction to fluency manipulations as indicated by significant interactions of Fluency(N) × Fluency(N-1) were found."
+
+#### Source `a81cd4ea` — quality: **primary** · published: 2026 (Language Learning, Vol. 76, pp. 671–703; online ~October 2025)
+- **[supporting]** Passage-level reading effort can be operationalized via eye-tracking measures — total reading time, number of regressions (backward eye movements), and number of skips — establishing these as validated indices of processing effort during reading.
+  > "Researchers examined "total reading time, number of skips, and number of regressions (backward eye movement) per passage" as indicators of processing effort."
+- **[supporting]** The study frames text readability as 'ease of processing' and shows readability indices/linguistic features predict eye-tracking effort measures — confirming the readability-lowers-measurable-reading-effort link (here for LINGUISTIC, not typographic, readability).
+  > ""Text readability (i.e., ease of processing) among English learners can be estimated without using complex linguistic feature indexes.""
+- **[tangential]** Bayesian analysis found complex linguistic features (lexical sophistication, syntactic complexity, cohesion) predicted processing effort only marginally better than simple measures like word and sentence length — i.e., simple readability proxies capture most of the effort signal.
+  > "Bayesian analysis revealed that complex linguistic features, primarily lexical sophistication, play a significant role in predicting these measures. However, the benefits of using these features were not much greater than those of using readability indices or simple linguistic features, such as word and sentence length."
+- **[tangential]** Findings are bounded to second-language (L2) reading of longer passages: 41 Japanese-speaking university/graduate readers of English at Eiken Pre-2 to Pre-1 levels reading passages over 200 words — not native readers and not a typography manipulation.
+  > "The research analyzed "41 Japanese-speaking university and graduate students reading passages equivalent to Eiken Grades Pre-2, 2, and Pre-1.""
+
+#### Source `a86b7594` — quality: **primary** · published: 2016-07
+- **[central]** There is a measurable print-size threshold (the critical print size) below which reading speed drops sharply — empirical evidence that adequate type size is a genuine reading-performance lever, not just convention.
+  > "As print size decreases, a critical print size (CPS) is reached after which reading speed declines rapidly."
+- **[supporting]** The critical print size is operationally the smallest size that still yields 90% of a reader's maximum reading speed; sizes above it gain little speed, sizes below it lose speed quickly. This bounds 'comfortable size' as a near-threshold quantity rather than 'bigger is always better'.
+  > "the smallest print size that yielded 90% of the MRS"
+- **[central]** Critical print size worsens (requires larger print) with age, accelerating after ~68 years to 0.34 logMAR by age 81 — so older readers need measurably larger type than young adults (CPS ~0.08 logMAR at 16-40) to reach their maximum reading speed.
+  > "Past 68 years, it increases more rapidly and reaches 0.34 logMAR by 81 years."
+- **[supporting]** Maximum reading speed in normally sighted adults peaks around 200 ± 25 wpm in young adulthood and declines gradually with age to about 175 wpm by 81, independent of (and in addition to) the rising print-size requirement.
+  > "decreases gradually to reach 175 wpm by 81"
+- **[tangential]** These are baselines for NORMALLY SIGHTED subjects across childhood to old age — bounding the claims to typical readers (children improve from 137 wpm at 8 to 202 wpm by 16), distinct from low-vision or dyslexic populations.
+  > "137 wpm at age 8 ... 202 wpm by age 16"
+
+#### Source `a987ff21` — quality: **primary** · published: 2009
+- **[central]** When letterform visibility is controlled, unfamiliar/uncommon letterforms do NOT slow reading speed after even a brief exposure; they affect only preference/subjective experience, not reading performance. This dissociates aesthetic fluency (liking) from actual reading effort and undercuts the typographic dogma (Morison) that letterforms must stay conventional for fast reading.
+  > "The results indicate that exposure has an immediate effect on the speed of reading, but that unfamiliar letter features only have an effect of preference and not on reading speed. ... This revelation that unusual letterforms do not slow down reading after a brief exposure period, surprisingly tells us that the level of common letterforms in typefaces is not important to reading performance. The results go against the argument put forward by Stanley Morison and many other typographers who emphasises that, for a successful reading experience, letterforms should stay constant."
+- **[central]** There is no proven legibility advantage of serif over sans-serif (or vice versa): a review of 28 studies found no valid proof favouring either style. This corroborates the prior finding of no inherent serif-vs-sans reading advantage.
+  > "Reviewing 28 studies on the subject of relative legibility of Sans Serif and Serif typefaces, Lund (1999) finds no valid proof in favour of either one of the two."
+- **[supporting]** Larger x-height and larger internal letter area increase legibility (clearest at distance/small size), and bold weight plus low stroke contrast further enhance visibility - grounding the choice of high-x-height, generously-fitted, low-contrast screen typefaces (e.g. Verdana, humanist sans) for low-effort reading.
+  > "shows an almost even scale with the fonts of the largest x-height being most legible and the fonts of small x-height being less legible, indicating that characters of a large internal area and large x-height enhances the legibility in most fonts viewed at a distance. A further analysis of the findings suggests that bold weights and low stroke contrast additionally enhance distance visibility."
+- **[supporting]** Reading speed is not a complete measure of reading effort: with more legible text, readers may expend less effort rather than read faster, so reading-speed tests can miss real differences in cognitive load. Empirically, larger margins reduced reading speed yet increased comprehension.
+  > "Their point was that in some situations, when reading a highly legible text, the participant performs the task with less effort instead of increasing the rate of reading; a form of behaviour that does not show in a speed of reading test situation. Chaparro and colleagues (Chaparro et al., 2004), further found that in a comparison between text set with large margins and text set with no margins, that reading speed in the large margin text decreased and comprehension increased."
+- **[supporting]** Reader preference and measured legibility can diverge sharply: Tinker found Kabel Light statistically as legible as serif Old Style and Didone faces, yet readers rated Kabel Light the second most illegible of ten fonts - another performance-vs-preference dissociation cautioning against using liking as a proxy for reading effort.
+  > "they therefore concluded that Kabel Light, the Old Style, and Didone faces were equally legible. However, when studying reader's preferences of the same fonts, Kabel Light was judged as the second most illegible of all 10 fonts (Tinker, 1964)."
+
+#### Source `a98ce1dc` — quality: **unreliable** · published: ?
+
+#### Source `a9f76904` — quality: **secondary** · published: 2020-07-16
+- **[central]** Improving a text's readability (format changes) can reduce extraneous cognitive load and free working memory for comprehension — the CLT-applied-to-type framing, but stated as a hypothesis ('may'), not a demonstrated empirical result.
+  > "Making changes to a text format...to improve readability for an individual reader may reduce the extraneous load on the reader's cognitive processing."
+- **[supporting]** Weak decoding skills increase cognitive load and leave fewer cognitive resources available for comprehension (attributed to Connor et al. 2019), supporting the working-memory-bottleneck mechanism for non-fluent/struggling readers.
+  > "weak decoding skills act as a bottleneck, increasing cognitive load and leaving fewer cognitive resources available"
+- **[supporting]** The article names the typographic levers as font, size, character width/spacing, weight, and line spacing — but provides no empirical evidence that any individual lever reduces reading effort, so these remain CONVENTION/CLT-derived rather than STRONG.
+  > "font, size, character width or spacing, weight, and line spacing"
+- **[tangential]** The argument is grounded in Sweller's Cognitive Load Theory (1988) and reading-comprehension models (Scarborough's Reading Rope, 2001), not in eye-tracking, fixation, pupillometry, or reading-time data, which it does not cite.
+  > "John Sweller — Cognitive Load Theory (1988)"
+
+#### Source `ab3f62fb` — quality: **primary** · published: 2017
+- **[central]** Disfluency effects on learning do not generalize across the type of disfluency manipulation, the timing of the test, or the memory outcome measured — undercutting any blanket 'harder-to-read fonts improve retention' rule.
+  > "The findings show that disfluency effects are not generalizable across disfluency manipulations, test time points, and memory outcomes."
+- **[central]** Whether disfluency helps learning is conditional on multiple factors, and its practical usefulness as an educational intervention is weaker and less reliable than its easy application implies.
+  > "Whether or when disfluency is desirable depends upon multiple factors, and its usefulness for educational intervention is not as straightforward as its easy application suggests."
+- **[supporting]** In a between-subjects experiment (N=134), a hard-to-read font improved delayed (2-week) recall by reducing forgetting, while a different disfluency manipulation (20% scrambled letters) reduced short-term recall — showing dissociable, even opposite, effects depending on manipulation type rather than a single robust benefit.
+  > "An illegible font desirably improved long-term recall by decreasing forgetting, while scrambled letters undesirably reduced short-term recall but tended to aid remembering."
+- **[supporting]** Prior research on whether disfluent, hard-to-read text aids learning is inconsistent, with test delay and the type of disfluency manipulation identified as candidate moderators of the discrepant results.
+  > "While some difficult learning conditions can improve learning, the findings regarding the contribution to learning of disfluent, hard-to-read text materials have been inconsistent."
+
+#### Source `ace0c5cf` — quality: **primary** · published: 2022
+- **[central]** Larger font size produces a small-to-moderate increase in judgments of learning (people predict they will remember big text better), g = .38, across 93 experiments / 115 effect sizes.
+  > "a small-to-moderate effect of font size, g = .38, SE = .02, 95% CI = [.33, .43], p < .001"
+- **[central]** Larger font size produces only a negligible improvement in actual memory/recall (g = .05), roughly 7-8x smaller than its effect on learning predictions — so the perceptual fluency of bigger/easier text barely changes what is actually retained.
+  > "memory for larger-font items was slightly better than for smaller-font items, g = .05, SE = .02, 95% CI = [.02, .08], p < .001"
+- **[central]** The font-size effect on metacognitive judgments is driven by people's beliefs, not by processing fluency itself: when participants were told larger words were less fluent or less memorable, the JOL effect disappeared (g = .02, p = .868).
+  > "when participants were informed that larger words were less fluently processed or less memorable, the effect size was far smaller and unreliable (g = .02, p = .868)"
+- **[supporting]** The dissociation between predicted and actual memory is bounded to a specific size range — it only appears between very small and intermediate fonts, not when comparing very large to intermediate fonts.
+  > "JOL-memory dissociation only occurred when font size ranged between very small and intermediate"
+- **[supporting]** The metacognitive feeling of learning and actual memory rely on different mechanisms — JOLs track beliefs while memory tracks (dis)fluency: 'the memory effects of font size are tied to (dis)fluency, but its JOL effects are not.'
+  > "the memory effects of font size are tied to (dis)fluency, but its JOL effects are not"
+
+#### Source `ace3d167` — quality: **primary** · published: 2013-11-11
+- **[central]** In readers with macular disease, increasing LINE spacing to double improves reading speed substantially — about 38% at low contrast (60.1 to 82.9 wpm) and 20% at high contrast (96.9 to 116.9 wpm) — making leading the single largest spacing lever for low-vision reading effort.
+  > "Low contrast text: Double line spacing increased reading speed from 60.1 to 82.9 wpm (38% improvement, p < 0.001)... High contrast text: Double line spacing increased reading speed from 96.9 to 116.9 wpm (20% improvement, p < 0.001)"
+- **[central]** Increasing LETTER spacing (tracking) does NOT improve reading speed in macular-disease readers, because the crowding-reduction benefit is cancelled by loss of word-shape information — bounding the 'more spacing is always better' intuition.
+  > "increased letter spacing does not lead to an increase in reading speed... advantages from reducing letter crowding were 'negated by a reduction in word shape information.'"
+- **[supporting]** Line spacing is a far stronger lever than word spacing: the partial eta-squared effect size for line spacing was roughly 15–20 times that of word spacing.
+  > "The 'measure of effect size (ŋ2 p) was approximately fifteen to twenty times greater for line spacing than word spacing.'"
+- **[central]** Spacing benefits grow as text contrast falls — combined double word + double line spacing yielded a 46% reading-speed gain at low contrast versus 26% at high contrast — linking typographic spacing to figure-ground contrast (consistent with the colour skill's luminance findings).
+  > "High contrast: 26% improvement (p < 0.001); Low contrast: 46% improvement (p < 0.001)... particular benefit when 'contrast of the text is reduced.'"
+- **[supporting]** More spacing is not monotonically better — there is an optimum: triple line spacing was significantly worse than double line spacing, so the load-reducing recommendation is 'double,' not 'maximal.'
+  > "Triple line spacing was significantly worse than double line spacing (p < 0.001)"
+
+#### Source `ad100fe8` — quality: **primary** · published: 2012-06-04
+- **[central]** Increasing inter-letter spacing by 2.5 pt roughly doubled reading accuracy for dyslexic children (errors fell from ~11.8 to ~6) and significantly increased reading speed (1.64 to 1.87 syllables/s) — establishing letter spacing as a measurable, evidence-backed typographic load lever for dyslexic readers.
+  > "The manipulation of letter spacing improved accuracy in text reading by a factor of two. ... Dyslexic children made significantly fewer errors in the spaced than the normal version [6 versus 11.8] ... read significantly faster in the spaced than the normal version [1.87 versus 1.64 syllables/s]."
+- **[central]** The spacing benefit was specific to dyslexic readers and did NOT improve typical/control readers, bounding the claim: extra letter spacing is a targeted remediation for difficulty populations, not a general legibility win for average readers.
+  > "The effect of spacing (normal vs. spaced) was significant for dyslexics (P < 0.001) but not for controls (P = 0.1)."
+- **[supporting]** The proposed mechanism is crowding — tight inter-letter spacing impairs letter recognition, and dyslexics show heightened sensitivity to crowding; widening spacing reduces this perceptual interference. This ties spacing directly to a cognitive/perceptual load account.
+  > "Crowding—a perceptual phenomenon with detrimental effects on letter recognition that is modulated by the spacing between letters."
+- **[supporting]** The spacing-induced speed gain (~0.3 syllables/s) is equivalent to a full school year of normal reading-skill development for Italian dyslexic children, indicating a practically meaningful, not merely statistically detectable, effect.
+  > "0.3 syllables/s ... which corresponds to the average improvement across 1 school year for Italian dyslexic children."
+- **[supporting]** The effect was demonstrated across 74 dyslexic children in two languages (Italian and French, ages 8-14), but the authors bound generalization: stimuli were short, meaningful, high-frequency-word sentences, so the result may not extend to longer or more complex text.
+  > "74 dyslexic children (34 Italian, 40 French; ages 8–14 ... The authors acknowledge the study used "short, meaningful sentences" with "high-frequency words," potentially limiting generalization to longer or more complex texts."
+
+#### Source `aeb6499f` — quality: **primary** · published: 2020-09-02
+- **[central]** A 2020 peer-reviewed review (Thiessen, Beier & Keage, The Design Journal 23(5):797-815) concludes that the evidence on whether harder-to-read 'disfluent' typography improves learning is unresolved — i.e., the disfluency-aids-learning claim (from Diemand-Yauman/Oppenheimer/Vaughan 2011) is NOT robustly established.
+  > "What is evident is that the discussion about whether or not disfluent reading materials support learning is far from resolved."
+- **[supporting]** The review frames clear, easy-to-read typography as the functional design goal and treats the proposition that disfluent typefaces improve learning as running counter to that goal — consistent with a processing-fluency view that legible, easy-to-read text is the default aim.
+  > "This is counterintuitive for typography where it is the aim to support reading acts by creating texts that are as clear and as easy to read as possible."
+- **[supporting]** The review characterizes any disfluency benefit as condition-dependent and underspecified: basic parameters such as how much disfluency, whether benefits persist over time, and how environmental distraction interacts remain unknown — bounding the effect as fragile and unsettled rather than a reliable lever.
+  > "Further research is needed in key areas such as those related to the typographic principles of visual cuing and emphasis as well as other broader areas such as how we may be able to determine threshold for disfluency, benefit over time, and what impact environmental distractions have on the disfluency effect."
+- **[supporting]** The paper is a literature review (not a single experiment) that synthesizes the disfluency-effect research specifically to contextualize it for typography grounded in functional readability, co-authored by typography-legibility researcher Sofie Beier — making it a named-authority synthesis for the disfluency debate.
+  > "We explore recent literature on the disfluency effect in an effort to contextualize the results for typography research that is grounded in functional readability."
+
+#### Source `aec7ec68` — quality: **blog** · published: ?
+- **[central]** [CONVENTION — Butterick] Recommended body-text point size is 10–12 points in print and 15–25 pixels on the web; this is presented as professional best practice (justified by viewing distance and screen rendering), not as a cited empirical study.
+  > "Point size should be 10–12 points in printed documents, 15-25 pixels on the web."
+- **[central]** [CONVENTION — Butterick] Optimal line spacing (leading) for body text is 120–145% of the point size; common word-processor defaults (single, 1.5, double) fall outside this range. Best-practice, no study cited.
+  > "For most text, the optimal line spacing is between 120% and 145% of the point size."
+- **[central]** [CONVENTION — Butterick] Average line length (measure) should be 45–90 characters including spaces (roughly two to three alphabets per line). Best-practice, no study cited.
+  > "Aim for an average line length of 45–90 characters, including spaces."
+- **[supporting]** [CONVENTION — Butterick] Over-long measure raises reading effort because the eye must travel farther on the line return, making vertical progress harder to track — articulated as a load mechanism, but it is the author's reasoning, not a measured effect.
+  > "As line length increases, your eye has to travel farther from the end of one line to the beginning of the next, making it harder to track your progress vertically."
+- **[supporting]** [CONVENTION — Butterick] Restraint rules bearing on extraneous load: all-caps should be limited to less than a line of text, and bold/italic emphasis should be applied minimally and never combined. Best-practice prescription, no study cited.
+  > "All caps are acceptable for less than one line"
+
+#### Source `af8d24ab` — quality: **primary** · published: 2020-03-17
+- **[central]** Wider letter-spacing reduced single-word processing effort (shorter fixation durations) — first fixation durations dropped by ~15.81 ms, gaze duration by ~7.20 ms, and total fixation time by ~14.97 ms — in typically developed adult readers during silent reading.
+  > "Wide letter spacing reduces single word processing time in typically developed readers during silent reading, but affects reading rates negatively since more words must be fixated."
+- **[central]** Despite easing single-word processing, wider spacing lowered overall reading rate: participants read ~9.45 fewer words per minute (200.43 vs 209.88 wpm) because more words had to be fixated (skipping probability fell from 43% to 35%, fixation count rose).
+  > "Participants read on average 9.45 words less per minute when letter spacing was wider"
+- **[central]** The harm from wider spacing scaled with reading proficiency — faster readers were hurt more (a 347-wpm reader lost 27 wpm; baseline speed correlated negatively with the spacing effect at r = -0.62) — indicating no single spacing setting is optimal for all readers.
+  > "individual differences in the letter spacing effect correlated negatively with individual wpm values"
+- **[supporting]** Slower readers benefited more on single-word processing from wider spacing, suggesting spacing helps serial letter processing but disrupts the parallel chunk-recognition mode that fast readers rely on.
+  > "wider letter spacing reinforces serial letter processing in slower readers, but disrupts parallel processing of letter chunks in faster readers"
+- **[supporting]** Wider spacing as an accommodation for struggling readers is double-edged: it may give quick low-cost help but could be disadvantageous long-term by reinforcing slow serial reading; the study used 24 German university students with no diagnosed dyslexics.
+  > "might prove disadvantageous in the long run because the reinforcement of slow serial letter processing can inhibit the development of a fast parallel recognition mode"
+
+#### Source `af8fbd46` — quality: **primary** · published: 2013-11-11
+- **[central]** In adults with age-related macular degeneration, doubling word/line spacing increased reading speed by ~26% with high-contrast text and ~46% with low-contrast text (both p<0.001), making spacing a measurable load-reducing lever for low-vision readers.
+  > "Double word/line spacing increased reading speed by approximately 26% (p < 0.001) with high contrast text, and by 46% (p < 0.001) with low contrast text."
+- **[central]** Enhanced line/word spacing more than halves reading errors in macular-disease patients compared with single-spaced text, indicating reduced reading effort, not just faster speed.
+  > "double line/word spacing more than halved the number of reading errors obtained with single spaced text"
+- **[supporting]** Line spacing is a larger lever than word spacing: in low-contrast text, double line spacing raised mean speed from 60.1 to 82.9 wpm, whereas double word spacing (with double line spacing) raised it only from 77.2 to 87.1 wpm.
+  > "With low contrast text: double spacing increased mean speed from 60.1 to 82.9 wpm... double word spacing increased speed from 77.2 to 87.1 wpm"
+- **[supporting]** Crowding harms reading, and increasing spacing mitigates it; the authors recommend double line spacing and double-character word spacing for macular-disease readers.
+  > "crowding is detrimental to reading... individuals with macular disease should employ double line spacing and double-character word spacing"
+- **[supporting]** Spacing benefits were larger at low contrast (46%) than high contrast (26%), suggesting spacing and contrast interact and that spacing partially compensates for reduced figure-ground contrast.
+  > "increased reading speed by approximately 26% (p < 0.001) with high contrast text, and by 46% (p < 0.001) with low contrast text"
+
 ---
 
-## Part B — Adversarial verifications (246)
+## Part B — Adversarial verifications (301)
 
 ### Type that reads easily & pairs with the restrained palette
 
@@ -3342,9 +3602,534 @@ Two qualifications that DO NOT refute: (1) The full model attributes reading spe
 *Evidence:* The claim accurately restates the MDN quote and is corroborated by multiple independent authoritative typography sources. CORE FACTS CONFIRMED: (1) Lining figures (OpenType lnum / CSS lining-nums) sit on the baseline, are uniform in height matching the capitals, and are the standard for tables/data/all-caps — confirmed by Type Network, RWT.io, Fonts.com (MyFonts), and Wikipedia's "Text figures." (2) Old-style figures (OpenType onum / CSS oldstyle-nums) have some digits descending below the baseline and are designed to blend with lowercase letters in running prose — same sources. (3) The lnum/onum CSS-to-OpenType feature-tag mapping in the claim is correct and matches the OpenType feature registry and Adobe/MDN docs. (4) The lining=data / old-style=running-text convention is universal across sources, not disputed by any credible one. SOURCE QUALITY: MDN is authoritative for CSS/OpenType web features; this is a stable, decades-old, basic typographic fact (Bringhurst, Butterick, OpenType spec), not an extraordinary claim — so MDN amply suffices. Not outdated, not marketing. MINOR IMPRECISION (does NOT refute): The canonical descending set in old-style figures is 3, 4, 5, 7, 9 (with 6, 8 ascending; 0, 1, 2 at x-height); MDN and the claim list "3, 4, 7, 9," omitting 5. But the exact descending digits are typeface-dependent and the claim hedges with "some digits," so this is a defensible simplification, not an error worth killing the claim over. The SKILL should state "some digits (commonly 3, 4, 5, 7, 9) descend" rather than reproducing MDN's incomplete list verbatim.
 *Counter-source:* No credible contradicting source found. Closest caveat: Wikipedia "Text figures," Type Network, and Fonts.com give the descending set as 3,4,5,7,9 — meaning MDN's "3,4,7,9" omits 5 — but this is a minor, typeface-dependent imprecision, not a refutation of the lining-vs-oldstyle distinction.
 
+### Typography & cognitive / mental load — what reduces the effort of reading
+
+#### V247 `a07e4dff` — **upheld** · confidence: high
+*Claim under review:* "Processing difficulty (disfluency) is not uniformly beneficial: experiencing difficulty can be used either as a signal to invest more effort ('try harder') OR as an avoidance signal to disengage/switch away ('avoid and switch'). This bounds the disfluency-aids claim — the same hard-to-read input can prompt avoidance rather than deeper engagement."
+
+**Source:** https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments (primary)
+**Supporting quote:** "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ("try harder"), or as avoidance signal for future action selection ("avoid and switch")."
+
+*Evidence:* Claim is well-supported. The supporting quote is a VERBATIM match to the abstract of Dreisbach & Fischer (2011), "If it's hard to read… try harder! Processing fluency as signal for effort adjustments," Psychological Research 75(5):376-383, DOI 10.1007/s00426-010-0319-y (PubMed 21210144) — a peer-reviewed Springer journal reporting 3 experiments. The abstract states verbatim: "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ('try harder'), or as avoidance signal for future action selection ('avoid and switch')." The claim restates this faithfully and uses it only to BOUND the disfluency-aids claim, not to assert avoidance always dominates — so it is not an overreach. Adversarial check: this paper's own DATA supported the "try harder" side (low fluency triggered effort mobilization), so a skeptic could allege cherry-picking. That refutation fails because (a) the claim quotes the paper's framing, not its result, and presents both sides evenhandedly; (b) the "avoid/disengage" side is independently and directly demonstrated by Song & Schwarz (2008) "If it's hard to read, it's hard to do" (Psychological Science, PubMed 19000208) — disfluent fonts raised predicted effort/time (e.g., ~59-83% longer time estimates) and lowered willingness to engage; (c) Alter & Oppenheimer (2009) "Uniting the Tribes of Fluency" (PubMed 19638628) establishes disfluency as generally aversive (negative affect, frustration, downgrading). Source quality matches claim strength (moderate theoretical-bounding statement); current (dual-signal model remains standard); not marketing. The bounding inference correctly limits the Diemand-Yauman disfluency-aids-learning claim.
+*Counter-source:* No credible source contradicts the dual-signal model; the strongest adversarial angle (the cited paper's data favored "try harder") is neutralized because the claim quotes the paper's framing and the avoidance side is corroborated independently by Song & Schwarz (2008) and Alter & Oppenheimer (2009).
+
+#### V248 `a11a653e` — **upheld** · confidence: high
+*Claim under review:* "The broader literature on disfluent fonts and memory is mixed and unreliable, with results ranging from no effect on correct memory to outright memory costs, contradicting the original positive claims."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "the effects of disfluent fonts on memory are mixed...others produced no effects on correct memory...and in some cases, have produced a memory cost."
+
+*Evidence:* Claim is well-supported and current. Source = Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (PMC9733772), a peer-reviewed primary article. The supporting quote is reproduced nearly verbatim from its introduction: "the effects of disfluent fonts on memory are mixed... others produced no effects on correct memory... and in some cases, have produced a memory cost." "Mixed" is the article's own term, so the claim does not overreach. Independent corroboration (sought specifically to contradict, found none against): (a) Xie et al. (2018) meta-analysis — perceptual disfluency "produced no effect on later recall relative to non-distorted controls"; (b) the source's own 4 experiments (~300 participants) found Sans Forgetica had no effect on correct or false memory vs. Arial; (c) multiple independent failed replications of Diemand-Yauman et al. (2011): Cushing & Bodner 2022, Geller et al. 2020, Wetzler et al. 2021, Taylor et al. 2020, Roberts et al. 2023. To refute the claim one would need credible evidence that disfluent fonts reliably AID memory — no such evidence surfaced; the entire literature trend supports the "mixed/unreliable, contradicting original positive claims" characterization. Source quality (peer-reviewed + meta-analysis + replications) exceeds the claim's strength; not outdated; not marketing.
+*Counter-source:* No credible counter-source found. Searched for evidence that disfluent fonts reliably aid memory; instead found only corroborating nulls/costs (Xie et al. 2018 meta-analysis; Wetzler et al. 2021; Geller et al. 2020; Cushing & Bodner 2022; Roberts et al. 2023). The only nuance is that some scholars frame the picture as "reliably null" rather than "mixed," but the claim's own wording (range from no effect to costs vs. original positives) matches the source's term "mixed" and does not misrepresent it.
+
+#### V249 `a153c9ef` — **upheld** · confidence: high
+*Claim under review:* "A 2020 peer-reviewed review (Thiessen, Beier & Keage, The Design Journal 23(5):797-815) concludes that the evidence on whether harder-to-read 'disfluent' typography improves learning is unresolved — i.e., the disfluency-aids-learning claim (from Diemand-Yauman/Oppenheimer/Vaughan 2011) is NOT robustly established."
+
+**Source:** https://www.tandfonline.com/doi/full/10.1080/14606925.2020.1810434 (primary)
+**Supporting quote:** "What is evident is that the discussion about whether or not disfluent reading materials support learning is far from resolved."
+
+*Evidence:* Claim fully verified. The paper exists and is cited correctly: Thiessen, M., Beier, S. & Keage, H. (2020) "A Review of the Cognitive Effects of Disfluent Typography on Functional Reading," The Design Journal, vol. 23, pp. 797-815, DOI 10.1080/14606925.2020.1810434 — confirmed independently by SCIRP, Monash University research portal, ResearchGate, Elsevier Pure, and Taylor & Francis. The review's stated conclusion is that "the discussion about whether or not disfluent reading materials support learning is far from resolved," which exactly matches the supporting quote and faithfully grounds the claim's paraphrase ("unresolved / NOT robustly established") — no overreach. Source quality is sufficient: peer-reviewed review co-authored by Sofie Beier (a named typography-legibility authority). Contrary evidence REINFORCES rather than refutes the claim — the disfluency/desirable-difficulty replication record is heavily mixed-to-negative: Yue et al. (2013) meta-analysis, Kuhl & Eitel (2016), Rummer et al. (2016), Weissgerber & Reinhard (2017), Wetzler et al. (2021, Sans Forgetica), and the Sans Forgetica DRM-paradigm failure all report null or negative effects, so "not robustly established" is conservative. Claim is current (2020, consistent with 2021-2023 replications). Only unconfirmed micro-detail is the issue number "(5)" — a trivial bibliographic point that does not affect the substance. No credible source disputes the "unresolved" framing.
+
+#### V250 `a17bd9fd` — **upheld** · confidence: high
+*Claim under review:* "Low perceptual fluency (hard-to-read/degraded stimuli) acts as an aversive signal that triggers mobilization of cognitive effort even when there is no response conflict. This is the proposed mechanism behind 'disfluency makes you try harder' — but it is demonstrated at the level of trial-to-trial cognitive control in lab tasks, NOT memory/retention, so it does not by itself validate disfluency-aids-learning claims."
+
+**Source:** https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments (primary)
+**Supporting quote:** "Low perceptual fluency, which is known to evoke negative affective reactions, triggers the mobilization of cognitive effort even in the absence of response conflicts."
+
+*Evidence:* Claim is well-supported, correctly bounded, and source-matched. (1) The verbatim PubMed abstract (PMID 21210144, Dreisbach & Fischer 2011, Psychological Research, doi:10.1007/s00426-010-0319-y) states exactly: "low perceptual fluency, which is known to evoke negative affective reactions, triggers the mobilization of cognitive effort even in the absence of response conflicts" — directly backing the claim's first sentence, including the "aversive signal" framing ("an aversive signal (here: low fluency) is not only used for effort prediction but also for effort adjustments," building on Botvinick 2007). (2) The bounding is accurate: the study ran three experiments analyzing trial-to-trial Fluency(N)×Fluency(N-1) sequential interactions on a within-session conflict/number-judgment task, with NO memory or retention test. Independent confirmation: Oliveira et al. (PMC10585938, "Easy to process, hard to control") states this line of work concerns "trial-by-trial cognitive control adjustments... within a single experimental session... not long-term learning or memorization." (3) The interpretive bridge ("does not by itself validate disfluency-aids-learning") is conservative and consistent with the disfluency replication-failure literature; the one contested point (Oliveira et al. find fluency can impair control, complicating directionality) reinforces rather than refutes the caution. Source is peer-reviewed Springer, matching the modest claim strength. Minor quibble only: "the proposed mechanism" is slightly strong since Alter et al. (2007, metacognitive difficulty -> analytic reasoning) is the mechanism more commonly cited for the Diemand-Yauman learning study, but the claim hedges with "proposed" and the point stands. Tag this [STRONG] for the trial-level effort-mobilization mechanism; it does NOT support a [STRONG] memory/learning claim — exactly what the claim itself asserts.
+*Counter-source:* Oliveira et al., "Easy to process, hard to control: Transient and sustained processing fluency impairs cognitive control adjustments to conflict" (PMC10585938) — confirms this line is within-session trial-level control, not memory; complicates the directional mechanism but does not refute the claim. PubMed PMID 21210144 verbatim abstract confirms quote and paradigm.
+
+#### V251 `a1a67ddd` — **upheld** · confidence: high
+*Claim under review:* "Disfluency effects on learning do not generalize across the type of disfluency manipulation, the timing of the test, or the memory outcome measured — undercutting any blanket 'harder-to-read fonts improve retention' rule."
+
+**Source:** https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X (primary)
+**Supporting quote:** "The findings show that disfluency effects are not generalizable across disfluency manipulations, test time points, and memory outcomes."
+
+*Evidence:* SUPPORTED. Primary source = "Is disfluency desirable for learning?" (Learning and Instruction, 2017; ScienceDirect S095947521730107X), a peer-reviewed primary study comparing perceptual disfluency (hard-to-read font), lexical disfluency (20% scrambled letters), and original text at immediate vs. 2-week delayed tests. (1) Quote→claim is a faithful paraphrase: original states disfluency effects "are not generalizable across disfluency manipulations, test time points, and memory outcomes"; claim restates this exactly. The study found effects flipped by dimension — illegible font reduced forgetting (delayed benefit) while scrambled letters reduced short-term recall — so the "does not generalize" framing is the study's own. (2) The "undercuts a blanket 'harder fonts improve retention' rule" addendum is a bounded, well-corroborated inference, NOT an overreach: it says a *blanket* rule is unjustified, not that disfluency never helps. (3) Broader literature corroborates rather than contradicts: Xie, Zhou & Liu (2018) meta-analysis (25 studies, 3,135 participants, Educational Psychology Review) found NO effect of perceptual disfluency on recall (d=-0.01) or transfer (d=0.03), only reduced judgments of learning (d=-0.43) and increased study time (d=0.52), with no moderators for recall; Sans Forgetica failures (Wetzler et al. 2021) and Yue/Castel-line replications agree. The one critical rebuttal found (Weissgerber & Reinhard 2021, "Null and Void?") disputes the meta-analysis's coding methodology but does NOT establish a general positive disfluency effect, so it doesn't rescue a blanket rule. Source quality (strong peer-reviewed journal, primary study + meta-analytic backup) matches the claim's moderate strength; not outdated; not marketing. Adversarial angle considered: this study itself found a real positive delayed-recall effect for the illegible font, but that supports condition-specificity, not a blanket benefit — so the claim stands.
+*Counter-source:* Weissgerber & Reinhard (2021) "Null and Void? Errors in Meta-analysis on Perceptual Disfluency" (Educational Psychology Review, PMC7854329) critiques the Xie et al. (2018) meta-analysis coding/methodology — but it does NOT demonstrate a general positive disfluency effect, so it does not contradict the non-generalizability claim. No credible source establishing a reliable blanket "harder fonts improve retention" effect was found.
+
+#### V252 `a20b735b` — **upheld** · confidence: high
+*Claim under review:* "Across four experiments with nearly 300 participants, the disfluent/distinctive Sans Forgetica font produced no benefit to correct memory (recall or recognition) of studied DRM list items relative to a standard Arial control font."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Sans Forgetica consistently failed to improve correct memory for studied items... Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+
+*Evidence:* Claim is verbatim-supported by the primary source. Huff & Maxwell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (peer-reviewed, Psychonomic Society/Springer, open-access; PMC9733772). Abstract states: "Across four experiments, which included nearly 300 participants, Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font, regardless of whether font type was manipulated within or between subjects or whether memory was assessed via free recall or recognition testing. Our results indicate that Sans Forgetica is ineffective for improving memory accuracy even when accounting for associative memory errors." Every element of the claim maps directly: four experiments, ~300 participants, no benefit to correct memory, recall AND recognition tested, Arial control, DRM paradigm. The supporting quote about reducing false memory is also confirmed (no impact on false memory either). No condition in the study produced a positive effect. Source strength matches claim strength (primary peer-reviewed study, 2022, current). Three refutation angles tried (quote overreach, contradicting sources, source quality) all failed.
+
+#### V253 `a2ef857c` — **upheld** · confidence: high
+*Claim under review:* "Sans Forgetica did not reduce false memories in the DRM paradigm; false recall/recognition rates were equivalent across Sans Forgetica and Arial, so the harder-to-read font did not protect against associative memory errors."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+
+*Evidence:* Claim fully supported by the primary peer-reviewed source: Huff & Maxwell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (DOI 10.1186/s41235-022-00448-9; open-access PMC9733772). Four experiments, ~300 participants, within- and between-subjects, free recall and recognition. Exact results, all non-significant: false RECALL Arial 0.27 vs Sans Forgetica 0.32 (Exp 1A, t<1) and 0.27 vs 0.31 (Exp 1B, t<1); false RECOGNITION 0.66 vs 0.65 (Exp 2A, t<1) and 0.70 vs 0.66 (Exp 2B, t(114)=1.09, p=0.28). Correct memory also equivalent across fonts. The claim that SF "did not reduce false memories / rates equivalent across SF and Arial / did not protect against associative memory errors" matches the data exactly; if anything SF's false-recall numbers run slightly higher (0.31-0.32 vs 0.27), so it certainly did not reduce false memory. Source is primary, peer-reviewed, recent (2022), open access — quality matches claim strength; not marketing (it disconfirms Sans Forgetica's marketing). No contradicting evidence found; this is itself the relevant primary study. Bounded note: finding is specific to the DRM associative-illusion paradigm and the Sans Forgetica font.
+
+#### V254 `a33a146d` — **upheld** · confidence: high
+*Claim under review:* "The headline causal claim under scrutiny: across two studies, the authors assert that making text harder to read with a disfluent font improved learning/retention, i.e. that disfluency acts as a 'desirable difficulty.' This is precisely the claim later large replication attempts (Yue/Castel; Eitel & Kühl) failed to confirm."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "In two studies we showed that making the text disfluent by using a hard to read font improved learning... It appears as though perceptual disfluency can function as a desirable difficulty in education."
+
+*Evidence:* Both components of the claim are well-supported by peer-reviewed primary sources. (1) Original-paper portion matches the quote: Diemand-Yauman, Oppenheimer & Vaughan (2011, Cognition) ran two studies (Study 1 lab; Study 2 high-school classrooms), both reporting disfluent fonts improved retention, framed as a "desirable difficulty" (confirmed via ERIC EJ908264, PubMed 21040910, ScienceDirect S001002771000226X). (2) Replication-failure portion is documented: Yue, Castel & Bjork (2013, Memory & Cognition, PubMed 22976883) found disfluency affected metacognitive judgments but NOT memory; Eitel/Kühl et al. (2014, Applied Cognitive Psychology, doi 10.1002/acp.3004) found a benefit in Exp 1 that failed to replicate in Exps 2–4; "Fortune is fickle" (2015, Metacognition and Learning, doi 10.1007/s11409-015-9151-5) pooled 6 manuscripts/13 experiments/1000+ participants with null replications; Xie et al. (2018, Educational Psychology Review, doi 10.1007/s10648-018-9442-x) meta-analysis found null effects on recall (d=-0.01) and transfer (d=0.03), with only reduced judgments-of-learning (d=-0.43) and increased reading time (d=0.52). Adversarial checks: the 2018 meta-analysis was critiqued ("Null and Void?" 2021, doi 10.1007/s10648-020-09579-1) but only for coding/method errors, not for restoring a positive effect; later moderation studies find only narrow condition-specific benefits, which reinforce rather than refute the "failed to confirm the general effect" framing. No overreach of the quote, current literature, source quality matches claim strength. Correctly grounds "harder fonts aid memory" as a MYTH/non-replicable.
+*Counter-source:* Yue, Castel & Bjork (2013) Memory & Cognition; Eitel, Kühl et al. (2014) Applied Cognitive Psychology; "Fortune is fickle" (2015) Metacognition and Learning; Xie et al. (2018) Educational Psychology Review meta-analysis — all CONFIRM the claim rather than refute it. The only counter to the meta-analysis ("Null and Void?" 2021) critiques its methodology but does not restore a positive disfluency-aids-learning effect.
+
+#### V255 `a34288b4` — **upheld** · confidence: high
+*Claim under review:* "In adults with age-related macular degeneration, doubling word/line spacing increased reading speed by ~26% with high-contrast text and ~46% with low-contrast text (both p<0.001), making spacing a measurable load-reducing lever for low-vision readers."
+
+**Source:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325 (primary)
+**Supporting quote:** "Double word/line spacing increased reading speed by approximately 26% (p < 0.001) with high contrast text, and by 46% (p < 0.001) with low contrast text."
+
+*Evidence:* VERIFIED against primary source. Blackmore-Wright, Georgeson & Anderson (2013), "Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease," PLOS ONE 8(11):e80325 (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325; PMC3823704). Two independent fetches (PLOS direct + search summary/PMC) confirm: n=24 adults with binocular age-related macular degeneration (AMD); within-subjects two-way repeated-measures ANOVA; reading 51-word passages at 87.5% and 17.5% contrast. Double word/line spacing increased reading speed ~26% (p<0.001) at high contrast and ~46% (p<0.001) at low contrast, and "more than halved" reading errors. Claim is a near-verbatim restatement of the abstract with correct population, numbers, p-values, and direction (larger effect at low contrast). Properly bounded to low-vision/AMD readers, not generalized to average readers. Bounding caveats that do NOT refute: (a) outcomes were reading speed + error rate, not a direct cognitive-load measure (NASA-TLX/pupillometry), so "load-reducing lever" is a reasonable speed-as-effort-proxy inference; (b) the combined effect is driven overwhelmingly by LINE spacing (paper reports line-space effect sizes ~15-20x word-space), though the claim mirrors the paper's "word/line" phrasing; (c) small n=24, AMD-specific. Source is peer-reviewed and matches the claim's strength; not outdated (stable low-vision reading finding, corroborated by later crowding work e.g. Nature Sci Rep 2018 "Word Mode").
+
+#### V256 `a35e7116` — **upheld** · confidence: high
+*Claim under review:* "Across four experiments (~300 participants), the disfluent Sans Forgetica font produced no improvement in correct or false memory relative to a standard Arial control font in the DRM false-memory paradigm."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font."
+
+*Evidence:* Claim is fully supported by the primary source: Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (peer-reviewed, Springer/Psychonomic Society; PMC9733772 and link.springer.com/article/10.1186/s41235-022-00448-9). The supporting quote is verbatim from the abstract: "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font." Per-experiment Ns confirmed: Exp1A=43, Exp1B=94, Exp2A=45, Exp2B=116, total=298 ("nearly 300" ≈ "~300", accurate). Four experiments, DRM false-memory paradigm, Arial control — all confirmed. Finding held regardless of within- vs between-subject manipulation and free-recall vs recognition testing. Source is a 2022 primary peer-reviewed null-result replication (not marketing, not outdated, not cherry-picked), consistent with the broader replication-failure consensus on Sans Forgetica/disfluency. The only quibble — whether 1A/1B/2A/2B count as "four experiments" vs "two with sub-parts" — is moot because the paper itself frames them as four. No contradicting evidence found.
+
+#### V257 `a4106c93` — **upheld** · confidence: high
+*Claim under review:* "Study 2 was a 222-student high-school field study, but only five classrooms were usable; disfluent-font supplementary materials yielded higher average exam z-scores (M=.164 vs control M=-.295), t(220)=3.38, p<.001. The classroom design is uncontrolled (different teachers/subjects, fonts applied to PowerPoint/handouts), which bounds how strongly this supports the general claim."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "students in the disfluent condition scored higher on their tests (M= .164, SD = .1.03) than those in the control (M = -.295, SD = 1.05)... Average z-score for fluent and disfluent supplementary materials across the 5 usable classrooms."
+
+*Evidence:* Every numeric and structural element of the claim is confirmed VERBATIM against the primary source (eScholarship full-text PDF of Diemand-Yauman, Oppenheimer & Vaughan 2011, Cognition), text-extracted directly from the PDF streams:
+
+1. "222 high school students (ages 15-18) from a public school in Chesterland, Ohio participated in the study." → matches "222-student high-school field study."
+
+2. Table 1 caption (verbatim): "Average z-score for fluent and disfluent supplementary materials across the 5 usable classrooms." → matches "only five classrooms were usable." (Minor nuance, NOT a refutation: the body text says "Six classes met these criteria and agreed to participate" — AP English, Honors English, Honors Physics, Regular Physics, Honors US History, Honors Chemistry — and the table lists six subject rows, yet the caption reports 5 usable classrooms. The claim adopts the paper's own "5 usable" wording, so it is faithful to the source.)
+
+3. Verbatim: "students in the disfluent condition scored higher on their tests (M= .164, SD = .1.03) than those in the control (M = -.295, SD = 1.05)" → matches "M=.164 vs control M=-.295" exactly.
+
+4. Verbatim: "An independent samples t-test of the average z-scores ... (t(220) = 3.38, p < .001)" → matches "t(220)=3.38, p<.001" exactly. df=220 is consistent with N=222 (222-2).
+
+5. Uncontrolled-design characterization is accurate and is the standard critique: the paper confirms different teachers, six different subjects/difficulty levels, materials = "PowerPoint presentations or handouts," disfluent fonts (Haettenschweiler, Monotype Corsiva, Comic Sans Italicized, or "copied disfluently"), with intact class sections randomly assigned, and acknowledges variation in "environments, materials, curricula, classroom routine." → matches "different teachers/subjects, fonts applied to PowerPoint/handouts."
+
+The bounding caveat ("uncontrolled... bounds how strongly this supports the general claim") is appropriately conservative and does NOT overstate the effect — it actually understates relative to the broader literature (the overall disfluency-aids-learning effect failed large multi-sample replications: Yue & Castel; Eitel & Kühl; registered replications). The claim makes no generalizability assertion, so the replication-failure record reinforces rather than refutes its caveat. Source is the primary peer-reviewed paper; quality matches claim strength. No misread, no contradiction, not marketing.
+*Counter-source:* No credible source disputes these reported numbers; they are direct quotations from the primary paper. The broader replication-failure literature (Yue & Castel 2014; Eitel & Kühl 2016; registered replications) qualifies the effect's generality but supports, not contradicts, the claim's bounding caveat.
+
+#### V258 `a436c389` — **upheld** · confidence: high
+*Claim under review:* "A 2020 peer-reviewed review (Thiessen, Beier & Keage, The Design Journal 23(5):797-815) concludes that the evidence on whether harder-to-read 'disfluent' typography improves learning is unresolved — i.e., the disfluency-aids-learning claim (from Diemand-Yauman/Oppenheimer/Vaughan 2011) is NOT robustly established."
+
+**Source:** https://www.tandfonline.com/doi/full/10.1080/14606925.2020.1810434 (primary)
+**Supporting quote:** "What is evident is that the discussion about whether or not disfluent reading materials support learning is far from resolved."
+
+*Evidence:* Claim fully verified. Thiessen, Beier & Keage (2020), "A Review of the Cognitive Effects of Disfluent Typography on Functional Reading," The Design Journal 23(5):797-815, DOI 10.1080/14606925.2020.1810434 — all bibliographic details (vol 23, issue 5, pp. 797-815, 2020) confirmed via Monash University's official research repository (research.monash.edu). The supporting quote appears VERBATIM in the abstract: "What is evident is that the discussion about whether or not disfluent reading materials support learning is far from resolved." The claim's interpretation ("evidence is unresolved / disfluency-aids-learning NOT robustly established") is a faithful and even conservative reading — "far from resolved" maps directly to "not robustly established," and the claim does not overreach into asserting outright refutation or [MYTH] status. Source quality is appropriate: peer-reviewed Taylor & Francis review co-authored by typography-legibility authority Sofie Beier and a cognitive neuroscientist (Keage). Two independent web searches reproduced the exact phrase. No contradicting evidence found; the broader replication record (Yue & Castel; Eitel & Kühl; mixed ERP follow-ups) is consistent with the "unresolved" framing. Only caveat: the primary tandfonline URL returns HTTP 403, but the quote and citation were independently confirmed via Monash and ScienceResearchPublishing reference records, so verification did not depend on the paywalled page. Not outdated for this slow-moving question; 2023 follow-up studies remain mixed, consistent with "unresolved."
+*Counter-source:* None found. Searched for contradicting/qualifying evidence; the replication-failure literature aligns with, rather than disputes, the "far from resolved" conclusion.
+
+#### V259 `a460a14e` — **upheld** · confidence: high
+*Claim under review:* "Enhanced line/word spacing more than halves reading errors in macular-disease patients compared with single-spaced text, indicating reduced reading effort, not just faster speed."
+
+**Source:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325 (primary)
+**Supporting quote:** "double line/word spacing more than halved the number of reading errors obtained with single spaced text"
+
+*Evidence:* VERDICT: NOT REFUTED — the claim faithfully reproduces the paper's own abstract and the underlying error data confirm it.
+
+SOURCE: Blackmore-Wright, Georgeson & Anderson (2013), "Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease," PLOS ONE 8(11):e80325 (peer-reviewed primary, Aston University). PMC3823704 / PMID 24244676.
+
+QUOTE MATCH (verbatim abstract): "In comparison with standard single spacing, double word/line spacing increased reading speed by approximately 26% with high contrast text (p<0.001), and by 46% with low contrast text (p<0.001). In addition, double line/word spacing more than halved the number of reading errors obtained with single spaced text." The claim's wording ("more than halves reading errors... compared with single-spaced text") mirrors the authors' own headline statement exactly.
+
+ERROR DATA (errors per 51-word passage) confirming "more than halved": Low contrast — single 2.6 (se 0.2) → double 0.9 (se 0.2) = 65% reduction. High contrast — single 1.4 → double 0.8 = 43% reduction. Pooled mean: single ~2.0 → double ~0.85 (>half). Population: 24 binocular ARMD patients, mean age 81.4.
+
+"NOT JUST FASTER SPEED" IS DEFENSIBLE: errors were a separate measure (words read incorrectly or omitted, scored during read-aloud) from speed, and both improved together rather than trading off — consistent with the authors' reduced-visual-crowding mechanism. "Reduced reading effort" is an inference (the paper measured speed+accuracy, not pupillometry/NASA-TLX), but the claim hedges it ("indicating") and it is a bounded, reasonable gloss.
+
+ADVERSARIAL CAVEATS (qualify but do NOT refute): (a) "More than halved" is strictly true only pooled and for low contrast; the high-contrast condition was 43% (just under half) — but the claim quotes the paper's own framing. (b) The dominant lever was LINE spacing, not word spacing — η²p ~15-20x larger for line spacing per the authors. (c) Generalization is bounded to elderly ARMD/eccentric-viewing crowding-limited readers; it does NOT transfer to normal-vision readers, where inter-letter spacing benefits are contested (e.g. "Inter-word and Inter-letter spacing effects during reading," Bournemouth, finds added letter spacing can reduce words-per-fixation). The claim correctly restricts itself to "macular-disease patients," so this is not a refutation.
+
+No credible source disputes the macular-disease finding; a same-group follow-up (Nature Sci Rep 2018, "Word Mode," PMC5775436) builds on it. Source quality (peer-reviewed primary), recency (2013, stable subfield), and bounding all match the claim's strength.
+
+SKILL FRAMING: tag [STRONG] for a clinical low-vision population; do NOT generalize to average readers; note line-spacing dominates word-spacing; present "reduced effort" as inferred from accuracy+speed, not directly measured.
+*Counter-source:* Bournemouth eprint "Inter-word and Inter-letter spacing effects during reading" (https://eprints.bournemouth.ac.uk/24643/5/TextSpacingRevisited_final.pdf) — added inter-letter spacing can reduce words-per-fixation in NORMAL-vision readers; bounds generalization but does not refute the macular-disease-specific claim.
+
+#### V260 `a4a9cef5` — **upheld** · confidence: high
+*Claim under review:* "Study 1 (the lab study) was small: only 28 participants (one outlier dropped, leaving 27). The disfluent group recalled ~14% more (86.5% vs 72.8% accuracy), t(26)=2.3, p<.05 — a single just-significant result on a tiny sample, which is the underpowered original effect that later high-powered replications did not reproduce."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "Twenty eight participants were recruited through the Princeton University paid subject pool... Participants in the fluent condition were accurate 72.8% of the time. Meanwhile, participants in the disfluent condition successfully remembered the information 86.5% of the time. This difference was statistically significant (t(26) =2.3, p < .05)."
+
+*Evidence:* All elements verified against the primary source and replication literature. The paper (Diemand-Yauman, Oppenheimer & Vaughan 2011, Cognition; open PDF at languagelog.ldc.upenn.edu/myl/FortuneFavorsTheBold.pdf) states verbatim: "Twenty-eight participants recruited through the Princeton University paid subject pool took part in this study, and one participant was eliminated from analysis as an outlier for being more than three standard deviations from the mean" — confirming the disputed "28 recruited, one outlier dropped, leaving 27" detail is NOT a fabrication. The claim's source quote confirms fluent 72.8% vs disfluent 86.5% (a 13.7pp ≈ ~14% gap) and "t(26)=2.3, p<.05." With df=26 the two-tailed critical t is 2.056, so p≈.03 — "just-significant" is accurate. Study 1 was indeed the Princeton lab study (Study 2 was the high-school field study). The "did not reproduce" framing is strongly corroborated by independent sources: Yue/Castel & Bjork (2013), Eitel & Kühl (2016), Springer's "Fortune is fickle: null-effects of disfluency on learning outcomes," and the Xie et al. (2018) meta-analysis "Null Effects of Perceptual Disfluency on Learning Outcomes," which found no recall benefit (some studies found costs). One minor nuance: t(26) is technically off-by-one given 27 were analyzed, but that is the original paper's own reporting quirk, faithfully relayed by the claim, not a misrepresentation. Source quality (peer-reviewed Cognition primary article) matches the claim strength; not outdated; not marketing.
+*Counter-source:* No credible source contradicts the claim. To the contrary, the replication/meta-analytic record (Xie et al. 2018, Educational Psychology Review; Eitel & Kühl 2016; Yue et al. 2013) reinforces the "did not reproduce" characterization. The only internal wrinkle is the paper's own df=26 vs 27-analyzed off-by-one, which does not refute the claim since the claim merely reports the paper's stated values.
+
+#### V261 `a4f15020` — **upheld** · confidence: high
+*Claim under review:* "The broader literature on disfluent fonts and memory is mixed and unreliable, with results ranging from no effect on correct memory to outright memory costs, contradicting the original positive claims."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "the effects of disfluent fonts on memory are mixed...others produced no effects on correct memory...and in some cases, have produced a memory cost."
+
+*Evidence:* The supporting quote is verbatim from the primary source (Huff, Maxwell & Mitchell 2022, "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications, PMC9733772): "effects of disfluent fonts on memory are mixed. While some disfluent fonts... have been shown to produce memory benefits, others produced no effects on correct memory, and in some cases, have produced a memory cost." The claim faithfully maps onto this (no overreach): "no effect → memory cost" range and "contradicting original positive claims" are directly stated. The source is a peer-reviewed Psychonomic-Society journal that BOTH characterizes the literature AND adds its own ~300-participant, 4-experiment null result — appropriate quality for a meta-level claim. Independent searches found only CORROBORATING evidence, never contradiction: a pre-registered direct replication of Lehmann et al. (N=96) returned null results for disfluency and its working-memory interaction; a 2025 Frontiers paper explicitly challenges "the notion of a general disfluency effect"; multiple Sans Forgetica studies found no benefit. No credible source asserts the disfluency-aids-memory effect is robust/reliable. The claim is current (2022, reinforced 2023/2025), consistent with the 2026 consensus that the Diemand-Yauman & Oppenheimer (2011) effect is fragile and largely non-replicable. Minor nuance: the claim omits that some studies still report benefits, but that omission only reinforces "mixed/unreliable" rather than weakening it. This supports tagging "ugly/harder fonts help memory" as [MYTH]/non-replicable with a bounded truth (small, fragile, condition-specific).
+*Counter-source:* No credible counter-source found. Searched literature runs the same direction: pre-registered replication of Lehmann et al. 2016 (Springer, Metacognition and Learning 2023) null; Frontiers in Education 2025 "Challenging the notion of a general disfluency effect"; multiple Sans Forgetica null replications.
+
+#### V262 `a5d4385e` — **upheld** · confidence: high
+*Claim under review:* "Study 1 (the lab study) was small: only 28 participants (one outlier dropped, leaving 27). The disfluent group recalled ~14% more (86.5% vs 72.8% accuracy), t(26)=2.3, p<.05 — a single just-significant result on a tiny sample, which is the underpowered original effect that later high-powered replications did not reproduce."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "Twenty eight participants were recruited through the Princeton University paid subject pool... Participants in the fluent condition were accurate 72.8% of the time. Meanwhile, participants in the disfluent condition successfully remembered the information 86.5% of the time. This difference was statistically significant (t(26) =2.3, p < .05)."
+
+*Evidence:* Every specific in the claim is confirmed verbatim against the primary source (Diemand-Yauman, Oppenheimer & Vaughan 2011 full-text PDF, languagelog.ldc.upenn.edu/myl/FortuneFavorsTheBold.pdf). Study 1 text: "Twenty-eight participants recruited through the Princeton University paid subject pool" (28); "One participant was eliminated from analysis as an outlier for being more than three standard deviations from the mean" (leaving 27); "participants in the fluent condition successfully answered 72.8% of the questions. Meanwhile, participants in the disfluent conditions were successful on average 86.5% of the time. This difference was statistically significant (t(26) = 2.3, p < .05)." Difference 86.5-72.8 = 13.7 pp (~14%, correct). t=2.3 at df=26 yields p~.03 (two-tailed critical t~2.06), so "single just-significant" is accurate. Replication clause verified: Eitel & Kuhl "Fortune is fickle" (Metacognition and Learning 2016) ran three replications of Experiment 1 with null results ("In none of the experiments, learning performance was affected"); Yue, Castel & Bjork (2013) found mixed/null; a 2018 Educational Psychology Review meta-analysis found null effects of perceptual disfluency on text-based learning. Minor non-refuting bound: the paper itself is internally inconsistent (reports t(26) yet says one of 28 was dropped, which would give df=25 for a between-subjects test) — but that is the original paper's own anomaly, faithfully reproduced by the claim, and it reinforces rather than weakens the "underpowered/fragile" framing. "High-powered" is slightly generous (replications were adequately powered/meta-analytic rather than huge), but does not change the conclusion.
+*Counter-source:* Only potential nitpick: paper reports t(26) but states 1 of 28 eliminated (implying df should be 25) — an inconsistency in the ORIGINAL paper, not the claim. No credible source contradicts the claim; replication record (Eitel & Kuhl 2016; Yue et al. 2013; 2018 meta-analysis) corroborates it.
+
+#### V263 `a5d6dd8f` — **upheld** · confidence: high
+*Claim under review:* "Sans Forgetica failed to improve memory accuracy even after accounting for associative false-memory errors, indicating its disfluency does not produce the 'desirable difficulties' needed to aid learning."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "Our results indicate that Sans Forgetica is ineffective for improving memory accuracy even when accounting for associative memory errors."
+
+*Evidence:* Claim is fully supported by a primary, peer-reviewed source. Source: Huff & Maxwell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (Springer), PMC9733772.
+
+(1) The supporting quote is VERBATIM in the paper's conclusion: "Sans Forgetica is ineffective for improving memory accuracy even when accounting for associative memory errors." Confirmed via WebFetch of the PMC full text.
+
+(2) The "associative false-memory" qualifier maps exactly to the study design: it used the Deese/Roediger-McDermott (DRM) paradigm, which deliberately induces associative false memories of non-presented related words. Across 4 experiments (~300 participants total: 43, 94, 45, 116), Sans Forgetica had NO effect on correct OR false memory vs. an Arial control, whether manipulated within- or between-subjects and whether tested by free recall or recognition. So "even after accounting for false-memory errors, no accuracy benefit" is precisely the finding, not an overreach.
+
+(3) The "desirable difficulties" framing in the claim is the paper's own: "While Sans Forgetica is purported by its developers to improve retention via desirable difficulties, it appears that either the disfluent nature of this font does not produce sufficient difficulties necessary to trigger a memory improvement or any encoding difficulties of this font are simply not desirable for learning." The claim faithfully reflects this (and does not overstate the paper's hedge between the two interpretations).
+
+(4) Consistent with the broader replication record — not cherry-picked. Geller, Davis & Peterson (2020), "Disfluent difficulties are not desirable difficulties: the (lack of) effect of Sans Forgetica on memory" (PubMed 32364830) independently reached the same null/sometimes-impaired conclusion. The original RMIT/Sans Forgetica marketing claimed an ~8% benefit; the controlled replications overturn it. The one nuance found ("Test Expectancy Moderates the Disfluency Effect," ResearchGate) concerns a narrow boundary condition and does not contradict this study's core null result.
+
+Checklist: (1) supported by quote — yes, verbatim; (2) no credible source disputes the null for this paradigm; (3) source quality is primary peer-reviewed, matching claim strength; (4) current (2022); (5) not marketing — it is a null-result replication, the opposite of a cherry-picked benchmark. The claim is appropriately bounded and accurate.
+
+#### V264 `a6022a60` — **upheld** · confidence: high
+*Claim under review:* "Whether disfluency helps learning is conditional on multiple factors, and its practical usefulness as an educational intervention is weaker and less reliable than its easy application implies."
+
+**Source:** https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X (primary)
+**Supporting quote:** "Whether or when disfluency is desirable depends upon multiple factors, and its usefulness for educational intervention is not as straightforward as its easy application suggests."
+
+*Evidence:* Claim is well-supported, current, and source quality matches its modest strength. SOURCE: Weissgerber & Reinhard (2017), "Is disfluency desirable for learning?", Learning and Instruction 49:199-217 — peer-reviewed primary source, DOI S095947521730107X confirmed. QUOTE FIDELITY: The supporting quote is verbatim from the paper's conclusion ("Whether or when disfluency is desirable depends upon multiple factors, and its usefulness for educational intervention is not as straightforward as its easy application suggests"). The claim is a faithful paraphrase: "conditional on multiple factors" = "depends upon multiple factors"; "weaker and less reliable than its easy application implies" = "not as straightforward as its easy application suggests." The minor strengthening to "less reliable" is corroborated, not overreach. CORROBORATION (not contradiction): The independent literature agrees — the Educational Psychology Review meta-analysis "Null Effects of Perceptual Disfluency on Learning Outcomes" (2018, doi 10.1007/s10648-018-9442-x) found no effect of perceptual disfluency on recall or transfer (it only lowered judgments of learning and raised study time); multiple failed replications plus the 2023 direct replication of Lehmann et al. reinforce conditionality. Tellingly, this very paper itself found a disfluency BENEFIT in one condition (illegible font reduced forgetting) yet still concluded the effect is conditional — so the "conditional/not straightforward" claim is the authors' own stated verdict. CURRENCY: 2017 source; later evidence (2018 meta-analysis, 2023 replication) only strengthens the skeptical reading, so not outdated. Not a marketing/press/cherry-picked source. No checklist criterion supports refutation.
+
+#### V265 `a642acab` — **upheld** · confidence: high
+*Claim under review:* "Enhanced line/word spacing more than halves reading errors in macular-disease patients compared with single-spaced text, indicating reduced reading effort, not just faster speed."
+
+**Source:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325 (primary)
+**Supporting quote:** "double line/word spacing more than halved the number of reading errors obtained with single spaced text"
+
+*Evidence:* VERIFIED against the primary source (Blackmore-Wright, Georgeson & Anderson 2013, PLOS ONE e0080325; n=24 age-related macular degeneration patients, mean age 81.4, within-subjects). Paper states verbatim: "double word/line spacing more than halved the number of reading errors obtained with standard single spaced text." Exact figures at low contrast: single spacing = 2.6 errors (SE 0.2) -> double = 0.9 (SE 0.2), ~65% reduction; p-values for the parallel speed gains were <0.001. So "more than halves reading errors" is quantitatively correct and correctly bounded to macular-disease patients (the claim does NOT overgeneralize to normal readers; the paper itself warns against generalizing to standard print). The interpretive add "reduced reading effort, not just faster speed" is defensible: BOTH speed (+26% high / +46% low contrast) AND accuracy improved with no speed-accuracy tradeoff, so "not just faster speed" is literally true; the authors attribute the benefit to reduced visual crowding, a genuine perceptual-load reduction, and treating errors as an effort/difficulty proxy matches the skill's own framing. Minor caveat (not fatal): authors use "improved reading performance," not "reading effort," and note speed and errors were correlated rather than dissociated — but the claim's "not just faster speed" phrasing acknowledges co-improvement, so no overreach. Optimum exists (triple spacing was worse: 1.3 errors), but the claim only compares double-vs-single, which holds. Source is primary, peer-reviewed, current enough (crowding/low-vision science is stable), not marketing.
+
+#### V266 `a65d3b3e` — **upheld** · confidence: high
+*Claim under review:* "Sans Forgetica failed to improve memory accuracy even after accounting for associative false-memory errors, indicating its disfluency does not produce the 'desirable difficulties' needed to aid learning."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "Our results indicate that Sans Forgetica is ineffective for improving memory accuracy even when accounting for associative memory errors."
+
+*Evidence:* Claim is directly supported by the primary source: Huff, Maxwell et al. (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (Springer, peer-reviewed). Across 4 experiments (~300 participants), Sans Forgetica showed no impact on correct OR false memory vs. Arial, across within/between-subjects and recall/recognition designs. The study explicitly used the DRM false-memory paradigm to test whether the font reduces associative errors — it did not. The authors concluded SF "is ineffective for improving memory accuracy even when accounting for associative memory errors," and that "either the disfluent nature of this font does not produce sufficient difficulties necessary to trigger a memory improvement or any encoding difficulties of this font are simply not desirable for learning" — matching the claim's interpretive clause. Source quality matches claim strength (peer-reviewed primary, multi-experiment null), is current (2022), not marketing, and consistent with the broader disfluency-replication-failure record (Geller, Taylor, Eskenazi nulls). The interpretive second clause is a fair, bounded paraphrase, not an overreach; the paper hedges between two non-desirable-difficulty explanations, both of which support the claim. No credible contradicting evidence found.
+
+#### V267 `a67e6cca` — **upheld** · confidence: high
+*Claim under review:* "A disfluent font (Sans Forgetica) did NOT improve memory retention at a practically meaningful 1-week interval: in a 2x2 design (font x study method, N=120), the font main effect and the font-by-method interaction were both nonsignificant. This is a direct replication failure of the disfluency-aids-memory claim."
+
+**Source:** https://journals.sagepub.com/doi/full/10.1177/21582440211056624 (primary)
+**Supporting quote:** "Students (N = 120) learned two passages via different methods (study then re-study vs. study then self-test). Half the students saw the passages in Times New Roman and half in Sans Forgetica. Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+
+*Evidence:* Claim is well-supported. Paper confirmed: Wetzler, Pyke & Werner (2021), "Sans Forgetica is Not the 'Font' of Knowledge," SAGE Open, DOI 10.1177/21582440211056624 (cross-verified via repec, ERIC EJ1320508, Semantic Scholar, ResearchGate). N=120, 2x2 design (font: Times New Roman vs Sans Forgetica; study method: restudy vs self-test) — all confirmed. The one detail absent from the supplied quote — the "practically meaningful 1-week interval" — is stated verbatim in the abstract: "We investigated a 1-week interval to increase practical relevance and because some benefits only manifest after a delay." Results confirmed from two independent accessible sources plus the original quote: "the effect of font and the interaction were nonsignificant"; only the testing effect (self-test > restudy) was significant. So every element (disfluent font no benefit, 1-week delay, both font main effect and font-by-method interaction nonsignificant) is accurate. The finding converges with the broader replication-failure literature (Taylor et al. 2020 Memory, 4 null experiments; DRM-paradigm null in Cognitive Research: Principles & Implications 2022; Yue/Castel; Eitel & Kuhl), so it is not an isolated or extraordinary claim — source strength matches claim strength. Minor bounding caveat only (does not refute): "direct replication" is slightly loose terminology — this is a conceptual replication / direct test of the disfluency-aids-memory hypothesis using a different disfluent font than Diemand-Yauman (2011), with added factors and a delay, not a same-materials direct replication of that original study. The substantive verdict — disfluent type gave no retention benefit at a 1-week delay — is fully correct and usable as [MYTH]/non-replication support.
+*Counter-source:* Only nominal counter is the original pro-disfluency study (Diemand-Yauman, Oppenheimer & Vaughan 2011, "Fortune favors the bold"), which is itself the non-replicating claim, not independent disconfirmation of this null.
+
+#### V268 `a699c501` — **upheld** · confidence: medium
+*Claim under review:* "In adults with age-related macular degeneration, doubling word/line spacing increased reading speed by ~26% with high-contrast text and ~46% with low-contrast text (both p<0.001), making spacing a measurable load-reducing lever for low-vision readers."
+
+**Source:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325 (primary)
+**Supporting quote:** "Double word/line spacing increased reading speed by approximately 26% (p < 0.001) with high contrast text, and by 46% (p < 0.001) with low contrast text."
+
+*Evidence:* Numbers verified EXACTLY against the primary source. Blackmore-Wright, Georgeson & Anderson (2013), "Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease," PLOS ONE 8(11):e80325, PMID 24244676, N=24 AMD patients (mean age 81.4): "double word/line spacing increased reading speed by approximately 26% (p<0.001) with high contrast text, and by 46% (p<0.001) with low contrast text" — and more than halved reading errors. Population, direction, both percentages, and both p-values match the claim. Legitimate peer-reviewed primary source, properly attributed, not marketing. So the empirical core is well-supported (refuted=false).
+
+BUT the claim must be BOUNDED, not used as clean [STRONG] support: (1) Mechanism mismatch — the study attributes the gain to reduced peripheral VISUAL CROWDING (eccentric-retina letter interference), a perceptual-legibility effect, NOT cognitive/working-memory load. The gloss "load-reducing lever" overstates the mechanism for a cognitive-load typography skill. (2) Direct contradicting peer-reviewed evidence — Chung, Jarvis, Woo, Hanson & Jose (2008), "Reading speed does not benefit from increased line spacing in AMD patients" (Optom Vis Sci; PMC2729069), tested 1x-4x line spacing and found NO benefit above ~1-1.25x standard; Chung's lab is the leading low-vision reading group, and line spacing was the DOMINANT lever in Blackmore-Wright — exactly what Chung found inert. Related: Chung 2012 (PMID 22842309) found increased LETTER spacing beyond standard does not improve reading speed in central vision loss. Both AMD studies are small (N=24 vs N=8). Verdict: report as a single positive study in a CONTESTED/MIXED literature with a crowding (not cognitive-load) mechanism, not as settled "spacing reduces load for low-vision readers."
+*Counter-source:* Chung, Jarvis, Woo, Hanson & Jose (2008), "Reading speed does not benefit from increased line spacing in AMD patients," Optometry and Vision Science — https://pmc.ncbi.nlm.nih.gov/articles/PMC2729069/ (directly contradicts the line-spacing benefit; also Chung 2012 PMID 22842309 on letter spacing)
+
+#### V269 `a6a9df3f` — **upheld** · confidence: high
+*Claim under review:* "Self-testing (a genuine desirable difficulty) DID significantly improve later recall over restudying in the same experiment, providing a within-study positive control that distinguishes effective desirable difficulties from ineffective disfluent type."
+
+**Source:** https://journals.sagepub.com/doi/full/10.1177/21582440211056624 (primary)
+**Supporting quote:** "Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+
+*Evidence:* Primary source verified (Wetzler, Pyke & Werner 2021, SAGE Open, DOI 10.1177/21582440211056624; N=120, 1-week retention). Exact stats from the paper: self-testing main effect on recall F(1,118) = 14.01, partial-eta² = .11, p < .001 ("recall was significantly better after study-test learning, M = 44.3%"). Font (Sans Forgetica vs Times New Roman) effect F(1,118) = 0.01, p = .883 (ns); interaction F(1,118) = 0.02, p = .942 (ns). The claim's word "significantly" is precisely matched (p < .001), and the authors explicitly frame self-testing as a genuine desirable difficulty (testing effect, Bjork & Bjork) and state "the testing effect was replicated... a testing effect - but not a font effect - occurred." The "within-study positive control" framing is a fair paraphrase of the authors' own argument that a real desirable difficulty registered in the same design where the disfluent font did not — strengthening the disfluency-as-myth conclusion. Minor caveat (not refuting): authors don't use the literal term "positive control," and self-testing was within-subjects while font was between-subjects, so not perfectly symmetric controls. No contradicting source found; primary peer-reviewed source matches the claim's strength.
+
+#### V270 `a6b1f6b6` — **upheld** · confidence: high
+*Claim under review:* "In low-vision readers (AMD), increasing letter spacing and letter width produces a small but measurable improvement in reading acuity near critical font sizes — supporting size/spacing/width as concrete reading-effort levers, especially for impaired readers (research-question topics 4 and 5)."
+
+**Source:** https://www.jbe-platform.com/content/journals/10.1075/idj.19033.bei (primary)
+**Supporting quote:** "The results demonstrated a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes."
+
+*Evidence:* Claim is well-supported and current. Source is Beier, Oderkerk, Bay & Larsen (2021), "Increased letter spacing and greater letter width improve reading acuity in low vision readers," Information Design Journal 26(1), John Benjamins (peer-reviewed) — Sofie Beier is a named legibility authority in the research criteria. The paper's TITLE itself states the direction (spacing/width IMPROVE acuity), and the population is 20 AMD low-vision patients tested on the Radner Reading Chart (logRAD reading acuity). The supporting quote matches exactly: "a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes." Claim correctly bounds itself: it omits boldness (which did NOT help) and does not overclaim reading speed (no significant speed or critical-print-size effect was found). Refutation attempts failed: (a) "effect" vs "improvement" is resolved by the title's explicit "improve"; (b) letter-spacing skeptic work (Chung 2002, no speed benefit in normal vision) does not contradict, since this AMD study also found no speed effect and the acuity gain is crowding-specific to low vision. Two minor framing caveats that do NOT kill the claim: the study directly tested spacing and WIDTH, not "size" as an independent lever (critical print size showed NO significant effect), so bundling "size" slightly over-attributes; and "reading acuity" is a legibility threshold, not a direct cognitive-load measure, so the "reading-effort lever" mapping is a reasonable inference rather than a measured load outcome. Tag [STRONG] for spacing/width acuity in AMD readers, appropriately bounded as small/condition-specific.
+*Counter-source:* No credible contradicting source found; Chung (2002) on letter spacing and reading speed in normal vision is non-contradictory because this study found no speed effect either and the acuity benefit is crowding-specific to low vision.
+
+#### V271 `a720a650` — **upheld** · confidence: high
+*Claim under review:* "A 2020 peer-reviewed review (Thiessen, Beier & Keage, The Design Journal 23(5):797-815) concludes that the evidence on whether harder-to-read 'disfluent' typography improves learning is unresolved — i.e., the disfluency-aids-learning claim (from Diemand-Yauman/Oppenheimer/Vaughan 2011) is NOT robustly established."
+
+**Source:** https://www.tandfonline.com/doi/full/10.1080/14606925.2020.1810434 (primary)
+**Supporting quote:** "What is evident is that the discussion about whether or not disfluent reading materials support learning is far from resolved."
+
+*Evidence:* Citation and quote both independently verified. Two independent sources (Monash University research portal abstract at research.monash.edu and the search index of the Taylor & Francis full article) reproduce the exact sentence "the discussion about whether or not disfluent reading materials support learning is far from resolved." Citation details match the claim exactly: Thiessen, M., Beier, S. & Keage, H. (2020), "A Review of the Cognitive Effects of Disfluent Typography on Functional Reading," The Design Journal, vol. 23, pp. 797-815, DOI 10.1080/14606925.2020.1810434 (confirmed via SciRP, ResearchGate, Monash, adk.elsevierpure.com). The quote directly supports the claim that the disfluency-aids-learning effect (Diemand-Yauman/Oppenheimer/Vaughan 2011) is NOT robustly established. The claim is appropriately bounded — it states "unresolved/not robustly established," matching "far from resolved," and does not overreach into claiming the paper debunks the effect. Source quality is high: peer-reviewed review co-authored by Sofie Beier, a named typography-legibility authority. The verdict aligns with the wider replication-failure record (Yue/Castel; Eitel & Kühl). No contradicting source found. (Note: issue number "5" not separately confirmed, but volume 23 and pages 797-815 are exact, so this is immaterial.)
+
+#### V272 `a731f8e9` — **upheld** · confidence: high
+*Claim under review:* "Across four experiments (~300 participants), the disfluent Sans Forgetica font produced no improvement in correct or false memory relative to a standard Arial control font in the DRM false-memory paradigm."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font."
+
+*Evidence:* Claim fully supported by the primary peer-reviewed source (Huff, Maxwell & Hopkinson, 2022, Cognitive Research: Principles and Implications, PMC9733772). Abstract verbatim: "Across four experiments, which included nearly 300 participants, Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font, regardless of whether font type was manipulated within or between subjects or whether memory was assessed via free recall or recognition testing." Per-experiment Ns confirm scale: 1A n=43, 1B n=94, 2A n=45, 2B n=116 (total 298 ≈ ~300). Control = Arial; paradigm = Deese/Roediger–McDermott. The claim's "no improvement" is weaker than the source's "no impact" (null in both directions), so no overreach. Source is primary, peer-reviewed, recent (2022); strength matches. No contradicting evidence — broader literature (Taylor et al. 2020 "Sans Forgetica is not desirable for learning"; Geller et al.) corroborates. Only bound: result is scoped to memory accuracy in DRM, not a universal disfluency claim, but the claim is correctly scoped.
+
+#### V273 `a7c562ab` — **upheld** · confidence: high
+*Claim under review:* "A disfluent font (Sans Forgetica) did NOT improve memory retention at a practically meaningful 1-week interval: in a 2x2 design (font x study method, N=120), the font main effect and the font-by-method interaction were both nonsignificant. This is a direct replication failure of the disfluency-aids-memory claim."
+
+**Source:** https://journals.sagepub.com/doi/full/10.1177/21582440211056624 (primary)
+**Supporting quote:** "Students (N = 120) learned two passages via different methods (study then re-study vs. study then self-test). Half the students saw the passages in Times New Roman and half in Sans Forgetica. Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+
+*Evidence:* Verbatim peer-reviewed abstract (Wetzler, Pyke & Werner, "Sans Forgetica is Not the 'Font' of Knowledge," SAGE Open 2021, DOI 10.1177/21582440211056624; confirmed via ideas.repec.org mirror after the SAGE page returned 403) supports every load-bearing element of the claim: "We investigated a 1-week interval to increase practical relevance... Students (N = 120) learned two passages via different methods (study then re-study vs. study then self-test). Half the students saw the passages in Times New Roman and half in Sans Forgetica. Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant." This independently confirms the one detail absent from the supplied quote (the 1-week, "practically meaningful" interval) plus N=120, the font×method 2×2 (font between-subjects, method within = mixed factorial), and that BOTH the font main effect and font-by-method interaction were nonsignificant. Source quality matches claim strength (peer-reviewed). Broader literature (Geller et al. 2020; Taylor, Sanson et al.) corroborates the Sans Forgetica null rather than contradicting it. One minor imprecision, not refuting: "direct replication failure" is loosely worded — Sans Forgetica is the purpose-built disfluent font, so this is a conceptual test/disconfirmation of the disfluency-aids-memory hypothesis rather than a literal replication of Diemand-Yauman et al. (2011), which used Haettenschweiler/Comic Sans/Monotype Corsiva. The empirical substance is fully accurate.
+
+#### V274 `a80f9a16` — **upheld** · confidence: high
+*Claim under review:* "Disfluency effects on learning do not generalize across the type of disfluency manipulation, the timing of the test, or the memory outcome measured — undercutting any blanket 'harder-to-read fonts improve retention' rule."
+
+**Source:** https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X (primary)
+**Supporting quote:** "The findings show that disfluency effects are not generalizable across disfluency manipulations, test time points, and memory outcomes."
+
+*Evidence:* Source verified as Eitel & Kühl (2017), "Is disfluency desirable for learning?", Learning and Instruction (peer-reviewed; ISSN 0959-4752 matches PII S0959-4752...), N=134. The supporting quote is near-verbatim from the paper's own abstract conclusion ("The effects of disfluency are not generalizable across disfluency manipulations, test time points, and memory outcomes"), reproduced by two independent fetches. The claim maps one-to-one onto the paper's three dimensions and does not overreach: the paper found opposite-direction, condition-specific results (illegible font reduced forgetting at delay; scrambled letters reduced short-term recall), which is precisely what undercuts a *blanket* "harder fonts improve retention" rule without asserting disfluency never helps. Contradiction search found no credible source disputing non-generalizability; the broader literature reinforces it — the 2018 meta-analysis "Null Effects of Perceptual Disfluency on Learning Outcomes" (Educational Psychology Review), Sans Forgetica null results (Wetzler et al. 2021; 2022 Cognitive Research DRM study), and a 2025 Frontiers moderation study. Source quality matches the claim's hedged strength; current (2017, reinforced since); academic, not marketing.
+*Counter-source:* No credible counter-source found. The closest adversarial angle is that this very paper reports a partial pro-disfluency benefit (illegible font reduced forgetting), but that finding is mixed/condition-specific and therefore supports the "does not generalize / no blanket rule" claim rather than refuting it. Broader sources (2018 EPR meta-analysis null effects; Sans Forgetica failures) all corroborate.
+
+#### V275 `a83149af` — **upheld** · confidence: high
+*Claim under review:* "Low perceptual fluency (hard-to-read/degraded stimuli) acts as an aversive signal that triggers mobilization of cognitive effort even when there is no response conflict. This is the proposed mechanism behind 'disfluency makes you try harder' — but it is demonstrated at the level of trial-to-trial cognitive control in lab tasks, NOT memory/retention, so it does not by itself validate disfluency-aids-learning claims."
+
+**Source:** https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments (primary)
+**Supporting quote:** "Low perceptual fluency, which is known to evoke negative affective reactions, triggers the mobilization of cognitive effort even in the absence of response conflicts."
+
+*Evidence:* Claim is well-supported by the quote and the primary source. The paper — Dreisbach & Fischer (2011), "If it's hard to read… try harder! Processing fluency as signal for effort adjustments," Psychological Research 75(5):376-383 (peer-reviewed Springer; ResearchGate only hosts it) — confirms the core: web search returned the abstract verbatim, "Low perceptual fluency triggers the mobilization of cognitive effort even in the absence of response conflicts. Effort adjustments in reaction to fluency manipulations were found across three experiments." This maps directly onto the claim. The paradigm was perceptual-fluency manipulation (degraded print) inside conflict/interference tasks measuring TRIAL-LEVEL cognitive control, not memory retention — so the claim's bounding ("demonstrated at trial-to-trial cognitive control, NOT memory/retention") is factually accurate and is a LIMITING qualifier, not an overreach. The interpretive conclusion ("does not by itself validate disfluency-aids-learning") is a sound inference (trial-level effort mobilization ≠ improved long-term retention) and is consistent with the broader literature, including the failed replications of Diemand-Yauman et al. (2011). "Aversive signal" faithfully paraphrases the paper's "negative affective reactions" plus Dreisbach's conflict-as-aversive-signal framework. No credible source refutes it: adjacent work (Frontiers 2015 inverted-U; PMC10585938 "Easy to process, hard to control," 2023) only QUALIFIES the mechanism's robustness/conditions and is consistent with the bounded claim. Source quality (primary peer-reviewed) matches claim strength; not outdated (foundational mechanism paper, and the bounding point does not go stale); not marketing.
+*Counter-source:* No genuine counter-source found. Qualifying (not refuting) literature: Frontiers Psychology 2015 inverted-U conflict-adaptation paper (PMC4498021) and "Easy to process, hard to control" 2023 (PMC10585938) — both narrow the conditions under which fluency affects control but are consistent with the claim's trial-level-vs-memory distinction.
+
+#### V276 `a9004387` — **upheld** · confidence: high
+*Claim under review:* "In low-vision readers (AMD), increasing letter spacing and letter width produces a small but measurable improvement in reading acuity near critical font sizes — supporting size/spacing/width as concrete reading-effort levers, especially for impaired readers (research-question topics 4 and 5)."
+
+**Source:** https://www.jbe-platform.com/content/journals/10.1075/idj.19033.bei (primary)
+**Supporting quote:** "The results demonstrated a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes."
+
+*Evidence:* Claim is a faithful restatement of the source's own title and abstract — NOT an overreach. Source: Beier et al., "Increased letter spacing and greater letter width improve reading acuity in low vision readers," Information Design Journal 26(1), 2021 (peer-reviewed, John Benjamins; Sofie Beier is a named legibility authority in the research criteria). Abstract: "We tested 20 low-vision patients with age-related macular degeneration (AMD)... The results demonstrated a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes." (1) Population correct: study population IS AMD low-vision readers (n=20), not normal-vision. (2) Direction correct: the paper TITLE explicitly states increased spacing and width IMPROVE acuity — so "increasing... produces improvement" is the authors' own conclusion, not a misread of a directionless "effect." (3) Bounding honest: claim says "small but measurable" and "near critical font sizes," matching exactly. The study found NO effect on reading speed or critical print size and NO effect of boldness — the claim correctly excludes those. No contradicting evidence found; crowding literature (Chung 2002) concerns reading SPEED, which Beier also found unaffected, so no conflict with this acuity-specific claim. Caveats (bounding only): small sample (N=20); "reading acuity" is a legibility threshold (smallest readable print / less magnification needed), not a direct cognitive-load/effort measure, so framing it as a "reading-effort lever" is a mild but defensible extrapolation. Source quality matches claim strength; current (2021, stable domain).
+*Counter-source:* No credible contradicting source found. Adjacent crowding work (Chung 2002, letter spacing & reading speed in central/peripheral vision) shows spacing beyond standard does not aid reading SPEED, but that targets speed (which Beier also found unaffected), not acuity — so it does not refute the acuity-specific claim.
+
+#### V277 `a95152ef` — **upheld** · confidence: high
+*Claim under review:* "Participants subjectively rated Sans Forgetica as more difficult/effortful to read, yet this added perceptual disfluency did not translate into any memory benefit — directly disconfirming the 'disfluency aids memory' prediction."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Participants rated Sans Forgetica as subjectively more challenging to read, but this didn't translate to memory benefits"
+
+*Evidence:* PRIMARY SOURCE VERIFIED. DOI 10.1186/s41235-022-00448-9 = Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications. Peer-reviewed, 4 experiments, ~300 participants. Abstract verbatim: "Across four experiments... Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font." This directly supports the claim's core: added perceptual disfluency produced NO memory benefit, disconfirming the disfluency-aids-memory prediction. The subjective-difficulty premise ("participants rating Sans Forgetica items as subjectively more challenging to read than Arial") is accurate but most directly established by Taylor et al. (2020), cited within Huff et al.; the DRM paper relies on that finding rather than presenting a fresh own measurement — a minor attribution nuance, not a contradiction. CORROBORATION, not contradiction, across the literature: Taylor et al. (2020) "Disfluent difficulties are not desirable difficulties" (Memory 28:7) and Geller, Davis & Peterson (2020) "Sans Forgetica is not desirable for learning" (Memory) reach the same null/cost verdict. No credible source defends a Sans Forgetica memory benefit. Source is current (2022), primary, peer-reviewed — quality matches claim strength; not marketing or cherry-picked. Claim survives adversarial refutation. Recommended tagging for the skill: [MYTH] for "ugly/harder fonts help memory," with the bounded truth that the original Diemand-Yauman et al. (2011) effect did not replicate.
+*Counter-source:* No counter-source found. Searched for disputing evidence; the entire replication record (Huff 2022, Taylor 2020, Geller 2020) agrees Sans Forgetica yields no memory benefit. Only nuance: subjective-difficulty rating is best cited to Taylor et al. (2020) rather than implying Huff et al. measured it de novo — this strengthens the claim (independent labs converge) rather than refuting it.
+
+#### V278 `a9f4cb50` — **upheld** · confidence: high
+*Claim under review:* "Participants subjectively rated Sans Forgetica as more difficult/effortful to read, yet this added perceptual disfluency did not translate into any memory benefit — directly disconfirming the 'disfluency aids memory' prediction."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Participants rated Sans Forgetica as subjectively more challenging to read, but this didn't translate to memory benefits"
+
+*Evidence:* VERIFIED, refuted=false. The cited primary source IS this exact claim. Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications, DOI 10.1186/s41235-022-00448-9, states verbatim: "The lack of Sans Forgetica benefits occurred despite participants rating Sans Forgetica items as being subjectively more challenging to read than materials displayed in an Arial font." Across 4 experiments (~300 participants; n=43/94/45/116; within- and between-subjects; free recall and recognition) Sans Forgetica produced NO benefit to correct or false memory vs Arial — exactly the claim. Independent replications converge rather than contradict: Taylor et al. (2020, Memory, PMID 32364830) "Disfluent difficulties are not desirable difficulties" found no benefit and sometimes a memory cost despite higher difficulty ratings; Geller, Davis & Peterson (2020, Memory) "Sans Forgetica is not desirable for learning" found it ineffective for cued-recall and recognition. The only nuance in the literature is an occasional expectancy-conditional effect (benefit only when no test was anticipated), which narrows but does not refute the core disconfirmation. Source quality (peer-reviewed primary, large N, recent 2022) matches the claim's strength; the field treats "ugly/harder fonts aid memory" as non-replicable [MYTH]. Minor caveat: the difficulty rating is partly carried from prior Sans Forgetica work rather than newly measured in every DRM sub-experiment, but the substance (reliably rated harder to read, no memory gain) is well-documented. The word "directly disconfirming" is justified — the design directly tested the disfluency-aids-memory prediction and found null.
+*Counter-source:* No credible counter-source found. The only qualifier is a conditional expectancy effect (Sans Forgetica benefit only when no test expected) reported in some work, which bounds rather than refutes the claim. Broader replication record (Taylor 2020; Geller 2020) supports the null.
+
+#### V279 `aa09ce6d` — **upheld** · confidence: high
+*Claim under review:* "Low perceptual fluency (hard-to-read/degraded stimuli) acts as an aversive signal that triggers mobilization of cognitive effort even when there is no response conflict. This is the proposed mechanism behind 'disfluency makes you try harder' — but it is demonstrated at the level of trial-to-trial cognitive control in lab tasks, NOT memory/retention, so it does not by itself validate disfluency-aids-learning claims."
+
+**Source:** https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments (primary)
+**Supporting quote:** "Low perceptual fluency, which is known to evoke negative affective reactions, triggers the mobilization of cognitive effort even in the absence of response conflicts."
+
+*Evidence:* Claim is well-supported and conservatively bounded — not an overreach. Verbatim match to Dreisbach & Fischer (2011), "If it's hard to read... try harder!", Psychological Research 75:376-383 (DOI 10.1007/s00426-010-0319-y; PubMed 21210144), peer-reviewed Springer journal: "low perceptual fluency, which is known to evoke negative affective reactions, triggers the mobilization of cognitive effort even in the absence of response conflicts." Methods confirm the "cognitive control NOT memory" clause: three experiments manipulated hard-to-read number words and measured trial-to-trial sequential effort adjustments via significant Fluency(N) x Fluency(N-1) RT interactions (conflict-adaptation paradigm); the fluency effect was smaller following nonfluent trials. No retention/memory measure was used — purely reaction-time cognitive control. The third clause ("does not by itself validate disfluency-aids-learning") is a sound logical bound, keeping trial-level control distinct from durable memory retention (the Diemand-Yauman/Alter-Oppenheimer claim). Adversarial checks fail to refute: quote support is direct/verbatim; source is appropriate peer-reviewed psychology for a modest claim; later work debating the mechanism (Oliveira, Remondes & Garcia-Marques 2023, "Easy to process, hard to control," finding fluency can impair control) reinforces rather than contradicts the claim's caution; "proposed mechanism" is appropriately hedged. No grounds for refutation on quote-support, source quality, currency, or marketing.
+*Counter-source:* Oliveira, Remondes & Garcia-Marques (2023), "Easy to process, hard to control: Transient and sustained processing fluency impairs cognitive control adjustments to conflict," QJEP (DOI 10.1177/17470218231159787) — debates the fluency-control mechanism but supports, not refutes, the claim's bound against extending to learning.
+
+#### V280 `aab575c4` — **upheld** · confidence: high
+*Claim under review:* "Across four experiments with nearly 300 participants, the disfluent/distinctive Sans Forgetica font produced no benefit to correct memory (recall or recognition) of studied DRM list items relative to a standard Arial control font."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Sans Forgetica consistently failed to improve correct memory for studied items... Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+
+*Evidence:* Claim fully supported by the primary peer-reviewed source (Huff & Maxwell 2022, Cognitive Research: Principles and Implications, DOI 10.1186/s41235-022-00448-9; verified via PMC9733772). The abstract states verbatim: "Across four experiments, which included nearly 300 participants, Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font." Per-experiment participant counts confirm the totals: Exp 1A=43 (within-subject recall), 1B=94 (between-subject recall), 2A=45 (within-subject recognition), 2B=116 (between-subject recognition) = 298, i.e. nearly 300. Control font = Arial. Both recall (1A/1B) and recognition (2A/2B) tested correct memory; no benefit in either (e.g., correct recall 0.53 vs 0.54; no hit-rate/discriminability differences). Disfluency was genuine — participants rated Sans Forgetica items subjectively harder to read — yet no memory gain, which strengthens the null finding. No contradicting credible source found; web search corroborated. Source quality (peer-reviewed primary study) matches claim strength; current (2022); not marketing.
+
+#### V281 `aadc0cfa` — **upheld** · confidence: high
+*Claim under review:* "Across four experiments (~300 participants), the disfluent Sans Forgetica font produced no improvement in correct or false memory relative to a standard Arial control font in the DRM false-memory paradigm."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font."
+
+*Evidence:* Claim fully supported by the primary peer-reviewed source: Huff & Maxwell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (Springer Nature), PMC9733772. WebFetch of the article confirms four experiments, nearly 300 total participants, Arial control vs Sans Forgetica disfluent font, manipulated within- and between-subjects with free recall and recognition. Results: correct recall equivalent (Exp 1A: 0.53 Arial vs 0.54 Sans Forgetica) and false memory not reduced (Exp 1A: false recall 0.27 Arial vs 0.32 Sans Forgetica, n.s. — numerically slightly worse, not better). Authors' conclusion: "Sans Forgetica consistently failed to improve correct memory" and "was ineffective at reducing the DRM false memory illusion." An independent WebSearch reproduces the verbatim summary "no impact on correct or false memory of DRM lists relative to a standard Arial control font." The finding aligns with, and does not contradict, the broader Sans Forgetica replication-failure record. The supporting quote matches the claim; source quality (primary, peer-reviewed) matches claim strength; publication is current (2022); not a marketing/press claim. The phrase "no improvement in false memory" is correctly bounded: the desirable direction is reduction of the DRM illusion, which the font failed to produce.
+
+#### V282 `aaeddac0` — **upheld** · confidence: high
+*Claim under review:* "Processing difficulty (disfluency) is not uniformly beneficial: experiencing difficulty can be used either as a signal to invest more effort ('try harder') OR as an avoidance signal to disengage/switch away ('avoid and switch'). This bounds the disfluency-aids claim — the same hard-to-read input can prompt avoidance rather than deeper engagement."
+
+**Source:** https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments (primary)
+**Supporting quote:** "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ("try harder"), or as avoidance signal for future action selection ("avoid and switch")."
+
+*Evidence:* Claim is well-supported and the source is genuine. Source = Dreisbach & Fischer (2011), "If it's hard to read… try harder! Processing fluency as signal for effort adjustments," Psychological Research (Springer), DOI 10.1007/s00426-010-0319-y, PubMed 21210144 — a peer-reviewed journal article, not marketing. Supporting quote verified VERBATIM from the PubMed abstract: "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ('try harder'), or as avoidance signal for future action selection ('avoid and switch')." The claim restates this dual-signal dichotomy faithfully with no overreach. The bounding interpretation (disfluency can prompt avoidance rather than deeper engagement) is corroborated by independent fluency literature: low fluency reliably evokes negative affect; disfluent finance/health disclosures trigger risk avoidance/disengagement; approach-vs-avoidance motivational orientation moderates how negative affect drives behavior. No contradicting source found. Framing is stable (2011) and still used in 2016-2022 metacognition work, so not outdated; the claim is modest (conceptual), so one peer-reviewed paper plus corroboration matches its strength. Minor nuance (not a refutation): Dreisbach & Fischer's own 3 experiments empirically demonstrated the "try harder" branch; "avoid and switch" is stated as the theoretical alternative in their abstract and supported independently elsewhere. The claim correctly uses it as a bounding/theoretical point, not as a result this paper proved.
+
+#### V283 `ab1bcdf1` — **upheld** · confidence: high
+*Claim under review:* "Study 1 (the lab study) was small: only 28 participants (one outlier dropped, leaving 27). The disfluent group recalled ~14% more (86.5% vs 72.8% accuracy), t(26)=2.3, p<.05 — a single just-significant result on a tiny sample, which is the underpowered original effect that later high-powered replications did not reproduce."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "Twenty eight participants were recruited through the Princeton University paid subject pool... Participants in the fluent condition were accurate 72.8% of the time. Meanwhile, participants in the disfluent condition successfully remembered the information 86.5% of the time. This difference was statistically significant (t(26) =2.3, p < .05)."
+
+*Evidence:* All five load-bearing elements verified VERBATIM against the primary source (full PDF extracted from languagelog.ldc.upenn.edu/myl/FortuneFavorsTheBold.pdf, the Cognition 2011 paper, decompressed locally). The paper states: (1) "Twenty-eight participants recruited through the Princeton University paid subject pool" — confirms N=28; (2) "One participant was eliminated from analysis as an outlier for being more than three standard deviations from the mean" — confirms one outlier dropped, leaving 27 (independently corroborated by a second search result); (3) fluent "answered 72.8% of the questions... disfluent... 86.5% of the time" — confirms 86.5 vs 72.8, an absolute gap of 13.7 ≈ "~14%"; (4) "This difference was statistically significant (t(26) = 2.3, p < .05)" — exact match. The "single just-significant result on a tiny sample / underpowered / didn't reproduce" framing is corroborated by the documented replication record: Eitel et al. (2014, Applied Cognitive Psychology) found a positive disfluency effect in only 1 of 4 experiments (overall null); Kühl & Eitel (2016) "Fortune is fickle: null-effects of disfluency on learning outcomes"; Yue, Castel & Bjork (2013) "When disfluency is—and is not—a desirable difficulty"; and the meta-analysis Xie, Zhou & Liu (2018, Educational Psychology Review) titled "Null Effects of Perceptual Disfluency on Learning Outcomes." Source quality is appropriate (primary peer-reviewed article) and the framing is current. Caveat (does NOT undermine the claim): the paper reports t(26) yet says it dropped to 27 participants; for a between-subjects test 27 implies df=25, so the original paper carries its own minor df bookkeeping inconsistency — but the claim faithfully reproduces the paper's own reported figures, and if anything this sloppiness reinforces the "underpowered original" characterization. The "~14%" is the absolute percentage-point difference (relative difference is ~19%), which is the natural reading of "86.5% vs 72.8%." Claim stands.
+*Counter-source:* No credible counter-source found; primary source confirms verbatim. Replication literature (Eitel et al. 2014; Kühl & Eitel 2016 "Fortune is fickle"; Yue/Castel/Bjork 2013; Xie/Zhou/Liu 2018 meta-analysis "Null Effects") supports, not refutes, the claim.
+
+#### V284 `ab24e203` — **upheld** · confidence: high
+*Claim under review:* "Across four experiments with nearly 300 participants, the disfluent/distinctive Sans Forgetica font produced no benefit to correct memory (recall or recognition) of studied DRM list items relative to a standard Arial control font."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Sans Forgetica consistently failed to improve correct memory for studied items... Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+
+*Evidence:* Claim VERIFIED against the open-access primary source (PMC9733772, the same article as the Springer DOI 10.1186/s41235-022-00448-9, "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications, 2022). All specifics check out: 4 experiments (1A, 1B, 2A, 2B), nearly 300 participants, Sans Forgetica vs Arial control. Correct recall was equivalent (Exp 1A: Arial 0.53 vs SF 0.54; Exp 1B: Arial 0.59 vs SF 0.56) and correct recognition was equivalent (Exp 2A hit rates 0.70 vs 0.70; Exp 2B Arial 0.70 vs SF 0.66). The paper's verbatim conclusion: "Sans Forgetica consistently failed to improve correct memory for studied items," and it also found SF did not reduce DRM false memory. The supporting quote accurately reflects the source. CONVERGING independent evidence (not contradicting): Taylor et al. 2020 in Memory ("Disfluent difficulties are not desirable difficulties: the (lack of) effect of Sans Forgetica on memory"); Geller et al. found no effect on recognition discriminability; a meta-analysis found perceptual disfluency produces no recall benefit vs non-distorted controls. Source quality is sufficient (peer-reviewed Psychonomic Society journal, recent 2022, independent replication, not marketing/press release). I found NO credible source disputing this null finding — the replication record uniformly supports it. The claim correctly supports the broader [MYTH] verdict that "ugly/harder fonts aid memory" is non-replicable.
+*Counter-source:* No contradicting source found. Searched specifically for disputes/replication-of-the-original-benefit; all located sources (Taylor et al. 2020 Memory; Geller et al.; perceptual-disfluency meta-analysis) corroborate the null result. The only "pro" evidence is the original Sans Forgetica marketing claim (~7-8% benefit), which is exactly what these controlled replications failed to reproduce.
+
+#### V285 `ab48c929` — **upheld** · confidence: high
+*Claim under review:* "Self-testing (a genuine desirable difficulty) DID significantly improve later recall over restudying in the same experiment, providing a within-study positive control that distinguishes effective desirable difficulties from ineffective disfluent type."
+
+**Source:** https://journals.sagepub.com/doi/full/10.1177/21582440211056624 (primary)
+**Supporting quote:** "Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+
+*Evidence:* Primary source confirmed: Wetzler, Pyke & Werner (2021), "Sans Forgetica is Not the 'Font' of Knowledge," SAGE Open 11(4), DOI 10.1177/21582440211056624. N=120, 2x2 design crossing learning method (restudy vs self-test) x font (Times New Roman vs Sans Forgetica), 1-week retention. The quoted abstract ("Recall test scores were higher for passages learned via self-testing than restudying, BUT the effect of font and the interaction were nonsignificant") uses a contrastive structure that singles out only font and the interaction as nonsignificant, implying the self-testing main effect WAS significant; two independent search summaries both read it as "the main effect of self-testing (the testing effect) was significant." Self-testing/retrieval practice is the canonical robust desirable difficulty (Bjork), so calling it a "within-study positive control" is methodologically sound: a known-effective manipulation produced a significant effect in the SAME experiment where the disfluent font did not, demonstrating the design had sensitivity to detect a real learning effect and that the font null cannot be dismissed as study-wide insensitivity. The interpretation accurately distinguishes an effective desirable difficulty (testing) from an ineffective one (disfluent type). The result is consistent with the broader disfluency replication-failure literature (Geller & Davis; Taylor et al. registered report) — not anomalous. Source is the primary peer-reviewed paper, current (2021). CAVEAT: I could not retrieve the literal F/p statistic (SAGE returns HTTP 403, ResearchGate/PDF mirrors blocked); "significantly" is inferred from the abstract's contrastive grammar plus two corroborating summaries rather than a quoted test value. The "positive control" label is the claimant's interpretive framing, not verified as the authors' own wording, but it correctly describes the experimental structure. No contradicting evidence found.
+
+#### V286 `ab6aa3a3` — **upheld** · confidence: high
+*Claim under review:* "The headline causal claim under scrutiny: across two studies, the authors assert that making text harder to read with a disfluent font improved learning/retention, i.e. that disfluency acts as a 'desirable difficulty.' This is precisely the claim later large replication attempts (Yue/Castel; Eitel & Kühl) failed to confirm."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "In two studies we showed that making the text disfluent by using a hard to read font improved learning... It appears as though perceptual disfluency can function as a desirable difficulty in education."
+
+*Evidence:* Both parts of the claim verify. PART 1 (original claim, supported by quote): ERIC abstract for Diemand-Yauman, Oppenheimer & Vaughan (2011, Cognition) confirms exactly two studies — Study 1 lab, Study 2 high-school classroom — concluding disfluent/hard-to-read fonts improved retention via deeper processing ("desirable difficulty"). The supporting quote faithfully matches the paper's actual conclusion; no overreach in the descriptive part. PART 2 (replication failures, independently verified): Yue, Castel & Bjork (2013, Memory & Cognition, "When disfluency is—and is not—a desirable difficulty") found disfluency did NOT reliably aid memory and identified boundary conditions; Eitel & Kühl (2016) and Eitel et al. (2014) found null/no benefit; corroborated by Rummer/Schweppe/Schwede (2016 "Fortune is fickle"), Carpenter et al. (2013), Magreehan et al. (2015), Miele et al., Strukelj et al. (2016) — all null. The decisive disconfirmation is the meta-analysis Xie, Zhou & Liu (2018, Educational Psychology Review, "Null Effects of Perceptual Disfluency on Learning Outcomes"): 25 articles, 3,135 participants, recall d=-0.01, transfer d=0.03 (≈zero); disfluency only lowered judgments-of-learning and raised study time, not learning. BOUNDING/QUIBBLES (not refutations): (a) labeling the two specifically named studies "large" is slightly generous — they were moderate-N; the genuinely large evidence is the 3,135-participant meta-analysis. (b) A 2020 critique (Geller & Peterson, "Null and Void?") found coding errors in the 2018 meta-analysis, but the recall null held and transfer was robust after reproducibility checks, so it polices methodology without reviving the effect. Source quality strong (primary paper + peer-reviewed replications + meta-analysis), current (2018 meta + work through 2025), not marketing. Verdict: claim well-supported; the disfluency-aids-learning effect is non-replicable/null at the meta-analytic level, with any residual effect small, fragile, and condition-specific — exactly the [MYTH] framing intended.
+*Counter-source:* https://link.springer.com/article/10.1007/s10648-018-9442-x (Xie, Zhou & Liu 2018 meta-analysis — strongest corroborating disconfirmation, recall d=-0.01); partial methodological counter: https://pmc.ncbi.nlm.nih.gov/articles/PMC7854329/ (Geller & Peterson critique of that meta-analysis, but does not revive the effect)
+
+#### V287 `ab8610cc` — **upheld** · confidence: high
+*Claim under review:* "Processing difficulty (disfluency) is not uniformly beneficial: experiencing difficulty can be used either as a signal to invest more effort ('try harder') OR as an avoidance signal to disengage/switch away ('avoid and switch'). This bounds the disfluency-aids claim — the same hard-to-read input can prompt avoidance rather than deeper engagement."
+
+**Source:** https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments (primary)
+**Supporting quote:** "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ("try harder"), or as avoidance signal for future action selection ("avoid and switch")."
+
+*Evidence:* VERIFIED, NOT REFUTED. Source confirmed peer-reviewed: Dreisbach, G. & Fischer, R. (2011), "If it's hard to read… try harder! Processing fluency as signal for effort adjustments," Psychological Research (Springer); PubMed 21210144. The supporting quote is VERBATIM from the abstract: "Experiencing difficulties during information processing can either be used as signal for the increased need of cognitive effort ('try harder'), or as avoidance signal for future action selection ('avoid and switch')." The claim faithfully restates this dual-signal framing and is worded as a bounding possibility ("can be used either… OR…"), not as an empirical assertion. Adversarial check: this paper's three experiments empirically support the "try harder" pole (low fluency mobilizes cognitive effort even absent response conflict); the "avoid and switch" pole is the theoretical alternative (tied to ACC conflict-monitoring vs. outcome-evaluation accounts, Botvinick 2007). So the paper alone leans on framing, not data, for the avoidance direction — BUT the avoidance pole is independently and strongly corroborated: Song & Schwarz (2008), Psychological Science (PubMed 19000208), found a hard-to-read font made identical exercise instructions seem to take nearly twice as long (15.1 vs 8.2 min) and made people LESS likely to adopt the routine — direct empirical evidence of disfluency producing avoidance/demotivation. The Diemand-Yauman replication failures further confirm disfluency is not uniformly beneficial. The claim is appropriately bounded, current, and the source strength matches a non-extraordinary theoretical/bounding claim. The "this paper's data support try-harder" nuance refines but does not refute the claim.
+*Counter-source:* Dreisbach & Fischer (2011)'s own experiments empirically support the "try harder" pole, not "avoid and switch" — but the avoidance pole is independently confirmed by Song & Schwarz (2008), Psychological Science (https://journals.sagepub.com/doi/10.1111/j.1467-9280.2008.02189.x), so the bounding claim holds.
+
+#### V288 `abcb4590` — **upheld** · confidence: high
+*Claim under review:* "Whether disfluency helps learning is conditional on multiple factors, and its practical usefulness as an educational intervention is weaker and less reliable than its easy application implies."
+
+**Source:** https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X (primary)
+**Supporting quote:** "Whether or when disfluency is desirable depends upon multiple factors, and its usefulness for educational intervention is not as straightforward as its easy application suggests."
+
+*Evidence:* Source correctly attributed and quote confirmed verbatim. The article is Weissgerber & Reinhard (2017), "Is disfluency desirable for learning?", Learning and Instruction (Elsevier, peer-reviewed; DOI prefix S0959-4752 = that journal). Web search surfaced the exact source sentence: "Whether or when disfluency is desirable depends upon multiple factors, and its usefulness for educational intervention is not as straightforward as its easy application suggests." The claim is a faithful paraphrase: "depends upon multiple factors"->"conditional on multiple factors" (near-exact); "not as straightforward as its easy application suggests"->"weaker and less reliable than its easy application implies" (mild directional strengthening that stays in bounds). The "weaker/less reliable" reading is independently corroborated by the replication record: Xie et al. (2018) meta-analysis null effect d=0.01; Rummer et al. (2016) three failed direct replications of Diemand-Yauman (2011); Yue & Castel. No credible source contradicts the core claim — the strongest "dispute" (Weissgerber et al. 2021, "Null and Void? Errors in Meta-analysis on Perceptual Disfluency") argues for MORE conditionality, which reinforces the claim. Notably this very paper found a conditional delayed-test benefit of an illegible font, so it is a balanced (not anti-disfluency) source yet still concludes the intervention is conditional and not straightforward — exactly matching the claim's hedged wording (it says "conditional/less reliable," not "never helps"). Source quality (top-tier peer-reviewed primary) matches the claim's moderate strength; not outdated (consensus solidified since); not marketing.
+*Counter-source:* Weissgerber, Reinhard, & Schweppe (2021), "Null and Void? Errors in Meta-analysis on Perceptual Disfluency and Recommendations to Improve Meta-analytical Reproducibility," Educational Psychology Review — critiques the Xie et al. (2018) null meta-analysis, but argues for conditionality/nuance rather than for disfluency being a straightforward, reliable intervention; thus supports rather than refutes the claim.
+
+#### V289 `abde29ff` — **upheld** · confidence: high
+*Claim under review:* "The headline causal claim under scrutiny: across two studies, the authors assert that making text harder to read with a disfluent font improved learning/retention, i.e. that disfluency acts as a 'desirable difficulty.' This is precisely the claim later large replication attempts (Yue/Castel; Eitel & Kühl) failed to confirm."
+
+**Source:** https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes (primary)
+**Supporting quote:** "In two studies we showed that making the text disfluent by using a hard to read font improved learning... It appears as though perceptual disfluency can function as a desirable difficulty in education."
+
+*Evidence:* Both halves of the claim are well-supported. (1) Descriptive half — confirmed by the quote and secondary sources: Diemand-Yauman, Oppenheimer & Vaughan (2011), "Fortune favors the Bold (and the Italicized)" (Cognition), ran two studies (lab: artificial alien taxonomy with university students; field: high-school classrooms) and concluded hard-to-read/disfluent fonts improved learning, framed as disfluency acting as a "desirable difficulty." (2) Replication-failure half — solidly documented; the two named studies are genuine failed replications: Yue, Castel & Bjork (2013), "When disfluency is—and is not—a desirable difficulty" (Memory & Cognition) found disfluency shifted metacognitive judgments but did NOT improve memory; Eitel & Kühl (2014–2016) found no general benefit. Broader corroboration: Meyer et al. (2015) "Disfluent fonts don't help people solve math problems" (JEP: General, a 6-manuscript package failing to replicate Exp. 1); Rummer, Schweppe & Schwede (2016) null effects; Xie et al. (2018) meta-analysis null effect d=0.01; Sans Forgetica studies (Wetzler et al. 2021; Geller et al. 2020) no benefit. Only quibble: "large" fits the meta-analysis and multi-manuscript packages better than Yue/Castel and Eitel & Kühl specifically (moderate N), but those named studies did fail to confirm the effect, so the substance stands. Consensus treats disfluency-aids-learning as non-replicable — matching the intended [MYTH] framing.
+*Counter-source:* No credible source refutes the claim; the literature (Yue/Castel 2013, Eitel & Kühl 2014-16, Meyer et al. 2015, Rummer et al. 2016, Xie et al. 2018 meta-analysis d=0.01) confirms the replication failures the claim describes.
+
+#### V290 `ac0216e0` — **upheld** · confidence: medium
+*Claim under review:* "Enhanced line/word spacing more than halves reading errors in macular-disease patients compared with single-spaced text, indicating reduced reading effort, not just faster speed."
+
+**Source:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325 (primary)
+**Supporting quote:** "double line/word spacing more than halved the number of reading errors obtained with single spaced text"
+
+*Evidence:* The empirical core is verbatim accurate from a strong primary source. Paper = Blackmore-Wright, Georgeson & Anderson, "Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease," PLOS ONE 2013, DOI 10.1371/journal.pone.0080325 (PMC3823704; PubMed 24244676). Population = 24 age-related macular degeneration (ARMD) patients, mean age ~81. The abstract states verbatim: "double word/line spacing more than halved the number of reading errors obtained with standard single spaced text." Backing data (low contrast): 2.6 errors single-spaced -> 0.9 double-spaced (reduced to ~1/3). Reading speed also rose +26% (high contrast) / +46% (low contrast), both p<0.001. So the claim's headline ("more than halves reading errors in macular-disease patients vs single-spaced") is exact, well-sourced (peer-reviewed primary research), not cherry-picked (it is the authors' own abstract summary), and not outdated in a disqualifying way.
+
+CAVEAT on the interpretive tail ("indicating reduced reading effort, not just faster speed"): the authors did NOT use the "reading effort" / cognitive-load framing. They attributed gains to reduced VISUAL CROWDING — a peripheral/eccentric-vision sensory mechanism specific to ARMD readers using damaged central retina — not to working-memory/cognitive load. They also noted errors and speed co-vary ("slower reading speeds were generally associated with a higher number of reading errors"), which weakens "not just faster speed" as an independent dimension since both outcomes moved together. This means the finding is a low-vision crowding result and should NOT be generalized to cognitive load in normal-sighted web/UI readers. The substance is sound; only the "reduced reading effort" label overshoots the authors' mechanism.
+*Counter-source:* No source disputes the finding. Nearest qualifier is the paper itself: authors attribute the effect to visual crowding (peripheral vision in ARMD), not cognitive "reading effort," and report errors correlate with speed — so the gloss "reduced reading effort, not just faster speed" goes beyond what the authors concluded. https://pmc.ncbi.nlm.nih.gov/articles/PMC3823704/
+
+#### V291 `ac175fdb` — **upheld** · confidence: high
+*Claim under review:* "Sans Forgetica did not reduce false memories in the DRM paradigm; false recall/recognition rates were equivalent across Sans Forgetica and Arial, so the harder-to-read font did not protect against associative memory errors."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+
+*Evidence:* Claim is fully supported by the primary peer-reviewed source: Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (Springer/Psychonomic Society), open-access PMC9733772. Across 4 experiments (~300 participants), Sans Forgetica did not reduce false memories vs Arial. False recall: Exp1A within-subject Arial 0.27 vs SF 0.32, t(42)=1.13, p=.26, p_BIC=0.77; Exp1B between-subject Arial 0.27 vs SF 0.31, t<1, p_BIC=0.86. False recognition of critical lures: Exp2A Arial 0.66 vs SF 0.65, t<1, p_BIC=0.87; Exp2B Arial 0.70 vs SF 0.66, t(114)=1.09, p=.28, p_BIC=0.86. The p_BIC values (~0.77-0.87) are Bayesian posterior probabilities POSITIVELY favoring the null, so 'equivalent' is justified, not merely 'not significant.' Authors' conclusion: 'Sans Forgetica was ineffective at reducing the DRM false memory illusion.' I searched for contradicting evidence and found none; the finding is consistent with the broader disfluent-font replication-failure literature (Taylor et al. 2020; Geller et al.). Current (2022), primary source, source quality matches claim strength. Minor bound: 'equivalent' is licensed here only because Bayes factors support the null.
+
+#### V292 `acbd3381` — **upheld** · confidence: high
+*Claim under review:* "Sans Forgetica did not reduce false memories in the DRM paradigm; false recall/recognition rates were equivalent across Sans Forgetica and Arial, so the harder-to-read font did not protect against associative memory errors."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Sans Forgetica was ineffective at reducing the DRM false memory illusion."
+
+*Evidence:* The claim is accurately supported by the primary peer-reviewed source: Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (Springer), open-access at PMC9733772. Across 4 experiments (~300 participants), false memory rates did NOT differ between Sans Forgetica and Arial: False recall — Exp 1A (within-subject) Arial 0.27 vs SF 0.32, t(42)=1.13, p=.26, pBIC=0.77; Exp 1B (between-subject) Arial 0.27 vs SF 0.31, t<1, pBIC=0.86. False recognition — Exp 2A Arial 0.66 vs SF 0.65, t<1, pBIC=0.87; Exp 2B Arial 0.70 vs SF 0.66, t(114)=1.09, p=.28. Bayes factors (pBIC 0.77-0.87) affirmatively favor the null/equivalence, so "equivalent rates" is a fair characterization, not just a non-significant p. The article's own conclusion matches the supporting quote: "Sans Forgetica was ineffective at reducing the DRM illusion... false recognition of critical lures did not differ between Sans Forgetica and Arial lists." Adversarial checks: (1) quote-to-claim fit is exact — DRM critical lures ARE the associative memory errors the claim references; (2) no credible source disputes this — it is consistent with the broader Sans Forgetica replication-failure literature (e.g., Taylor et al. 2020 "Sans Forgetica is not desirable for learning"); if anything SF was numerically slightly WORSE (more false recall, 0.32/0.31 vs 0.27), never protective; (3) source is a primary peer-reviewed study, appropriate for the claim's strength; (4) 2022, current, aligns with present consensus; (5) not marketing — it is an independent study debunking the font creators' original memory claims. No refutation found.
+
+#### V293 `ad521181` — **upheld** · confidence: high
+*Claim under review:* "Whether disfluency helps learning is conditional on multiple factors, and its practical usefulness as an educational intervention is weaker and less reliable than its easy application implies."
+
+**Source:** https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X (primary)
+**Supporting quote:** "Whether or when disfluency is desirable depends upon multiple factors, and its usefulness for educational intervention is not as straightforward as its easy application suggests."
+
+*Evidence:* Source verified as Weissgerber & Reinhard (2017), "Is disfluency desirable for learning?", Learning and Instruction 49:199-217 (peer-reviewed Elsevier primary study; the cited PII S095947521730107X resolves to it). The supporting quote is a near-verbatim match to the article's stated conclusion: "Whether or when disfluency is desirable depends upon multiple factors. The manipulation and test time point are factors for disfluency's educational usefulness." The claim's two parts map faithfully: "conditional on multiple factors" = "depends upon multiple factors"; "weaker and less reliable than its easy application implies" = "not as straightforward as its easy application suggests," reinforced by the article's own framing that prior "findings... have been inconsistent." No overreach. Broader literature CORROBORATES rather than contradicts: the 2018 meta-analysis "Null Effects of Perceptual Disfluency on Learning Outcomes in a Text-Based Educational Context" (Educational Psychology Review, 10.1007/s10648-018-9442-x) found null effects; post-2017 direct replications (Lehmann et al. WMC moderation, Metacognition and Learning 2023) and the registered-replication failures (Yue/Castel; Eitel & Kuhl) all point the same way. Source quality matches the moderate hedging strength of the claim; current (2017 + later corroboration); not marketing. Claim is well-supported and well-bounded.
+
+#### V294 `ada8c812` — **upheld** · confidence: high
+*Claim under review:* "In adults with age-related macular degeneration, doubling word/line spacing increased reading speed by ~26% with high-contrast text and ~46% with low-contrast text (both p<0.001), making spacing a measurable load-reducing lever for low-vision readers."
+
+**Source:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325 (primary)
+**Supporting quote:** "Double word/line spacing increased reading speed by approximately 26% (p < 0.001) with high contrast text, and by 46% (p < 0.001) with low contrast text."
+
+*Evidence:* VERIFIED against primary source (PLOS ONE 2013, "Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease," PMC3823704). Abstract verbatim: "double word/line spacing increased reading speed by approximately 26% with high contrast text (p < 0.001), and by 46% with low contrast text (p < 0.001)." The claim reproduces both numbers, both p-values, and the AMD population exactly. Within-subjects study, N=24 AMD patients (mean age 81.4, all on Lucentis for wet macular disease). No contradicting source found. Bounding caveats (claim does not misstate, but skill should carry): (a) population is specifically macular degeneration, not low-vision in general; (b) the 46% figure used artificially LOW contrast (17.5% Michelson) deliberately "to avoid potential ceiling effects" — the 26% high-contrast figure is the more transferable one; (c) authors attribute the gain to reduced visual CROWDING and caveat that most real single-spaced text (novels, labels) cannot be re-spaced. Source quality (primary peer-reviewed) matches claim strength; not outdated; not marketing. The framing "measurable load-reducing lever for low-vision readers" is fair within those bounds.
+*Counter-source:* No credible contradicting source located. Only nuance is the authors' own self-stated limitations: the 46% low-contrast figure used non-typical artificially-low contrast to avoid ceiling effects, and they note real single-spaced text often cannot be re-spaced.
+
+#### V295 `ae510fdc` — **upheld** · confidence: high
+*Claim under review:* "The broader literature on disfluent fonts and memory is mixed and unreliable, with results ranging from no effect on correct memory to outright memory costs, contradicting the original positive claims."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "the effects of disfluent fonts on memory are mixed...others produced no effects on correct memory...and in some cases, have produced a memory cost."
+
+*Evidence:* Claim verified as well-supported, current, and source-quality-matched.
+
+1) QUOTE FIDELITY: The supporting quote is accurate. The source — Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," published in Cognitive Research: Principles and Implications (peer-reviewed, Psychonomic Society/Springer; PMC9733772) — states verbatim that "the effects of disfluent fonts on memory are mixed. While some disfluent fonts/word presentations have been shown to produce memory benefits...others produced no effects on correct memory...and in some cases, have produced a memory cost." The claim restates this faithfully, including "contradicting the original positive claims," which the source backs: it concludes Sans Forgetica "is not an effective tool for promoting retention" across 4 experiments (~300 participants), producing "no difference relative to a standard Arial font."
+
+2) NO CONTRADICTING EVIDENCE; INDEPENDENT CORROBORATION: WebSearch turned up no credible source disputing the "mixed/unreliable" characterization — the opposite. Xie et al. (2018) meta-analysis found perceptual disfluency in study materials "produced no effect on later recall relative to non-distorted controls." A separate meta-analysis of 17 problem-solving studies (incl. the original large-effect Diemand-Yauman) found the disfluency effect "actually non-existent." If anything, the convergent record is more uniformly null than the conservative word "mixed" implies, so the claim does not overreach — it under-claims relative to how damning the replication record is.
+
+3) SOURCE QUALITY: Peer-reviewed primary empirical study plus two independent meta-analyses. Sufficient for a "literature is mixed/unreliable" claim, which is a moderate, well-bounded assertion, not an extraordinary one.
+
+4) NOT OUTDATED: 2022 source; replication record is stable and well-established. 5) NOT marketing/cherry-pick — primary controlled research.
+
+Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ ; corroborating: link.springer.com/article/10.1186/s41235-022-00448-9 ; Xie, Zhang, Wang, Liu (2018) perceptual disfluency meta-analysis.
+*Counter-source:* No credible counter-source found. Independent corroboration instead: Xie et al. (2018) meta-analysis (no effect on recall) and a 17-study problem-solving meta-analysis (effect non-existent). The only minor caveat is directional — the broader evidence leans more uniformly null/cost than "mixed" suggests, which strengthens rather than refutes the claim.
+
+#### V296 `aeac66ce` — **upheld** · confidence: high
+*Claim under review:* "Participants subjectively rated Sans Forgetica as more difficult/effortful to read, yet this added perceptual disfluency did not translate into any memory benefit — directly disconfirming the 'disfluency aids memory' prediction."
+
+**Source:** https://link.springer.com/article/10.1186/s41235-022-00448-9 (primary)
+**Supporting quote:** "Participants rated Sans Forgetica as subjectively more challenging to read, but this didn't translate to memory benefits"
+
+*Evidence:* Primary source DOI 10.1186/s41235-022-00448-9 = Huff, Maxwell & Mitchell (2022), "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications (open-access mirror PMC9733772). It supports both clauses of the claim verbatim: (1) disfluency was induced — "participants rating Sans Forgetica items as being subjectively more challenging to read than materials displayed in an Arial font"; (2) no memory payoff — "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font" (4 experiments, ~300 participants). This directly disconfirms the disfluency-aids-memory/desirable-difficulty prediction. The independent replication record converges: Taylor et al. (2020, Memory) "Disfluent difficulties are not desirable difficulties: the (lack of) effect of Sans Forgetica on memory" (4 experiments, no benefit); Eskenazi & Nix (2021); Wetzler, Pyke & Werner (2021) "Sans Forgetica is Not the 'Font' of Knowledge." No credible source disputes the finding. Adversarial checks all clear: claim is not an overreach (each clause maps to a direct quote; "any memory benefit" is correctly bounded since neither correct nor false memory improved), source is primary peer-reviewed (matches claim strength), current (2022), and is itself a disconfirmation of a marketed memory font rather than a marketing claim. Minor bound: this paper used the DRM false-memory paradigm specifically, so "directly disconfirming" leans on this paper plus the convergent multi-paradigm replication literature — which exists and agrees.
+*Counter-source:* No credible counter-source found. Independent replications (Taylor et al. 2020 Memory; Eskenazi & Nix 2021; Wetzler, Pyke & Werner 2021) all agree with the claim. The only opposing claims trace to the original Sans Forgetica creators' (RMIT) promotional materials and Diemand-Yauman et al. (2011), both of which are the positions being refuted by this replication literature.
+
+#### V297 `aed9ff6a` — **upheld** · confidence: high
+*Claim under review:* "In low-vision readers (AMD), increasing letter spacing and letter width produces a small but measurable improvement in reading acuity near critical font sizes — supporting size/spacing/width as concrete reading-effort levers, especially for impaired readers (research-question topics 4 and 5)."
+
+**Source:** https://www.jbe-platform.com/content/journals/10.1075/idj.19033.bei (primary)
+**Supporting quote:** "The results demonstrated a small, but measurable effect of letter spacing and letter width on reading acuity near critical font sizes."
+
+*Evidence:* Claim is well-supported by the primary peer-reviewed source. Beier, Oderkerk, Bay & Larsen (2021), "Increased letter spacing and greater letter width improve reading acuity in low vision readers," Information Design Journal 26(1):73-88 (John Benjamins). (1) Quote is verbatim from the abstract; the title itself asserts the direction "improve reading acuity." (2) Population matches exactly — the study tested 20 low-vision AMD patients directly (Radner Reading Chart: logRAD acuity, max reading speed, critical print size), not a normally-sighted proxy, so no over-extrapolation. (3) Source quality exceeds the modest claim: primary, controlled, peer-reviewed, by named authority Sofie Beier plus clinician Michael Larsen. (4) Honestly bounded — claim preserves "small but measurable," limits to reading ACUITY (not max speed), and cites only spacing/width (study also tested boldness, which did not make the effect; claim correctly omits it). (5) No contradicting, qualifying, or failed-replication source found; the "small" caveat is the authors' own. Minor: the synthesis phrase "size/spacing/width" lists size, which this study did not manipulate (it varied spacing/width/boldness), but size is contextually supported by the abstract's magnification framing and reads as cross-topic synthesis, not sole attribution — not refutation-grade.
+
+#### V298 `af699da7` — **upheld** · confidence: high
+*Claim under review:* "Disfluency effects on learning do not generalize across the type of disfluency manipulation, the timing of the test, or the memory outcome measured — undercutting any blanket 'harder-to-read fonts improve retention' rule."
+
+**Source:** https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X (primary)
+**Supporting quote:** "The findings show that disfluency effects are not generalizable across disfluency manipulations, test time points, and memory outcomes."
+
+*Evidence:* Claim faithfully restates the conclusion of the cited primary source — Weissgerber & Reinhard (2017), "Is disfluency desirable for learning?", Learning and Instruction 49:199-217 (peer-reviewed, Elsevier; confirmed via Semantic Scholar/infona records matching PII S095947521730107X). The paper's multi-experiment design crossed exactly the three moderators named in the claim: disfluency type (illegible font vs scrambled letters), test timing (immediate vs 2-week delay), and memory outcome (short- vs long-term recall), and found heterogeneous effects — null for font immediately but a disfluent-font advantage at 2 weeks; scrambled letters reduced short-term recall. Its conclusion: disfluency effects "not generalizable across disfluency manipulations, test time points, and memory outcomes." The added clause "undercutting any blanket harder-to-read-fonts-improve-retention rule" is a correct logical consequence, not an overreach — and the paper is a near-hostile witness (it found a conditional delayed benefit) yet still reached the non-generalizability verdict. Independently corroborated against the original Diemand-Yauman et al. (2011) blanket claim by: Rummer et al. (2016) three close replications of Exp.1, all null; pre-registered direct replication (Metacognition and Learning 2023, N=96) null for disfluency/WMC/interaction; "Null and Void?" (Educational Psychology Review 2020) documenting coding errors in the pro-disfluency meta-analysis; Frontiers (2025) challenging "a general disfluency effect." Source quality (primary peer-reviewed) matches claim strength; not outdated (2017 reinforced through 2025); not marketing.
+*Counter-source:* No credible counter-source supports a general/blanket disfluency benefit. The only contrary direction is the original Diemand-Yauman et al. (2011), which subsequent replications (Rummer et al. 2016; pre-registered 2023 replication) and the "Null and Void?" meta-analysis critique (Educ. Psych. Review 2020) have undercut. The cited Weissgerber & Reinhard (2017) paper itself found a conditional delayed benefit, but framed it as evidence AGAINST generalizability — consistent with, not contradicting, the claim.
+
+#### V299 `af8883a3` — **upheld** · confidence: high
+*Claim under review:* "A disfluent font (Sans Forgetica) did NOT improve memory retention at a practically meaningful 1-week interval: in a 2x2 design (font x study method, N=120), the font main effect and the font-by-method interaction were both nonsignificant. This is a direct replication failure of the disfluency-aids-memory claim."
+
+**Source:** https://journals.sagepub.com/doi/full/10.1177/21582440211056624 (primary)
+**Supporting quote:** "Students (N = 120) learned two passages via different methods (study then re-study vs. study then self-test). Half the students saw the passages in Times New Roman and half in Sans Forgetica. Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+
+*Evidence:* VERIFIED against primary source (Wetzler, Pyke & Werner 2021, "Sans Forgetica is Not the 'Font' of Knowledge," SAGE Open 11(4), doi:10.1177/21582440211056624). All load-bearing facts check out. The quote omitted the "1-week interval" — I confirmed it independently via the ERIC abstract (EJ1320508): the authors "investigated a 1-week interval to increase practical relevance and because some benefits only manifest after a delay" (prior Sans Forgetica studies used 0-5 min). Confirmed: disfluent font = Sans Forgetica vs Times New Roman; 2x2 (font x study method [restudy vs self-test]); N=120; font main effect AND font-by-method interaction both nonsignificant; testing effect significant (self-test > restudy). The claim accurately represents these. Consistent with, not contradicted by, the broader replication record (Taylor, Sanson et al. 2020 registered multi-experiment null; the Sans Forgetica meta-verdict of no reliable benefit). Source is peer-reviewed; claim strength is modest (a null result aligning with consensus), so source quality is sufficient; not outdated (2021, consensus has only firmed since); not marketing/cherry-pick (it is a published null). ONE caveat, not refuting: "direct replication" is loose wording — this is more precisely a conceptual replication/extension (added testing-effect factor, new materials, longer delay) of the disfluency-aids-memory hypothesis (Diemand-Yauman et al. 2011 / RMIT's Sans Forgetica claim), not a textbook direct replication of a specific original. The substantive conclusion — disfluency did not aid memory at a practical 1-week delay — is fully supported.
+*Counter-source:* No credible contradicting source found. Broader literature (Taylor, Sanson et al. 2020, "Disfluent difficulties are not desirable difficulties: the (lack of) effect of Sans Forgetica on memory") corroborates rather than disputes. Only quibble is the imprecise "direct replication" label (better: conceptual replication/extension).
+
+#### V300 `af94ff58` — **upheld** · confidence: high
+*Claim under review:* "Self-testing (a genuine desirable difficulty) DID significantly improve later recall over restudying in the same experiment, providing a within-study positive control that distinguishes effective desirable difficulties from ineffective disfluent type."
+
+**Source:** https://journals.sagepub.com/doi/full/10.1177/21582440211056624 (primary)
+**Supporting quote:** "Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant."
+
+*Evidence:* VERIFIED, not refuted. The claim accurately represents Wetzler, Pyke & Werner (2021), "Sans Forgetica is Not the 'Font' of Knowledge," SAGE Open 11(4), 21582440211056624 (N=120; study-method within-subjects, font between-subjects; 1-week retention). The abstract states verbatim: "Recall test scores were higher for passages learned via self-testing than restudying, but the effect of font and the interaction were nonsignificant." (1) SIGNIFICANCE of self-testing: the contrastive grammar — self-testing higher "but the effect of font and the interaction were nonsignificant" — is the standard authorial signal that the study-method main effect WAS significant (had it been null too, authors would write "neither effect was significant"). This is independently corroborated by multiple secondary summaries explicitly describing "a significant main effect" for self-testing vs restudying. (I could not pull exact F/p — the SAGE full text returned HTTP 403 — but significance is convergently confirmed.) (2) POSITIVE-CONTROL framing is sound: self-testing/retrieval practice is the canonical desirable difficulty (Bjork); its significant benefit in the SAME sample where the disfluent font produced nothing demonstrates the experiment had sensitivity to detect a real learning effect, so the null font result is not a mere low-power failure. This matches the paper's own discussion contrasting relational processing in testing vs. disfluent fonts. Source is primary, peer-reviewed, 2021 (current), on-point; the claim is a modest, well-bounded methodological observation, not an extraordinary one. No contrary evidence found.
+
+#### V301 `afd47432` — **upheld** · confidence: high
+*Claim under review:* "Sans Forgetica failed to improve memory accuracy even after accounting for associative false-memory errors, indicating its disfluency does not produce the 'desirable difficulties' needed to aid learning."
+
+**Source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/ (primary)
+**Supporting quote:** "Our results indicate that Sans Forgetica is ineffective for improving memory accuracy even when accounting for associative memory errors."
+
+*Evidence:* Claim is faithfully supported by the primary source (Huff & Maxwell, "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm," Cognitive Research: Principles and Implications, Springer Nature, 2022; PMC9733772). Verbatim conclusion: "Sans Forgetica was found to have no impact on correct or false memory of DRM lists relative to a standard Arial control font, regardless of whether font type was manipulated within or between subjects or whether memory was assessed via free recall or recognition testing." 4 experiments, ~300 participants. The "accounting for associative false-memory errors" qualifier maps exactly to the DRM paradigm used. Source quality (peer-reviewed null-replication, multiple designs) matches the claim's strength. Independent replications CORROBORATE: Taylor et al. 2020 ("Sans Forgetica is not desirable for learning," Memory); "Disfluent difficulties are not desirable difficulties" (Memory 2020, n=882, font actually IMPAIRED paired-word recall); Geller et al. 2020; Wetzler et al. 2021. The "desirable difficulties" framing in the claim is the explicit design rationale of Sans Forgetica and is the literal title framing of Taylor et al. 2020, so the inference is grounded. The only positive findings are narrow boundary conditions (Geller & Peterson 2021: benefit only when no test expected; Eskenazi & Nix 2021: only for high-skill spellers 1 SD above mean), which reinforce the "small/fragile/condition-specific" bounded truth rather than contradict the general null. Not outdated (2022), not marketing (it refutes the original RMIT/CNN marketing claims).
+*Counter-source:* Geller & Peterson (2021) and Eskenazi & Nix (2021) report narrow positive effects (unexpected-test condition; high-skill spellers only) — but these are boundary conditions that support the bounded "fragile/condition-specific" reading, not a refutation of the general null.
+
 ---
 
-## Part C — Synthesis records (25)
+## Part C — Synthesis records (31)
 
 #### `a1c1bc51` (Type that reads easily & pairs with the restrained palette)
 ```json
@@ -4459,6 +5244,261 @@ Two qualifications that DO NOT refute: (1) The full model attributes reading spe
       "title": "Facts about figures: numeric styles with OpenType features — Jason Pamental (RWT.io)",
       "relevance": "medium",
       "snippet": "Named web-typography practitioner walking through tnum/pnum/lnum/onum on the web. Notes the nuance worth flagging as near-[MYTH]: 'unless you need to line up numerals in a table, proportional spacing gives more pleasing results' — i.e., tabular is not a blanket default, it's specifically for aligned number columns. Good for bounding the rule and avoiding overreach in prose."
+    }
+  ]
+}
+```
+
+#### `a01c5467` (Typography & cognitive / mental load — what reduces the effort of reading)
+```json
+{
+  "results": [
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/",
+      "title": "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm (Geller et al.)",
+      "relevance": "high",
+      "snippet": "Peer-reviewed [STRONG] direct disconfirmation. Across four experiments with ~300 participants, the purpose-built disfluent font Sans Forgetica produced NO effect on correct or false memory vs Arial — regardless of within/between manipulation or free-recall vs recognition test. A clean, large-sample null that anchors the [MYTH] verdict that 'ugly/harder fonts help memory' does not hold."
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S095947521730107X",
+      "title": "Is disfluency desirable for learning? (Educational Research Review)",
+      "relevance": "high",
+      "snippet": "Review that catalogs the replication failures across paradigms: small font (Rhodes & Castel 2008), low contrast (Hirshman 1994), blur (Yue, Castel & Bjork 2013), atypical font (Magreehan 2016), and complex materials (Eitel, Kühl, Scheiter & Gerjets 2014 'toilet flush'; Strukelj 2015 'plane lift'). Directly supplies the bounded conclusion that perceptual disfluency rarely enhances learning and is at best condition-specific."
+    },
+    {
+      "url": "https://journals.sagepub.com/doi/full/10.1177/21582440211056624",
+      "title": "Sans Forgetica is Not the 'Font' of Knowledge: Disfluent Fonts are Not Always Desirable Difficulties (Wetzler, Pyke & Werner, 2021)",
+      "relevance": "high",
+      "snippet": "Peer-reviewed [STRONG] failure to replicate. Explicitly frames the 'desirable difficulty' over-claim and shows the disfluent font did not aid retention. The title itself states the bounded truth: disfluency is NOT reliably a desirable difficulty — useful for wording the SKILL.md [MYTH] rule."
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35950522/",
+      "title": "Desirable Difficulty: Theory and application of intentionally challenging learning (2022 review)",
+      "relevance": "high",
+      "snippet": "Synthesis/verdict-level source situating perceptual disfluency within the broader desirable-difficulty literature. Helps separate the genuine desirable-difficulty effects (spacing, testing, interleaving — which do replicate) from perceptual disfluency (which largely does not), so the skill doesn't overcorrect into denying ALL difficulty effects."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/47644206_Fortune_favors_the_Effects_of_disfluency_on_educational_outcomes",
+      "title": "Fortune favors the bold (and the italicized): Effects of disfluency on educational outcomes (Diemand-Yauman, Oppenheimer & Vaughan, 2011)",
+      "relevance": "medium",
+      "snippet": "The original claim being bounded. Small samples (N=144 word lists in Arial vs Comic Sans; N=142 fictional Earth facts) reported a memory benefit for harder-to-read fonts. Needed to cite the source accurately and show the original effect was modest and from small/applied samples — context for why later large-sample nulls matter."
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12533423/",
+      "title": "A Distributional Response Time Analysis of the Perceptual Disfluency Effect",
+      "relevance": "medium",
+      "snippet": "Recent work probing boundary conditions: any residual benefit emerges only when stimuli are MODERATELY (not excessively) difficult to read, and a supervised direct replication (N=96) showed substantial deviation with null results for disfluency and its interaction with working-memory capacity. Supports the 'small, fragile, condition-specific' bounded residual rather than a robust effect."
+    }
+  ]
+}
+```
+
+#### `a2045a14` (Typography & cognitive / mental load — what reduces the effort of reading)
+```json
+{
+  "results": [
+    {
+      "url": "https://practicaltypography.com/body-text.html",
+      "title": "Body text — Butterick's Practical Typography (also: Point size / Line spacing / Line length / Summary of key rules)",
+      "relevance": "high",
+      "snippet": "[CONVENTION — Matthew Butterick] The canonical lever list for Topic 4. Names the four load-bearing body-text choices (point size, line spacing, line length, font) with hard numbers: 10–12pt print / 15–25px web; line spacing 120–145% of point size (rejects 'Single/1.5/Double'); line length 45–90 characters. Direct ground for SKILL.md rules — 'shorter lines are more comfortable; long lines make the eye travel farther to find the next line.'"
+    },
+    {
+      "url": "https://journals.uc.edu/index.php/vl/article/view/5765",
+      "title": "Optimal Line Length in Reading — A Literature Review (Visible Language, 2005)",
+      "relevance": "high",
+      "snippet": "[STRONG] Peer-reviewed synthesis of the measure (line-length) evidence — the empirical backbone behind the 45–75 CPL convention. Reviews Dyson & Haselgrove showing ~55 CPL supports effective reading at normal and fast speeds and reading speed peaking ~60–70 CPL, and documents effects on comprehension, scrolling vs paging, and saccadic eye movements. Lets you separate the [STRONG] empirical core from Bringhurst's 66-character [CONVENTION] target."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/361332642_Reading_Letters_designing_for_legibility",
+      "title": "Reading Letters: Designing for Legibility — Sofie Beier",
+      "relevance": "high",
+      "snippet": "[STRONG/CONVENTION — Sofie Beier, Centre for Visibility Design] Core practitioner reference on what makes letterforms low-effort: large x-height, open inner counters, wide letter shapes. Covers recognition/recall experiments isolating x-height and ascender/descender length, and design principles for both normally sighted and low-vision readers — directly supports the high-x-height humanist-sans recommendation (Inter / IBM Plex / Frutiger lineage)."
+    },
+    {
+      "url": "https://researchonline.rca.ac.uk/957/1/Sofie_Beier_Typeface_Legibility_2009.pdf",
+      "title": "Typeface Legibility: Towards Defining Familiarity (PhD, RCA) — Sofie Beier",
+      "relevance": "high",
+      "snippet": "[STRONG] Beier's doctoral work tying legibility to familiarity — the empirical underpinning for 'conventional letterforms read more easily.' Bridges your fluency findings (familiar/conventional shapes → easier processing) to type specifically, and bounds it: familiarity effects are real but separable from raw legibility. Useful counterweight to 'novel/decorative = harder' overclaims."
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0042698919301087",
+      "title": "Typeface features and legibility research (Vision Research)",
+      "relevance": "medium",
+      "snippet": "[STRONG] Peer-reviewed vision-science study isolating which typeface features actually drive letter/word legibility (x-height, counter openness, weight, spacing) using controlled measures. Provides the experimental evidence layer behind the design conventions, helping tag which Topic-4 levers are [STRONG] vs [CONVENTION]."
+    },
+    {
+      "url": "https://readabilitymatters.org/articles/research-highlight-how-important-is-x-height-for-font-legibility",
+      "title": "Research Highlight: How important is x-height for font legibility? — Readability Matters",
+      "relevance": "medium",
+      "snippet": "[CONVENTION/practitioner summary, citing Beier & Cooreman] Plain-language digest of the x-height evidence: taller x-height aids recognition but at fixed point size perceptually tightens line spacing (so leading must compensate) — a concrete interaction between two Topic-4 levers (x-height and line-height). Good worked-example material for the skill."
+    }
+  ]
+}
+```
+
+#### `a217ed44` (Typography & cognitive / mental load — what reduces the effort of reading)
+```json
+{
+  "question": "Evidence on typography and cognitive/mental load — which typographic choices measurably reduce or raise the mental effort of reading — for a web/UI/data-visualization typography skill. Must compose with prior findings (no inherent serif-vs-sans legibility advantage; font preference does not predict reading speed) and a separate UX skill's processing-fluency findings (clarity, contrast, convention, restraint → easier processing → liking). Separate [STRONG] peer-reviewed evidence from [CONVENTION] named-authority best practice from [MYTH], with concrete numbers/levers and contrary evidence — especially the disfluency-aids-learning replication failures.",
+  "summary": "Five angles map onto the five topics: (1) the fluency→lower-effort mechanism with objective reading-effort measures, (2) the contrarian disfluency-aids-memory replication record, (3) cognitive-load-theory applied to type, (4) concrete load-reducing levers and low-effort screen typefaces, (5) reading-difficulty populations. Queries lead with peer-reviewed/eye-tracking/meta-analytic terms to surface [STRONG] evidence, then name typography authorities for [CONVENTION], and explicitly seek disconfirming results so each claim can be bounded.",
+  "angles": [
+    {
+      "label": "academic/primary — fluency & reading-effort measures",
+      "query": "processing fluency typography reading effort eye-tracking fixation duration regressions pupillometry cognitive load Reber Winkielman legibility",
+      "rationale": "Topic 1: ties Reber/Winkielman perceptual-fluency work to objective reading-effort metrics (fixation duration/count, regressions, reading time, pupillometry, NASA-TLX) to find which typographic factors are the biggest measurable load levers."
+    },
+    {
+      "label": "contrarian/skeptical — disfluency replication record",
+      "query": "disfluency hard-to-read fonts improve memory retention replication failure Diemand-Yauman Oppenheimer Vaughan Yue Castel Eitel Kuhl meta-analysis registered replication",
+      "rationale": "Topic 2: targets the critical [MYTH] check — the large multi-sample failures to replicate 'Fortune favors the bold' and the meta-analytic verdict, to bound the small/fragile/condition-specific residual truth."
+    },
+    {
+      "label": "academic/theory — cognitive load theory applied to type",
+      "query": "cognitive load theory extraneous load typography low contrast crowding tracking font size all-caps line length working memory comprehension Sweller",
+      "rationale": "Topic 3: separates CLT-derived convention from evidence on extraneous load from poor typography (low contrast, tight tracking, too-small size, ALL-CAPS at length, over-long measure) freeing working memory for comprehension."
+    },
+    {
+      "label": "practitioner/implementation — levers & low-effort screen typefaces",
+      "query": "low-effort screen reading typeface x-height line-height leading line length measure ragged-right Sofie Beier legibility Inter IBM Plex Frutiger humanist sans Butterick Bringhurst",
+      "rationale": "Topic 4: surfaces concrete [STRONG]-vs-[CONVENTION] levers (size, x-height, leading, measure, left-aligned ragged-right, restraint) and the high-x-height humanist screen faces, naming Beier, Butterick, Bringhurst, Spiekermann, Lupton, NN/g."
+    },
+    {
+      "label": "populations — low-vision, older, dyslexic reading effort",
+      "query": "typography font size letter spacing contrast reading speed comprehension low vision older adults dyslexia legibility evidence controlled study",
+      "rationale": "Topic 5: bounds whether reducing typographic load helps low-vision, older, and dyslexic readers more than average readers, focusing on size/spacing/contrast/effort rather than the separately-researched dyslexia-font question."
+    }
+  ]
+}
+```
+
+#### `a2a29aee` (Typography & cognitive / mental load — what reduces the effort of reading)
+```json
+{
+  "results": [
+    {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/14606925.2020.1810434",
+      "title": "A Review of the Cognitive Effects of Disfluent Typography on Functional Reading",
+      "relevance": "high",
+      "snippet": "Peer-reviewed review that frames typography directly in cognitive-load terms: poor/disfluent type adds extraneous load that competes for working memory needed for comprehension, while clear type frees it. Surveys the disfluency-aids-memory literature and finds the effect inconsistent and non-robust for functional reading — load-bearing for both Topic 3 (CLT applied to type) and the Topic 2 [MYTH] bounding. Tag toward [STRONG]/review."
+    },
+    {
+      "url": "https://readabilitymatters.org/articles/increase-readability-reduce-cognitive-load",
+      "title": "Increase Readability, Reduce Cognitive Load: Freeing Working Memory for Processing Meaning",
+      "relevance": "high",
+      "snippet": "States the exact Topic-3 mechanism: changing format (font, size, character width/spacing, weight, line spacing) to improve readability reduces extraneous load, freeing working memory for word recognition and meaning. Best single on-angle articulation of 'reduce extraneous typographic load → free working memory for comprehension.' Applied source — tag [CONVENTION], name Readability Matters."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9733772/",
+      "title": "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm",
+      "relevance": "high",
+      "snippet": "Open-access controlled study showing the purpose-built 'memory' disfluent font produces no accuracy benefit, consistent with multiple failed replications (Cushing & Bodner 2022; Geller et al. 2020; Huff et al. 2022; Taylor et al. 2020; Wetzler et al. 2021). Direct disconfirming evidence for the disfluency-aids-learning claim — [STRONG] / [MYTH] support for Topic 2."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8883023/",
+      "title": "Association and dissociation between judgments of learning and memory: A Meta-analysis of the font size effect",
+      "relevance": "high",
+      "snippet": "Meta-analysis separating metacognition from actual memory: larger fonts reliably feel more memorable (judgments of learning) but do NOT reliably improve recall — the classic fluency-feels-like-learning dissociation. Bounds the size/disfluency claims with pooled effects; strongest quantitative evidence that perceived ease ≠ retention. [STRONG], Topics 2 and 3."
+    },
+    {
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.01577/full",
+      "title": "The Effect of Font Size on Children's Memory and Metamemory",
+      "relevance": "medium",
+      "snippet": "Controlled study invoking CLT to explain that too-small font imposes extraneous load that can impair the processes supporting memory — concrete evidence that size operates as a load lever, not just a preference. Useful for Topic 3 (size as extraneous-load lever) and Topic 5 (population sensitivity). [STRONG], bounded to children."
+    },
+    {
+      "url": "https://link.springer.com/article/10.3758/s13421-012-0255-8",
+      "title": "When disfluency is—and is not—a desirable difficulty: The influence of typeface clarity on metacognitive judgments and memory",
+      "relevance": "medium",
+      "snippet": "Peer-reviewed study delineating the boundary conditions of the disfluency effect — when reduced typeface clarity does and does not act as a desirable difficulty, and how it skews metacognitive judgments versus memory. Supplies the bounded truth ('small, fragile, condition-specific') the brief asks for on Topic 2. [STRONG]."
+    }
+  ]
+}
+```
+
+#### `a3a60721` (Typography & cognitive / mental load — what reduces the effort of reading)
+```json
+{
+  "results": [
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/lang.70011",
+      "title": "Revisiting Text Readability and Processing Effort in Reading: Bayesian Analysis of Eye-Tracking Data (Nahatame, Language Learning)",
+      "relevance": "high",
+      "snippet": "[STRONG] Primary eye-tracking study that operationalizes 'reading effort' with exactly the metrics Topic 1 needs: number of fixations, total reading time, mean fixation duration, rightward saccade length, skipping rate, and regression-in count. Finds more-readable text yields fewer fixations, shorter total reading time, and fewer regressions — the objective backbone for tying processing fluency to measurable load levers."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1186/s41235-022-00448-9",
+      "title": "Distinctive Sans Forgetica font does not benefit memory accuracy in the DRM paradigm (Cognitive Research: Principles and Implications, Springer)",
+      "relevance": "high",
+      "snippet": "[MYTH/replication] Direct disconfirmation of the disfluency-aids-learning claim (Topic 2). Large multi-experiment test of the purpose-built 'hard-to-read' Sans Forgetica typeface finds no memory benefit (and even costs), reinforcing that 'ugly fonts help recall' is non-replicable. Pair with the Yue/Castel and Eitel/Kühl failures and the Xie et al. (2018) meta-analytic null."
+    },
+    {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/14606925.2020.1810434",
+      "title": "A Review of the Cognitive Effects of Disfluent Typography on Functional Reading (The Design Journal, Taylor & Francis)",
+      "relevance": "high",
+      "snippet": "Synthesis covering both Topic 2 and Topic 3: reviews how disfluent typography (low contrast, distorted/decorative faces) raises perceptual processing cost, summarizes why the original Diemand-Yauman effect fails to generalize to functional reading, and frames extraneous-load arguments from typography. Useful for bounding the 'fragile, condition-specific' truth and naming the CLT framing."
+    },
+    {
+      "url": "https://www.jbe-platform.com/content/journals/10.1075/idj.19033.bei",
+      "title": "Increased letter spacing and greater letter width improve reading acuity in low vision readers (Beier et al., Information Design Journal)",
+      "relevance": "high",
+      "snippet": "[STRONG + named authority Sofie Beier] Controlled Radner Reading Chart study (20 low-vision/AMD readers) showing measurable acuity gains from increased letter spacing and wider letterforms near critical font size. Grounds Topic 4 levers (spacing, letterform width, x-height) and Topic 5 (low-vision populations) in primary data from the leading typography-legibility researcher."
+    },
+    {
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080325",
+      "title": "Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease (PLOS One)",
+      "relevance": "high",
+      "snippet": "[STRONG] Quantified spacing levers for Topic 4/5: double line and word spacing raised reading speed ~26% (high-contrast) and ~46% (low-contrast) versus single spacing, and more than halved reading errors. Concrete numbers showing leading/tracking are large load levers — and that the contrast interaction matters, linking to the colour skill's luminance/contrast rules."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/49732555_If_it's_hard_to_read_try_harder_Processing_fluency_as_signal_for_effort_adjustments",
+      "title": "If it's hard to read … try harder! Processing fluency as a signal for effort adjustments (Alter/Oppenheimer lineage)",
+      "relevance": "medium",
+      "snippet": "[CONVENTION/mechanism] Connects Reber/Winkielman perceptual-fluency theory to the metacognitive account behind Topic 1 and Topic 2: disfluent type feels effortful and can trigger compensatory effort/longer reading time — the proposed mechanism for any disfluency 'benefit.' Explains why fluency manipulations alter reading time and judgment, and why the effect is brittle once effort isn't recruited."
+    }
+  ]
+}
+```
+
+#### `af1490a0` (Typography & cognitive / mental load — what reduces the effort of reading)
+```json
+{
+  "results": [
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3396504/",
+      "title": "Zorzi et al. (2012), Extra-large letter spacing improves reading in dyslexia (PNAS)",
+      "relevance": "high",
+      "snippet": "[STRONG] The anchor controlled study for Topic 5's dyslexia strand. 54 Italian + 40 French dyslexic children (ages 8-14) read 24 sentences at normal vs. +2.5pt letter spacing. Wider spacing yielded ~20% faster reading and roughly half the errors, with no training. Mechanism = reduced perceptual crowding (lateral masking of each letter by its neighbors), which dyslexic readers are abnormally sensitive to. Establishes that a pure spacing/effort lever — not letterform redesign — drives the benefit, which keeps it consistent with the skill's 'no inherent font legibility advantage' prior and the separate dyslexia-font question."
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28810134/",
+      "title": "van den Boer & Hakvoort (2017), Improvements in reading accuracy from increased interletter spacing are not specific to children with dyslexia (J. Exp. Child Psychol.)",
+      "relevance": "high",
+      "snippet": "[STRONG, critical bounding/contrary] The disconfirming counterweight to Zorzi. Exp.1: 30 dyslexic + 30 control children (mean ~9;11) showed the SAME spacing benefit — the effect was not dyslexia-specific. Exp.2: 189 unselected readers confirmed increased interletter spacing improves reading ACCURACY but NOT reading rate, and the benefit was unrelated to reading ability. Bounds Topic 5: spacing is a general crowding-relief lever, not a dyslexia treatment; benefit is on accuracy/error rate more than speed. A 2021 follow-up found null effects on accuracy, comprehension, and speed — flag the literature as mixed."
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4961000/",
+      "title": "Calabrese et al. (2016), Baseline MNREAD Measures for Normally Sighted Subjects From Childhood to Old Age",
+      "relevance": "high",
+      "snippet": "[STRONG] Quantifies the older-adult font-size lever with hard numbers. Critical print size (the smallest size supporting maximum reading speed) is constant from age 8-23 (~0.08 logMAR), rises slowly to ~0.21 logMAR by 68, then steeply to ~0.34 logMAR by 81. Concretely: older readers need measurably larger type to read at full speed even with normal vision. Gives the skill a defensible, age-graded size recommendation and a measurement vocabulary (MNREAD, critical print size, acuity reserve ~2:1 / 0.3 logMAR)."
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3823704/",
+      "title": "Chung (2013/2012), Enhanced Text Spacing Improves Reading Performance in Individuals with Macular Disease",
+      "relevance": "high",
+      "snippet": "[STRONG] Low-vision strand. In readers with central-field loss (macular disease), enlarging letter spacing beyond the default improves reading performance — and standard fonts are set too tight for low-vision needs. Pairs with Zorzi to show crowding relief generalizes from dyslexia to low vision. Bounds the average-reader case: spacing helps where crowding/visibility is the bottleneck; in unimpaired central vision the same manipulation does little or can backfire."
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7090332/",
+      "title": "Perea et al. (2020), Wider Letter-Spacing Facilitates Word Processing but Impairs Reading Rates of Fast Readers (Front. Psychol.)",
+      "relevance": "high",
+      "snippet": "[STRONG bounding] Directly answers 'does the spacing lever differ from average/skilled readers?' Wider spacing aids word-level processing and slow/poor readers, but actually SLOWS skilled fast readers (more/longer saccades across a wider line). The reader-skill interaction is the key bound: a typographic accommodation tuned for struggling readers is not a free universal improvement. Reinforces consistency with the fluency prior — effort relief matters most where baseline effort is highest."
+    },
+    {
+      "url": "https://files.eric.ed.gov/fulltext/EJ772089.pdf",
+      "title": "Russell-Minda et al. (2007), The Legibility of Typefaces for Readers with Low Vision: A Research Review",
+      "relevance": "medium",
+      "snippet": "[CONVENTION + evidence review] Synthesizes the low-vision typography evidence: adequate SIZE and high figure-ground CONTRAST are the dominant legibility levers; clear, conventional letterforms and sufficient inter-character/line spacing help, while no single 'best' typeface emerges — consistent with the 'no inherent serif-vs-sans advantage' prior. Useful for grounding [CONVENTION]-tagged rules (size, contrast, spacing, simple letterforms) for low-vision and older readers and for distinguishing those from the weaker font-shape claims."
     }
   ]
 }
