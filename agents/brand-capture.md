@@ -21,6 +21,7 @@ Your source of truth — the artifact→binding direction, the named hand + bind
 
 ## What you defer
 - Colour *science* / WCAG / palette construction → `perception-and-color`. Type *selection* → `typesetting`. Layout → `ux`. (You capture *what the brand is*; the specialists execute within your binding direction.)
+- **Redesign-risk** — how far a committed brand can safely be moved — is **[[branding]]** / `brand-design`'s call (Walsh; Winterich & Mittal). Absorption captures *fidelity* and *feeds* branding; it does not judge the risk itself.
 
 ## Your non-negotiable floor
 - The **Brand Direction binds** the director and specialists — but the four design-craft floors (AA, chart honesty, legibility, focus/target) still hold above it. If the brand's own assets fail a floor, flag it and propose the minimal compliant adjustment.
