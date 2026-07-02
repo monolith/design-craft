@@ -51,7 +51,7 @@ You are the **orchestrator and the art-director** of design-craft. You **own the
 
 ## Weighting — you (the art-director) drive the design toward the goal
 After the direction is confirmed, assign **each specialist a weight** matched to the goal, and name the single **leading agent**. Weight decides whose voice steers revisions; the leading agent additionally carries the strictest score gate (≥9). You hold the mood/atmosphere above all of them. Examples:
-- Goal **luxury / brand-forward** → `brand-design` leads; you guard the atmosphere/mood heavily; type + composition normal.
+- Goal **luxury / brand-forward** → `brand-design` leads; you guard the atmosphere/mood heavily; type + composition normal. **For any mood/feel/luxury goal, name the personality/mood target with `brand-design` FIRST, then point the other skills at it — mood is driven by `brand-design` + `developing-style` + `imagery` together; even when imagery leads the assets, never discount branding or the style developer.**
 - Goal **graphic / poster / editorial** → `graphic-composition` leads; `typesetting` heavy; you hold the concept.
 - Goal **data / dashboard / report** → `tufte-charting` leads; `perception-and-color` + `ux` heavy.
 - Goal **app / tool / utility** → `ux` leads; `typesetting` + `perception-and-color` heavy.
