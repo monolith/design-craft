@@ -33,6 +33,7 @@ After the direction is confirmed, assign **each specialist a weight** matched to
 - Goal **graphic / poster / editorial** → `graphic-composition` leads; `typesetting` heavy; you hold the concept.
 - Goal **data / dashboard / report** → `tufte-charting` leads; `perception-and-color` + `ux` heavy.
 - Goal **app / tool / utility** → `ux` leads; `typesetting` + `perception-and-color` heavy.
+- Goal **image-forward / illustration-led / photo-led** (key art, an illustrated hero, an editorial photo essay, a spot illustration, a poster whose payload *is* the image) → `imagery` leads; `graphic-composition` + `perception-and-color` heavy. (For a code illustration, imagery defaults to duotone/Swiss and renders→looks→refines — line 23.)
 - Goal **a new, ownable style** → dispatch `developing-style` and weight it heavily (it invents the style; you deploy and protect it).
 - Goal **adopt an existing brand** → `brand-capture` leads and its Brand Direction binds everyone.
 State the weights in the shared brief so every specialist knows who leads and why.
