@@ -111,15 +111,18 @@ VARS=[("mt1","Isometric · faceted","the mountain as a low-poly 3-D solid — di
       ("mt4","Flat vector · layered","overlapping flat ridges + mist — the classic editorial landscape",mt4),
       ("mt5","Gradient · painterly","soft dusk gradients + glow — atmospheric, moody, the most 'fine-art'",mt5)]
 for k,n,d,fn in VARS: open(f"{k}.svg","w").write(fn())
-cards="".join(f'<figure><div class="p">{fn()}</div><figcaption><b>{n}</b><span>{d}</span></figcaption></figure>' for k,n,d,fn in VARS)
+WIN={"mt3":"★ FAVOURITE · duotone","mt2":"② 2ND · Swiss"}
+def badge(k): return f'<span class="badge">{WIN[k]}</span>' if k in WIN else ''
+cards="".join(f'<figure class="{"win" if k in WIN else ""}"><div class="p">{fn()}</div><figcaption>{badge(k)}<b>{n}</b><span>{d}</span></figcaption></figure>' for k,n,d,fn in VARS)
 HTML=f'''<!doctype html><html><head><meta charset="utf-8"><title>A mountain — five art styles</title><style>
 body{{margin:0;background:#100e14;color:#efe7d6;font-family:system-ui,sans-serif}}
 h1{{text-align:center;font-weight:600;padding:34px 0 4px;font-size:23px}} .s{{text-align:center;color:#9a90a7;margin:0 0 24px;font-size:13px}}
 .grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:26px;max-width:1120px;margin:0 auto;padding:0 26px 60px}}
 figure{{margin:0}} .p svg{{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 6px 26px #000a}}
 figcaption{{padding:10px 2px}} figcaption b{{display:block;font-size:14px}} figcaption span{{display:block;color:#9a90a7;font-size:11.5px;margin-top:2px;line-height:1.4}}
+ .win .p svg{{outline:2.5px solid #f4c95d;outline-offset:3px}} .badge{{display:inline-block;background:#f4c95d;color:#1a1712;font-size:9px;font-weight:700;letter-spacing:0.5px;padding:2px 8px;border-radius:9px;margin-bottom:5px}}
 </style></head><body><h1>A mountain — one concept, five art styles</h1>
-<p class="s">The same concept piece in five leans (incl. isometric), so iso-as-art can be judged against the rest.</p>
+<p class="s">One concept, five art styles. <b>★ duotone = the favourite; ② Swiss = second.</b> Iso wins constructed/geometric, loses on mood.</p>
 <div class="grid">{cards}</div></body></html>'''
 open("mountain.html","w").write(HTML)
 print(f"wrote mountain.html + {len(VARS)} svgs")

@@ -188,7 +188,9 @@ VARS=[("m1","Swiss / subtractive","one huge Mars, a whisper of a trajectory, dee
       ("m5","Isometric Mars base","the settlement built from an iso projection — domes, lander, panels (Pohl pole)",m5)]
 for key,name,desc,fn in VARS:
     open(f"{key}.svg","w").write(fn(key))
-cards="".join(f'<figure><div class="p">{fn(key)}</div><figcaption><b>{name}</b><span>{desc}</span></figcaption></figure>' for key,name,desc,fn in VARS)
+WIN={"m2":"★ FAVOURITE · duotone","m1":"② 2ND · Swiss"}
+def badge(k): return f'<span class="badge">{WIN[k]}</span>' if k in WIN else ''
+cards="".join(f'<figure class="{"win" if key in WIN else ""}"><div class="p">{fn(key)}</div><figcaption>{badge(key)}<b>{name}</b><span>{desc}</span></figcaption></figure>' for key,name,desc,fn in VARS)
 HTML=f'''<!doctype html><html><head><meta charset="utf-8"><title>NASA → Mars — five leans</title><style>
 body{{margin:0;background:#0d0b12;color:#efe7d6;font-family:system-ui,sans-serif}}
 h1{{text-align:center;font-weight:600;padding:34px 0 4px;font-size:24px}}
@@ -196,8 +198,9 @@ h1{{text-align:center;font-weight:600;padding:34px 0 4px;font-size:24px}}
 .grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:26px;max-width:1180px;margin:0 auto;padding:0 26px 60px}}
 figure{{margin:0}} .p svg{{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 6px 26px #000a}}
 figcaption{{padding:10px 2px}} figcaption b{{display:block;font-size:14px}} figcaption span{{display:block;color:#9a90a7;font-size:11.5px;margin-top:2px;line-height:1.4}}
+ .win .p svg{{outline:2.5px solid #f4c95d;outline-offset:3px}} .badge{{display:inline-block;background:#f4c95d;color:#1a1712;font-size:9px;font-weight:700;letter-spacing:0.5px;padding:2px 8px;border-radius:9px;margin-bottom:5px}}
 </style></head><body><h1>NASA → Mars — five leans, one skill</h1>
-<p class="sub">Same subject, five directions. Two are the validated leans you liked; three suit the space brief.</p>
+<p class="sub">Same subject, five leans. <b>★ duotone = the favourite; ② Swiss = second</b> — the two banked winners; the other three were not picked.</p>
 <div class="grid">{cards}</div></body></html>'''
 open("mars.html","w").write(HTML)
 print(f"wrote mars.html + {len(VARS)} svgs")
