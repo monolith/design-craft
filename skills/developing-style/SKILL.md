@@ -15,6 +15,10 @@ A repeatable method for building **your own** distinct visual style — a person
 
 Labels: **[STRONG]** = peer-reviewed evidence (gate-verified 3-of-3) · **[CONVENTION]** = sound practice, thin evidence · **[extracted]** = primary-sourced, not gate-verified in this skill's pass · **[MYTH]** = claim that failed adversarial verification, do not use. Sources + the full proven/convention/myth split are in the reference.
 
+## User direction comes first
+
+This skill develops style **in service of the user's intent** — but unlike its sibling skills, **a vague or missing style direction is its activation condition, not a blocker**. It serves four modes: **(1) refine** a style the user is developing; **(2) lead** style development in the user's place when their direction is very vague; **(3) fill the gaps** a high-level direction leaves open; **(4) invent** the more distinctive look a user wants but can't name. When a confirmed direction exists (modes 1, 3), its register (self-effacing ↔ expressive) bounds the invention — a self-effacing intent gets a quiet signature (felt order, held constants), not a loud device. When direction is vague or open (modes 2, 4), develop candidate styles/directions and **put them to the user for confirmation** — through the art-director (the orchestrator) in a team run, directly when used standalone — before the design is built on them. Don't demand specificity the user doesn't have; don't treat the gap as license to skip confirmation.
+
 ## When to use
 
 - Inventing a signature look from a blank page; a brief that says "unlike anything," "recognizable," "ownable."

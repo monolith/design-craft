@@ -13,6 +13,10 @@ design-craft's **house look** — the recognizable "hand" that makes its output 
 
 **Core principle — it adds a look; it never breaks a rule.** This is the *most overridable* layer in the plugin: it yields to the four floors, every evidence skill, and the user.
 
+## User direction comes first
+
+Choosing or applying a house template **is a direction choice, and direction belongs to the user** — it sets intent, mood, and register (self-effacing ↔ expressive). In a team run the art-director (the orchestrator) makes this call inside a direction already **confirmed with the user**; standalone, confirm the template choice with the user before building on it. **If no confirmed direction has been handed to you, ask first** — a template is never a substitute for the user's intent.
+
 ## The iron rule — subordinate to the four floors
 
 This skill is **subordinate to** `graphical-perception-and-color`, `charting`, `interface-ux-and-layout`, and `typography`. It may **never contradict** them. Anything produced under this style **must pass their binding floors**. When the look and a binding rule collide, **the rule wins and the look bends** — every time.

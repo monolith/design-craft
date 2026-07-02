@@ -52,6 +52,10 @@ demonstrates the colour wheel and its harmony schemes, the chart palettes, and t
 
 **Full research trail:** the deep-research behind this skill — every claim with its confidence label, named study, one-line evidence, and adversarial verdict (26 findings across 3 research + 3 review workflows) — in [references/graphical-perception-and-color-research.md](references/graphical-perception-and-color-research.md). The **complete raw per-agent corpus** — all 78 source extractions and 225 adversarial verifications, verbatim — is in [references/graphical-perception-and-color-corpus.md](references/graphical-perception-and-color-corpus.md). Read either to audit any claim below against its source.
 
+## User direction comes first
+
+This skill applies its lever inside a **creative direction that belongs to the user** — intent, mood, and register (self-effacing ↔ expressive). In a design-craft team run the direction arrives from the art-director (the orchestrator), already **confirmed with the user**, in the shared brief. Used standalone, it comes from whoever invoked the skill. **If no confirmed direction has been handed to you, ask for it — the art-director in a team run, the user otherwise — before making any direction-shaping choice.** The skill's defaults and reflexes are never a substitute for the user's intent.
+
 ## Quick Reference (decision rules)
 
 | Decision | Rule | Confidence |

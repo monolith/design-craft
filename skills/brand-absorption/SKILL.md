@@ -22,6 +22,10 @@ brand's **"hand"** — are **not** capturable from the image; *"style is fully m
 is a flagged **[MYTH]** (style-transfer research → [[developing-style]]). So every absorption has two
 halves, and the second is mandatory.
 
+## User direction comes first
+
+Here the direction is **captured from an existing brand**, so what must be handed in is the **brand source and scope** (site, guidelines, assets; what the work may and may not change) — from the art-director (the orchestrator) in a team run, or from the user standalone. **If the brand source or scope is missing or ambiguous, ask before capturing** — never guess a brand's identity. The resulting Brand Direction binds the team, but the user still confirms it (via the art-director's Step-1 gate) before anything is built.
+
 ## Boundary — the fourth posture
 
 design-craft has four ways to relate to a "look." Pick by verb:

@@ -33,6 +33,10 @@ gallery: [references/charts/index.html](references/charts/index.html).
 
 **Full research trail:** the deep-research behind this skill — 9 findings with full statistics, the **3 refuted claims**, and all 24 sources (from a 107-agent run + a 105-agent sibling) — in [references/charting-research.md](references/charting-research.md); the short distilled version is [references/evidence-tufte-principles.md](references/evidence-tufte-principles.md). The **complete raw per-agent corpus** — all 47 source extractions and 150 adversarial verifications, verbatim — is in [references/charting-research-corpus.md](references/charting-research-corpus.md).
 
+## User direction comes first
+
+This skill applies its lever inside a **creative direction that belongs to the user** — intent, mood, and register (self-effacing ↔ expressive). In a design-craft team run the direction arrives from the art-director (the orchestrator), already **confirmed with the user**, in the shared brief. Used standalone, it comes from whoever invoked the skill. **If no confirmed direction has been handed to you, ask for it — the art-director in a team run, the user otherwise — before making any direction-shaping choice.** The skill's defaults and reflexes are never a substitute for the user's intent.
+
 ## The core moves
 
 These are the moves common to every form in the gallery. They are the skill.
