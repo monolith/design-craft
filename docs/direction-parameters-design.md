@@ -3,11 +3,11 @@
 > Design working-doc produced by a 14-agent review workflow (2026-07-01): mapped every specialist
 > skill's real "levers", designed a parameter schema + orchestrator elicitation protocol against that
 > map, and adversarially checked it. This is the source of record for the parameter work; the
-> distilled decision lives in the conversation. Not yet implemented in `agents/dc-orchestrator.md`.
+> distilled decision lives in the conversation. Not yet implemented in `agents/orchestrator.md`.
 
 ## Review summary — what exists vs the gap
 
-**Already there.** `dc-orchestrator` Step 1 *proposes* a free-form prose "direction" over four axes
+**Already there.** `orchestrator` Step 1 *proposes* a free-form prose "direction" over four axes
 (genre/reference-world, mood, positioning, the feeling the viewer leaves with) and stops for confirm/
 redirect; Step 2 derives a structural signature, assigns each `dc-*` agent a weight, and names ONE
 goal-matched leading agent (luxury→branding, poster→composition, data→charting, app→layout,
@@ -89,7 +89,7 @@ substantive + 1 confirm.
   Direction overrides the preset and binds everyone; developing-style yields.
 - **Mood** raises secondary weights and fills every dial default; **refining dials** scale their
   specialists; **distinctiveness=ownable** authorizes developing-style's full invent-a-style method.
-- **dc-orchestrator writes ONE shared brief** from the FINAL dial values — a named line per specialist.
+- **orchestrator writes ONE shared brief** from the FINAL dial values — a named line per specialist.
   Every dial lists its consumer, so a dial no one reads is a defect.
 - **mood→Aaker** translation is mandatory before briefing branding (luxury→sophistication;
   corporate→competence; mystical→sophistication+excitement; brutalist→ruggedness;
@@ -129,12 +129,12 @@ substantive + 1 confirm.
 
 ## Orchestrator edits (deferred until direction is locked)
 
-Edit `agents/dc-orchestrator.md`: (A) add two non-negotiables (direction via parameters; every param
+Edit `agents/orchestrator.md`: (A) add two non-negotiables (direction via parameters; every param
 binds to a lever + floors never params); (B) replace Step-1 free-prose-first with the tiered dial table
 + preset library + question protocol + propose-then-confirm/stop rule/adopt-existing branch, keeping the
 four-axis paragraph as the interview's *output*; (C) retitle Step 2 to derive from confirmed dial values
 + add the dial→brief propagation table + mood→Aaker block + weight-scaling + brand-absorption override +
-charting-is-mood-deaf reminder; (D) add "floors are never dials" clause; (E) `dc-orchestrator.md` gets a
+charting-is-mood-deaf reminder; (D) add "floors are never dials" clause; (E) `orchestrator.md` gets a
 step-0 "consume the confirmed dials, write one shared brief with a named line per specialist, verify
 every dial has a consumer before dispatch."
 

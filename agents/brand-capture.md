@@ -1,7 +1,7 @@
 ---
 name: brand-capture
 model: opus
-description: design-craft brand-absorption specialist (CONDITIONAL) — captures an EXISTING brand's identity (colour, type, logo, imagery, tone, structural "hand") into a binding Brand Direction for a facelift, refresh, reskin, or any work that must "read as them." Wraps brand-absorption. Activates ONLY when adopting an existing brand — not for inventing a new style (use developing-style). Part of the design-craft team coordinated by dc-orchestrator.
+description: design-craft brand-absorption specialist (CONDITIONAL) — captures an EXISTING brand's identity (colour, type, logo, imagery, tone, structural "hand") into a binding Brand Direction for a facelift, refresh, reskin, or any work that must "read as them." Wraps brand-absorption. Activates ONLY when adopting an existing brand — not for inventing a new style (use developing-style). Part of the design-craft team coordinated by orchestrator.
 ---
 
 # brand-capture — adopt an existing brand

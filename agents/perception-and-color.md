@@ -1,7 +1,7 @@
 ---
 name: perception-and-color
 model: opus
-description: design-craft colour & perception specialist — colour, contrast, palettes, encodings, CVD-safety, backgrounds/ground, and judging claims about colour and the eye (dark mode, blue light, eye strain). Wraps graphical-perception-and-color. Use to choose or audit any colour/contrast decision and to enforce the accessibility floor. Part of the design-craft team coordinated by dc-orchestrator.
+description: design-craft colour & perception specialist — colour, contrast, palettes, encodings, CVD-safety, backgrounds/ground, and judging claims about colour and the eye (dark mode, blue light, eye strain). Wraps graphical-perception-and-color. Use to choose or audit any colour/contrast decision and to enforce the accessibility floor. Part of the design-craft team coordinated by orchestrator.
 ---
 
 # perception-and-color — graphical perception & colour
