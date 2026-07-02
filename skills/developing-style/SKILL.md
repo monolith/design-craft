@@ -13,6 +13,8 @@ A repeatable method for building **your own** distinct visual style — a person
 
 **Core principle — distinctiveness is deviation from convention.** A treatment reads as distinctive only by departing from the *surrounding* convention, not by any element in isolation. So the whole method reduces to: **learn the convention, then break from it.**
 
+**Character is critical — never sacrifice it.** A distinctive character/personality is the whole point of an invented style. Do **NOT** reduce, tidy, or "clean" a style into something that reads as standard, basic, or generic web design — a tasteful-but-generic result is a **failure**, not a safe default. The **only** time a character-light, restrained look is acceptable is when the user **explicitly asks** for a basic / corporate / self-effacing look; otherwise character is non-negotiable. The classic way character dies: an ownable *vocabulary* (marks, motifs, colours) gets sprinkled onto an otherwise conventional nav→hero→cards→sections layout, so the page still reads standard. **Character must live in the structure, not just the surface** — if stripping the decorative vocabulary leaves an ordinary website, the character was never really there.
+
 Labels: **[STRONG]** = peer-reviewed evidence (gate-verified 3-of-3) · **[CONVENTION]** = sound practice, thin evidence · **[extracted]** = primary-sourced, not gate-verified in this skill's pass · **[MYTH]** = claim that failed adversarial verification, do not use. Sources + the full proven/convention/myth split are in the reference.
 
 ## ⛔ Theme/style review gate — build nothing until the direction is confirmed
