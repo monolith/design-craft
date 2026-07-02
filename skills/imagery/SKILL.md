@@ -153,6 +153,25 @@ constructed scaffold + craft density + a distinctive authored hand**, spanning s
 Favre) to ornate/data-dense (Ngai, Lupi). The design-craft move is to **imitate that structure and
 DEVIATE** — never adopt any one signature whole.
 
+**In practice — the validated, ranked leans** *(vision-loop-tested + confirmed by Anatoly's like/not
+across many subjects; full record + worked examples →
+[references/imagery-gallery/APPROVED-LEANS.md](references/imagery-gallery/APPROVED-LEANS.md)):*
+1. **Duotone blockprint** *(default favourite)* — two inks far apart in value, bold tapered wedges, carved
+   rings, silhouettes in the light ink, faint grain (≤ 0.12, dark areas only). Reads as *made*, not rendered.
+2. **Swiss / subtractive** — one hero form, huge negative space, three colours, flush-left type. The most
+   abstract; wrong when the piece must *say* something (its beauty comes from dropping information).
+3. **Isometric** — **niche only:** op-art / geometric abstraction, games / "little worlds", how-it-works
+   explainers. Wins on dimensional, constructed, *playable* craft; **loses on mood & atmosphere** — a gradient
+   or flat piece beats it on an evocative concept. Not for feeling or representational scenes.
+4. **Flat-vector** — neutral default when a friendly, literal illustration is wanted.
+5. **Blueprint / wireframe** — only when the subject literally *is* a schematic / wireframe / orbit diagram.
+
+**Default to duotone or Swiss** unless the subject calls for a niche lean. **Always render → look → refine —
+never author blind:** generate the SVG, rasterise it (`@resvg/resvg-js`, SVG→PNG, no system libs), *look* at
+the result, and fix it before shipping — this is how every lean above was validated. Representational faces,
+animals, and photographs stay **select-or-commission** (Anthropic has no image-generation model, so "generate"
+here means code + this loop, nothing more).
+
 **What a code-capable assistant genuinely BUILDS — the reproducible layer** *[extracted — artists' stated process]*:
 - **Parametric isometric / axonometric construction** — build objects from a projection *system* and expose
   the scaffold; density is *constructed*, not hand-composed. Buildable in SVG/Python. *(Pohl, F1 — "treat illustration as construction".)*
