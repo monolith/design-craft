@@ -19,6 +19,8 @@ A repeatable method for building **your own** distinct visual style — a person
 
 **A re-skin or a background texture is not a style.** A swapped palette or a texture laid over a default layout is still the default — distinctiveness must be *structural*. And on **skeuomorphism**: it *can* read dated when it's a lazy default, but it is a legitimate, often powerful tool for **character** when it genuinely fits the concept — **do not discount it.** Choose it, like every move, by fit, not reflex.
 
+**Lean HARD into the theme.** A merely competent, restrained expression of the theme still reads generic — commit to it *fully*. Push the theme further than feels safe; that intensity is what differentiates a style from the others in the set. **Under-committing** — a tasteful, dialled-back take that gestures at the theme instead of fully inhabiting it — is a common way character dies even when the craft is clean. When in doubt: more theme, not less.
+
 Labels: **[STRONG]** = peer-reviewed evidence (gate-verified 3-of-3) · **[CONVENTION]** = sound practice, thin evidence · **[extracted]** = primary-sourced, not gate-verified in this skill's pass · **[MYTH]** = claim that failed adversarial verification, do not use. Sources + the full proven/convention/myth split are in the reference.
 
 ## ⛔ Theme/style review gate — build nothing until the direction is confirmed
