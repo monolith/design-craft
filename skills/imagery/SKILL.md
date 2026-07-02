@@ -174,8 +174,10 @@ across many subjects; full record + worked examples →
 **Default to duotone or Swiss** unless the subject calls for a niche lean. **Always render → look → refine —
 never author blind:** generate the SVG, rasterise it (`@resvg/resvg-js`, SVG→PNG, no system libs), *look* at
 the result, and fix it before shipping — this is how every lean above was validated. Representational faces,
-animals, and photographs stay **select-or-commission** (Anthropic has no image-generation model, so "generate"
-here means code + this loop, nothing more).
+animals, and photographs can now be **generated free via [[generative-imagery]]** (Pollinations.ai) — a raster
+background, texture, or mood/illustrative asset, run through the same look → refine loop. It still fails at
+in-image text, logos, real people/brands, and exact detail, so those stay **select-or-commission**; and the
+no-cheap-graphic-for-luxury rule applies to whatever it produces.
 
 **What a code-capable assistant genuinely BUILDS — the reproducible layer** *[extracted — artists' stated process]*:
 - **Parametric isometric / axonometric construction** — build objects from a projection *system* and expose
