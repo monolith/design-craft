@@ -67,6 +67,7 @@ Imagery is one lever; it defers the rest.
 | Set the mood | Image *content* reliably sets emotional register — choose the subject/scene for the feeling, deliberately. | [STRONG] |
 | A person looking at something | Point the model's **gaze at the subject/product** — viewers follow it (~4×). But gaze moves *attention/intent*, **not liking**. | [STRONG] attention / [CONVENTION] intent |
 | Smiling vs neutral model | Smiling lifts product evaluation & intent — **except luxury/premium**, where neutral reads more premium. | [STRONG, luxury boundary] |
+| Cheap graphic vs none (luxury/premium) | **No graphic beats a cheap graphic.** A weak/cheap image cheapens a premium brand more than empty space does — **omit rather than cheapen**; only ship an asset that meets the register. Imagery may *lead* the asset creation for premium work, but never fills the gap with something cheap. | [CONVENTION, luxury] |
 | Caption / label placement | Put it **near** the image, not far — corresponding words+picture together. | [STRONG] |
 | "Compose on the rule of thirds" | Does **not** predict photo quality. A low-stakes framing heuristic at most, never a guarantee. | [MYTH as quality-predictor] |
 | Photo vs illustration | Photo = concrete/credible; illustration = abstract/ownable/flexible. Illustration direction = a **constructed scaffold** (§4). | [CONVENTION] |
