@@ -44,6 +44,13 @@ Keyless GET — no API key, no auth:
 ## Vision-loop — never ship blind
 Generate → **Read the image** → judge it against the confirmed direction → refine the prompt → regenerate. One prompt rarely lands; 2–4 iterations do. (Same loop [[imagery]] and the render pipeline use — authoring blind is the mistake.)
 
+## Motion from a still — no video model needed
+Pollinations makes stills, not video, and no *free* text-to-video model runs here (Fooocus-class img2img needs a GPU we don't have — checked). Two techniques give real motion for free, each with a right use:
+- **Ken-Burns over ONE strong still — the tasteful move.** A slow zoom + drift over a single generated image via `ffmpeg zoompan`; **ping-pong** it (forward + reversed) for a seamless loop. **Generate large (≥1600px)** so the crop stays sharp. This is *the* way to animate a generated photo — cinematic, on-register.
+- **Do NOT morph a pile of unrelated generations.** Cross-dissolving independent stills has no temporal coherence and reads **cheap** (verified — rejected). Coherent AI-frame stop-motion would need img2img (GPU); not available.
+- **A fully *synthesised* moving texture — no still at all** (animated static, flicker, blur, a phosphor screen) is pure `ffmpeg`; **drawn** stop-motion of an instrument is [[imagery]] (SVG frames → resvg → ffmpeg). Use those when the motion must be on-brand and controlled; use Ken-Burns when the payload *is* a generated photo.
+- Tooling: `ffmpeg` runs from a **static binary (no root)**; honour `prefers-reduced-motion` (ship a still poster frame).
+
 ## Integration — the design-craft floors and rules still apply
 - **Honor the confirmed direction + palette.** Defer colour to [[graphical-perception-and-color]]; composition and figure-ground to [[composition-and-design-theory]].
 - **Alt-text floor (WCAG 1.1.1):** every meaningful generated image gets real alt text; decorative → `alt=""`. Shared with [[imagery]].
