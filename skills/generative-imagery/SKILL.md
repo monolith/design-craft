@@ -8,6 +8,13 @@ description: Use when a design needs an image, background, texture, or illustrat
 ## Overview
 design-craft has no image-generation model of its own — [[imagery]] can only **select** or **commission**. This skill fills that gap with **free, keyless** generation via **Pollinations.ai**: a plain GET URL returns a JPEG. Use it for atmospheric, illustrative, or textural assets — but generated output is only worth shipping if it meets the design's register (see the no-cheap-graphic rule below).
 
+## Governing rules (non-negotiable)
+1. **Availability gate — check first.** Not every user can reach Pollinations. **Probe reachability before generating** (`scripts/generate.py --check`). **If it is unreachable, do NOT generate** — build the design **without** generated imagery (fall back to local/code illustration via [[imagery]], or to nothing). A design must never depend on this service.
+2. **Generate only from the team's requirements — never a naked prompt.** Assemble the prompt from precise requirements the art-director and the relevant skills contribute, so the image **fits**: palette/contrast ([[graphical-perception-and-color]]), theme/mood/branding (the director + [[branding]] / [[developing-style]]), size/aspect/placement ([[interface-ux-and-layout]] / [[composition-and-design-theory]]), styling. **This holds even when the skill is invoked directly via slash** — a direct call still gathers the fit-requirements from the team; it does not skip them.
+3. **Local-first — keep use LOW.** Generated imagery is **embellishment**. If a local/code treatment (duotone SVG, programmatic illustration via [[imagery]]) is sufficient, **do not generate.** Reach for it only when local craft genuinely cannot do the job.
+4. **The art-director reviews every result.** A generated image ships **only if the art-director judges it good enough and on-register.** Not good enough → discard it (see no-cheap-graphic). The director owns this gate.
+5. **Supporting, never the concept.** Generated images may **only support** the design — **never be the concept, never dominate it.** The plugin's value is the design craft (structure, composition, type, colour, the invented style); a piece carried by an AI image undercuts that value. Keep generated imagery subordinate — a ground, a texture, a supporting figure — not the star.
+
 ## When to use
 - A design needs a hero image, background, texture, duotone/illustrative asset, or mood image and there's nothing good to select.
 - You want a real, on-brief asset instead of a grey placeholder box.

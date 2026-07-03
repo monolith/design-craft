@@ -44,6 +44,16 @@ def list_models(timeout=20):
         print(r.read().decode())
 
 
+def available(timeout=8):
+    """True if Pollinations is reachable. CHECK THIS BEFORE GENERATING — if it
+    returns False, do NOT generate: build the design without generated imagery."""
+    try:
+        with urllib.request.urlopen(urllib.request.Request(MODELS_URL, headers=UA), timeout=timeout):
+            return True
+    except Exception:
+        return False
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Generate an image via Pollinations.ai (free, keyless).")
     ap.add_argument("prompt", nargs="?", help="describe the LOOK, not literal text/logos")
@@ -53,7 +63,12 @@ if __name__ == "__main__":
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--model", default="sana", help="must be in /models (see --list-models)")
     ap.add_argument("--list-models", action="store_true", help="print the live model list and exit")
+    ap.add_argument("--check", action="store_true", help="probe availability; print available/unavailable, exit 0 if reachable else 1")
     a = ap.parse_args()
+    if a.check:
+        ok = available()
+        print("available" if ok else "unavailable")
+        sys.exit(0 if ok else 1)
     if a.list_models:
         list_models()
         sys.exit(0)
