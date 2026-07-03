@@ -36,6 +36,11 @@ Keyless GET — no API key, no auth:
 - Set aspect via `width`/`height`. Lock a look with one `seed`; vary the seed to explore.
 - Describe the **look**, never literal text or logos.
 
+## What actually works (craft — reusable)
+- **Generate the theme's MATERIAL / TEXTURE / atmosphere, not its literal OBJECT.** A photo of the theme's *device* (a CRT for a terminal, a leaf for a botanical style, a coin for finance) reads as **dated costume** and clashes with the design's own vocabulary — exactly what to avoid. An abstract, treated **surface / grain / ground** delivers the same payoff (the lit material a flat drawing can't fake) while staying supporting and on-register.
+- **Treat and colour-match the result to the design's own key values.** Match the generated image's peak values to the palette's *live* values, and match its framing to the design's spatial vocabulary — flat / head-on for a flat design; a receding 3D "data-plane" reads as generic stock. Then it reads as **one material with the design**, not imported stock.
+- **Place it as ground / texture in negative space** — dimmed, behind opaque content, contained in a frame — so it adds material depth without competing with the data or risking the AA floor (keep text off it, or keep the texture faint enough that overlaid captions still clear AA).
+
 ## Vision-loop — never ship blind
 Generate → **Read the image** → judge it against the confirmed direction → refine the prompt → regenerate. One prompt rarely lands; 2–4 iterations do. (Same loop [[imagery]] and the render pipeline use — authoring blind is the mistake.)
 
