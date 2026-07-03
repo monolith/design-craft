@@ -207,6 +207,14 @@ no-cheap-graphic-for-luxury rule applies to whatever it produces.
   This *is* [[developing-style]]'s method (imitate an *unfamiliar* domain → reduce → hold constants): **hand
   style-invention to it.** This skill executes the *reproducible* build and *selects/commissions* the hand.
 
+### Motion — programmatic stop-motion *(capability; code-drawn, controlled deltas)*
+When a piece needs **motion** and there is no video model (no *free* one runs locally — see [[generative-imagery]]), draw it frame-by-frame and stitch it:
+- **Pipeline:** author each frame as an SVG (the same code-illustration hand) → rasterise to PNG with **`@resvg/resvg-js`** (SVG→PNG, no browser, no system libs) → stitch with **ffmpeg** (a static binary runs with no root). Add a loop-back frame for a clean loop.
+- **True stop-motion = many frames, *minor* deltas each — and the deltas are code, so they're exact and on-brief:** a scope that *accretes* a trace one segment per frame, a 7-seg readout that ticks, a level bar that fills, a lamp bank that steps. Run at a **stop-motion cadence (~8–12 fps)**, not smooth 24 — the slight step reads as intentional instrumentation, not a cheap tween.
+- **This is the opposite of morphing generated stills.** Cross-dissolving independent generated stills has no temporal coherence and reads **cheap**; coherent *AI-frame* stop-motion would need img2img (a GPU tool not available free/here). So — **for crafted, on-theme motion, DRAW the frames here.** For generated *atmosphere* in motion, the only tasteful generated-still move is a slow **Ken-Burns pan/zoom over ONE strong still** (→ [[generative-imagery]]); never fake stop-motion by morphing a pile of unrelated generations.
+- **Floor:** honour `prefers-reduced-motion` (ship a still poster frame as the fallback).
+- **Worked example (shipped):** a flat-modern Terminal signal-scope — 52 SVG frames, the trace accreting one segment per frame + a ticking 7-seg readout, resvg→ffmpeg at 12 fps.
+
 ## 5. Accessibility & integrity — the floor this skill owns *(WCAG standard + craft)*
 
 Imagery adds one floor to the design-craft set: **non-text content has a text alternative (WCAG 1.1.1,
