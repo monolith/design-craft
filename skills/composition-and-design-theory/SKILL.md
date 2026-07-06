@@ -90,6 +90,8 @@ formula — the labels mark where the ground is firm.
 
 This skill applies its lever inside a **creative direction that belongs to the user** — intent, mood, and register (self-effacing ↔ expressive). In a design-craft team run the direction arrives from the art-director (the orchestrator), already **confirmed with the user**, in the shared brief. Used standalone, it comes from whoever invoked the skill. **If no confirmed direction has been handed to you, ask for it — the art-director in a team run, the user otherwise — before making any direction-shaping choice.** The skill's defaults and reflexes are never a substitute for the user's intent.
 
+**Don't compose a concept too literally.** Express a theme — even a confirmed one — through **structure, geometry, and arrangement**, not by staging the literal objects its name suggests (a *Prism* is constructed geometry and a colour-mix, not a drawn prism and a rainbow). The literal, on-the-nose reading is a recurring, expensive failure — default to the abstract and evocative, and depict the concept's literal props **only when the user explicitly asks.**
+
 ## When to use
 
 - Composing any artifact where arrangement carries meaning: posters, identities, covers, slides, key art,

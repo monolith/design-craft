@@ -43,6 +43,8 @@ to that loop, not a substitute for running it.
 
 This skill applies its lever inside a **creative direction that belongs to the user** — intent, mood, and register (self-effacing ↔ expressive). In a design-craft team run the direction arrives from the art-director (the orchestrator), already **confirmed with the user**, in the shared brief. Used standalone, it comes from whoever invoked the skill. **If no confirmed direction has been handed to you, ask for it — the art-director in a team run, the user otherwise — before making any direction-shaping choice.** The skill's defaults and reflexes are never a substitute for the user's intent.
 
+**Don't render a concept too literally.** A theme or concept — even a confirmed one — is a **register to evoke, not an object to draw.** Take it to the abstract level (geometry, treatment, tonal hand); do NOT depict the literal thing its name names — a *Prism* is refracted geometry and a colour-mix, not a drawn glass prism; a *cloud* theme is not weather clip-art. On-the-nose literal depiction is cheap and a recurring failure — default to the abstract and evocative, and make a literal illustration **only when the user explicitly asks for it.**
+
 ## Boundary — how this composes with the sibling skills
 
 Imagery is one lever; it defers the rest.
