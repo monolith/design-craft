@@ -57,6 +57,6 @@ The operable-machine structure (bracket-frame bays + silkscreen legends/channel 
 - One magenta pop live once; flat "spent once" documentation chips are reference, not a second emphasis.
 - All four floors hold (AA computed on the dark wells, chart honesty, legibility, focus/44px). The look bends to the rule, always.
 
-## Provenance
+## The built page — ships with this skill
 
-Built and gate-passed in the design-craft style lab, Round 10 v5 ("The Field Guide"), refining the locked round-9 "Deck" direction: scored review by all 9 specialists (lowest 8.5), art-director final pass 9.4. Live artifact: `design-craft-style/round10/terminal.html` (lab repo).
+**[`templates/terminal.html`](templates/terminal.html)** is the complete, self-contained working design this doc distills — open it to see every token, move, and floor in use. Provenance: built and gate-passed through scored multi-agent review (all nine specialist lenses, lowest 8.5; art-director final pass 9.4 against a locked, user-confirmed direction).

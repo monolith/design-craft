@@ -55,7 +55,7 @@ Above the seven evidence skills sit three skills about *style* — all **strictl
 
 | Skill | Owns | One-line |
 |---|---|---|
-| **house-style-templates** | *apply* design-craft's own house look (reference-only, no agent) | A library of **five directional house-look templates** — Meridian · Ledger · Terminal · Deepfield · Prism/ATELIER — each a baseline (register, tokens, type kit, move-set) a real design is *expected* to diverge from per the user's needs; the most overridable layer, declared taste. |
+| **house-style-templates** | *apply* design-craft's own house look (reference-only, no agent) | A library of **five directional house-look templates** — Meridian · Ledger · Terminal · Deepfield · Prism/ATELIER — each a baseline (register, tokens, type kit, move-set) a real design is *expected* to diverge from per the user's needs; the five **full built pages ship in the skill** (`references/templates/`, self-contained with fonts + assets); the most overridable layer, declared taste. |
 | **developing-style** | *invent* a new, ownable style | An evidence-based, repeatable process for an original, distinctive style: learn the convention, then deviate — imitate-then-deviate from an *unfamiliar* domain, reduce to a small vocabulary, hold a few constants. Style-formation research bundled in `references/`. |
 | **brand-absorption** | *follow* an existing brand (conditional) | Capture an existing brand's colour, type, logo, imagery, and structural "hand" into a binding Brand Direction for a facelift/reskin — so the work still reads as *them*, not the house style. |
 

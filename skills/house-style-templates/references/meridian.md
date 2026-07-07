@@ -61,6 +61,6 @@ Off-white ground · hairline order (rules, mono eyebrows, indices) · ONE reserv
 - One pop, spent once, live — everywhere else it may appear only as a labeled "spent once" documentation chip.
 - All four floors hold (AA computed, chart honesty, legibility, focus/44px targets). The look bends to the rule, always.
 
-## Provenance
+## The built page — ships with this skill
 
-Built and gate-passed in the design-craft style lab, Round 10 ("The Credible Default"): scored review by all 9 specialists (lowest 9.0), art-director final pass 9.3 against the locked direction. Live artifact: `design-craft-style/round10/meridian.html` (lab repo).
+**[`templates/meridian.html`](templates/meridian.html)** is the complete, self-contained working design this doc distills — open it to see every token, move, and floor in use. Provenance: built and gate-passed through scored multi-agent review (all nine specialist lenses, lowest 9.0; art-director final pass 9.3 against a locked, user-confirmed direction).

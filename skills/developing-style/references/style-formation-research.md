@@ -64,7 +64,7 @@ Distinctiveness is **deviation from the surrounding convention** — so the oper
 4. **Locate the signature in a few held constants** — the minor handling repeated across *everything* (a spacing rhythm, one structural mark, a numeric treatment), not a hero flourish.
 5. **Novel *and* coherent.** Deviation must read against today's convention and still hold together — surprise, not noise.
 
-*(This maps cleanly onto the style lab: the 5 styles are deviation-from-convention; each holds a few constants = its hand; matching-tones + sparse-pop = the reduction lever.)*
+*(This maps cleanly onto the five house templates: each is deviation-from-convention; each holds a few constants = its hand; matching-tones + sparse-pop = the reduction lever.)*
 
 ## → How this seeds the `brand-adoption` skill
 

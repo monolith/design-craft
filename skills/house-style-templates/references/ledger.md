@@ -60,6 +60,6 @@ Cream laid stock · the engraved two-ink hand · hairline rules holding columns 
 - One cinnabar pop live once; labeled palette-teaching specimens are documentation, not a second emphasis.
 - All four floors hold (AA measured, chart honesty, legibility, focus/44px). The look bends to the rule, always.
 
-## Provenance
+## The built page — ships with this skill
 
-Built and gate-passed in the design-craft style lab, Round 10: scored review by all specialists (lowest 9.0 after one fix round), art-director final pass 9.5 — the strongest scorer of the set. Live artifact: `design-craft-style/round10/ledger.html` (lab repo).
+**[`templates/ledger.html`](templates/ledger.html)** is the complete, self-contained working design this doc distills — open it to see every token, move, and floor in use. Provenance: built and gate-passed through scored multi-agent review (all nine specialist lenses, lowest 9.0 after one fix round; art-director final pass 9.5 — the strongest scorer of the set).

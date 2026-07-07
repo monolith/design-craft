@@ -58,6 +58,6 @@ The dominant saturated geometric colour-mix (frequent alternation, never spectru
 - One cool gunmetal pop spent once — the exuberance budget is the field, not the accents.
 - All four floors hold (AA via verified pairings for every plate fill, chart honesty, legibility, focus/44px). The look bends to the rule, always.
 
-## Provenance
+## The built page — ships with this skill
 
-Reconceived and gate-passed in the design-craft style lab, Round 11 ("Couture-Constructivism"), after Anatoly rejected the literal prism/spectrum builds and confirmed flavour C; proof-first loop (4 confirmed proofs) before the full build; scored panel, art-director final pass 9.2. Live artifact: `design-craft-style/round10/prism.html` (lab repo). Binding direction: `round10/directions/prism-luxury-redirect.md`.
+**[`templates/prism.html`](templates/prism.html)** is the complete, self-contained working design this doc distills — open it to see every token, move, and floor in use. Provenance: reconceived after earlier literal prism/spectrum builds were rejected by the user, direction re-confirmed as couture-constructivism, look proven on small proofs before the full build; scored multi-agent panel, art-director final pass 9.2.
