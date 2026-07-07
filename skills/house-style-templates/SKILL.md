@@ -13,7 +13,7 @@ design-craft's **house look** — the recognizable "hand" that makes its output 
 
 ## The library — five directional templates
 
-Each template is a complete directional baseline: register, when-to-pull / wrong-for, colour tokens, type kit, and the structural move-set. Full spec in its reference file.
+Each template ships in two forms, both in this skill: a **reference doc** (`references/<name>.md` — register, when-to-pull / wrong-for, colour tokens, type kit, structural move-set, held constants) and the **complete built page** (`references/templates/<name>.html` — the final working design, self-contained with its fonts and assets; open it in a browser or copy it as the literal starting file). The doc is the distilled contract; the page is the canonical artifact.
 
 | Template | File | Register | One-line identity |
 |---|---|---|---|
@@ -104,7 +104,7 @@ defaults** below are the starting point — they hold unless the brief or the us
 
 ## Provenance
 
-All five templates were built in the design-craft style lab through scored multi-agent rounds: every page assembled from specialist-authored fragments, scored by all nine specialist lenses against per-round gates (none below 8.5, leads ≥9), and passed an art-director final review of ≥9 against an Anatoly-confirmed direction (final passes 9.2–9.5, Rounds 10–11, 2026-07). The reference docs are the distilled, binding essence of those builds; the live artifacts live in the lab repo (`design-craft-style/round10/`).
+All five templates were built through scored multi-agent rounds: every page assembled from specialist-authored fragments, scored by all nine specialist lenses against per-round gates (none below 8.5, leads ≥9), and passed an art-director final review of ≥9 against a user-confirmed direction (final passes 9.2–9.5, 2026-07). The built pages in `references/templates/` are those final artifacts, shipped whole; the reference docs are their distilled, binding essence.
 
 ## Defers to
 

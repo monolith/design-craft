@@ -1,0 +1,2639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>design·craft</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='15.4'%20fill='%23efe9da'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='14'%20fill='none'%20stroke='%238a7338'%20stroke-width='1.3'/%3E%3Ctext%20x='9.6'%20y='21.6'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='18'%20fill='%2320201b'%3Ed%3C/text%3E%3Ctext%20x='22.4'%20y='21.6'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='18'%20fill='%2320201b'%3Ec%3C/text%3E%3Ccircle%20cx='16'%20cy='16'%20r='1.9'%20fill='%2317533d'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts.css">
+<!-- LEDGER · Round 10 — builder assembly of nine specialist fragments over the round-9 base.
+     Direction: engraved-prospectus LUXURY. Eleven numbered chapters (I to XI), rare act-break seam on
+     #instruments / #sk-charting / #coda only, one cinnabar (--pop #c0362c) spent once as the coda
+     closing seal. Round-9 external-image sections and layered-area chart retired; imagery re-supplies
+     self-contained engraved plates. Self-contained: fonts.css + assets/ledger/* only. -->
+<style>:root{
+  --paper:#efe9da; --ink:#20201b; --ink-soft:#3a382f; --muted:#5f5a4c;
+  --accent:#17533d; --accent-deep:#0f3d2d; --pop:#c0362c;
+  --brass:#8a7338; --brass-soft:#b39a5c;
+  --rule:#d6cdb8; --rule-soft:#e2dac8; --panel:#e8e1cf; --neg:#8a3324;
+  --display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --text:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --maxw:1120px; --pad:clamp(20px,5vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;color:var(--ink);font-family:var(--text);font-size:1.0625rem;line-height:1.62;
+  -webkit-font-smoothing:antialiased;background-color:var(--paper);
+  background-image:repeating-linear-gradient(0deg,rgba(58,48,26,.015) 0 1px,transparent 1px 4px)}
+h1,h2,h3{margin:0;font-weight:400}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* skip link — first focusable, hidden until focused */
+.skip-link{position:absolute;left:12px;top:-72px;z-index:100;display:inline-flex;align-items:center;
+  min-height:44px;padding:10px 18px;background:var(--ink);color:var(--paper);text-decoration:none;
+  font-family:var(--mono);font-size:13px;letter-spacing:.04em;border-radius:2px}
+.skip-link:focus{top:12px}
+.skip-link:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* engraved labels */
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";display:inline-block;width:6px;height:6px;margin-right:11px;vertical-align:1px;
+  transform:rotate(45deg);background:var(--brass)}
+/* roman plate enumerator — the one shared new class binding the 11 chapter eyebrows */
+.r10-plate{font-weight:700;color:var(--ink);letter-spacing:.12em}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:10;background:var(--paper);
+  border-top:2px solid var(--brass);border-bottom:1.5px solid var(--ink)}
+.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:70px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:400;font-size:26px;
+  letter-spacing:0;text-decoration:none;text-shadow:0 1px 0 rgba(255,253,247,.6),0 -1px 1px rgba(40,32,18,.05)}
+.brand b{color:var(--accent)}
+.brand-mark{width:32px;height:32px;flex:none;display:block}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+  text-decoration:none;color:var(--ink-soft);padding:14px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{border-color:var(--accent);color:var(--ink)}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:11px 0;text-decoration:none;cursor:pointer;
+  font-family:var(--text);font-weight:600;font-size:15px;color:var(--accent);border-bottom:2px solid var(--accent)}
+.btn--primary::after{content:" \2192";margin-left:.35em}
+.btn--ghost{color:var(--ink-soft);border-bottom-color:var(--brass-soft)}
+.btn:hover{color:var(--accent-deep);border-bottom-color:var(--accent-deep)}
+.btn--sm{min-height:44px;font-size:13px;font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase}
+
+/* hero = engraved certificate head */
+.hero{position:relative;padding:clamp(52px,8vw,96px) 0;
+  border-bottom:1px solid var(--ink);box-shadow:0 3px 0 -1.5px var(--brass)}
+.hero::after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);
+  width:66px;height:16px;background:var(--paper)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%238a7338' stroke-width='1'%3E%3Cpath d='M1 7h12M33 7h12'/%3E%3Cpath d='M23 1.5 28 7 23 12.5 18 7Z'/%3E%3C/g%3E%3Ccircle cx='15' cy='7' r='1.1' fill='%238a7338'/%3E%3Ccircle cx='31' cy='7' r='1.1' fill='%238a7338'/%3E%3C/svg%3E") center/46px 14px no-repeat}
+.hero--split .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(30px,5vw,64px);align-items:center}
+.hero .eyebrow{letter-spacing:.26em}
+.hero h1{font-family:var(--display);font-size:clamp(56px,9vw,108px);line-height:1.0;letter-spacing:0;margin:18px 0 0;
+  text-shadow:0 1px 0 rgba(255,253,247,.6),0 -1px 1px rgba(40,32,18,.05)}
+.lede{font-size:clamp(17px,1.7vw,20px);line-height:1.55;color:var(--ink-soft);max-width:54ch;margin:22px 0 0}
+.cta-row{display:flex;flex-wrap:wrap;gap:30px;margin-top:32px;align-items:center}
+.proof{display:flex;align-items:center;gap:11px;margin-top:30px;font-size:13.5px;color:var(--muted)}
+.proof .spark{flex:none}
+.proof strong{color:var(--accent);font-weight:600;border-bottom:1.5px solid var(--brass-soft);white-space:nowrap}
+@media(max-width:820px){.hero--split .wrap{grid-template-columns:1fr}}
+
+/* hero seal (informative engraved image) */
+.hero-seal{margin:0;display:flex;justify-content:center;align-items:center}
+.seal{width:100%;max-width:420px;height:auto;display:block}
+
+/* hero proof sparkline */
+.spark{display:inline-block;vertical-align:middle}
+.spark polyline{fill:none;stroke:var(--accent);stroke-width:1.7;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.spark .dot{fill:var(--accent)}
+
+/* generic section (ruled top hairline; NO folio number) */
+.section{padding:clamp(46px,7vw,82px) 0;border-top:1px solid var(--rule)}
+/* act-break: the hero's engraved filet + fleuron recurs at the three major boundaries only */
+.section.act{border-top:0;position:relative}
+.section.act > .wrap{padding-top:clamp(48px,7vw,84px)}
+.section.act > .wrap::before{content:"";position:absolute;left:var(--pad);right:var(--pad);top:0;height:15px;
+  border-top:2px solid var(--brass);box-shadow:0 3px 0 -1.5px var(--ink);
+  background:var(--paper)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%238a7338' stroke-width='1'%3E%3Cpath d='M1 7h12M33 7h12'/%3E%3Cpath d='M23 1.5 28 7 23 12.5 18 7Z'/%3E%3C/g%3E%3Ccircle cx='15' cy='7' r='1.1' fill='%238a7338'/%3E%3Ccircle cx='31' cy='7' r='1.1' fill='%238a7338'/%3E%3C/svg%3E") center/46px 15px no-repeat}
+.section-head{max-width:60ch;margin-bottom:34px}
+.section-head h2{font-family:var(--display);font-size:clamp(32px,4.4vw,52px);line-height:1.02;margin:12px 0 0}
+.section-head p{color:var(--ink-soft);margin:14px 0 0;max-width:54ch}
+
+/* the signature statement (a left-rail engraved colophon) */
+.signature .wrap{display:grid;grid-template-columns:minmax(190px,300px) 1fr;gap:clamp(28px,5vw,66px);align-items:start}
+.signature .section-head{margin-bottom:0}
+.signature .sig-body{max-width:62ch}
+.signature p{margin:0 0 16px;font-size:clamp(16px,1.4vw,18.5px);line-height:1.68;color:var(--ink-soft)}
+.signature p:last-child{margin-bottom:0}
+.signature .drop::first-letter{font-family:var(--display);font-size:3.1em;line-height:.72;float:left;
+  margin:.06em .1em 0 0;color:var(--accent)}
+@media(max-width:760px){.signature .wrap{grid-template-columns:1fr;gap:24px}}
+
+/* data table (shared; used by the type + ux chapters) */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl thead th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  text-align:right;font-weight:600;padding:0 0 11px;border-bottom:1.5px solid var(--ink)}
+.tbl thead th:first-child{text-align:left}
+.tbl td{padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink-soft);text-align:right}
+.tbl td:first-child{text-align:left;color:var(--ink);font-weight:500}
+.tbl td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.tbl tbody tr:last-child td{border-bottom:1.5px solid var(--ink)}
+.tbl .pos{color:var(--accent)} .tbl .neg{color:var(--neg)}
+.tbl td.pop{color:var(--ink);font-weight:700}
+
+/* navigation demo (shared; used by the ux chapter) */
+.nav-demo{display:grid;gap:24px}
+.menubar{border:1px solid var(--rule);background:var(--paper);overflow:hidden}
+.menubar .top{display:flex;align-items:center;gap:4px;padding:0 10px;min-height:56px;border-bottom:1px solid var(--rule)}
+.menubar .mi{display:inline-flex;align-items:center;min-height:44px;padding:0 15px;font-size:14px;color:var(--ink-soft)}
+.menubar .mi.open{background:var(--panel);color:var(--ink);font-weight:600}
+.menubar .mi .car{color:var(--muted);font-size:11px;margin-left:6px}
+.megamenu{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 26px;padding:22px 26px 26px}
+.megamenu h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:600}
+.megamenu a{display:flex;align-items:center;min-height:44px;text-decoration:none;color:var(--ink-soft);font-size:14px}
+.megamenu a:hover{color:var(--accent)}
+.crumbs{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:0 9px;align-items:center}
+.crumbs a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-soft);text-decoration:none}.crumbs a:hover{color:var(--accent)}
+.crumbs .sep{color:var(--muted)}.crumbs b{color:var(--ink);font-weight:600}
+.tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--rule)}
+.tabs a{padding:13px 17px;font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--accent);font-weight:600}
+
+/* stat strip (coda; hairline, tabular) */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.stat{padding:28px 24px 28px 0;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:0}
+.stat .num{font-family:var(--display);font-size:52px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat .lab{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:12px;line-height:1.45}
+
+/* coda certified seal — the ONE cinnabar spend, page-wide */
+.coda-head{max-width:none;display:flex;align-items:center;justify-content:space-between;gap:22px 30px;flex-wrap:wrap}
+.coda-seal{flex:none}
+.coda-seal-svg{width:clamp(98px,13vw,118px);height:auto;display:block;transform:rotate(-4deg)}
+.coda-arc{font-family:var(--mono);font-size:8px;letter-spacing:.1em;fill:var(--pop)}
+.coda-word{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.13em;fill:var(--pop)}
+
+/* footer */
+.site-foot{border-top:1.5px solid var(--ink);padding:44px 0;font-size:14px;color:var(--ink-soft)}
+.site-foot .wrap{display:flex;flex-wrap:wrap;gap:22px 28px;align-items:center}
+.site-foot .brand{font-size:22px}
+.site-foot small{color:var(--muted)}
+.site-foot .nav{margin-left:auto}
+.site-foot .nav a{color:var(--muted);font-size:11px}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+}</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#hero">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <circle cx="16" cy="16" r="15.4" fill="var(--paper)"/>
+        <circle cx="16" cy="16" r="14" fill="none" stroke="var(--brass)" stroke-width="1.3"/>
+        <text x="9.6" y="21.6" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="var(--ink)">d</text>
+        <text x="22.4" y="21.6" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="18" fill="var(--ink)">c</text>
+        <circle cx="16" cy="16" r="1.9" fill="var(--accent)"/>
+      </svg>design<b>·</b>craft</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#hero" aria-current="page">Overview</a>
+      <a href="#instruments">Instruments</a>
+      <a href="#coda">Evidence</a>
+      <a href="#sk-house">Reference</a>
+    </nav>
+    <a class="btn btn--sm" href="#style" style="margin-left:8px">Install</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--split" id="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Evidence-based design system</p>
+        <h1>Design that earns its ink.</h1>
+        <p class="lede">Colour, charts, type, and layout that read as one body of work — proven over
+        fashionable, every choice inside the accessibility floor.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="#style">Install the plugin</a>
+          <a class="btn btn--ghost" href="#sk-charting">See it on real data</a>
+        </div>
+        <p class="proof">
+          <svg class="spark" width="92" height="26" viewBox="0 0 92 26" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="1,20 14,17 27,18 40,10 53,13 66,6 79,8 91,2"/>
+            <circle class="dot" cx="91" cy="2" r="2.3"/>
+          </svg>
+          Every colour pairing is <strong>computed for WCAG AA</strong>, never eyeballed.
+        </p>
+      </div>
+      <figure class="hero-seal">
+        <img src="assets/ledger/hero-seal.svg" class="seal" alt="The design·craft engraved guilloché seal — the maker's mark, set as a security engraving.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section signature" id="signature">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The signature</p>
+        <h2>Engraved to last.</h2>
+      </div>
+      <div class="sig-body">
+        <p class="drop">A design system set like a security engraving: a high-contrast serif marquee pressed
+        into heritage stock, hairline rules holding every column true, and a single deep-green mark spent only
+        where a decision is made. The brass is foil — it edges the page, it never speaks.</p>
+        <p>It reads the way old money sounds: certain, unhurried, with nothing to prove. Built to be trusted
+        with the number today, and to still look composed a decade from now.</p>
+      </div>
+    </div>
+  </section>
+
+<style>
+/* ===== developing-style sections — namespaced r10-ds-* ===== */
+
+/* #style — world + belongs/doesn't register (an engraved eligibility notice) */
+.r10-ds-world{max-width:62ch;margin:0 0 36px}
+.r10-ds-world p{margin:0 0 15px;color:var(--ink-soft)}
+.r10-ds-world p:last-child{margin-bottom:0}
+.r10-ds-world .strong{color:var(--ink);font-weight:600}
+.r10-ds-reg{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.3;
+  color:var(--ink);margin:0 0 18px;max-width:24ch;
+  text-shadow:0 1px 0 rgba(255,253,247,.6),0 -1px 1px rgba(40,32,18,.05)}
+
+.r10-ds-fit{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,5vw,64px)}
+@media(max-width:720px){.r10-ds-fit{grid-template-columns:1fr;gap:26px 0}}
+.r10-ds-fit-col{min-width:0}
+/* the certificate rule: a brass foil filet set over an ink hairline — a held constant */
+.r10-ds-fit-h{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 4px;padding-bottom:12px;
+  border-bottom:2px solid var(--brass);box-shadow:0 3px 0 -1.5px var(--ink)}
+.r10-ds-fit ul{list-style:none;margin:0;padding:0}
+.r10-ds-fit li{position:relative;padding:14px 0 13px 26px;border-top:1px solid var(--rule);
+  font-size:15px;line-height:1.5;color:var(--ink-soft)}
+.r10-ds-fit li:first-child{border-top:0}
+.r10-ds-fit li b{color:var(--ink);font-weight:600}
+.r10-ds-fit li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;
+  transform:rotate(45deg);border-radius:1px}
+.r10-ds-suits li::before{background:var(--accent)}          /* filled green lozenge = a decision is made here */
+.r10-ds-avoid li::before{background:transparent;border:1.4px solid var(--muted)}  /* open = withhold */
+
+/* #sk-style — formation story + specimen sheet */
+.r10-ds-method{max-width:64ch;margin:0 0 30px}
+.r10-ds-method p{margin:0 0 15px;color:var(--ink-soft)}
+.r10-ds-method p:last-child{margin-bottom:0}
+.r10-ds-method .strong{color:var(--ink);font-weight:600}
+.r10-ds-kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin:30px 0 10px}
+.r10-ds-kick::before{content:"";display:inline-block;width:6px;height:6px;margin-right:11px;
+  vertical-align:1px;transform:rotate(45deg);background:var(--brass)}
+.r10-ds-note{max-width:62ch;color:var(--ink-soft);font-size:15px;line-height:1.6;margin:0}
+
+/* preclude -> substitute derivation (paired-constraint deviation, on the record) */
+.r10-ds-derive{margin:14px 0 4px;border-top:1px solid var(--rule)}
+.r10-ds-drow{display:grid;grid-template-columns:1fr 22px 1fr;gap:16px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--rule)}
+.r10-ds-derive .pre{color:var(--muted);font-size:14.5px;text-decoration:line-through;
+  text-decoration-color:var(--rule);text-decoration-thickness:1px}
+.r10-ds-derive .arw{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:center}
+.r10-ds-derive .sub{color:var(--ink);font-size:14.5px;font-weight:500}
+@media(max-width:640px){.r10-ds-drow{grid-template-columns:1fr;gap:2px}.r10-ds-derive .arw{display:none}}
+
+/* the reduced vocabulary, shown as an engraved specimen plate */
+.r10-ds-sheet{margin:12px 0 14px;display:grid;gap:0;
+  grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
+  border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.r10-ds-cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:15px 15px 14px;display:flex;flex-direction:column;gap:11px}
+.r10-ds-cell .lab{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.r10-ds-cell .role{font-size:12.5px;line-height:1.42;color:var(--ink-soft)}
+.r10-ds-cell .role b{color:var(--ink);font-weight:600}
+.r10-ds-spec{height:48px}
+.r10-ds-swatch{height:48px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(40,32,18,.18)}
+.r10-ds-sw-paper{background:var(--paper);
+  background-image:repeating-linear-gradient(0deg,rgba(58,48,26,.06) 0 1px,transparent 1px 4px)}
+.r10-ds-sw-ink{background:var(--ink)}
+.r10-ds-sw-green{background:var(--accent)}
+.r10-ds-sw-brass{background:linear-gradient(135deg,var(--brass-soft),var(--brass) 58%,#6f5c2b);
+  box-shadow:inset 0 0 0 1px rgba(40,32,18,.3)}
+.r10-ds-sw-pop{background:var(--pop)}
+.r10-ds-guil{height:48px;width:100%;display:block}
+.r10-ds-guil circle,.r10-ds-guil ellipse{fill:none;vector-effect:non-scaling-stroke}
+.r10-ds-guil .gr-o{stroke:var(--ink);stroke-width:.5;opacity:.5}
+.r10-ds-guil .gr-e{stroke:var(--ink);stroke-width:.5;opacity:.72}
+.r10-ds-guil .gr-e2{stroke:var(--accent);stroke-width:.5;opacity:.6}
+.r10-ds-guil .gr-c{fill:var(--accent)}
+.r10-ds-marque{height:48px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:38px;line-height:1;color:var(--ink);
+  text-shadow:0 1px 0 rgba(255,253,247,.6),0 -1px 1px rgba(40,32,18,.05)}
+.r10-ds-marque .dot{color:var(--accent)}
+.r10-ds-hair{height:48px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.r10-ds-hair span{display:block;height:0}
+.r10-ds-hair .r{border-top:1px solid var(--rule)}
+.r10-ds-hair .b{border-top:2px solid var(--brass)}
+.r10-ds-hair .i{border-top:1px solid var(--ink);opacity:.5}
+.r10-ds-press{height:48px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:26px;color:color-mix(in srgb,var(--ink) 84%,var(--paper));letter-spacing:.01em;
+  text-shadow:0 1px 0 rgba(255,253,247,.95),0 -1px 0 rgba(40,32,18,.22),0 2px 3px rgba(40,32,18,.30)}
+</style>
+
+<section class="section" id="style">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The house style</p>
+      <h2>What it is, and where it belongs.</h2>
+      <p>A plain account of the house style — the world it lives in, the small set of
+      marks it is built from, and the pages it was made to be set on.</p>
+    </div>
+
+    <div class="r10-ds-world">
+      <p class="r10-ds-reg">Quiet authority — the confidence is the restraint.</p>
+      <p>The house style is set as a <span class="strong">security engraving</span>. Its world is the
+      heritage instrument of record: the engraved certificate, the private-bank prospectus, the document
+      you are handed rather than shown. A cream laid stock carries the page; a high-contrast serif marquee
+      is pressed into it; hairline rules hold every column true; a guilloché rosette stands where a maker's
+      mark belongs; brass edges the page as <span class="strong">foil</span> and never as voice; and a
+      single deep-green mark is spent only where a decision is actually made.</p>
+      <p>Its register does not raise its voice, because the restraint is the argument — the fewer marks a
+      page spends, the more each one is worth. It reads the way old money speaks: certain, unhurried, with
+      nothing to prove. Opulent, calm, exact. You should feel you are holding something engraved, expensive,
+      and permanent.</p>
+    </div>
+
+    <div class="r10-ds-fit">
+      <div class="r10-ds-fit-col r10-ds-suits">
+        <p class="r10-ds-fit-h">Reach for it</p>
+        <ul>
+          <li><b>Prospectuses,</b> offering documents, and annual letters</li>
+          <li><b>Wealth, heritage,</b> and private-bank identities</li>
+          <li><b>Certificates,</b> credentials, and instruments of record</li>
+          <li><b>Editorial reports</b> meant to be kept, not skimmed</li>
+          <li><b>High-trust</b> financial and legal surfaces</li>
+          <li>Any page whose value is that it looks <b>permanent</b></li>
+        </ul>
+      </div>
+      <div class="r10-ds-fit-col r10-ds-avoid">
+        <p class="r10-ds-fit-h">Set it aside for</p>
+        <ul>
+          <li><b>Playful</b> consumer apps, toys, and games</li>
+          <li><b>High-density dashboards</b> that must flash loud, fast signals</li>
+          <li><b>Fast-moving SaaS</b> that re-skins itself each quarter</li>
+          <li>Anything that must feel <b>cheap, urgent, or casual</b></li>
+          <li><b>Discount,</b> flash-sale, and growth-hacky surfaces</li>
+          <li>Interfaces where <b>speed of scanning</b> must beat gravitas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ═══ graphic-composition · round 10 · namespaced r10-comp-* ═══ */
+
+/* plate enumerator — the numbered through-line that binds the 11 chapters (echoes the #instruments index) */
+.r10-comp-plate{color:var(--ink);font-weight:700;font-style:normal;letter-spacing:.12em}
+
+/* ── #instruments · the enumerated index (proximity grouping shown as a real table of contents) ── */
+.r10-comp-lede{color:var(--ink-soft);max-width:60ch;margin:0 0 30px}
+.r10-comp-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(322px,1fr));gap:0 clamp(30px,4vw,54px)}
+.r10-comp-idx{display:grid;grid-template-columns:3.2em 1fr;align-items:baseline;gap:0 14px;
+  min-height:44px;padding:15px 4px 14px;border-top:1px solid var(--rule);text-decoration:none;color:inherit}
+.r10-comp-idx:hover{box-shadow:inset 3px 0 0 -1px var(--brass-soft)}
+.r10-comp-idx:hover .r10-comp-idx-name{color:var(--accent)}
+.r10-comp-idx-num{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);
+  text-align:right;font-variant-numeric:tabular-nums}
+.r10-comp-idx-name{display:block;font-family:var(--text);font-weight:600;font-size:17px;
+  letter-spacing:-.01em;color:var(--ink);line-height:1.2}
+.r10-comp-idx-owns{display:block;font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:4px;max-width:42ch}
+
+/* ── #sk-composition · the live annotated demonstration ── */
+.r10-comp-copy p{color:var(--ink-soft);max-width:60ch;margin:0 0 15px}
+.r10-comp-copy p:last-of-type{margin-bottom:0}
+.r10-comp-demo{margin-top:38px}
+.r10-comp-demo-head{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 22px;padding-bottom:11px;border-bottom:1px solid var(--rule)}
+.r10-comp-figure{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:clamp(26px,4vw,54px);align-items:start}
+@media(max-width:760px){.r10-comp-figure{grid-template-columns:1fr}}
+.r10-comp-dwg{width:100%;height:auto;display:block}
+.r10-comp-dwg .g-frame{fill:none;stroke:var(--brass);stroke-width:2}
+.r10-comp-dwg .g-frame2{fill:none;stroke:var(--brass-soft);stroke-width:.6}
+.r10-comp-dwg .g-guide{stroke:var(--brass);stroke-width:.5;stroke-dasharray:1 4;opacity:.55}
+.r10-comp-dwg .g-ink{fill:var(--ink)}
+.r10-comp-dwg .g-soft{stroke:var(--muted);fill:none}
+.r10-comp-dwg .g-acc{stroke:var(--accent);fill:none}
+.r10-comp-dwg .g-rule{stroke:var(--rule);stroke-width:1}
+.r10-comp-dwg .g-brass{stroke:var(--brass);fill:none}
+.r10-comp-dwg .g-eng{stroke:var(--ink);fill:none}
+.r10-comp-dwg .g-fleuron{fill:var(--brass)}
+.r10-comp-dwg .g-rn{font-family:var(--mono);font-size:7px;fill:var(--muted)}
+.r10-comp-dwg .g-mk{fill:var(--accent)}
+.r10-comp-dwg .g-mkt{fill:var(--paper);font-family:var(--mono);font-size:10px;font-weight:700}
+.r10-comp-legend{list-style:none;margin:0;padding:0}
+.r10-comp-key{display:grid;grid-template-columns:26px 1fr;gap:0 14px;align-items:start;
+  padding:13px 0;border-top:1px solid var(--rule)}
+.r10-comp-chip{width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--paper);
+  font-family:var(--mono);font-size:11px;font-weight:700;line-height:22px;text-align:center;margin-top:1px}
+.r10-comp-key strong{display:block;font-family:var(--text);font-weight:600;font-size:15px;color:var(--ink)}
+.r10-comp-key span{display:block;font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:3px}
+.r10-comp-key cite{display:block;font-family:var(--mono);font-size:11px;font-style:normal;
+  letter-spacing:.03em;color:var(--muted);margin-top:5px}
+.r10-comp-close{margin-top:26px;padding-top:18px;border-top:1.5px solid var(--ink);
+  color:var(--ink-soft);max-width:64ch;font-size:15px}
+
+/* ── #sk-house · the template register (library of five, built) ── */
+.r10-comp-tpl{border:1px solid var(--rule);background:var(--panel);margin-top:28px}
+.r10-comp-tpl-row{display:grid;grid-template-columns:minmax(190px,250px) 1fr;gap:10px 28px;
+  padding:22px;border-top:1px solid var(--rule)}
+.r10-comp-tpl-row:first-child{border-top:0}
+.r10-comp-tpl-name{font-family:var(--display);font-size:22px;color:var(--ink);line-height:1.14}
+.r10-comp-tpl-when{font-size:14px;line-height:1.56;color:var(--ink-soft)}
+.r10-comp-tpl-when b{font-family:var(--mono);font-weight:600;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.r10-comp-tpl-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);display:inline-block;margin-top:9px}
+.r10-comp-tpl-row--wip .r10-comp-tpl-name{font-style:italic;color:var(--muted);font-size:19px}
+.r10-comp-tpl-row--wip .r10-comp-tpl-when{color:var(--muted)}
+@media(max-width:640px){.r10-comp-tpl-row{grid-template-columns:1fr}}
+</style>
+
+<section class="section act" id="instruments">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The complete set</p>
+      <h2>The eleven instruments.</h2>
+    </div>
+    <p class="r10-comp-lede">Eleven instruments make up the set. Each owns one lever of the craft and
+    defers the rest, so they compose instead of contradict — colour to the colourist, type to the
+    typesetter, the chart to the one who reads data. Below is the full index; every line opens its chapter.</p>
+
+    <nav class="r10-comp-index" aria-label="Index of the eleven design-craft instruments">
+      <a class="r10-comp-idx" href="#sk-style">
+        <span class="r10-comp-idx-num">I</span>
+        <span><span class="r10-comp-idx-name">Developing style</span>
+        <span class="r10-comp-idx-owns">Invents a new, ownable visual style when convention won't do.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-composition">
+        <span class="r10-comp-idx-num">II</span>
+        <span><span class="r10-comp-idx-name">Composition &amp; design theory</span>
+        <span class="r10-comp-idx-owns">Arrangement, hierarchy, gestalt, figure-ground, meaning.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-color">
+        <span class="r10-comp-idx-num">III</span>
+        <span><span class="r10-comp-idx-name">Colour &amp; perception</span>
+        <span class="r10-comp-idx-owns">Palettes, contrast, encoding, colour-blind safety.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-type">
+        <span class="r10-comp-idx-num">IV</span>
+        <span><span class="r10-comp-idx-name">Typography</span>
+        <span class="r10-comp-idx-owns">Typefaces, scale, measure, leading, tabular figures.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-charting">
+        <span class="r10-comp-idx-num">V</span>
+        <span><span class="r10-comp-idx-name">Charting</span>
+        <span class="r10-comp-idx-owns">The right honest chart form, drawn data-ink-minimal.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-imagery">
+        <span class="r10-comp-idx-num">VI</span>
+        <span><span class="r10-comp-idx-name">Imagery</span>
+        <span class="r10-comp-idx-owns">Selecting, treating, and directing photograph and illustration.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-ux">
+        <span class="r10-comp-idx-num">VII</span>
+        <span><span class="r10-comp-idx-name">UX &amp; layout</span>
+        <span class="r10-comp-idx-owns">Page structure, grids, navigation, usable targets.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-branding">
+        <span class="r10-comp-idx-num">VIII</span>
+        <span><span class="r10-comp-idx-name">Branding</span>
+        <span class="r10-comp-idx-owns">The mark, personality, and status read of an identity.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-brand-absorption">
+        <span class="r10-comp-idx-num">IX</span>
+        <span><span class="r10-comp-idx-name">Brand absorption</span>
+        <span class="r10-comp-idx-owns">Capturing an existing brand into a binding direction.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-generative-imagery">
+        <span class="r10-comp-idx-num">X</span>
+        <span><span class="r10-comp-idx-name">Generative imagery</span>
+        <span class="r10-comp-idx-owns">Generating on-brief imagery when none can be selected.</span></span></a>
+      <a class="r10-comp-idx" href="#sk-house">
+        <span class="r10-comp-idx-num">XI</span>
+        <span><span class="r10-comp-idx-name">House-style templates</span>
+        <span class="r10-comp-idx-owns">The reusable house-look reference library.</span></span></a>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="sk-style">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">I</b>&nbsp;&nbsp;Developing-style</p>
+      <h2>How the marque was drawn.</h2>
+      <p>Map the surrounding convention, borrow from a domain outside it, reduce to a small
+      fixed vocabulary, and hold a few marks constant on every page.</p>
+    </div>
+
+    <div class="r10-ds-method">
+      <p>Developing-style is the house method for a look that could belong to no one else. Distinctiveness
+      is not decoration added to a page — it is <span class="strong">deviation from the surrounding
+      convention</span>, so the method is: name the category's defaults, then leave them. It runs in one
+      motion — study a model from a domain you never draw from and deviate from it (a familiar exemplar only
+      fixates you), reduce the result to a tight, repeatable move-set, and hold a few of those marks constant
+      everywhere.</p>
+      <p>Reach for it when a design keeps arriving generic or derivative, when a brief asks for something
+      ownable and unlike its category, or — as here — when the look must be developed in the client's place.
+      The evidence is plain on one point: the character has to live in the <span class="strong">structure</span>,
+      not sprinkled on top of a standard layout. Strip the ornament and an ordinary website must not be left
+      behind.</p>
+    </div>
+
+    <p class="r10-ds-kick">The convention it left</p>
+    <p class="r10-ds-note">The category is the evidence-based design-system page and the SaaS marketing site:
+    a dark hero, a gradient mesh, glass cards with drop shadows, one neon accent, sans-serif throughout. On
+    the formal axes that norm sits <em>painterly, open, soft-edged</em> — glowing and edgeless.</p>
+
+    <p class="r10-ds-kick">The domain it borrowed — unfamiliar on purpose</p>
+    <p class="r10-ds-note">Not another website and not another design tool, but <span style="color:var(--ink)">security-print
+    engraving</span>: heritage stock certificates, banknote guilloché, the private-bank prospectus. Copying an
+    unfamiliar model restructures the work; a familiar one fixates it. We moved the norm to its opposite pole —
+    <em>linear, closed, exact</em>: incised line, ruled edge, precise register.</p>
+
+    <p class="r10-ds-kick">The deviation, on the record — preclude, then substitute</p>
+    <div class="r10-ds-derive" role="table" aria-label="Each conventional element precluded, and its engraved substitute">
+      <div class="r10-ds-drow"><span class="pre">Dark UI hero, gradient mesh</span><span class="arw">→</span><span class="sub">Cream laid stock, letterpress ink</span></div>
+      <div class="r10-ds-drow"><span class="pre">Sans-serif marketing display</span><span class="arw">→</span><span class="sub">High-contrast serif marquee</span></div>
+      <div class="r10-ds-drow"><span class="pre">Neon / glass accent</span><span class="arw">→</span><span class="sub">One deep heritage green, spent once</span></div>
+      <div class="r10-ds-drow"><span class="pre">Drop-shadow cards</span><span class="arw">→</span><span class="sub">Hairline rules and engraved filets</span></div>
+      <div class="r10-ds-drow"><span class="pre">Stock hero photograph</span><span class="arw">→</span><span class="sub">A security-print guilloché seal</span></div>
+      <div class="r10-ds-drow"><span class="pre">Loud filled call-to-action</span><span class="arw">→</span><span class="sub">Engraved-underline call to action</span></div>
+    </div>
+
+    <p class="r10-ds-kick">Reduced to a small vocabulary — the specimen plate</p>
+    <div class="r10-ds-sheet">
+      <div class="r10-ds-cell">
+        <div class="r10-ds-swatch r10-ds-sw-paper r10-ds-spec" aria-hidden="true"></div>
+        <div><div class="lab">Cream laid stock</div><div class="role"><b>The ground.</b> Heritage paper with a faint laid grain — never fresh white.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-swatch r10-ds-sw-ink r10-ds-spec" aria-hidden="true"></div>
+        <div><div class="lab">Engraver's ink</div><div class="role"><b>The body.</b> Warm near-black; every letter pressed into the stock.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-swatch r10-ds-sw-green r10-ds-spec" aria-hidden="true"></div>
+        <div><div class="lab">Heritage green</div><div class="role"><b>The one accent.</b> Spent only where a decision is made.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-swatch r10-ds-sw-brass r10-ds-spec" aria-hidden="true"></div>
+        <div><div class="lab">Brass foil</div><div class="role"><b>The edge.</b> Filet, fleuron, rule — never small text.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-swatch r10-ds-sw-pop r10-ds-spec" aria-hidden="true"></div>
+        <div><div class="lab">Seal red · the pop</div><div class="role"><b>Spent once,</b> on a single key point — not a second accent. Placed by perception-and-color.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <svg class="r10-ds-guil r10-ds-spec" viewBox="0 0 64 64" role="img" aria-label="Guilloché rosette — the engine-turned security-print motif">
+          <circle class="gr-o" cx="32" cy="32" r="30.5"/><circle class="gr-o" cx="32" cy="32" r="23"/>
+          <ellipse class="gr-e" cx="32" cy="32" rx="30" ry="10"/>
+          <ellipse class="gr-e" cx="32" cy="32" rx="30" ry="10" transform="rotate(30 32 32)"/>
+          <ellipse class="gr-e" cx="32" cy="32" rx="30" ry="10" transform="rotate(60 32 32)"/>
+          <ellipse class="gr-e" cx="32" cy="32" rx="30" ry="10" transform="rotate(90 32 32)"/>
+          <ellipse class="gr-e" cx="32" cy="32" rx="30" ry="10" transform="rotate(120 32 32)"/>
+          <ellipse class="gr-e" cx="32" cy="32" rx="30" ry="10" transform="rotate(150 32 32)"/>
+          <ellipse class="gr-e2" cx="32" cy="32" rx="20" ry="6.5"/>
+          <ellipse class="gr-e2" cx="32" cy="32" rx="20" ry="6.5" transform="rotate(45 32 32)"/>
+          <ellipse class="gr-e2" cx="32" cy="32" rx="20" ry="6.5" transform="rotate(90 32 32)"/>
+          <ellipse class="gr-e2" cx="32" cy="32" rx="20" ry="6.5" transform="rotate(135 32 32)"/>
+          <circle class="gr-c" cx="32" cy="32" r="2.6"/>
+        </svg>
+        <div><div class="lab">Guilloché</div><div class="role"><b>The maker's mark.</b> Engine-turned line where a logo would sit.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-marque r10-ds-spec" aria-hidden="true">Marque<span class="dot">.</span></div>
+        <div><div class="lab">Serif marquee</div><div class="role"><b>The voice.</b> High-contrast display serif, set large.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-hair r10-ds-spec" aria-hidden="true"><span class="b"></span><span class="i"></span><span class="r"></span><span class="r"></span></div>
+        <div><div class="lab">Hairline rule</div><div class="role"><b>The structure.</b> Thin rules — the brass filet set over an ink line.</div></div>
+      </div>
+      <div class="r10-ds-cell">
+        <div class="r10-ds-press r10-ds-spec" aria-hidden="true">Pressed</div>
+        <div><div class="lab">Letterpress depth</div><div class="role"><b>The finish.</b> A shallow press behind every display line.</div></div>
+      </div>
+    </div>
+
+    <p class="r10-ds-kick">Held constant on every plate</p>
+    <p class="r10-ds-note">Four marks recur everywhere, and the hand lives in them: the <b style="color:var(--ink);font-weight:600">laid grain</b>
+    in the stock, the <b style="color:var(--ink);font-weight:600">brass filet set over an ink rule</b>, the <b style="color:var(--ink);font-weight:600">single
+    green mark</b> reserved for a decision, and the <b style="color:var(--ink);font-weight:600">letterpress depth</b> in every display line. Take the
+    vocabulary away and these remain — which is where the character actually is. The signature is the form, not the props.</p>
+  </div>
+</section>
+
+<section class="section" id="sk-composition">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-comp-plate">II</b>&nbsp;&nbsp;The composition instrument</p>
+      <h2>Composition &amp; design theory.</h2>
+    </div>
+
+    <div class="r10-comp-copy">
+      <p>Composition is the arrangement lever: where every mark sits, at what size, in what relationship,
+      so the whole field reads as one deliberate, meaningful piece rather than a template. It owns
+      hierarchy, gestalt grouping, figure-ground, the structural signature, and the way meaning arrives
+      from the arrangement itself — three identical lines become a triangle, an <em>H</em>, or a table
+      depending only on how they are joined. Colour, type, chart form and screen layout are handed to the
+      instruments that own them; composition decides the order in which those levers arrive.</p>
+      <p>Reach for it when arranging any artifact where arrangement carries meaning — a certificate, an
+      identity, an editorial spread, a data report, a screen — and when a design keeps reading generic,
+      cluttered, or derivative and you need to name why. Its governing rule: name the single takeaway
+      first, then let every element either advance it or be cut.</p>
+    </div>
+
+    <div class="r10-comp-demo">
+      <p class="r10-comp-demo-head">Demonstrated — this page's own structural signature</p>
+      <div class="r10-comp-figure">
+        <svg class="r10-comp-dwg" viewBox="0 0 320 400" role="img"
+             aria-label="An engraved line schematic of this page's skeleton: a brass-framed cream leaf with a header band, a hero of a large marquee beside a guilloché seal, a recurring filet-and-fleuron act-break, a colophon, and a numbered catalogue of chapters — with six keyed annotation markers.">
+          <!-- felt grid: brass filet frame + inner hairline + margin guides -->
+          <rect class="g-frame" x="10" y="10" width="300" height="380"/>
+          <rect class="g-frame2" x="15" y="15" width="290" height="370"/>
+          <line class="g-guide" x1="26" y1="15" x2="26" y2="385"/>
+          <line class="g-guide" x1="294" y1="15" x2="294" y2="385"/>
+          <!-- header band -->
+          <line class="g-brass" x1="15" y1="17" x2="305" y2="17" stroke-width="1.4"/>
+          <line class="g-eng" x1="15" y1="42" x2="305" y2="42" stroke-width="1"/>
+          <rect class="g-ink" x="26" y="26" width="34" height="8" opacity="0.85"/>
+          <g class="g-soft" stroke-width="1"><line x1="214" y1="30" x2="232" y2="30"/><line x1="240" y1="30" x2="258" y2="30"/><line x1="266" y1="30" x2="284" y2="30"/></g>
+          <!-- hero: marquee bars + lede + cta -->
+          <rect class="g-ink" x="26" y="64" width="150" height="17"/>
+          <rect class="g-ink" x="26" y="87" width="118" height="17"/>
+          <line class="g-soft" x1="26" y1="116" x2="152" y2="116" stroke-width="2"/>
+          <line class="g-soft" x1="26" y1="123" x2="120" y2="123" stroke-width="2"/>
+          <line class="g-acc" x1="26" y1="140" x2="66" y2="140" stroke-width="3"/>
+          <!-- seal: ink engraving over cream ground -->
+          <g transform="translate(246,102)">
+            <circle class="g-brass" r="40" stroke-width="2"/>
+            <circle class="g-frame2" r="36"/>
+            <circle class="g-eng" r="30" stroke-width="0.5" opacity="0.75"/>
+            <circle class="g-eng" r="24" stroke-width="0.5" opacity="0.6"/>
+            <g class="g-eng" stroke-width="0.5" opacity="0.7">
+              <circle cx="0" cy="-14" r="6"/><circle cx="10" cy="-10" r="6"/><circle cx="14" cy="0" r="6"/>
+              <circle cx="10" cy="10" r="6"/><circle cx="0" cy="14" r="6"/><circle cx="-10" cy="10" r="6"/>
+              <circle cx="-14" cy="0" r="6"/><circle cx="-10" cy="-10" r="6"/></g>
+            <circle class="g-acc" r="7" stroke-width="0.9"/>
+          </g>
+          <!-- act-break 1 (recurs) -->
+          <line class="g-brass" x1="26" y1="162" x2="294" y2="162" stroke-width="1.6"/>
+          <line class="g-eng" x1="26" y1="164.6" x2="294" y2="164.6" stroke-width="0.5" opacity="0.4"/>
+          <path class="g-fleuron" d="M160,157 l5,5 l-5,5 l-5,-5 z"/>
+          <!-- colophon -->
+          <line class="g-soft" x1="26" y1="180" x2="58" y2="180" stroke-width="1.4"/>
+          <rect class="g-ink" x="26" y="188" width="74" height="10" opacity="0.82"/>
+          <g class="g-soft" stroke-width="1.5"><line x1="128" y1="182" x2="292" y2="182"/><line x1="128" y1="190" x2="292" y2="190"/><line x1="128" y1="198" x2="270" y2="198"/></g>
+          <!-- act-break 2 (the SAME signature recurs) -->
+          <line class="g-brass" x1="26" y1="220" x2="294" y2="220" stroke-width="1.6"/>
+          <line class="g-eng" x1="26" y1="222.6" x2="294" y2="222.6" stroke-width="0.5" opacity="0.4"/>
+          <path class="g-fleuron" d="M160,215 l5,5 l-5,5 l-5,-5 z"/>
+          <!-- catalogue: numbered chapters -->
+          <g class="g-rn"><text x="26" y="242">I</text><text x="26" y="286">II</text><text x="26" y="330">III</text></g>
+          <rect class="g-ink" x="42" y="235" width="80" height="8" opacity="0.8"/>
+          <line class="g-rule" x1="42" y1="250" x2="294" y2="250"/><line class="g-rule" x1="42" y1="258" x2="294" y2="258"/>
+          <rect class="g-ink" x="42" y="279" width="80" height="8" opacity="0.8"/>
+          <line class="g-rule" x1="42" y1="294" x2="294" y2="294"/><line class="g-rule" x1="42" y1="302" x2="294" y2="302"/>
+          <rect class="g-ink" x="42" y="323" width="80" height="8" opacity="0.8"/>
+          <line class="g-rule" x1="42" y1="338" x2="294" y2="338"/><line class="g-rule" x1="42" y1="346" x2="294" y2="346"/>
+          <!-- annotation markers -->
+          <g text-anchor="middle">
+            <circle class="g-mk" cx="168" cy="72" r="9"/><text class="g-mkt" x="168" y="75.5">1</text>
+            <circle class="g-mk" cx="246" cy="66" r="9"/><text class="g-mkt" x="246" y="69.5">2</text>
+            <circle class="g-mk" cx="46" cy="220" r="9"/><text class="g-mkt" x="46" y="223.5">3</text>
+            <circle class="g-mk" cx="278" cy="258" r="9"/><text class="g-mkt" x="278" y="261.5">4</text>
+            <circle class="g-mk" cx="10" cy="250" r="9"/><text class="g-mkt" x="10" y="253.5">5</text>
+            <circle class="g-mk" cx="30" cy="307" r="9"/><text class="g-mkt" x="30" y="310.5">6</text>
+          </g>
+        </svg>
+
+        <ol class="r10-comp-legend">
+          <li class="r10-comp-key"><span class="r10-comp-chip">1</span>
+            <span><strong>Hierarchy &amp; contrast</strong>
+            <span>The marquee — "Design that earns its ink." — is the one dominant element; scale alone sets the reading order before a word is read.</span>
+            <cite>Principle 9 · hierarchy &amp; contrast [STRONG]</cite></span></li>
+          <li class="r10-comp-key"><span class="r10-comp-chip">2</span>
+            <span><strong>Figure-ground</strong>
+            <span>The seal reads as figure because its inked strokes are darker, convex and surrounded; the cream laid stock stays ground. Engineered, not accidental.</span>
+            <cite>Principle 2 · figure-ground [STRONG · Wagemans 2012]</cite></span></li>
+          <li class="r10-comp-key"><span class="r10-comp-chip">3</span>
+            <span><strong>Similarity &amp; continuity</strong>
+            <span>The brass filet and guilloché fleuron recur unchanged at every act-break, so the eye reads them as one repeating signature binding the whole document.</span>
+            <cite>Principle 10 · gestalt grouping [STRONG]</cite></span></li>
+          <li class="r10-comp-key"><span class="r10-comp-chip">4</span>
+            <span><strong>Proximity</strong>
+            <span>Each chapter's lines share one rail and one hairline register, so separate marks group into a single catalogue line rather than loose text.</span>
+            <cite>Principle 10 · gestalt grouping [STRONG]</cite></span></li>
+          <li class="r10-comp-key"><span class="r10-comp-chip">5</span>
+            <span><strong>The felt grid — Ghost Grid</strong>
+            <span>The brass frame and constant margins state the system by alignment alone; the grid is felt, never drawn — the mark of a premium, restrained layout.</span>
+            <cite>Fusion 19 · Grid + Reduction (principles 1 + 8)</cite></span></li>
+          <li class="r10-comp-key"><span class="r10-comp-chip">6</span>
+            <span><strong>The Specimen</strong>
+            <span>Roman enumerators run I–XI down the catalogue, so eleven chapters read as one numbered specimen set — the page is a catalogue of its own system.</span>
+            <cite>Fusion 23 · Grid + Generative</cite></span></li>
+        </ol>
+      </div>
+
+      <p class="r10-comp-close">The move here is <strong>fusion, not juxtaposition</strong>: every principle
+      above agrees on one quality — quiet engraved authority — and nothing on the page is set to argue with
+      anything else. That is the correct choice for a design whose essence is restraint; forcing a tension
+      onto it would over-reach. The whole field resolves to a single takeaway you can state at a glance:
+      <em>one engraved system, held to evidence.</em></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sk-color">
+  <style>
+  /* ── #sk-color · graphical-perception-and-color · namespaced r10-color-* ── */
+  /* Colour drawn ONLY from :root tokens (+ --pop, owned here). No literal hexes. */
+  .r10-color-lead{max-width:60ch}
+  .r10-color-lead + .r10-color-lead{margin-top:14px}
+
+  /* engraved specification-of-inks board */
+  .r10-color-board{margin-top:34px;border-top:1.5px solid var(--ink)}
+  .r10-color-cap{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px}
+  .r10-color-row{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:center;
+    padding:13px 0;border-bottom:1px solid var(--rule)}
+  .r10-color-row:last-child{border-bottom:1.5px solid var(--ink)}
+  .r10-color-meta{display:grid;grid-template-columns:minmax(0,1.5fr) 92px 74px minmax(0,1.7fr);
+    gap:6px 14px;align-items:baseline}
+  .r10-color-chip{width:34px;height:34px;border:1px solid var(--ink);border-radius:2px;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.30)}
+  .r10-color-chip--paper{background:var(--paper)}
+  .r10-color-chip--ink{background:var(--ink)}
+  .r10-color-chip--inksoft{background:var(--ink-soft)}
+  .r10-color-chip--muted{background:var(--muted)}
+  .r10-color-chip--accent{background:var(--accent)}
+  .r10-color-chip--brass{background:var(--brass)}
+  .r10-color-chip--pop{background:var(--pop)}
+  .r10-color-chip--neg{background:var(--neg)}
+  .r10-color-role{font-family:var(--text);font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.3}
+  .r10-color-role small{display:block;font-weight:400;font-size:12px;color:var(--ink-soft);letter-spacing:0}
+  .r10-color-hex{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px;
+    color:var(--ink-soft);text-transform:uppercase}
+  .r10-color-ratio{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13.5px;
+    color:var(--ink);font-weight:600;text-align:right}
+  .r10-color-verdict{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--muted);line-height:1.45}
+  .r10-color-verdict b{color:var(--accent);font-weight:600}      /* pass carried by WORD, not hue */
+  .r10-color-verdict i{font-style:normal;color:var(--ink-soft)}  /* caveat carried by WORD */
+  .r10-color-foot{font-size:12.5px;color:var(--muted);margin:14px 0 0;max-width:64ch;line-height:1.55}
+
+  /* CVD note — engraved marginalia */
+  .r10-color-note{margin-top:30px;padding:20px 24px;background:var(--panel);
+    border-left:2px solid var(--brass)}
+  .r10-color-note h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 9px;font-weight:600}
+  .r10-color-note p{font-size:14px;line-height:1.62;color:var(--ink-soft);margin:0;max-width:70ch}
+  .r10-color-note code{font-family:var(--mono);font-size:.92em;color:var(--ink)}
+
+  /* right-vs-wrong encoding demo */
+  .r10-color-demo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,44px);margin-top:34px}
+  .r10-color-demo figure{margin:0}
+  .r10-color-demo .r10-color-cap{margin-bottom:14px}
+  .r10-color-bar{display:flex;height:30px;border:1px solid var(--ink);border-radius:2px;overflow:hidden}
+  .r10-color-seg{height:100%}
+  /* WRONG: four HUES, similar lightness — a hue-only categorical set */
+  .r10-color-seg--w1{flex:2.2;background:var(--accent)}
+  .r10-color-seg--w2{flex:2.8;background:var(--brass)}
+  .r10-color-seg--w3{flex:1.4;background:var(--muted)}
+  .r10-color-seg--w4{flex:2.6;background:var(--ink-soft)}
+  .r10-color-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px}
+  .r10-color-legend span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft)}
+  .r10-color-legend i{width:12px;height:12px;border:1px solid var(--ink);border-radius:1px}
+  .r10-color-legend .l1{background:var(--accent)}.r10-color-legend .l2{background:var(--brass)}
+  .r10-color-legend .l3{background:var(--muted)}.r10-color-legend .l4{background:var(--ink-soft)}
+  /* RIGHT: ordered by LIGHTNESS (token blends), labelled where each band sits */
+  .r10-color-stack{display:grid;grid-template-columns:3.4fr 2.9fr 1.4fr 2.3fr;gap:0 4px}
+  .r10-color-lbl{font-family:var(--text);font-size:12px;color:var(--ink);line-height:1.3;padding-bottom:6px}
+  .r10-color-lbl b{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:12px;
+    color:var(--ink-soft);display:block;font-weight:400}
+  .r10-color-stack .r10-color-seg{border:1px solid var(--ink);border-radius:2px}
+  .r10-color-seg--r1{background:var(--ink)}
+  .r10-color-seg--r2{background:var(--ink-soft);background:color-mix(in srgb,var(--ink) 60%,var(--paper))}
+  .r10-color-seg--r3{background:var(--muted);background:color-mix(in srgb,var(--ink) 33%,var(--paper))}
+  .r10-color-seg--r4{background:var(--rule);background:color-mix(in srgb,var(--ink) 15%,var(--paper))}
+  .r10-color-figcap{font-size:13px;color:var(--ink-soft);margin-top:13px;line-height:1.55}
+  .r10-color-figcap b{color:var(--ink);font-weight:600}
+  @media(max-width:640px){
+    .r10-color-demo{grid-template-columns:1fr}
+    .r10-color-meta{grid-template-columns:1fr auto;gap:3px 12px}
+    .r10-color-hex{grid-row:2}
+  }
+  </style>
+
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">III</b>&nbsp;&nbsp;Perception &amp; colour</p>
+      <h2>Contrast before hue.</h2>
+      <p class="r10-color-lead">This instrument governs how the eye reads quantity and colour, and its
+        order of operations is fixed: choose the <em>encoding</em> before the hue, and settle
+        <em>contrast and brightness</em> before hue. Position and length are decoded most accurately;
+        area and colour least — so colour is spent last, and only where meaning has nowhere better to
+        sit. Every text and every signal on this leaf is measured against WCAG&nbsp;2.2; no hue is asked
+        to carry meaning alone; and the whole set is proofed against colour-vision deficiency.</p>
+      <p class="r10-color-lead">Reach for it whenever a palette, a ground, a contrast ratio, or a data
+        encoding is in question — or when a claim about colour and the eye needs adjudicating (dark mode,
+        blue light, “easy on the eyes”). It holds the accessibility floor and yields the look built around
+        it — never the floor itself.</p>
+    </div>
+
+    <!-- Specification of inks — every role measured against the cream field -->
+    <div class="r10-color-board" role="table" aria-label="Palette roles with measured WCAG contrast against the cream ground">
+      <p class="r10-color-cap">Specification of inks — ratio measured against the field, cream <code style="font-family:var(--mono);font-size:11px;color:var(--ink-soft)">#efe9da</code></p>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--paper" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Paper — the field<small>laid-cream ground; off-white, not clinical white</small></div>
+          <div class="r10-color-hex">#efe9da</div>
+          <div class="r10-color-ratio">—</div>
+          <div class="r10-color-verdict">Ground · <i>the reference luminance</i></div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--ink" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Ink — body &amp; marquee<small>near-black, not pure black</small></div>
+          <div class="r10-color-hex">#20201b</div>
+          <div class="r10-color-ratio">13.50:1</div>
+          <div class="r10-color-verdict"><b>AA ✓ body</b></div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--inksoft" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Ink-soft — secondary prose<small>the leading paragraph voice</small></div>
+          <div class="r10-color-hex">#3a382f</div>
+          <div class="r10-color-ratio">9.70:1</div>
+          <div class="r10-color-verdict"><b>AA ✓ body</b></div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--muted" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Muted — engraved labels<small>eyebrows, captions, mono legends</small></div>
+          <div class="r10-color-hex">#5f5a4c</div>
+          <div class="r10-color-ratio">5.68:1</div>
+          <div class="r10-color-verdict"><b>AA ✓ small text</b></div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--accent" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Accent — the one functional ink<small>deep heritage green; links, positives, the total envelope</small></div>
+          <div class="r10-color-hex">#17533d</div>
+          <div class="r10-color-ratio">7.41:1</div>
+          <div class="r10-color-verdict"><b>AA ✓ body</b></div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--brass" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Brass — foil material<small>filet, fleuron, rules, large marks</small></div>
+          <div class="r10-color-hex">#8a7338</div>
+          <div class="r10-color-ratio">3.78:1</div>
+          <div class="r10-color-verdict">AA · <i>large marks only — never small text</i></div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--pop" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Pop — the certified seal<small>cinnabar security-print red; one mark, page-wide</small></div>
+          <div class="r10-color-hex">#c0362c</div>
+          <div class="r10-color-ratio">4.56:1</div>
+          <div class="r10-color-verdict"><b>AA ✓ small text</b> · used once</div>
+        </div>
+      </div>
+
+      <div class="r10-color-row" role="row">
+        <span class="r10-color-chip r10-color-chip--neg" aria-hidden="true"></span>
+        <div class="r10-color-meta">
+          <div class="r10-color-role">Neg — negative figures<small>muted brick; a data ink, not the pop</small></div>
+          <div class="r10-color-hex">#8a3324</div>
+          <div class="r10-color-ratio">6.72:1</div>
+          <div class="r10-color-verdict"><b>AA ✓ body</b></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="r10-color-foot">Two further tones sit below the 3:1 graphical floor by design — brass-soft
+      (2.25:1) and the rule hairlines (1.31:1). They are decorative only: never a data mark, never a
+      boundary a reader must find, never text (WCAG&nbsp;1.4.11 exempts decorative objects). The pop
+      (4.56:1) and the negative brick (6.72:1) are held visually apart — the pop is a purer, brighter
+      cinnabar and appears only as a single sealed mark, while the brick lives quietly among tabular
+      figures — so the two reds are never asked to be told apart.</p>
+
+    <!-- CVD note -->
+    <div class="r10-color-note">
+      <h3>Colour-vision deficiency — how the palette survives</h3>
+      <p>Eight men in a hundred carry a colour-vision deficiency, red–green the common form. Ledger’s
+        green accent <code>#17533d</code> and cinnabar pop <code>#c0362c</code> are precisely that pair:
+        simulated for deuteranopia, the green collapses toward olive <code>#49473e</code> and the pop
+        toward mustard <code>#817426</code> — hue alone could not separate them. The certificate is
+        immune anyway, because nothing rides on that difference. Structure and data are carried by a
+        neutral ink→paper <em>lightness</em> ramp (13.50:1 down to the faintest rule), which colour-vision
+        deficiency leaves fully intact; the green is the sole functional colour and is never a data pair
+        with the red; and the pop appears exactly once — as a sealed shape carrying the word
+        “certified,” a mark rather than a hue-code (WCAG&nbsp;1.4.1). Positive-versus-negative in the
+        figures likewise leans on the sign and position of the number, not on green-versus-brick alone.</p>
+    </div>
+
+    <!-- right-vs-wrong encoding demo -->
+    <div class="r10-color-demo">
+      <figure>
+        <p class="r10-color-cap">Wrong — hue-only legend</p>
+        <div class="r10-color-bar" role="img" aria-label="A four-part bar coloured only by hue, requiring a detached legend to read">
+          <span class="r10-color-seg r10-color-seg--w1"></span>
+          <span class="r10-color-seg r10-color-seg--w2"></span>
+          <span class="r10-color-seg r10-color-seg--w3"></span>
+          <span class="r10-color-seg r10-color-seg--w4"></span>
+        </div>
+        <div class="r10-color-legend" aria-hidden="true">
+          <span><i class="l1"></i>Instruments</span>
+          <span><i class="l2"></i>Type</span>
+          <span><i class="l3"></i>Imagery</span>
+          <span><i class="l4"></i>Composition</span>
+        </div>
+        <p class="r10-color-figcap"><b>The eye must ferry each swatch back to its band</b> — a
+          WCAG&nbsp;1.4.1 hue-match. Under deuteranopia the green slides onto the gold’s olive and the
+          mapping fails outright.</p>
+      </figure>
+
+      <figure>
+        <p class="r10-color-cap">Right — bands named where they sit</p>
+        <div class="r10-color-stack" role="img" aria-label="The same four bands ordered by lightness and labelled directly in place">
+          <span class="r10-color-lbl">Instruments<b>34%</b></span>
+          <span class="r10-color-lbl">Type<b>29%</b></span>
+          <span class="r10-color-lbl">Imagery<b>14%</b></span>
+          <span class="r10-color-lbl">Composition<b>23%</b></span>
+          <span class="r10-color-seg r10-color-seg--r1"></span>
+          <span class="r10-color-seg r10-color-seg--r2"></span>
+          <span class="r10-color-seg r10-color-seg--r3"></span>
+          <span class="r10-color-seg r10-color-seg--r4"></span>
+        </div>
+        <p class="r10-color-figcap"><b>Ordered by lightness, labelled in place.</b> Colour merely
+          groups; the words carry the meaning, and a lightness order survives colour blindness. This is
+          why every band on this leaf names itself, and the green is spent only on the aggregate.</p>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="sk-type">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">IV</b>&nbsp;&nbsp;The type</p>
+      <h2>Set to be read first.</h2>
+      <p>Typography sets the type this prospectus is struck in — the faces and how they pair,
+      the size and the line-length, the leading, the modular scale that ranks every heading,
+      and the figures that let a column of numbers align — then web-font loading and the
+      accessibility of the text itself. One rule governs the rest: <em>legibility before
+      personality</em>.</p>
+    </div>
+
+    <!-- ── the argument, to measure ─────────────────────────────── -->
+    <div class="r10-type-lede">
+      <p>What a face <em>says</em> is real, but it is taste, not speed. Controlled work finds
+      no universally faster font and no serif-over-sans advantage under matched conditions
+      (Wallace 2022; Arditi&nbsp;&amp; Cho 2005 — <b class="r10-type-tag">STRONG</b>), so the
+      proven levers are spent first: comfortable size, a generous x-height, a sane measure,
+      clear hierarchy. Reach for this whenever type is set or judged — choosing or pairing
+      faces, fixing a measure or leading, building a scale, setting numerals for a table or
+      chart, or auditing a claim. &ldquo;Serif reads better,&rdquo; &ldquo;dyslexia fonts
+      help,&rdquo; &ldquo;ugly type aids memory&rdquo; are each
+      <b class="r10-type-tag r10-type-tag--myth">MYTH</b>. Every choice below carries its
+      warrant: <b class="r10-type-tag">STRONG</b> is a controlled study or standard,
+      <b class="r10-type-tag r10-type-tag--conv">CONVENTION</b> is settled practice with weak
+      or no controlled support. The kit is taste on a proven foundation — the split is stated,
+      never hidden.</p>
+    </div>
+
+    <!-- ── three hands ──────────────────────────────────────────── -->
+    <p class="r10-type-kicker">Three hands, three jobs</p>
+    <div class="r10-type-faces">
+
+      <figure class="r10-type-face">
+        <p class="r10-type-role">Display &middot; the marque</p>
+        <div class="r10-type-glyph r10-type-glyph--display">Design that<br>earns its ink.</div>
+        <p class="r10-type-alpha r10-type-alpha--display">A a G g R e f y &amp; 6 8</p>
+        <p class="r10-type-note"><b>Instrument Serif.</b> A high-contrast serif — the hairlines
+        that make it elegant thin out and vanish under ~20px, so it is kept to display sizes
+        only, never body. Don&rsquo;t scale a display face down; reach for the text cut instead
+        (Minakata&nbsp;&amp; Beier 2022 &mdash; <span class="r10-type-tag">STRONG</span>).</p>
+      </figure>
+
+      <figure class="r10-type-face">
+        <p class="r10-type-role">Text &middot; the anchor</p>
+        <div class="r10-type-glyph r10-type-glyph--text">Hold this to the light and read it twice.</div>
+        <p class="r10-type-alpha r10-type-alpha--text">A a G g R e f y &amp; 6 8</p>
+        <p class="r10-type-note"><b>Plus Jakarta Sans.</b> A high-x-height, screen-clean
+        grotesque that carries the paragraph, the interface, and every chart label. Chosen
+        <em>first</em> — the body face the rest of the system references, paired with the serif
+        by <em>contrast</em>, not similarity (Brown; Lupton &mdash;
+        <span class="r10-type-tag r10-type-tag--conv">CONVENTION</span>).</p>
+      </figure>
+
+      <figure class="r10-type-face">
+        <p class="r10-type-role">Labels &amp; numerals &middot; the engraving</p>
+        <div class="r10-type-glyph r10-type-glyph--mono">0123456789<br>&num; % &sect; &minus; &uarr; &darr;</div>
+        <p class="r10-type-alpha r10-type-alpha--mono">1 l I &middot; 0 O &middot; 6 8 &middot; 3 9</p>
+        <p class="r10-type-note"><b>IBM Plex Mono.</b> Monospace, so every digit is one width —
+        <em>tabular by construction</em>. Built with per-digit clarity (a narrow 1 with no
+        bottom crossbar, a straight-leg 7, open 3/9) that cuts misreads at a glance (Beier,
+        Bernard&nbsp;&amp; Castet 2018 &mdash; <span class="r10-type-tag">STRONG</span>). It
+        also signals &ldquo;this is data.&rdquo;</p>
+      </figure>
+    </div>
+
+    <!-- ── measure & leading, shown on itself ───────────────────── -->
+    <p class="r10-type-kicker">The measure &amp; the leading</p>
+    <div class="r10-type-measure">
+      <p>This column is set the way the prospectus sets its prose: Plus Jakarta Sans at
+      17px&thinsp;/&thinsp;1.0625rem, leading 1.62, capped at a measure of about sixty-six
+      characters. Short lines aid comprehension and long lines read as fast on screen, so
+      sixty-six is the compromise Bringhurst named — inside the 45&ndash;75 band, never a law.
+      The leading sits a touch above the 1.4&ndash;1.6 prose range; the extra air belongs to the
+      cream stock, and the text still survives WCAG&nbsp;1.4.12&rsquo;s 1.5&times; spacing test.</p>
+      <div class="r10-type-ruler" aria-hidden="true">
+        <span class="r10-type-ruler-cap">measure &asymp; 66 characters &middot; set via <code>max-width:62ch</code></span>
+      </div>
+      <p class="r10-type-caption">Size in <code>rem</code>, not <code>px</code>, so the reader&rsquo;s
+      own base size and zoom are respected (WCAG&nbsp;1.4.4 / 1.4.12 &mdash;
+      <span class="r10-type-tag">STRONG</span>). Left-aligned, ragged-right — never justified
+      (WCAG&nbsp;1.4.8).</p>
+    </div>
+
+    <!-- ── the scale — a real spec sheet, tabular figures ───────── -->
+    <p class="r10-type-kicker">The modular scale, as used on this page</p>
+    <div class="r10-type-scale-wrap">
+      <table class="tbl r10-type-scale">
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Face</th>
+            <th scope="col">Size &middot; px / rem</th>
+            <th scope="col">Leading</th>
+            <th scope="col">Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Hero marque</td><td>Instrument Serif</td><td class="num">108 / 6.750</td><td class="num">1.00</td><td class="num">&times;2.08</td></tr>
+          <tr><td>Section marque</td><td>Instrument Serif</td><td class="num">52 / 3.250</td><td class="num">1.02</td><td class="num">&times;2.17</td></tr>
+          <tr><td>Subhead</td><td>Plus Jakarta SemiBold</td><td class="num">24 / 1.500</td><td class="num">1.25</td><td class="num">&times;1.20</td></tr>
+          <tr><td>Lede</td><td>Plus Jakarta Sans</td><td class="num">20 / 1.250</td><td class="num">1.55</td><td class="num">&times;1.18</td></tr>
+          <tr><td>Body <span class="r10-type-anchor">&mdash; anchor</span></td><td>Plus Jakarta Sans</td><td class="num">17 / 1.0625</td><td class="num">1.62</td><td class="num">&times;1.21</td></tr>
+          <tr><td>Caption / label</td><td>IBM Plex Mono</td><td class="num">14 / 0.875</td><td class="num">1.40</td><td class="num">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r10-type-caption">A non-constant ramp on purpose: the reading sizes climb at
+    &asymp;1.2 (a minor third); the display makes one deliberate &asymp;2&times; leap to the
+    engraved marque. A strict constant ratio is taste, not evidence — Material and Carbon both
+    ramp non-geometrically (&sect;3 &mdash;
+    <span class="r10-type-tag r10-type-tag--conv">CONVENTION</span>), and size outranks weight,
+    so the larger, lighter serif still leads. Eyebrow labels drop to 12&ndash;13px only as
+    tracked, uppercase mono — glance labels, where caps are physically larger; running text
+    never falls below the ~16px floor, and the anchor sits at 17.</p>
+
+    <!-- ── numerals: proportional vs tabular, shown side by side ── -->
+    <p class="r10-type-kicker">Why the numbers are engraved in mono</p>
+    <div class="r10-type-num">
+      <figure class="r10-type-num-col">
+        <figcaption class="r10-type-role">Proportional &middot; for prose</figcaption>
+        <div class="r10-type-figs r10-type-figs--prose" aria-hidden="true">
+          <span>1411.10</span><span>8088.85</span><span>1818.18</span><span>9140.07</span>
+        </div>
+        <p class="r10-type-caption">Plus Jakarta Sans. Each digit takes the width it wants, so a
+        1-heavy row runs short — the right edge is ragged and the column will not stack. Right
+        for a sentence, wrong for a table.</p>
+      </figure>
+      <figure class="r10-type-num-col">
+        <figcaption class="r10-type-role r10-type-role--good">Tabular &middot; for tables</figcaption>
+        <div class="r10-type-figs r10-type-figs--data" aria-hidden="true">
+          <span>1411.10</span><span>8088.85</span><span>1818.18</span><span>9140.07</span>
+        </div>
+        <p class="r10-type-caption">IBM Plex Mono. Every digit is one width, so every row is the
+        same length — decimals and thousands lock to the brass guide. Watch the right edge: flush
+        only here.</p>
+      </figure>
+    </div>
+    <p class="r10-type-caption r10-type-caption--wide">Same numbers, two faces. That is why every
+    figure in the scale table above — and in the tables and charts that follow — is set in IBM
+    Plex Mono with <code>font-variant-numeric: tabular-nums</code> (&sect;5 &mdash;
+    <span class="r10-type-tag r10-type-tag--conv">CONVENTION</span> + mechanical fact; MDN,
+    OpenType). Proportional figures in a number column is the classic misstep.</p>
+  </div>
+
+  <style>
+  /* ═══ #sk-type — typography specimen (namespaced r10-type-*) ═══ */
+  .r10-type-lede{max-width:64ch;margin:-6px 0 0}
+  .r10-type-lede p{color:var(--ink-soft);font-size:clamp(16px,1.5vw,18px);line-height:1.6}
+  .r10-type-lede em{font-style:italic}
+
+  /* evidence tags — small mono caps; never on brass (contrast floor) */
+  .r10-type-tag{font-family:var(--mono);font-size:.72em;letter-spacing:.06em;
+    font-weight:600;color:var(--accent);white-space:nowrap}
+  .r10-type-tag--conv{color:var(--muted)}
+  .r10-type-tag--myth{color:var(--neg)}
+
+  .r10-type-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--muted);margin:44px 0 18px}
+  .r10-type-kicker::before{content:"";display:inline-block;width:6px;height:6px;
+    margin-right:11px;vertical-align:1px;transform:rotate(45deg);background:var(--brass)}
+
+  /* three faces */
+  .r10-type-faces{display:grid;gap:1px;background:var(--rule);
+    grid-template-columns:repeat(auto-fit,minmax(248px,1fr));border:1px solid var(--rule)}
+  .r10-type-face{margin:0;background:var(--panel);padding:22px 22px 24px;display:flex;flex-direction:column}
+  .r10-type-role{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 14px}
+  .r10-type-role--good{color:var(--accent)}
+  .r10-type-glyph{color:var(--ink);line-height:1.02;overflow-wrap:break-word}
+  .r10-type-glyph--display{font-family:var(--display);font-size:clamp(30px,5.4vw,46px);
+    text-shadow:0 1px 0 rgba(255,253,247,.6),0 -1px 1px rgba(40,32,18,.05)}
+  .r10-type-glyph--text{font-family:var(--text);font-weight:600;font-size:clamp(19px,2.4vw,23px);line-height:1.22}
+  .r10-type-glyph--mono{font-family:var(--mono);font-size:clamp(20px,2.6vw,26px);
+    font-variant-numeric:tabular-nums;line-height:1.28;letter-spacing:.02em}
+  .r10-type-alpha{margin:12px 0 0;color:var(--ink-soft)}
+  .r10-type-alpha--display{font-family:var(--display);font-size:24px}
+  .r10-type-alpha--text{font-family:var(--text);font-size:18px}
+  .r10-type-alpha--mono{font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .r10-type-note{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--rule-soft);
+    font-size:14px;line-height:1.55;color:var(--ink-soft)}
+  .r10-type-note b{color:var(--ink);font-weight:600}
+  .r10-type-note em{font-style:italic}
+
+  /* measure & leading */
+  .r10-type-measure{max-width:62ch}
+  .r10-type-measure > p:first-child{font-size:17px;line-height:1.62;color:var(--ink)}
+  .r10-type-ruler{position:relative;height:16px;margin:10px 0 4px;
+    border-left:1px solid var(--brass);border-right:1px solid var(--brass)}
+  .r10-type-ruler::before{content:"";position:absolute;left:0;right:0;top:8px;border-top:1px dotted var(--brass)}
+  .r10-type-ruler-cap{position:relative;display:inline-block;margin-left:12px;padding:0 8px;
+    background:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+    color:var(--muted);line-height:16px}
+  .r10-type-caption{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--muted);max-width:70ch}
+  .r10-type-caption--wide{max-width:80ch;margin-top:16px}
+  .r10-type-caption code,.r10-type-measure code,.r10-type-num code{font-family:var(--mono);
+    font-size:.92em;color:var(--ink-soft)}
+
+  /* scale table (reuses .tbl; wrap prevents page-level h-scroll) */
+  .r10-type-scale-wrap{overflow-x:auto}
+  .r10-type-scale{min-width:520px}
+  .r10-type-anchor{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--accent)}
+
+  /* proportional vs tabular proof */
+  .r10-type-num{display:grid;gap:1px;background:var(--rule);
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border:1px solid var(--rule)}
+  .r10-type-num-col{margin:0;background:var(--panel);padding:22px}
+  .r10-type-figs{display:inline-block;margin:2px 0 4px;padding-right:16px;
+    border-right:2px dotted var(--brass);font-size:23px;line-height:1.5;color:var(--ink)}
+  .r10-type-figs span{display:block;text-align:left}
+  .r10-type-figs--prose{font-family:var(--text);font-variant-numeric:proportional-nums}
+  .r10-type-figs--data{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  @media (max-width:560px){
+    .r10-type-glyph--display{font-size:clamp(28px,8vw,40px)}
+  }
+  </style>
+</section>
+
+<section class="section act" id="sk-charting">
+  <style>
+    /* ── #sk-charting — namespaced r10-chart-* (colour = :root tokens only) ── */
+    .r10-chart-lede{max-width:64ch;font-size:15.5px;line-height:1.62;color:var(--ink-soft);margin:22px 0 0}
+    .r10-chart-subhead{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+      color:var(--muted);margin:44px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+      display:flex;align-items:baseline;gap:10px}
+    .r10-chart-subhead::before{content:"\25C6";color:var(--brass);font-size:8px;transform:translateY(-2px)}
+    .r10-chart-grid{display:grid;gap:clamp(28px,4vw,44px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+    .r10-chart-fig{margin:0}
+    .r10-chart-ctitle{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+    .r10-chart-cap{font-family:var(--text);font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.55;max-width:40ch}
+    .r10-chart-fig svg{width:100%;height:auto;overflow:visible;display:block}
+    /* chart marks — position/length in ink, one idea in accent; no fills, no grid */
+    .r10-ink{stroke:var(--ink-soft);fill:none;stroke-width:1.5;stroke-linecap:round}
+    .r10-acc{stroke:var(--accent);fill:none;stroke-width:2.6;stroke-linecap:round}
+    .r10-col{fill:var(--ink-soft)}
+    .r10-col-acc{fill:var(--accent)}
+    .r10-plan{stroke:var(--muted);fill:none;stroke-width:1.4}
+    .r10-axis{stroke:var(--ink);stroke-width:1.4;fill:none}
+    .r10-tick{stroke:var(--rule);stroke-width:1}
+    .r10-upright{stroke:var(--rule-soft);stroke-width:1}
+    .r10-conn{stroke:var(--rule);stroke-width:1;stroke-dasharray:1 3.5}
+    .r10-dot{fill:var(--ink)}
+    .r10-dot-acc{fill:var(--accent)}
+    .r10-num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px;fill:var(--ink)}
+    .r10-axnum{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12px;fill:var(--muted)}
+    .r10-lbl{font-family:var(--text);font-size:13px;fill:var(--ink-soft)}
+    .r10-acc-lbl{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px;fill:var(--accent);letter-spacing:.02em}
+    .r10-per{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12px;fill:var(--muted);letter-spacing:.04em}
+    /* KPI tile row */
+    .r10-chart-kpis{display:grid;gap:0 32px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .r10-chart-kpi{padding:22px 0;border-top:1px solid var(--rule)}
+    .r10-chart-kpi .kl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .r10-chart-kpi .kn{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:34px;color:var(--ink);line-height:1;margin:12px 0 6px}
+    .r10-chart-kpi .kd{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.02em}
+    .r10-chart-kpi .kd.up{color:var(--accent)}
+    .r10-chart-kpi .kd.down{color:var(--neg)}
+    .r10-chart-spark{margin-top:14px;width:100%;height:28px;display:block}
+    .r10-chart-spark polyline{fill:none;stroke:var(--accent);stroke-width:1.8;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+    .r10-chart-spark .d{fill:var(--accent)}
+    /* Roadmap / gantt */
+    .r10-chart-gantt{display:grid;gap:8px}
+    .r10-chart-gantt .gh{display:grid;grid-template-columns:132px 1fr;gap:14px}
+    .r10-chart-gantt .months{display:grid;grid-template-columns:repeat(6,1fr);font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+    .r10-chart-gantt .grow{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:center}
+    .r10-chart-gantt .gt{font-family:var(--text);font-size:13.5px;color:var(--ink-soft)}
+    .r10-chart-gantt .track{position:relative;height:24px;background-image:repeating-linear-gradient(90deg,var(--rule-soft) 0 1px,transparent 1px calc(100%/6))}
+    .r10-chart-gantt .bar{position:absolute;top:5px;height:14px;background:var(--accent);border-radius:1px}
+    .r10-chart-gantt .bar.alt{background:var(--ink)}
+    .r10-chart-gantt .bar.done{background:var(--muted)}
+    .r10-chart-gantt .ms{position:absolute;top:4px;width:15px;height:15px;background:var(--brass);border:1px solid var(--ink);transform:translate(-50%,0) rotate(45deg)}
+    .r10-chart-gantt .glbl{position:absolute;top:-16px;font-family:var(--mono);font-size:11px;color:var(--ink);white-space:nowrap;transform:translateX(-50%)}
+  </style>
+
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">V</b>&nbsp;&nbsp;The instrument of charting</p>
+      <h2>The right form for the question.</h2>
+      <p>Charting is the shape half of data visualization: choosing which graphical form answers a given question, then drawing it so that nearly all the ink is data. It reads the task — a trend, a ranking, a part-to-whole, a deviation from a norm — and the shape of the numbers, then reaches for the Tufte form that fits: a slopegraph for a re-ranking, columns from zero for a magnitude, a Cleveland dot plot for ranked categories, a bullet against a target. Colour it never decides; that is deferred, whole, to perception and colour.</p>
+    </div>
+
+    <p class="r10-chart-lede">Reach for it whenever a page must state a number honestly rather than flatter it. The craft is subtractive — erase the border, the fill, the heavy gridlines; let the axis report only the data's true span; label each series at its own end so the eye never ferries back to a legend. And the floor is absolute: no baseline truncated where it would mislead, no dual-axis trick, no length dressed as an area. Where a window must be cropped, the crop is drawn onto the chart itself, as a range frame, so the reader sees precisely what was set aside.</p>
+
+    <p class="r10-chart-subhead">Three honest forms, one shared restraint</p>
+    <div class="r10-chart-grid">
+
+      <!-- 1 · Slopegraph — position on one shared scale -->
+      <figure class="r10-chart-fig">
+        <p class="r10-chart-ctitle">Regional composite index &middot; 2019 &rarr; 2024</p>
+        <svg viewBox="0 0 300 190" role="img" aria-label="Slopegraph of a regional composite index from 2019 to 2024. West rises most, from 55 to 84; North rises from 62 to 78; South from 48 to 71; East eases from 70 to 66.">
+          <line class="r10-upright" x1="96" y1="40" x2="96" y2="158"/>
+          <line class="r10-upright" x1="204" y1="40" x2="204" y2="158"/>
+          <line class="r10-ink" x1="96" y1="81.25" x2="204" y2="92.25"/>
+          <line class="r10-ink" x1="96" y1="103.25" x2="204" y2="59.25"/>
+          <line class="r10-ink" x1="96" y1="141.75" x2="204" y2="78.5"/>
+          <line class="r10-acc" x1="96" y1="122.5" x2="204" y2="42.75"/>
+          <circle class="r10-dot" cx="96" cy="81.25" r="2.6"/><circle class="r10-dot" cx="204" cy="92.25" r="2.6"/>
+          <circle class="r10-dot" cx="96" cy="103.25" r="2.6"/><circle class="r10-dot" cx="204" cy="59.25" r="2.6"/>
+          <circle class="r10-dot" cx="96" cy="141.75" r="2.6"/><circle class="r10-dot" cx="204" cy="78.5" r="2.6"/>
+          <circle class="r10-dot-acc" cx="96" cy="122.5" r="3.1"/><circle class="r10-dot-acc" cx="204" cy="42.75" r="3.1"/>
+          <text class="r10-axnum" x="88" y="84.75" text-anchor="end">70</text>
+          <text class="r10-axnum" x="88" y="106.75" text-anchor="end">62</text>
+          <text class="r10-axnum" x="88" y="125" text-anchor="end">55</text>
+          <text class="r10-axnum" x="88" y="145.25" text-anchor="end">48</text>
+          <text class="r10-acc-lbl" x="212" y="46.5" text-anchor="start">West 84</text>
+          <text class="r10-lbl" x="212" y="63" text-anchor="start">North 78</text>
+          <text class="r10-lbl" x="212" y="82.25" text-anchor="start">South 71</text>
+          <text class="r10-lbl" x="212" y="96" text-anchor="start">East 66</text>
+          <text class="r10-per" x="96" y="178" text-anchor="middle">2019</text>
+          <text class="r10-per" x="204" y="178" text-anchor="middle">2024</text>
+        </svg>
+        <figcaption class="r10-chart-cap">Slopegraph &mdash; position on one shared scale; each region named at its 2024 end, the largest riser in accent. No magnitude axis to distort.</figcaption>
+      </figure>
+
+      <!-- 2 · Columns from a true zero baseline, plan as reference line -->
+      <figure class="r10-chart-fig">
+        <p class="r10-chart-ctitle">Quarterly revenue vs. plan &middot; $M</p>
+        <svg viewBox="0 0 300 190" role="img" aria-label="Column chart of quarterly revenue in millions against a plan reference line, on a true zero baseline. Revenue rises from 4.2 to 5.9 million over eight quarters, tracking plan early and exceeding it in Q7 and Q8.">
+          <line class="r10-axis" x1="40" y1="46.88" x2="40" y2="150"/>
+          <line class="r10-tick" x1="36" y1="150" x2="40" y2="150"/>
+          <line class="r10-tick" x1="36" y1="115.62" x2="40" y2="115.62"/>
+          <line class="r10-tick" x1="36" y1="81.25" x2="40" y2="81.25"/>
+          <line class="r10-tick" x1="36" y1="46.88" x2="40" y2="46.88"/>
+          <text class="r10-axnum" x="33" y="153.5" text-anchor="end">0</text>
+          <text class="r10-axnum" x="33" y="119.1" text-anchor="end">2</text>
+          <text class="r10-axnum" x="33" y="84.75" text-anchor="end">4</text>
+          <text class="r10-axnum" x="33" y="50.4" text-anchor="end">6</text>
+          <rect class="r10-col" x="46.5"  y="77.81" width="18" height="72.19"/>
+          <rect class="r10-col" x="77.5"  y="72.66" width="18" height="77.34"/>
+          <rect class="r10-col" x="108.5" y="74.38" width="18" height="75.62"/>
+          <rect class="r10-col" x="139.5" y="65.78" width="18" height="84.22"/>
+          <rect class="r10-col" x="170.5" y="64.06" width="18" height="85.94"/>
+          <rect class="r10-col" x="201.5" y="62.34" width="18" height="87.66"/>
+          <rect class="r10-col" x="232.5" y="53.75" width="18" height="96.25"/>
+          <rect class="r10-col-acc" x="263.5" y="48.59" width="18" height="101.41"/>
+          <polyline class="r10-plan" points="55.5,70.94 86.5,69.22 117.5,67.5 148.5,65.78 179.5,64.06 210.5,62.34 241.5,60.62 272.5,58.91"/>
+          <text class="r10-per" x="57" y="66" text-anchor="start">plan</text>
+          <line class="r10-axis" x1="40" y1="150" x2="290" y2="150"/>
+          <text class="r10-acc-lbl" x="272.5" y="44" text-anchor="middle">5.9</text>
+          <text class="r10-per" x="55.5"  y="164" text-anchor="middle">Q1</text>
+          <text class="r10-per" x="86.5"  y="164" text-anchor="middle">Q2</text>
+          <text class="r10-per" x="117.5" y="164" text-anchor="middle">Q3</text>
+          <text class="r10-per" x="148.5" y="164" text-anchor="middle">Q4</text>
+          <text class="r10-per" x="179.5" y="164" text-anchor="middle">Q5</text>
+          <text class="r10-per" x="210.5" y="164" text-anchor="middle">Q6</text>
+          <text class="r10-per" x="241.5" y="164" text-anchor="middle">Q7</text>
+          <text class="r10-per" x="272.5" y="164" text-anchor="middle">Q8</text>
+        </svg>
+        <figcaption class="r10-chart-cap">Columns from a true zero baseline (labelled&nbsp;0); the plan drawn as a reference line, the latest quarter emphasized. Height reads as magnitude, honestly.</figcaption>
+      </figure>
+
+      <!-- 3 · Cleveland dot plot with an explicit range frame (honest crop) -->
+      <figure class="r10-chart-fig">
+        <p class="r10-chart-ctitle">On-time delivery by region &middot; %</p>
+        <svg viewBox="0 0 300 192" role="img" aria-label="Cleveland dot plot of on-time delivery by region on a 94 to 100 percent range frame. East leads at 99.1, then North 98.6, Central 97.3, South 96.2 and West 95.4 percent.">
+          <line class="r10-conn" x1="70" y1="44"    x2="288" y2="44"/>
+          <line class="r10-conn" x1="70" y1="70.5"  x2="288" y2="70.5"/>
+          <line class="r10-conn" x1="70" y1="97"    x2="288" y2="97"/>
+          <line class="r10-conn" x1="70" y1="123.5" x2="288" y2="123.5"/>
+          <line class="r10-conn" x1="70" y1="150"   x2="288" y2="150"/>
+          <text class="r10-lbl" x="62" y="48"    text-anchor="end">East</text>
+          <text class="r10-lbl" x="62" y="74.5"  text-anchor="end">North</text>
+          <text class="r10-lbl" x="62" y="101"   text-anchor="end">Central</text>
+          <text class="r10-lbl" x="62" y="127.5" text-anchor="end">South</text>
+          <text class="r10-lbl" x="62" y="154"   text-anchor="end">West</text>
+          <circle class="r10-dot-acc" cx="255.3"  cy="44"    r="4.4"/>
+          <circle class="r10-dot"     cx="237.13" cy="70.5"  r="4"/>
+          <circle class="r10-dot"     cx="189.9"  cy="97"    r="4"/>
+          <circle class="r10-dot"     cx="149.93" cy="123.5" r="4"/>
+          <circle class="r10-dot"     cx="120.87" cy="150"   r="4"/>
+          <text class="r10-num" x="294" y="48"    text-anchor="end">99.1</text>
+          <text class="r10-num" x="294" y="74.5"  text-anchor="end">98.6</text>
+          <text class="r10-num" x="294" y="101"   text-anchor="end">97.3</text>
+          <text class="r10-num" x="294" y="127.5" text-anchor="end">96.2</text>
+          <text class="r10-num" x="294" y="154"   text-anchor="end">95.4</text>
+          <line class="r10-axis" x1="70" y1="169" x2="288" y2="169"/>
+          <line class="r10-tick" x1="70"     y1="169" x2="70"     y2="173"/>
+          <line class="r10-tick" x1="142.67" y1="169" x2="142.67" y2="173"/>
+          <line class="r10-tick" x1="215.33" y1="169" x2="215.33" y2="173"/>
+          <line class="r10-tick" x1="288"    y1="169" x2="288"    y2="173"/>
+          <text class="r10-axnum" x="70"     y="184" text-anchor="middle">94</text>
+          <text class="r10-axnum" x="142.67" y="184" text-anchor="middle">96</text>
+          <text class="r10-axnum" x="215.33" y="184" text-anchor="middle">98</text>
+          <text class="r10-axnum" x="288"    y="184" text-anchor="middle">100</text>
+        </svg>
+        <figcaption class="r10-chart-cap">Cleveland dot plot &mdash; the 94&ndash;100% window is drawn on the chart as a range frame, so the crop is shown, not hidden. Sorted; best in accent.</figcaption>
+      </figure>
+
+    </div>
+
+    <p class="r10-chart-subhead">Headline metrics, at a glance</p>
+    <div class="r10-chart-kpis">
+      <div class="r10-chart-kpi">
+        <div class="kl">Revenue</div><div class="kn">$21.2M</div><div class="kd up">&plus; 12.4%</div>
+        <svg class="r10-chart-spark" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="1,22 18,19 35,20 52,12 69,14 86,8 103,9 119,3"/><circle class="d" cx="119" cy="3" r="2.2"/></svg>
+      </div>
+      <div class="r10-chart-kpi">
+        <div class="kl">Active users</div><div class="kn">48.1k</div><div class="kd up">&plus; 5.2%</div>
+        <svg class="r10-chart-spark" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="1,18 18,17 35,15 52,16 69,11 86,12 103,8 119,6"/><circle class="d" cx="119" cy="6" r="2.2"/></svg>
+      </div>
+      <div class="r10-chart-kpi">
+        <div class="kl">Gross margin</div><div class="kn">31.4%</div><div class="kd up">&plus; 1.1 pts</div>
+        <svg class="r10-chart-spark" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="1,16 18,15 35,14 52,13 69,13 86,11 103,10 119,9"/><circle class="d" cx="119" cy="9" r="2.2"/></svg>
+      </div>
+      <div class="r10-chart-kpi">
+        <div class="kl">Churn</div><div class="kn">2.3%</div><div class="kd down">&minus; 0.4 pts</div>
+        <svg class="r10-chart-spark" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="1,7 18,9 35,8 52,12 69,11 86,14 103,16 119,18"/><circle class="d" cx="119" cy="18" r="2.2"/></svg>
+      </div>
+    </div>
+
+    <p class="r10-chart-subhead">The roadmap</p>
+    <div class="r10-chart-gantt" role="img" aria-label="Six-quarter roadmap. Discovery in Q1 (complete); design system Q1 to Q2 (complete); build phase one Q2 to Q4; build phase two Q4 to Q6 with a release milestone late in Q6; launch in Q6.">
+      <div class="gh"><span></span><div class="months"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q5</span><span>Q6</span></div></div>
+      <div class="grow"><span class="gt">Discovery</span><div class="track"><span class="bar done" style="left:0;width:16%"></span></div></div>
+      <div class="grow"><span class="gt">Design system</span><div class="track"><span class="bar done" style="left:12%;width:24%"></span></div></div>
+      <div class="grow"><span class="gt">Build &middot; phase 1</span><div class="track"><span class="bar" style="left:30%;width:30%"></span></div></div>
+      <div class="grow"><span class="gt">Build &middot; phase 2</span><div class="track"><span class="bar alt" style="left:54%;width:30%"></span><span class="glbl" style="left:84%">Release</span><span class="ms" style="left:84%"></span></div></div>
+      <div class="grow"><span class="gt">Launch</span><div class="track"><span class="bar" style="left:82%;width:14%"></span></div></div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ═══ imagery · round 10 · namespaced r10-img-* / r10-gen-* (colour = :root tokens only; the one contrasting pop belongs to perception-and-color, never used here) ═══ */
+
+/* roman plate enumerator — echoes the sibling chapters' through-line */
+.r10-img-plate{color:var(--ink);font-weight:700;font-style:normal;letter-spacing:.12em}
+
+.r10-img-lede{max-width:62ch;font-size:15.5px;line-height:1.62;color:var(--ink-soft);margin:22px 0 0}
+.r10-img-copy p{max-width:62ch;font-size:15px;line-height:1.62;color:var(--ink-soft);margin:0 0 15px}
+.r10-img-copy p:last-child{margin-bottom:0}
+.r10-img-subhead{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:38px 0 20px;padding-bottom:11px;border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:9px}
+.r10-img-subhead::before{content:"\25C6";color:var(--brass);font-size:8px}
+
+/* ── §1 photography replacement — three plates in a clean grid ── */
+.r10-img-plate-grid{display:grid;gap:clamp(18px,3vw,28px);
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:30px}
+.r10-img-fig{margin:0}
+.r10-img-plate-frame{display:block;background:var(--panel);border:1px solid var(--rule);
+  overflow:hidden;box-sizing:border-box}
+.r10-img-plate-frame img{display:block;width:100%;height:auto}
+.r10-img-cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted);
+  margin:10px 0 0;text-transform:uppercase}
+
+/* ── §2 gallery mosaic — deliberate 7-plate composition, contain in a cream box ── */
+.r10-img-mosaic{display:grid;grid-template-columns:repeat(5,1fr);
+  grid-auto-rows:clamp(116px,15vw,168px);gap:12px;margin-top:30px}
+.r10-img-cell{display:flex;flex-direction:column;min-height:0;margin:0}
+.r10-img-cell .r10-img-frame{flex:1 1 auto;min-height:0}
+.r10-img-cell .r10-img-cap{flex:0 0 auto}
+.r10-img-frame{display:block;background:var(--panel);border:1px solid var(--rule);
+  padding:8px;overflow:hidden;box-sizing:border-box}
+.r10-img-frame img{display:block;width:100%;height:100%;object-fit:contain}
+.r10-img-m-prospect{grid-column:1/3;grid-row:1}
+.r10-img-m-facade{grid-column:3/4;grid-row:1}
+.r10-img-m-still{grid-column:4/5;grid-row:1}
+.r10-img-m-material{grid-column:1/2;grid-row:2}
+.r10-img-m-instr{grid-column:2/3;grid-row:2}
+.r10-img-m-arcade{grid-column:3/5;grid-row:2}
+.r10-img-m-security{grid-column:5/6;grid-row:1/3}
+@media(max-width:900px){
+  .r10-img-mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(132px,26vw,196px)}
+  .r10-img-mosaic>*{grid-column:auto;grid-row:auto}
+  .r10-img-m-prospect,.r10-img-m-arcade{grid-column:1/3}
+}
+@media(max-width:560px){
+  .r10-img-mosaic{display:block}
+  .r10-img-mosaic .r10-img-cell{display:block;margin:0 0 14px}
+  .r10-img-mosaic .r10-img-frame{height:auto}
+  .r10-img-mosaic .r10-img-frame img{height:auto;object-fit:unset}
+}
+
+/* ── §3 the imagery STANCE grid ── */
+.r10-img-stance{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:0 clamp(28px,4vw,44px);margin-top:26px}
+.r10-img-st{padding:20px 0 6px;border-top:1px solid var(--rule)}
+.r10-img-st .n{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.r10-img-st h4{font-family:var(--text);font-weight:600;font-size:16px;letter-spacing:-.01em;
+  margin:10px 0 6px;color:var(--ink)}
+.r10-img-st p{font-size:13.5px;line-height:1.52;color:var(--ink-soft);margin:0}
+
+/* ── §3 the treated-image + alt-text demo ── */
+.r10-img-alt-demo{display:grid;grid-template-columns:minmax(0,300px) 1fr;
+  gap:clamp(24px,4vw,44px);align-items:start;margin-top:26px}
+@media(max-width:640px){.r10-img-alt-demo{grid-template-columns:1fr}}
+.r10-img-alt-note{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 10px}
+.r10-img-alt-role{font-size:14px;line-height:1.56;color:var(--ink-soft);margin:0 0 12px}
+.r10-img-alt-role b{color:var(--ink);font-weight:600}
+.r10-img-code{display:block;font-family:var(--mono);font-size:12.5px;line-height:1.62;color:var(--ink);
+  background:var(--panel);border:1px solid var(--rule);border-left:2px solid var(--accent);
+  padding:14px 16px;margin:0 0 14px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;
+  box-sizing:border-box}
+.r10-img-code .k{color:var(--muted)}
+
+/* ── §3 the drawn architecture line-plates (round-9 blueprint classes, namespaced) ── */
+.r10-img-bp-sheet{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:26px}
+.r10-img-bp{margin:0}
+.r10-img-bp-dwg{width:100%;height:auto;display:block;border:1px solid var(--rule);background:var(--panel)}
+.r10-img-bp-dwg line,.r10-img-bp-dwg rect,.r10-img-bp-dwg path,.r10-img-bp-dwg circle{vector-effect:non-scaling-stroke}
+.r10-img-bp-dwg .wall{stroke:var(--ink);stroke-width:1.6;fill:none}
+.r10-img-bp-dwg .thin{stroke:var(--muted);stroke-width:.8;fill:none}
+.r10-img-bp-dwg .dim{stroke:var(--brass);stroke-width:.8;fill:none}
+.r10-img-bp-dwg .fill{fill:var(--rule-soft);stroke:none}
+.r10-img-bp-dwg text{font-family:var(--mono);font-size:8px;fill:var(--muted)}
+.r10-img-bp-cap{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);
+  margin-top:8px;text-transform:uppercase}
+
+/* ── §4 generative-imagery — governance gates ── */
+.r10-gen-gates{counter-reset:g;list-style:none;margin:24px 0 0;padding:0}
+.r10-gen-gates li{position:relative;counter-increment:g;padding:16px 0 16px 46px;
+  border-top:1px solid var(--rule);font-size:14.5px;line-height:1.56;color:var(--ink-soft);max-width:64ch}
+.r10-gen-gates li b{color:var(--ink);font-weight:600}
+.r10-gen-gates li::before{content:counter(g);position:absolute;left:0;top:15px;
+  font-family:var(--mono);font-size:12px;color:var(--paper);background:var(--accent);
+  width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;font-weight:700}
+
+/* ── §4 the raw → directed → placed PIPELINE strip (the collaboration, made visible) ── */
+.r10-gen-pipe{display:flex;gap:clamp(10px,1.6vw,18px);align-items:stretch;margin-top:30px}
+.r10-gen-step{flex:1 1 0;min-width:0;display:flex;flex-direction:column;margin:0}
+.r10-gen-arrow{flex:0 0 auto;align-self:center;font-family:var(--mono);color:var(--brass);
+  font-size:16px;line-height:1;-webkit-user-select:none;user-select:none}
+.r10-gen-step-hd{margin:0 0 11px}
+.r10-gen-step-rn{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.r10-gen-step-nm{font-family:var(--text);font-weight:600;font-size:15px;letter-spacing:-.01em;
+  color:var(--ink);margin:3px 0 3px}
+.r10-gen-step-who{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.r10-gen-step-frame{display:block;background:var(--panel);border:1px solid var(--rule);
+  overflow:hidden;box-sizing:border-box}
+.r10-gen-step-frame img{display:block;width:100%;height:auto}
+.r10-gen-step-cap{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted);
+  margin:10px 0 0;line-height:1.5}
+/* step III — the treated ground PLACED: dimmed under opaque cream, AA text on top (the ONLY dim) */
+.r10-gen-placed{position:relative;aspect-ratio:8/5;overflow:hidden;background:var(--paper)}
+.r10-gen-placed-bg{position:absolute;inset:0;
+  background:url("assets/ledger/gen-ground-treated.jpg") center/cover no-repeat}
+.r10-gen-placed-scrim{position:absolute;inset:0;background:linear-gradient(100deg,
+  rgba(239,233,218,.95) 0%, rgba(239,233,218,.91) 52%, rgba(239,233,218,.66) 100%)}
+.r10-gen-placed-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(13px,5%,24px);max-width:82%}
+.r10-gen-placed-copy .kx{font-family:var(--display);font-weight:400;font-size:clamp(15px,2.3vw,21px);
+  line-height:1.1;color:var(--ink);margin:0 0 6px}
+.r10-gen-placed-copy .bd{font-size:clamp(11px,1.45vw,12.5px);line-height:1.5;color:var(--ink);margin:0}
+@media(max-width:720px){
+  .r10-gen-pipe{flex-direction:column;gap:20px}
+  .r10-gen-arrow{align-self:flex-start;transform:rotate(90deg);margin:-8px 0 -8px 10px}
+}
+
+/* ── §4 would / would-never ── */
+.r10-gen-wnw{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,4vw,48px);margin-top:26px}
+@media(max-width:560px){.r10-gen-wnw{grid-template-columns:1fr;gap:0}}
+.r10-gen-col{padding-top:16px;border-top:1.5px solid var(--ink)}
+.r10-gen-col+.r10-gen-col{}
+.r10-gen-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.r10-gen-col h4::before{content:"";width:9px;height:9px;transform:rotate(45deg);flex:0 0 auto}
+.r10-gen-col.yes h4::before{background:var(--accent)}
+.r10-gen-col.no h4::before{background:var(--neg)}
+.r10-gen-col p{font-size:14px;line-height:1.56;color:var(--ink-soft);margin:12px 0 0;max-width:42ch}
+@media(max-width:560px){.r10-gen-col+.r10-gen-col{margin-top:22px}}
+</style>
+
+<section class="section" id="sk-imagery">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-img-plate">VI</b>&nbsp;&nbsp;Imagery</p>
+      <h2>Images, drawn to belong.</h2>
+    </div>
+
+    <div class="r10-img-copy">
+      <p>The imagery instrument <b>selects, critiques and directs</b> pictures — photograph or
+        illustration. It decides photo-versus-illustration, directs code-feasible tonal
+        treatment (duotone, grayscale, grain, scrim), writes the alt text, and makes light
+        programmatic illustration in SVG. It owns one floor outright — the
+        <b>non-text-content / alt-text</b> floor — and defers the rest: colour to
+        perception-and-colour, arrangement and figure-ground to composition, type to
+        typesetting.</p>
+      <p>Reach for it whenever a page needs a picture, because the evidence is blunt: an image
+        that does not <b>carry the message costs comprehension</b> — decorative, off-brief
+        filler is not neutral, it measurably subtracts. So no generic stock. And on a premium
+        page a cheap graphic reads worse than none at all — it cheapens the whole. That is why
+        Ledger draws its own: every plate here is engraved in code, on-register, self-contained.</p>
+    </div>
+
+    <p class="r10-img-subhead">The Ledger imagery stance</p>
+    <div class="r10-img-stance">
+      <div class="r10-img-st">
+        <span class="n">01</span>
+        <h4>Illustration-led</h4>
+        <p>Concepts, not credibility, are the payload — so we draw, we do not photograph.</p>
+      </div>
+      <div class="r10-img-st">
+        <span class="n">02</span>
+        <h4>Engraved duotone</h4>
+        <p>Two inks far apart in value, carved from the page's own palette — reads as made,
+          not rendered.</p>
+      </div>
+      <div class="r10-img-st">
+        <span class="n">03</span>
+        <h4>Warm-neutral monochrome</h4>
+        <p>Ink and cream carry the tone; the one heritage-green mark is the only colour a
+          plate spends.</p>
+      </div>
+      <div class="r10-img-st">
+        <span class="n">04</span>
+        <h4>Never competes with the data</h4>
+        <p>A plate sits quiet in negative space and points; the numbers stay the subject.</p>
+      </div>
+    </div>
+
+    <p class="r10-img-subhead">One treated image, and the alt text it ships with</p>
+    <div class="r10-img-alt-demo">
+      <figure class="r10-img-fig">
+        <span class="r10-img-plate-frame">
+          <img src="assets/ledger/ledger-plate-material.svg"
+               alt="Engraved plate: a laid-paper swatch pinned at top, one ruled line struck through it in heritage green, the lower corner curling — a drawing of the page's own stock.">
+        </span>
+        <figcaption class="r10-img-cap">Plate III &middot; Laid stock</figcaption>
+      </figure>
+      <div>
+        <p class="r10-img-alt-note">Informative image &rarr; alt states the point</p>
+        <p class="r10-img-alt-role">The plate carries meaning, so its <b>alt</b> describes what
+          it says — the subject and the one green mark — not "image of a plate":</p>
+        <code class="r10-img-code">&lt;img src="…/ledger-plate-material.svg"
+     alt="Engraved plate: a laid-paper swatch
+          pinned at top, one ruled line struck
+          through it in heritage green, the lower
+          corner curling — a drawing of the page's
+          own stock."&gt;</code>
+        <p class="r10-img-alt-note">Decorative ground &rarr; alt is empty</p>
+        <p class="r10-img-alt-role">A texture that carries <b>no</b> message is hidden from
+          assistive tech, so it is not read aloud as noise:</p>
+        <code class="r10-img-code"><span class="k">&lt;!-- treated engraved ground, purely decorative --&gt;</span>
+&lt;img src="…/gen-ground-treated.jpg" alt=""&gt;</code>
+      </div>
+    </div>
+
+    <p class="r10-img-subhead">The drawn architecture line-plates</p>
+    <div class="r10-img-bp-sheet">
+      <figure class="r10-img-bp">
+        <svg class="r10-img-bp-dwg" viewBox="0 0 240 170" role="img"
+             aria-label="Architectural plan at one to two hundred — a rectangular floor plate with internal partitions, a door swing and a dimension line.">
+          <rect class="wall" x="20" y="22" width="200" height="112"/>
+          <line class="wall" x1="128" y1="22" x2="128" y2="92"/>
+          <line class="wall" x1="20" y1="92" x2="128" y2="92"/>
+          <path class="thin" d="M128 46 A 22 22 0 0 0 106 24"/>
+          <line class="thin" x1="128" y1="46" x2="128" y2="24"/>
+          <path class="thin" d="M74 92 A 20 20 0 0 1 94 112"/>
+          <line class="thin" x1="74" y1="92" x2="74" y2="112"/>
+          <text x="150" y="60">SALLE</text>
+          <text x="52" y="60">VESTIBULE</text>
+          <line class="dim" x1="20" y1="150" x2="220" y2="150"/>
+          <line class="dim" x1="20" y1="146" x2="20" y2="154"/>
+          <line class="dim" x1="220" y1="146" x2="220" y2="154"/>
+          <text x="120" y="164" text-anchor="middle">40.8 M</text>
+          <text x="20" y="16">PLAN &#183; 1:200</text>
+        </svg>
+        <figcaption class="r10-img-bp-cap">Plan &middot; 1:200</figcaption>
+      </figure>
+      <figure class="r10-img-bp">
+        <svg class="r10-img-bp-dwg" viewBox="0 0 240 170" role="img"
+             aria-label="South elevation — a symmetrical facade: base, wall, ranked windows and a pediment over the entrance.">
+          <line class="wall" x1="12" y1="140" x2="228" y2="140"/>
+          <rect class="wall" x="44" y="58" width="152" height="82"/>
+          <path class="wall" d="M40 58 L120 22 L200 58"/>
+          <line class="thin" x1="40" y1="58" x2="200" y2="58"/>
+          <line class="thin" x1="60" y1="58" x2="60" y2="140"/>
+          <line class="thin" x1="180" y1="58" x2="180" y2="140"/>
+          <rect class="thin" x="72" y="78" width="20" height="40"/>
+          <rect class="thin" x="148" y="78" width="20" height="40"/>
+          <line class="thin" x1="82" y1="78" x2="82" y2="118"/>
+          <line class="thin" x1="158" y1="78" x2="158" y2="118"/>
+          <line class="thin" x1="72" y1="98" x2="92" y2="98"/>
+          <line class="thin" x1="148" y1="98" x2="168" y2="98"/>
+          <rect class="wall" x="110" y="98" width="20" height="42"/>
+          <path class="thin" d="M110 98 A 10 10 0 0 1 130 98"/>
+          <line class="thin" x1="98" y1="140" x2="142" y2="140"/>
+          <line class="thin" x1="94" y1="146" x2="146" y2="146"/>
+          <line class="dim" x1="216" y1="22" x2="216" y2="140"/>
+          <line class="dim" x1="212" y1="22" x2="220" y2="22"/>
+          <line class="dim" x1="212" y1="140" x2="220" y2="140"/>
+          <text x="216" y="84" transform="rotate(-90 216 84)" text-anchor="middle">8.6 M</text>
+          <text x="12" y="16">SOUTH ELEVATION</text>
+        </svg>
+        <figcaption class="r10-img-bp-cap">South elevation</figcaption>
+      </figure>
+      <figure class="r10-img-bp">
+        <svg class="r10-img-bp-dwg" viewBox="0 0 240 170" role="img"
+             aria-label="Section A to A — a cut through the building showing floor slabs, the roof pitch and a floor-to-ceiling dimension.">
+          <path class="wall" d="M44 46 L120 16 L196 46"/>
+          <rect class="fill" x="44" y="46" width="8" height="92"/>
+          <rect class="fill" x="188" y="46" width="8" height="92"/>
+          <rect class="wall" x="44" y="46" width="8" height="92"/>
+          <rect class="wall" x="188" y="46" width="8" height="92"/>
+          <rect class="fill" x="52" y="90" width="136" height="5"/>
+          <line class="wall" x1="52" y1="90" x2="188" y2="90"/>
+          <line class="wall" x1="52" y1="95" x2="188" y2="95"/>
+          <rect class="fill" x="44" y="138" width="152" height="5"/>
+          <line class="wall" x1="44" y1="138" x2="196" y2="138"/>
+          <line class="thin" x1="52" y1="46" x2="188" y2="46"/>
+          <line class="thin" x1="120" y1="95" x2="120" y2="138"/>
+          <line class="thin" x1="120" y1="16" x2="120" y2="46"/>
+          <line class="dim" x1="34" y1="95" x2="34" y2="138"/>
+          <line class="dim" x1="30" y1="95" x2="38" y2="95"/>
+          <line class="dim" x1="30" y1="138" x2="38" y2="138"/>
+          <text x="34" y="120" transform="rotate(-90 34 120)" text-anchor="middle">3.4 M</text>
+          <text x="12" y="16">SECTION A&#8211;A</text>
+        </svg>
+        <figcaption class="r10-img-bp-cap">Section A&ndash;A</figcaption>
+      </figure>
+    </div>
+    <p class="r10-img-subhead">A portfolio of plates</p>
+    <p class="r10-img-lede">One hand across many subjects — architecture, still life, material, ornament — engraved, never photographed. Held in cream boxes so no brass frame is ever cropped.</p>
+    <div class="r10-img-mosaic">
+      <figure class="r10-img-cell r10-img-m-prospect">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-prospect.svg"
+               alt="Engraved plate: an estate prospect — ranks of hatched hills below a ringed sun, one heritage-green cypress standing among them.">
+        </span>
+        <figcaption class="r10-img-cap">Plate V &middot; An estate prospect</figcaption>
+      </figure>
+      <figure class="r10-img-cell r10-img-m-facade">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-facade.svg"
+               alt="Engraved plate: a heritage temple facade — columns beneath a pediment, a heritage-green boss set in the tympanum.">
+        </span>
+        <figcaption class="r10-img-cap">Plate I &middot; Heritage fa&ccedil;ade</figcaption>
+      </figure>
+      <figure class="r10-img-cell r10-img-m-still">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-stilllife.svg"
+               alt="Engraved plate: a classical still life — an amphora, a footed bowl and fruit, a heritage-green band round the amphora.">
+        </span>
+        <figcaption class="r10-img-cap">Plate II &middot; Still life</figcaption>
+      </figure>
+      <figure class="r10-img-cell r10-img-m-material">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-material.svg"
+               alt="Engraved plate: a laid-paper swatch pinned at top, one ruled line struck through it in heritage green, the lower corner curling — a drawing of the page's own stock.">
+        </span>
+        <figcaption class="r10-img-cap">Plate III &middot; Laid stock</figcaption>
+      </figure>
+      <figure class="r10-img-cell r10-img-m-instr">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-instruments.svg"
+               alt="Engraved plate: a pair of dividers over a straightedge and set square, the pivot screw picked out in heritage green.">
+        </span>
+        <figcaption class="r10-img-cap">Plate VI &middot; Instruments</figcaption>
+      </figure>
+      <figure class="r10-img-cell r10-img-m-arcade">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-arcade.svg"
+               alt="Engraved plate: a five-bay stone arcade, the central keystone struck in heritage green.">
+        </span>
+        <figcaption class="r10-img-cap">Plate IV &middot; The arcade</figcaption>
+      </figure>
+      <figure class="r10-img-cell r10-img-m-security">
+        <span class="r10-img-frame">
+          <img src="assets/ledger/ledger-plate-security.svg"
+               alt="Engraved plate: a guilloché security print — interlaced engine-turned lines around a brass medallion.">
+        </span>
+        <figcaption class="r10-img-cap">Plate VII &middot; Security print</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ── #sk-ux — interface, structure, usability (namespaced r10-ux-*) ── */
+.r10-ux-lead{max-width:60ch;display:grid;gap:16px;margin-bottom:40px}
+.r10-ux-lead p{color:var(--ink-soft);font-size:clamp(15.5px,1.35vw,17px);line-height:1.66}
+
+.r10-ux-set{display:grid;gap:44px}
+.r10-ux-cap{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.r10-ux-cap b{color:var(--ink-soft);font-weight:600}
+.r10-ux-note{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);
+  margin:12px 0 0;line-height:1.55}
+.r10-ux-note b{color:var(--ink-soft);font-weight:600}
+
+/* — the grid, exposed — */
+.r10-ux-container{display:flex;align-items:stretch;height:60px;border:1px solid var(--ink);
+  box-shadow:0 2px 0 -1px var(--brass);position:relative}
+.r10-ux-gut{flex:0 0 13%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);
+  background-image:repeating-linear-gradient(45deg,
+    color-mix(in srgb,var(--brass) 24%,transparent) 0 2px,transparent 2px 7px)}
+.r10-ux-gut.l{border-right:1px dashed var(--rule)}
+.r10-ux-gut.r{border-left:1px dashed var(--rule)}
+.r10-ux-content{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);text-align:center}
+.r10-ux-cols{display:grid;gap:9px;margin-top:16px}
+.r10-ux-colrow{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center}
+.r10-ux-colrow .k{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;line-height:1.35}
+.r10-ux-tmpl{display:grid;gap:8px;min-width:0}
+.r10-ux-tmpl.hero{grid-template-columns:1.06fr .94fr}
+.r10-ux-tmpl.colo{grid-template-columns:minmax(78px,180px) 1fr}
+.r10-ux-tmpl.idx{grid-template-columns:repeat(4,1fr)}
+.r10-ux-cell{min-width:0;height:32px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--rule);background:var(--panel);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;color:var(--ink-soft);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px}
+
+/* — the spacing rhythm — */
+.r10-ux-scale{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px}
+.r10-ux-step{display:flex;flex-direction:column;align-items:center;gap:8px}
+.r10-ux-step i{display:block;width:24px;border-top:2px solid var(--brass);
+  background:linear-gradient(180deg,var(--ink-soft),var(--ink))}
+.r10-ux-step span{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:11px;color:var(--muted)}
+
+/* — navigation demo wrapper (scoped responsive; elevated focusable items) — */
+.r10-ux-navwrap .menubar .mi{text-decoration:none}
+@media(max-width:560px){
+  .r10-ux-navwrap .menubar .top{flex-wrap:wrap}
+  .r10-ux-navwrap .megamenu{grid-template-columns:repeat(2,1fr)}
+}
+
+/* — the data table (honest, no accounting framing) — */
+.r10-ux-tblwrap{overflow-x:auto}
+.r10-ux-tbl tbody th{text-align:left;padding:12px 0;border-bottom:1px solid var(--rule);
+  color:var(--ink);font-weight:600;font-family:var(--text);font-size:14px}
+.r10-ux-tbl tbody tr:last-child th{border-bottom:1.5px solid var(--ink)}
+.r10-ux-tbl thead th.txt,.r10-ux-tbl td.txt{text-align:left}
+/* R10 fix: horizontal gutters so Panes (numeric) and Nav-pattern (text) columns read as separate cells */
+.r10-ux-tbl thead th{padding-left:18px}
+.r10-ux-tbl tbody td{padding-left:18px}
+.r10-ux-tbl thead th:first-child{padding-left:0}
+.r10-ux-tbl thead th.txt,.r10-ux-tbl tbody td.txt{padding-left:30px}
+.r10-ux-src{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);margin:12px 0 0}
+
+/* — actions — */
+.r10-ux-btns{display:flex;flex-wrap:wrap;gap:30px;align-items:center}
+
+/* — proof-of-floor caption — */
+.r10-ux-floor{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;line-height:1.7;
+  color:var(--muted);margin:34px 0 0;padding-top:16px;border-top:1px solid var(--rule);max-width:70ch}
+.r10-ux-floor b{color:var(--accent);font-weight:600}
+.r10-ux-floor kbd{font-family:var(--mono);font-size:10.5px;border:1px solid var(--rule);
+  border-bottom-width:2px;border-radius:3px;padding:1px 5px;color:var(--ink-soft);background:var(--paper)}
+.r10-ux-floor code{font-family:var(--mono);color:var(--ink-soft)}
+</style>
+
+<section class="section" id="sk-ux">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">VII</b>&nbsp;&nbsp;Interface · structure &amp; wayfinding</p>
+      <h2>Where the eye goes first.</h2>
+      <p>The structure beneath the ornament — laid open, then proven.</p>
+    </div>
+
+    <div class="r10-ux-lead">
+      <p>This instrument sets the structure the rest of the page hangs from: the skeleton,
+      the grid its columns align to, the spacing that groups what belongs together and parts
+      what does not, and the hierarchy that decides what the eye meets first, next, and last.
+      It places navigation where the hand expects it and keeps the active place marked; it
+      orders figures into tables read straight down a column, and escalates to an interactive
+      data grid only when filtering or thousands of rows earn the weight.</p>
+      <p>It is grounded where evidence exists — the accessibility floor and processing fluency
+      are the load-bearing findings — and it names taste as taste elsewhere: the column count,
+      the line measure, the Z-pattern are offered as defaults, never dressed as law. Reach for
+      it to structure a screen or repair one that reads cluttered, hard to navigate, or without
+      a focal point. Four floors do not bend — a visible focus ring on every target, a hit area
+      of at least 44&nbsp;pixels, contrast that clears AA, and a hierarchy a stranger reads in
+      three seconds. Below, the same system this page stands on, drawn in the open.</p>
+    </div>
+
+    <div class="r10-ux-set">
+
+      <!-- ── THE GRID, EXPOSED ─────────────────────────────────── -->
+      <div>
+        <h3 class="r10-ux-cap">The grid — <b>container ≤ 1120px · gutter clamp(20 → 56px)</b></h3>
+        <div class="r10-ux-container" role="img"
+             aria-label="Page container: a centred content column of at most 1120 pixels flanked by fluid gutters that clamp from 20 to 56 pixels.">
+          <span class="r10-ux-gut l">pad</span>
+          <span class="r10-ux-content">content&nbsp;·&nbsp;max-width&nbsp;1120px</span>
+          <span class="r10-ux-gut r">pad</span>
+        </div>
+        <div class="r10-ux-cols">
+          <div class="r10-ux-colrow">
+            <span class="k">hero split</span>
+            <div class="r10-ux-tmpl hero"><span class="r10-ux-cell">1.06fr</span><span class="r10-ux-cell">0.94fr</span></div>
+          </div>
+          <div class="r10-ux-colrow">
+            <span class="k">colophon rail</span>
+            <div class="r10-ux-tmpl colo"><span class="r10-ux-cell">minmax 190–300px</span><span class="r10-ux-cell">1fr</span></div>
+          </div>
+          <div class="r10-ux-colrow">
+            <span class="k">index grid</span>
+            <div class="r10-ux-tmpl idx"><span class="r10-ux-cell">1fr</span><span class="r10-ux-cell">1fr</span><span class="r10-ux-cell">1fr</span><span class="r10-ux-cell">1fr</span></div>
+          </div>
+        </div>
+        <p class="r10-ux-note">Three column structures, all aligned to one centred container.
+        The index grid is <b>auto-fit · minmax(322px, 1fr)</b> — it sheds columns as the page
+        narrows, then stacks. Alignment reads as order; misalignment reads as broken.
+        <span style="color:var(--ink-soft)">[fluency, load-bearing]</span></p>
+      </div>
+
+      <!-- ── THE SPACING RHYTHM ────────────────────────────────── -->
+      <div>
+        <h3 class="r10-ux-cap">The spacing rhythm — <b>the recurring steps, in px</b></h3>
+        <div class="r10-ux-scale" role="img"
+             aria-label="Spacing scale, recurring steps in pixels: 12, 16, 24, 32, 46, 64, 82.">
+          <span class="r10-ux-step"><i style="height:12px"></i><span>12</span></span>
+          <span class="r10-ux-step"><i style="height:16px"></i><span>16</span></span>
+          <span class="r10-ux-step"><i style="height:24px"></i><span>24</span></span>
+          <span class="r10-ux-step"><i style="height:32px"></i><span>32</span></span>
+          <span class="r10-ux-step"><i style="height:46px"></i><span>46</span></span>
+          <span class="r10-ux-step"><i style="height:64px"></i><span>64</span></span>
+          <span class="r10-ux-step"><i style="height:82px"></i><span>82</span></span>
+        </div>
+        <p class="r10-ux-note">One step-set governs every gap and pad, so proximity does the
+        grouping. Two tokens stay fluid — the gutter <b>--pad clamps 20 → 56</b>, the section
+        rhythm <b>clamps 46 → 82</b> — so the page breathes with the viewport.
+        <span style="color:var(--ink-soft)">[gestalt proximity, upheld; exact numbers, taste]</span></p>
+      </div>
+
+      <!-- ── NAVIGATION ────────────────────────────────────────── -->
+      <div class="r10-ux-navwrap">
+        <h3 class="r10-ux-cap">Navigation — <b>where am I · where can I go · how do I get back</b></h3>
+        <div class="nav-demo">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="#sk-ux">Home</a><span class="sep">/</span>
+            <a href="#sk-ux">Skills</a><span class="sep">/</span>
+            <b aria-current="page">Interface</b>
+          </nav>
+          <div class="menubar">
+            <div class="top">
+              <a class="mi" href="#sk-ux">Overview</a>
+              <a class="mi open" href="#sk-ux" aria-expanded="true" aria-current="page">Skills <span class="car" aria-hidden="true">&#9662;</span></a>
+              <a class="mi" href="#sk-ux">Gallery</a>
+              <a class="mi" href="#sk-ux">Evidence</a>
+            </div>
+            <div class="megamenu">
+              <div class="col"><h4>Structure</h4><a href="#sk-ux">Page anatomy</a><a href="#sk-ux">App-shell</a><a href="#sk-ux">Dashboard grid</a><a href="#sk-ux">Breakpoints</a></div>
+              <div class="col"><h4>Wayfinding</h4><a href="#sk-ux">Global nav</a><a href="#sk-ux">Breadcrumbs</a><a href="#sk-ux">Tabs</a><a href="#sk-ux">Active state</a></div>
+              <div class="col"><h4>Guiding the eye</h4><a href="#sk-ux">Hierarchy</a><a href="#sk-ux">Whitespace</a><a href="#sk-ux">Pop-out</a><a href="#sk-ux">Reserved accent</a></div>
+              <div class="col"><h4>Interaction</h4><a href="#sk-ux">Focus states</a><a href="#sk-ux">Hit targets</a><a href="#sk-ux">Empty / loading / error</a><a href="#sk-ux">Data grids</a></div>
+            </div>
+          </div>
+          <nav class="tabs" aria-label="Section">
+            <a href="#sk-ux" aria-current="page">Overview</a>
+            <a href="#sk-ux">Forms</a>
+            <a href="#sk-ux">Gallery</a>
+            <a href="#sk-ux">Evidence</a>
+          </nav>
+        </div>
+        <p class="r10-ux-note">Primary nav stays visible — hiding it behind a ☰ cut
+        discoverability &gt;20% and slowed desktop tasks ≥39% in NN/g's controlled test.
+        <span style="color:var(--ink-soft)">[visible-nav, strong]</span></p>
+      </div>
+
+      <!-- ── THE DATA TABLE (honest; no accounting framing) ────── -->
+      <div>
+        <h3 class="r10-ux-cap">The data table — <b>tabular figures, aligned; minimal rules</b></h3>
+        <div class="r10-ux-tblwrap">
+          <table class="tbl r10-ux-tbl">
+            <caption class="sr-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Responsive window size classes and the page's reflow schedule.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Window class</th>
+                <th scope="col">Min width · dp</th>
+                <th scope="col">Panes</th>
+                <th scope="col" class="txt">Nav pattern</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Compact</th><td class="num">&lt; 600</td><td class="num">1</td><td class="txt">Bottom bar</td></tr>
+              <tr><th scope="row">Medium</th><td class="num">600–839</td><td class="num">1</td><td class="txt">Nav rail</td></tr>
+              <tr><th scope="row">Expanded</th><td class="num">840–1199</td><td class="num">2</td><td class="txt">Nav rail</td></tr>
+              <tr><th scope="row">Large</th><td class="num">1200–1599</td><td class="num">2</td><td class="txt">Side nav</td></tr>
+              <tr><th scope="row">Extra-large</th><td class="num">&ge; 1600</td><td class="num">3</td><td class="txt">Side nav</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="r10-ux-src">Material 3 window size classes — the reflow schedule this page
+        keeps: as width grows, a bottom bar becomes a rail, then side navigation. Numerals are
+        tabular, right-aligned; the identity column is a row header. <b>[convention]</b></p>
+      </div>
+
+      <!-- ── ACTIONS ───────────────────────────────────────────── -->
+      <div>
+        <h3 class="r10-ux-cap">Actions — <b>engraved-underline CTAs, one reserved for the primary</b></h3>
+        <div class="r10-ux-btns">
+          <a class="btn btn--primary" href="#sk-ux">Read the skill</a>
+          <a class="btn btn--ghost" href="#sk-ux">Open the gallery</a>
+          <a class="btn btn--sm" href="#sk-ux">Full evidence trail</a>
+        </div>
+      </div>
+
+      <!-- ── PROOF OF FLOOR ────────────────────────────────────── -->
+      <p class="r10-ux-floor">
+        <b>Proof of floor.</b> Every interactive target ≥ 44px · a visible focus ring on
+        <kbd>Tab</kbd> through crumbs, menubar, tabs and buttons · the breadcrumb marks
+        <code>aria-current="page"</code> · the open menu item carries <code>aria-expanded</code> ·
+        the table is built on <code>&lt;th scope&gt;</code> with tabular figures · status is never
+        colour alone. Menubar items are real focusable links, not inert spans.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── #sk-branding — the responsive mark system ─────────────────── */
+.r10-brand-intro{max-width:64ch;margin:0 0 40px}
+.r10-brand-intro p+p{margin-top:16px}
+.r10-brand-intro strong{color:var(--accent);font-weight:600}
+.r10-brand-intro .lbl{font-family:var(--mono);font-size:.82em;letter-spacing:.04em;color:var(--muted)}
+
+.r10-brand-system{margin:0 0 12px;padding:clamp(28px,4vw,46px) clamp(20px,4vw,40px);
+  background:var(--panel);border:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:clamp(30px,7vw,76px)}
+.r10-brand-cell{margin:0;display:flex;flex-direction:column;align-items:center;gap:15px;text-align:center}
+.r10-brand-cell figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);line-height:1.5}
+.r10-brand-cell figcaption b{display:block;color:var(--ink-soft);font-weight:600;
+  font-size:12px;letter-spacing:.1em}
+.r10-brand-syscap{max-width:58ch;margin:0 0 44px;color:var(--muted);font-size:13.5px;line-height:1.55}
+.r10-brand-syscap b{color:var(--ink-soft);font-weight:600}
+
+.r10-brand-fav{width:32px;height:32px;display:block}
+.r10-brand-inline{width:56px;height:56px;display:block}
+.r10-brand-seal{width:clamp(148px,26vw,206px);height:auto;display:block}
+
+/* engraving strokes — scoped to this section; the global .seal is untouched */
+.r10-brand-system .disc{fill:var(--paper)}
+.r10-brand-system .ring{fill:none;stroke:var(--brass)}
+.r10-brand-system .ring-in{fill:none;stroke:var(--brass-soft)}
+.r10-brand-system .hair{fill:none;stroke:var(--ink);opacity:.4}
+.r10-brand-system .rg{fill:none;stroke:var(--ink);stroke-width:.5;opacity:.32;vector-effect:non-scaling-stroke}
+.r10-brand-system .eng-green{fill:none;stroke:var(--accent);opacity:.42}
+.r10-brand-system .mono{font-family:var(--display);fill:var(--ink)}
+.r10-brand-system .dot{fill:var(--accent)}
+.r10-brand-system .legend{font-family:var(--mono);letter-spacing:.2em;fill:var(--muted);
+  paint-order:stroke;stroke:var(--paper);stroke-width:1.6px;stroke-linejoin:round}
+.r10-brand-system .est{font-family:var(--mono);letter-spacing:.18em;fill:var(--muted)}
+
+/* rationale ledger */
+.r10-brand-rationale{border-top:1px solid var(--rule)}
+.r10-brand-row{display:grid;grid-template-columns:minmax(150px,190px) 1fr;gap:clamp(14px,3vw,44px);
+  padding:22px 0;border-bottom:1px solid var(--rule)}
+.r10-brand-tag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);align-self:start}
+.r10-brand-tag::before{content:"";display:inline-block;width:5px;height:5px;margin-right:9px;
+  vertical-align:2px;transform:rotate(45deg);background:var(--brass)}
+.r10-brand-row p{color:var(--ink-soft);max-width:64ch;margin:0}
+.r10-brand-cite{display:block;margin-top:9px;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.03em;color:var(--muted)}
+.r10-brand-cite b{color:var(--accent);font-weight:600}
+.r10-brand-coda{margin:30px 0 0;font-family:var(--display);font-size:clamp(19px,2.4vw,25px);
+  line-height:1.3;color:var(--ink);max-width:40ch}
+@media(max-width:560px){.r10-brand-row{grid-template-columns:1fr;gap:6px}}
+</style>
+
+<section id="sk-branding" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">VIII</b>&nbsp;&nbsp;Visual identity</p>
+      <h2>The mark, and the reason it holds its ink.</h2>
+    </div>
+
+    <div class="r10-brand-intro">
+      <p>Branding is the identity advisor of this set. It fixes the communication objective, then
+      rules the mark by <em>fit</em> — its shape, how descriptive or abstract it runs, its symmetry,
+      its complexity budget, the brand colour's intent, and the personality the surface should
+      project. It reads on evidence, not taste: it separates findings proven in controlled studies
+      <span class="lbl">[STRONG]</span> from canonical-but-unverified literature
+      <span class="lbl">[ESTABLISHED]</span> from the <span class="lbl">[MYTH]</span>s the trade
+      repeats — "logos must be simple," "descriptive always wins," "an ownable colour always helps."
+      It is <strong>advisory, not production</strong>: it directs the mark and polices one voice,
+      then hands the drawing to imagery, the invented style to developing-style, the colour science
+      to perception-and-color.</p>
+      <p>Reach for it whenever a mark is being <strong>designed or judged</strong> — logo shape and
+      descriptiveness, symmetry, typeface treatment, complexity, brand colour, a redesign's risk to a
+      committed audience, or reading the personality a page projects. It does not name, position, or
+      write taglines; it owns the visual-identity layer and the <em>fluency</em> and
+      <em>attachment</em> mechanisms that explain why a mark bonds.</p>
+    </div>
+
+    <div class="r10-brand-system">
+      <figure class="r10-brand-cell">
+        <svg class="r10-brand-fav" viewBox="0 0 32 32" role="img"
+             aria-label="design·craft mark at favicon size: brass-ringed cream medallion with a d·c monogram and a green dot">
+          <circle class="disc" cx="16" cy="16" r="15.3"/>
+          <circle class="ring" cx="16" cy="16" r="14" stroke-width="1.3"/>
+          <text class="mono" x="9.7" y="21.4" text-anchor="middle" font-size="17">d</text>
+          <text class="mono" x="22.3" y="21.4" text-anchor="middle" font-size="17">c</text>
+          <circle class="dot" cx="16" cy="16" r="1.9"/>
+        </svg>
+        <figcaption><b>32 px</b>favicon · tab · avatar</figcaption>
+      </figure>
+
+      <figure class="r10-brand-cell">
+        <svg class="r10-brand-inline" viewBox="0 0 56 56" role="img"
+             aria-label="design·craft mark at inline UI size: double brass ring, d·c monogram, green dot; guilloché dropped">
+          <circle class="disc" cx="28" cy="28" r="27"/>
+          <circle class="ring" cx="28" cy="28" r="25" stroke-width="1.8"/>
+          <circle class="ring-in" cx="28" cy="28" r="22.2" stroke-width=".8"/>
+          <circle class="hair" cx="28" cy="28" r="18.4" stroke-width=".6"/>
+          <text class="mono" x="17.7" y="35.8" text-anchor="middle" font-size="27">d</text>
+          <text class="mono" x="38.3" y="35.8" text-anchor="middle" font-size="27">c</text>
+          <circle class="dot" cx="28" cy="28" r="2.7"/>
+        </svg>
+        <figcaption><b>56 px</b>inline · nav · button</figcaption>
+      </figure>
+
+      <figure class="r10-brand-cell">
+        <svg class="r10-brand-seal" viewBox="0 0 240 240" role="img"
+             aria-label="design·craft hero seal: an engraved security-print medallion — double brass filet, a guilloché rosette, a green engine-turned ring, the d·c monogram, the legend EVIDENCE OVER FASHION and MEASURED NOT EYEBALLED, dated EST MMXXVI">
+          <circle class="disc" cx="120" cy="120" r="118"/>
+          <circle class="ring" cx="120" cy="120" r="112" stroke-width="2.6"/>
+          <circle class="ring-in" cx="120" cy="120" r="106" stroke-width=".9"/>
+          <circle class="hair" cx="120" cy="120" r="100" stroke-width=".6"/>
+          <circle class="hair" cx="120" cy="120" r="84" stroke-width=".6"/>
+          <path id="r10bT" fill="none" d="M 28 120 A 92 92 0 0 1 212 120"/>
+          <path id="r10bB" fill="none" d="M 32 120 A 88 88 0 0 0 208 120"/>
+          <text class="legend" font-size="9"><textPath href="#r10bT" startOffset="50%" text-anchor="middle">EVIDENCE · OVER · FASHION</textPath></text>
+          <text class="legend" font-size="9"><textPath href="#r10bB" startOffset="50%" text-anchor="middle">MEASURED · NOT · EYEBALLED</textPath></text>
+          <circle class="eng-green" cx="120" cy="120" r="80" stroke-width=".8" stroke-dasharray="1.4 3"/>
+          <circle class="rg" cx="184.0" cy="120.0" r="14"/>
+          <circle class="rg" cx="183.0" cy="131.1" r="14"/>
+          <circle class="rg" cx="180.1" cy="141.9" r="14"/>
+          <circle class="rg" cx="175.4" cy="152.0" r="14"/>
+          <circle class="rg" cx="169.0" cy="161.1" r="14"/>
+          <circle class="rg" cx="161.1" cy="169.0" r="14"/>
+          <circle class="rg" cx="152.0" cy="175.4" r="14"/>
+          <circle class="rg" cx="141.9" cy="180.1" r="14"/>
+          <circle class="rg" cx="131.1" cy="183.0" r="14"/>
+          <circle class="rg" cx="120.0" cy="184.0" r="14"/>
+          <circle class="rg" cx="108.9" cy="183.0" r="14"/>
+          <circle class="rg" cx="98.1" cy="180.1" r="14"/>
+          <circle class="rg" cx="88.0" cy="175.4" r="14"/>
+          <circle class="rg" cx="78.9" cy="169.0" r="14"/>
+          <circle class="rg" cx="71.0" cy="161.1" r="14"/>
+          <circle class="rg" cx="64.6" cy="152.0" r="14"/>
+          <circle class="rg" cx="59.9" cy="141.9" r="14"/>
+          <circle class="rg" cx="57.0" cy="131.1" r="14"/>
+          <circle class="rg" cx="56.0" cy="120.0" r="14"/>
+          <circle class="rg" cx="57.0" cy="108.9" r="14"/>
+          <circle class="rg" cx="59.9" cy="98.1" r="14"/>
+          <circle class="rg" cx="64.6" cy="88.0" r="14"/>
+          <circle class="rg" cx="71.0" cy="78.9" r="14"/>
+          <circle class="rg" cx="78.9" cy="71.0" r="14"/>
+          <circle class="rg" cx="88.0" cy="64.6" r="14"/>
+          <circle class="rg" cx="98.1" cy="59.9" r="14"/>
+          <circle class="rg" cx="108.9" cy="57.0" r="14"/>
+          <circle class="rg" cx="120.0" cy="56.0" r="14"/>
+          <circle class="rg" cx="131.1" cy="57.0" r="14"/>
+          <circle class="rg" cx="141.9" cy="59.9" r="14"/>
+          <circle class="rg" cx="152.0" cy="64.6" r="14"/>
+          <circle class="rg" cx="161.1" cy="71.0" r="14"/>
+          <circle class="rg" cx="169.0" cy="78.9" r="14"/>
+          <circle class="rg" cx="175.4" cy="88.0" r="14"/>
+          <circle class="rg" cx="180.1" cy="98.1" r="14"/>
+          <circle class="rg" cx="183.0" cy="108.9" r="14"/>
+          <circle class="hair" cx="120" cy="120" r="42" stroke-width=".6"/>
+          <text class="mono" x="120" y="133" text-anchor="middle" font-size="46">d<tspan class="dot">·</tspan>c</text>
+          <text class="est" font-size="9" x="120" y="157" text-anchor="middle">EST · MMXXVI</text>
+        </svg>
+        <figcaption><b>Hero</b>certificate seal</figcaption>
+      </figure>
+    </div>
+
+    <p class="r10-brand-syscap">The Ledger mark is a <b>responsive system, not one drawing</b>. The
+    same invariants — brass-ringed medallion, <b>d·c</b> monogram, green dot — are held constant at
+    every size; only the engraving scales. The hero carries full guilloché; the favicon drops it
+    entirely so the mark stays legible at 32&nbsp;px. <em>(Hero shown at moderate density; imagery
+    supplies the densified production seal — denser rosette, double filet, denser lattice — per the
+    seal-weight ruling.)</em></p>
+
+    <div class="r10-brand-rationale">
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Shape</p>
+        <div>
+          <p>A circular engraved medallion — the coin, wax-seal, and banknote-stamp convention of
+          certified value. Circular carries <em>no</em> liking advantage on its own and lifts only
+          <em>soft</em> attributes; it is chosen here for genre fit ("this is a seal"), not for a
+          halo it cannot deliver.</p>
+          <span class="r10-brand-cite">Jiang, Gorn, Galli &amp; Chattopadhyay 2016 · logo shape &amp;
+          attribute-congruence · <b>[ESTABLISHED §C′]</b></span>
+        </div>
+      </div>
+
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Symmetry</p>
+        <div>
+          <p>Radial symmetry. Symmetry is the default for every personality except <em>exciting</em>,
+          where asymmetry is the one evidence-backed exception. Ledger is not exciting — it is
+          competent and calm — so a symmetric struck seal is the correct register, and asymmetry
+          would fight it.</p>
+          <span class="r10-brand-cite">Luffarelli, Stamatogiannakis &amp; Yang 2019 · the
+          visual-asymmetry effect · <b>[STRONG §C]</b></span>
+        </div>
+      </div>
+
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Descriptiveness</p>
+        <div>
+          <p>Abstract, not descriptive. A literal "design" picture — a pen, a ruler — would cheapen
+          the heritage register. The guilloché-and-monogram encodes <em>certified / authentic</em>
+          through the security-print genre itself, which is where a heritage mark's authenticity read
+          lives. Descriptiveness helps <em>unfamiliar</em> brands in neutral categories, but its
+          benefit routes through processing-fluency-to-authenticity — and the engraving delivers that
+          authenticity without literalism.</p>
+          <span class="r10-brand-cite">Luffarelli, Mukesh &amp; Mahmood 2019 · descriptiveness →
+          equity · <b>[STRONG §B]</b> · fluency mechanism <b>[ESTABLISHED §I4]</b></span>
+        </div>
+      </div>
+
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Complexity</p>
+        <div>
+          <p>Moderate elaboration, deliberately capped. Recognition peaks at <em>moderate</em>, not
+          maximal, elaboration; and complexity is a media-budget multiplier — a denser mark costs
+          more exposure to become fluent. The seal carries enough guilloché to read as engraved, then
+          stops, and the favicon drops the guilloché so the mark stays fluent at 32&nbsp;px. This is
+          why densification is a hero-only layer, never a scaled-down hero.</p>
+          <span class="r10-brand-cite">Henderson &amp; Cote 1998 · moderate-elaboration optimum ·
+          <b>[STRONG §A]</b> · Janiszewski &amp; Meyvis 2001 · complexity × exposure · <b>[STRONG
+          §F]</b></span>
+        </div>
+      </div>
+
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Brand colour</p>
+        <div>
+          <p>Desaturated cream, ink, and brass, with one deep-green accent. Low saturation and a
+          near-monochrome field raise perceived <em>status</em> through continuity and heritage — the
+          old-money read Ledger targets — and the effect is strongest under a heritage (not
+          innovative) positioning. Held above the contrast floor at every step: brass is foil, never
+          small text. Colour science is perception-and-color's to own.</p>
+          <span class="r10-brand-cite">Zhou et&nbsp;al. 2025 / Yue &amp; Xia 2026 · saturation →
+          heritage status · <b>[STRONG, single-source §G6]</b> · contrast floor →
+          perception-and-color</span>
+        </div>
+      </div>
+
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Personality read</p>
+        <div>
+          <p>The target is <em>competence · sophistication · sincerity</em> — prestige and trust,
+          quiet authority. Blue conventionally carries competence, but hue meaning is <em>learned and
+          contextual</em>, not law: here the struck seal, the engraving, and the desaturation carry
+          competence and sophistication without a drop of blue. The mark aims past mere liking at
+          <em>attachment</em> — the self-bond that is the only construct shown to drive a price
+          premium and actual share.</p>
+          <span class="r10-brand-cite">Labrecque &amp; Milne 2012 · hue → personality <b>[STRONG
+          §G2]</b> · Aaker 1997 + Geuens 2009 caveat <b>[STRONG §H]</b> · attachment: Thomson /
+          Park <b>[STRONG §I1]</b></span>
+        </div>
+      </div>
+
+      <div class="r10-brand-row">
+        <p class="r10-brand-tag">Redesign risk</p>
+        <div>
+          <p>Densifying the seal this round is a <em>consistency-preserving refinement</em>, not a
+          redesign — same shape, symmetry, monogram, palette. That distinction is load-bearing:
+          audiences punish <em>inconsistent</em> redesigns hardest, and the punishment scales with
+          commitment. Adding ink inside the existing identity carries none of that risk; flipping the
+          shape or dropping the monogram would.</p>
+          <span class="r10-brand-cite">Walsh, Winterich &amp; Mittal 2011 · redesign × brand
+          commitment · <b>[STRONG §E]</b></span>
+        </div>
+      </div>
+    </div>
+
+    <p class="r10-brand-coda">One mark, struck once, read at every size — the whole page signed by the
+    same hand.</p>
+  </div>
+</section>
+
+<section class="section" id="sk-brand-absorption">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-plate">IX</b>&nbsp;&nbsp;Brand absorption</p>
+      <h2>Read as them — not as us.</h2>
+      <p>The toolkit's one conditional instrument: it unseals only to adopt a brand that
+      already exists, and hands the team a Direction it must print from.</p>
+    </div>
+
+    <div class="r10-cap-lede">
+      <p>Brand absorption stays sheathed while a new house style is being invented — that
+      commission belongs to developing-style. It draws only when the brief is to <b>adopt an
+      existing brand</b>: a facelift, a refresh, a reskin, any work that must still read,
+      unmistakably, as <em>them</em>. Handed the real materials — a live site, the logo files,
+      a guidelines folio — it reads the brand from what actually ships today, never from
+      memory, and engraves colour, type, mark, imagery, voice, and the structural
+      <em>hand</em> into one Brand Direction.</p>
+      <p>That Direction is not a suggestion; it is the plate every other specialist prints
+      from. Where it exists it outranks design-craft's own defaults and house look — colour,
+      type, layout, and composition serve <em>it</em>; house-style yields entirely; and how
+      far the mark may be moved is a redesign-risk question referred to branding, never a
+      styling reflex. The capture has two halves, and the second is mandatory: the surface
+      signature can be measured, but the <em>hand</em> — how the brand moves — must be named
+      in words, or you have sampled its pixels and missed its brand. What follows is that
+      instrument turned on this very page: were Ledger handed in as a client brand, this is
+      the one-page Direction absorption would return.</p>
+    </div>
+
+    <div class="r10-cap">
+      <div class="r10-cap-head">
+        <div>
+          <p class="r10-cap-kicker">Brand Direction · one page · binding</p>
+          <p class="r10-cap-title">design<b>·</b>craft — captured as a brand</p>
+        </div>
+        <span class="r10-cap-stamp">Binding</span>
+      </div>
+
+      <p class="r10-cap-meta">Captured from the live page — hero marquee, the guilloché seal,
+      the colophon, the root tokens.&nbsp; Recall used: none; read from the artifact, not
+      memory.</p>
+
+      <p class="r10-cap-prec"><b>Precedence.</b> For this work this Direction overrides
+      design-craft's own defaults and house look — house-style yields; colour, type, layout,
+      and composition serve the values below. How far the mark may be moved is a redesign-risk
+      call for branding, not a styling choice.</p>
+
+      <div class="r10-cap-hand">
+        <p class="r10-cap-lab">The hand — what a colour-picker can't see</p>
+        <p>Ledger moves like a private-bank prospectus: restrained-monochrome, exact,
+        unhurried. Ink does the work; colour is rationed to a single green, spent only at the
+        moment a decision is made; brass edges the page and never speaks. The confidence is
+        the restraint — expensive, permanent, with nothing to prove.</p>
+      </div>
+
+      <div class="r10-cap-rows">
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">Colour</div>
+          <div class="r10-cap-v">
+            <div class="r10-cap-sw">
+              <span class="r10-cap-chip"><i class="r10-cap-box" style="background:var(--paper)"></i><span class="r10-cap-hex">#efe9da</span><span class="r10-cap-role"><b>Ground.</b> The cream laid stock, full-bleed — never a fresh white.</span></span>
+              <span class="r10-cap-chip"><i class="r10-cap-box" style="background:var(--ink)"></i><span class="r10-cap-hex">#20201b</span><span class="r10-cap-role"><b>Engraving ink.</b> Body text and every hairline rule.</span></span>
+              <span class="r10-cap-chip"><i class="r10-cap-box" style="background:var(--accent)"></i><span class="r10-cap-hex">#17533d</span><span class="r10-cap-role"><b>The one functional accent</b> (deep heritage green). Spent only where a decision is made.</span></span>
+              <span class="r10-cap-chip"><i class="r10-cap-box" style="background:var(--brass)"></i><span class="r10-cap-hex">#8a7338</span><span class="r10-cap-role"><b>Foil, not ink.</b> Filet, fleuron, rules, large marks — never body copy, always &ge;3:1.</span></span>
+              <span class="r10-cap-chip"><i class="r10-cap-box r10-cap-box--pop"></i><span class="r10-cap-hex">reserved</span><span class="r10-cap-role"><b>Certified-seal red.</b> The single vibrant pop, set once page-wide by perception-and-color — reserved, not painted here, and distinct from the muted brick.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">Type</div>
+          <div class="r10-cap-v">
+            <b>Display</b> — Instrument Serif, one weight, set as a marquee to ~108px, leading&nbsp;1.0.<br>
+            <b>Text / UI</b> — Plus Jakarta Sans, 17px, measure ~54ch, leading&nbsp;1.62.<br>
+            <b>Labels &amp; figures</b> — IBM Plex Mono, uppercase, .2em tracking; numerals tabular.
+            <span class="r10-cap-dont">Never set the marquee in the sans, or the figures in a proportional face.</span>
+          </div>
+        </div>
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">The mark</div>
+          <div class="r10-cap-v">
+            The guilloché <span class="tt">d·c</span> seal — an engine-turned rosette ringed by a
+            brass filet; arced legends <span class="tt">EVIDENCE · OVER · FASHION</span> /
+            <span class="tt">MEASURED · NOT · EYEBALLED</span>; the monogram carries a single green
+            mid-point; footed <span class="tt">EST · MMXXVI</span>.
+            <span class="r10-cap-dont">Never recolour, restretch, or reset the monogram in a system font.</span>
+          </div>
+        </div>
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">Imagery</div>
+          <div class="r10-cap-v">
+            Engraved line-plate. Warm-neutral duotone — ink on cream, monochrome, drawn in the
+            security-print register.
+            <span class="r10-cap-dont">No slick colour photography, no glossy stock — the treatment is the easiest signature to lose; protect it hardest.</span>
+          </div>
+        </div>
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">Voice</div>
+          <div class="r10-cap-v">
+            Quiet authority; old-money — certain, unhurried, nothing to prove.<br>
+            <span class="r10-cap-say">"Design that earns its ink."</span> ·
+            <span class="r10-cap-say">"Engraved to last."</span> ·
+            <span class="r10-cap-say">"It reads the way old money sounds."</span>
+          </div>
+        </div>
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">Structure</div>
+          <div class="r10-cap-v">
+            Engraved certificate / prospectus. Cream laid stock with a faint laid grain; hairline
+            rules hold every column true; letterpress depth in the marquee; the brass filet +
+            guilloché-fleuron act-break recurs at each major boundary — the signature that repeats.
+          </div>
+        </div>
+
+        <div class="r10-cap-row">
+          <div class="r10-cap-k">Must survive</div>
+          <div class="r10-cap-v">
+            Drop any one and it stops reading as them: the cream stock · the engraved serif marquee ·
+            the single green mark, spent sparingly · brass as foil only · the guilloché seal ·
+            hairline discipline.
+          </div>
+        </div>
+
+      </div>
+
+      <p class="r10-cap-foot"><b>30-second fit test —</b> cream ground dominant? serif marquee?
+      green spent once per decision, brass only as foil, the guilloché mark present, the voice
+      unhurried? Any "no" and the screen is drifting toward house style — our brighter palette,
+      a second accent, a sans marquee, or slick colour stock. That drift is design-craft, not
+      Ledger.</p>
+    </div>
+  </div>
+
+  <style>
+  /* IX · Brand absorption — self-referential Brand Direction capture (namespaced r10-cap-*) */
+  .r10-cap-lede{max-width:64ch}
+  .r10-cap-lede p{color:var(--ink-soft);font-size:16px;line-height:1.6}
+  .r10-cap-lede p + p{margin-top:14px}
+  .r10-cap-lede em{font-style:italic;color:var(--ink)}
+  .r10-cap-lede b{color:var(--ink);font-weight:600}
+
+  /* the capture card = a ruled engraved certificate */
+  .r10-cap{margin-top:30px;background:var(--panel);border:1px solid var(--rule);
+    border-top:2px solid var(--brass);box-shadow:0 3px 0 -1.5px var(--ink);
+    padding:clamp(22px,3.4vw,38px)}
+  .r10-cap-head{display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap;
+    padding-bottom:16px;border-bottom:1px solid var(--rule)}
+  .r10-cap-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--muted)}
+  .r10-cap-title{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);line-height:1.02;
+    color:var(--ink);margin-top:5px}
+  .r10-cap-title b{color:var(--accent);font-weight:400}
+  .r10-cap-stamp{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent-deep);border:1.5px solid var(--accent);
+    border-radius:2px;padding:6px 10px;transform:rotate(-2.5deg);white-space:nowrap}
+  .r10-cap-meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--muted);
+    margin-top:14px;line-height:1.55}
+
+  .r10-cap-prec{margin-top:16px;padding:12px 16px;border-left:3px solid var(--brass);
+    background:rgba(138,115,56,.06);font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+  .r10-cap-prec b{color:var(--accent);font-weight:600}
+
+  .r10-cap-hand{margin-top:22px;padding-left:18px;border-left:2px solid var(--accent)}
+  .r10-cap-hand p{font-family:var(--display);font-size:clamp(19px,2.2vw,25px);line-height:1.32;
+    color:var(--ink);margin-top:6px}
+  .r10-cap-lab{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--accent)}
+
+  .r10-cap-rows{margin-top:22px;border-top:1px solid var(--rule)}
+  .r10-cap-row{display:grid;grid-template-columns:minmax(112px,146px) 1fr;gap:8px 26px;
+    padding:16px 0;border-bottom:1px solid var(--rule)}
+  .r10-cap-k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-soft);padding-top:2px}
+  .r10-cap-v{font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+  .r10-cap-v b{color:var(--ink);font-weight:600}
+  .r10-cap-v .tt{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+  .r10-cap-dont{display:block;margin-top:7px;font-size:12.5px;color:var(--muted)}
+  .r10-cap-dont::before{content:"\2715\00a0";color:var(--neg);font-family:var(--mono)}
+
+  .r10-cap-sw{display:flex;flex-direction:column;gap:9px}
+  .r10-cap-chip{display:flex;align-items:flex-start;gap:11px;font-size:13px;color:var(--ink-soft);line-height:1.45}
+  .r10-cap-box{flex:none;width:26px;height:26px;border:1px solid rgba(32,32,27,.35);border-radius:1px}
+  .r10-cap-box--pop{background:var(--paper);border:1.5px solid var(--brass);
+    background-image:repeating-linear-gradient(45deg,rgba(138,115,56,.55) 0 1.5px,transparent 1.5px 5px)}
+  .r10-cap-hex{font-family:var(--mono);font-size:12px;color:var(--ink);flex:none;min-width:64px;padding-top:1px}
+  .r10-cap-role b{color:var(--ink)}
+  .r10-cap-say{font-family:var(--display);font-style:italic;color:var(--ink)}
+
+  .r10-cap-foot{margin-top:18px;padding-top:16px;font-size:13px;color:var(--muted);line-height:1.6}
+  .r10-cap-foot b{color:var(--ink-soft);font-weight:600}
+
+  @media(max-width:560px){
+    .r10-cap-row{grid-template-columns:1fr;gap:6px}
+    .r10-cap-stamp{margin-left:0}
+    .r10-cap-chip{flex-wrap:wrap}
+  }
+  </style>
+</section>
+
+<section class="section" id="sk-generative-imagery">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-img-plate">X</b>&nbsp;&nbsp;Generative imagery</p>
+      <h2>Generated, but governed.</h2>
+    </div>
+
+    <div class="r10-img-copy">
+      <p>When a page needs an image that no one can <b>select or commission</b> — an atmospheric
+        ground, a texture, a duotone or mood asset — this instrument generates one from the team's
+        own requirements: palette, theme, dimensions and styling assembled into a single brief, so
+        the result fits the page instead of arriving as stock. It is embellishment, reached for only
+        when hand-craft — a drawn plate, a coded illustration — genuinely cannot do the job; and it
+        yields a <b>raw ground to be graded</b> into the design's own hand, never a finished picture
+        dropped in.</p>
+    </div>
+
+    <p class="r10-img-subhead">The pipeline &mdash; generated, directed, placed</p>
+    <div class="r10-gen-pipe">
+      <figure class="r10-gen-step">
+        <div class="r10-gen-step-hd">
+          <span class="r10-gen-step-rn">I</span>
+          <div class="r10-gen-step-nm">As generated</div>
+          <span class="r10-gen-step-who">generative-imagery &middot; generates</span>
+        </div>
+        <span class="r10-gen-step-frame">
+          <img src="assets/ledger/gen-ground-raw.jpg" width="960" height="600"
+               alt="The raw generated ground: a warm sepia field of soft, close-set topographic contour lines over a faint three-dimensional relief — atmospheric but photographic, and off-register with the page on its own.">
+        </span>
+        <figcaption class="r10-gen-step-cap">A raw ground from a free, keyless service &mdash; warm,
+          photographic, on no palette but its own.</figcaption>
+      </figure>
+
+      <span class="r10-gen-arrow" aria-hidden="true">&rarr;</span>
+
+      <figure class="r10-gen-step">
+        <div class="r10-gen-step-hd">
+          <span class="r10-gen-step-rn">II</span>
+          <div class="r10-gen-step-nm">Directed &amp; treated</div>
+          <span class="r10-gen-step-who">imagery &middot; directs + treats</span>
+        </div>
+        <span class="r10-gen-step-frame">
+          <img src="assets/ledger/gen-ground-treated.jpg" width="960" height="600"
+               alt="The same ground graded into the maison hand: the contour lines struck in near-black ink on a clean cream field — crisp, flattened and posterised into an engraved intaglio plate carved from the page's own two inks.">
+        </span>
+        <figcaption class="r10-gen-step-cap">Greyscaled, tonally stretched, then mapped across the
+          ink&ndash;cream ramp &mdash; two inks from the palette. Reads struck, not rendered.</figcaption>
+      </figure>
+
+      <span class="r10-gen-arrow" aria-hidden="true">&rarr;</span>
+
+      <figure class="r10-gen-step">
+        <div class="r10-gen-step-hd">
+          <span class="r10-gen-step-rn">III</span>
+          <div class="r10-gen-step-nm">Placed &amp; governed</div>
+          <span class="r10-gen-step-who">imagery + composition &middot; place</span>
+        </div>
+        <span class="r10-gen-step-frame">
+          <div class="r10-gen-placed">
+            <div class="r10-gen-placed-bg" aria-hidden="true"></div>
+            <div class="r10-gen-placed-scrim" aria-hidden="true"></div>
+            <div class="r10-gen-placed-copy">
+              <p class="kx">A ground, not a graphic.</p>
+              <p class="bd">Dimmed under opaque cream, the plate lends material depth while this
+                type holds AA over it &mdash; supporting the words, never becoming the subject.</p>
+            </div>
+          </div>
+        </span>
+        <figcaption class="r10-gen-step-cap">The treated ground put to work: dimmed behind opaque
+          cream, AA body text on top &mdash; the one place a plate may be dimmed.</figcaption>
+      </figure>
+    </div>
+
+    <p class="r10-img-subhead">The three governance gates</p>
+    <ol class="r10-gen-gates">
+      <li><b>Reachability, proven first.</b> A free, keyless service is not guaranteed to answer, so
+        it is probed live before any plate is struck. Unreachable simply means the page is set
+        without it &mdash; nothing here ever depends on it.</li>
+      <li><b>Approved by the art-director, every result.</b> Nothing generated is shown until the
+        director judges it worthy and in register; a plate that falls short is discarded, not
+        softened behind a scrim.</li>
+      <li><b>Sparing, and supporting only.</b> Used only where hand-work cannot serve &mdash; the
+        ground it makes is held in negative space, colour-matched to the palette, and clears both the
+        honest-imagery and the alt-text floors. It supports the words; it never becomes the subject.</li>
+    </ol>
+
+    <p class="r10-img-subhead">Where Ledger would &mdash; and would never &mdash; use it</p>
+    <div class="r10-gen-wnw">
+      <div class="r10-gen-col yes">
+        <h4>Would use it</h4>
+        <p>Faint material grounds and textures in negative space, dimmed behind opaque
+          content — atmosphere that no flat drawing can fake, always subordinate.</p>
+      </div>
+      <div class="r10-gen-col no">
+        <h4>Would never use it</h4>
+        <p>The seal, the plates, any mark or concept — and anything with text, faces, hands or
+          exact counts. Those stay code-built, or select-and-commission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sk-house">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><b class="r10-comp-plate">XI</b>&nbsp;&nbsp;The house-style instrument</p>
+      <h2>House-style templates.</h2>
+    </div>
+
+    <div class="r10-comp-copy">
+      <p>The house-style library is design-craft's own shelf of house-look <em>templates</em> — cohesive
+      directional options the art-director and the builder draw from, and that anyone may reuse directly as
+      a starting point. It is reference-only, with no dedicated agent of its own, and it is the most
+      overridable layer in the set: declared taste, not evidence, and the first thing an absorbed brand
+      direction overrides. The shelf is complete — five directional templates, each a baseline the actual
+      design is expected to diverge from as the client's brief demands.</p>
+      <p>Ledger registers as one directional template in that library. Not the house look, one option
+      within it — pulled by fit, set down the moment a brief wants a different register.</p>
+    </div>
+
+    <div class="r10-comp-tpl">
+      <div class="r10-comp-tpl-row">
+        <div class="r10-comp-tpl-name">Ledger · The Engraved Prospectus</div>
+        <div class="r10-comp-tpl-when">
+          <b>Pull this when</b>
+          the brief needs quiet heritage authority — a prospectus, a certificate, a private-bank register,
+          or any high-trust surface where the confidence is meant to read as restraint.
+          <span class="r10-comp-tpl-tag">◆ In the library</span>
+        </div>
+      </div>
+      <div class="r10-comp-tpl-row r10-comp-tpl-row--wip">
+        <div class="r10-comp-tpl-name">— the other four —</div>
+        <div class="r10-comp-tpl-when">Meridian (the credible corporate default), Terminal (the warm
+        phosphor deck), Deepfield (the deep-field notation plate) and Prism (the couture colour-plate
+        portfolio) — all registered. Five hands, one shelf; each pulled by fit, none a cage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="section act" id="coda">
+    <div class="wrap">
+      <div class="section-head coda-head">
+        <div>
+          <p class="eyebrow">The closing seal</p>
+          <h2>Held to evidence.</h2>
+        </div>
+        <span class="coda-seal">
+          <svg class="coda-seal-svg" viewBox="0 0 112 112" role="img" aria-label="Certified — evidence over fashion, measured not eyeballed">
+            <circle cx="56" cy="56" r="53" fill="none" stroke="var(--pop)" stroke-width="1.4"/>
+            <circle cx="56" cy="56" r="47" fill="none" stroke="var(--pop)" stroke-width="0.7"/>
+            <path id="codaArcTop" fill="none" d="M 21 56 A 35 35 0 0 1 91 56"/>
+            <path id="codaArcBot" fill="none" d="M 23 56 A 33 33 0 0 0 89 56"/>
+            <text class="coda-arc"><textPath href="#codaArcTop" startOffset="50%" text-anchor="middle">EVIDENCE · OVER · FASHION</textPath></text>
+            <text class="coda-arc"><textPath href="#codaArcBot" startOffset="50%" text-anchor="middle">MEASURED · NOT · EYEBALLED</textPath></text>
+            <line x1="31" y1="48" x2="81" y2="48" stroke="var(--pop)" stroke-width="0.7"/>
+            <line x1="31" y1="64" x2="81" y2="64" stroke="var(--pop)" stroke-width="0.7"/>
+            <text class="coda-word" x="56" y="60" text-anchor="middle">CERTIFIED</text>
+          </svg>
+        </span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">11</div><div class="lab">instruments, one composing system</div></div>
+        <div class="stat"><div class="num">AA</div><div class="lab">contrast floor — every pairing</div></div>
+        <div class="stat"><div class="num">3</div><div class="lab">labels: strong · convention · myth</div></div>
+        <div class="stat"><div class="num">0</div><div class="lab">chartjunk, by construction</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <a class="brand" href="#hero">design<b>·</b>craft</a>
+    <small>Evidence-based design — eleven instruments, one composing system.</small>
+    <nav class="nav" aria-label="Footer"><a href="#style">Docs</a><a href="#instruments">Index</a><a href="#coda">Evidence</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>

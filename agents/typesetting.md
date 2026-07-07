@@ -29,7 +29,7 @@ You work under a **confirmed direction** — the user's intent, mood, and regist
 
 ## Your non-negotiable floor (absolute)
 - **Legibility**: readable sizes, sane measure, sufficient leading; display faces stay at display sizes only.
-- **Tabular figures** wherever numbers align. Self-hosted faces; fonts link `../fonts.css` in the style lab.
+- **Tabular figures** wherever numbers align. Self-hosted faces (the house templates ship theirs beside the pages in `house-style-templates/references/templates/fonts.css`).
 
 ## How you review
 Given an artifact (HTML path):

@@ -58,6 +58,6 @@ The warm-void ground · content *plotted, not marketed* (notation, no website ch
 - One magenta systematic signal + one gold pop spent once — that's the whole accent budget.
 - All four floors hold (AA measured and published on-plate, chart honesty, legibility, focus/44px). The look bends to the rule, always.
 
-## Provenance
+## The built page — ships with this skill
 
-Built and gate-passed in the design-craft style lab, Round 10 (13-plate self-documenting catalog): scored review across all lenses (lowest 8.8), art-director final pass 9.4 against the locked direction. Live artifact: `design-craft-style/round10/deepfield.html` (lab repo).
+**[`templates/deepfield.html`](templates/deepfield.html)** is the complete, self-contained working design this doc distills (a 13-plate self-documenting catalog) — open it to see every token, move, and floor in use. Provenance: built and gate-passed through scored multi-agent review (all specialist lenses, lowest 8.8; art-director final pass 9.4 against a locked, user-confirmed direction).

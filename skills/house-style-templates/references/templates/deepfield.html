@@ -1,0 +1,2495 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>design·craft</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii05IC05IDE4IDE4Ij48cmVjdCB4PSItOSIgeT0iLTkiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjMiIGZpbGw9IiMxNDEyMTciLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmZjNkN2EiIHN0cm9rZS13aWR0aD0iMS4yIj48Y2lyY2xlIHI9IjYuOCIvPjxwYXRoIGQ9Ik0wIC02LjhWNi44TS02LjggMEg2LjgiLz48L2c+PC9zdmc+">
+<!-- size: 1180x9000 -->
+<!-- ═══════════════════════════════════════════════════════════════════════
+     DEEPFIELD · Round 10 — the plate catalog. LOCKED DIRECTION: deep-sky
+     observatory notation plate; a year-2200 field notation of the design·craft
+     system, plotted as an astronomical instrument reading. Register: expressive
+     but cold and disciplined — precise, never decorative. Mood: cold · vast ·
+     precise · quiet, one warm human spark against the cold. Cold, dark,
+     near-monochrome + magenta — sibling-distinct from Terminal (CRT warmth) and
+     Prism (bright chromatic). Warm-void ground #141217 · bone ink · one magenta
+     systematic signal (--sig) · exactly ONE gold pop (--pop) page-wide.
+
+     ROUND-10 CHANGES (this scaffold, graphic-composition LEAD):
+     1. Grew the single-screen poster into a 13-plate CATALOG. Structural
+        signature that keeps the plate character across the whole page:
+        (a) a continuous left-margin DECLINATION SCALE (tick-comb ruler carrying
+            plate numbers) binds the page into one instrument sheet;
+        (b) a reusable PLATE FRAME — registration border + four corner
+            registration marks + catalog index + head ring-echo of the master;
+        (c) a catalog index on every plate. Three devices → 13 plates read as ONE.
+     2. Plate 00 (the approved master chart) PRESERVED and made responsive: the
+        HTML-over-SVG labels are now SVG <text>, so the whole field scales by
+        viewBox — no horizontal scroll at 1180w or 480w, clipped clean at the
+        frame edge.
+     3. Pop resolution: magenta stays the single systematic accent (pole, signal
+        nodes, sparkline); the ONE gold pop is spent on the headline field
+        reading ($5·40M) — a warm spark against the cold register — hooked with
+        .df-pop-* so perception-and-color can re-aim it. Round-9's second gold
+        accent + the 5-hue palette dots are removed from the hero (they belong in
+        the colour plate, not on the master).
+     Everyone else builds on kit.css. See its top for the plate-frame contract.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   DEEPFIELD · KIT.CSS — the shared instrument sheet (round 10)
+   graphic-composition (LEAD). Deep-sky observatory notation plate.
+   Cold · vast · precise · quiet. Warm-void ground + bone ink + one magenta
+   systematic signal + exactly one gold pop, page-wide.
+
+   ┌─ PLATE-FRAME CONTRACT — every specialist authors within this ──────────────┐
+   │ One plate = one <section class="df-plate">. The registration border and the │
+   │ four corner registration marks come FREE with the class (no extra markup).  │
+   │ Author each plate exactly like this:                                        │
+   │                                                                             │
+   │   <section class="df-plate" id="sk-color" aria-labelledby="sk-color-t">     │
+   │     <div class="df-plate__no" aria-hidden="true">04</div>                   │
+   │     <header class="df-plate__head">                                         │
+   │       <p class="df-index">PLATE&nbsp;04&nbsp;·&nbsp;COLOR&nbsp;·&nbsp;iii</p>│
+   │       <h2 class="df-plate__title" id="sk-color-t">Colour &amp; perception</h2>│
+   │     </header>                                                               │
+   │     <div class="df-plate__body"><!-- your notation content --></div>        │
+   │   </section>                                                                │
+   │                                                                             │
+   │ • .df-plate__no  = the plate number; it drops into the left declination     │
+   │   rail automatically (aria-hidden — the .df-index below is the real label). │
+   │ • .df-index      = the catalog index. Format: PLATE nn · NAME · roman .      │
+   │   The head carries a faint registration-ring echo of the master chart free. │
+   │ • .df-plate__body = your content region. Notation hand only.                │
+   │                                                                             │
+   │ Catalog-index strings (copy yours exactly):                                 │
+   │   00 MASTER CHART ✦ · 01 THE STYLE ✦ · 02 DEVELOPING-STYLE i ·              │
+   │   03 COMPOSITION ii · 04 COLOR iii · 05 TYPE iv · 06 CHARTING v ·           │
+   │   07 IMAGERY vi · 08 UX vii · 09 BRANDING viii · 10 BRAND-ABSORPTION ix ·   │
+   │   11 GENERATIVE x · 12 HOUSE xi                                             │
+   │                                                                             │
+   │ Base classes you may use: .df-disp .df-body .df-mono .df-note .df-data      │
+   │ Signal / pop hooks: .df-sig (var(--sig)) · .df-pop (var(--pop), ONE page).  │
+   │ Colours: :root tokens only. Floors are yours inside your fragment: AA,      │
+   │ alt/aria on images, :focus-visible + ≥44px on YOUR controls, no fixed width │
+   │ that scrolls at 480w.                                                        │
+   └─────────────────────────────────────────────────────────────────────────────┘
+   NOTE ON BAKED HEX: the corner registration marks and the head ring-echo are
+   drawn as SVG data-URIs (CSS var() can't be read inside url(...)). The baked
+   values EQUAL the locked tokens — #938c9b=--soft, #3a3445=--ln, #241f2d=--lat.
+   This is the kit's one documented structural exception; fragments stay token-pure.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --g:#141217;      /* void ground        */
+  --bone:#e9e6dd;   /* bone ink           */
+  --soft:#938c9b;   /* soft grey notation */
+  --sig:#ff3d7a;    /* MAGENTA — the single systematic accent */
+  --gold:#e6a93a;   /* gold               */
+  --pop:var(--gold);/* the ONE warm pop, spent once page-wide */
+  --lat:#241f2d;    /* lattice            */
+  --ln:#3a3445;     /* lines / frames     */
+  --disp:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --body:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --rail:64px;      /* declination-scale width */
+  --gutter:88px;    /* left margin reserving the rail */
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--g);
+  color:var(--bone);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;                 /* belt-and-suspenders: never scroll sideways */
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── base type ─────────────────────────────────────────────────────────────*/
+.df-disp{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.02}
+.df-body{font-family:var(--body)}
+.df-mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.df-data{font-variant-numeric:tabular-nums}
+.df-note{                            /* the notation-label class */
+  font-family:var(--mono);
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--soft);
+  font-variant-numeric:tabular-nums;
+}
+.df-sig{color:var(--sig)}
+.df-pop{color:var(--pop)}            /* one page-wide pop; fill:var(--pop) in SVG */
+p{max-width:70ch}
+
+/* ── focus-visible default (ring; ≥44px is each control's own job) ──────────*/
+:focus-visible{outline:2px solid var(--sig);outline-offset:2px;border-radius:1px}
+:focus:not(:focus-visible){outline:none}
+
+/* ══ THE INSTRUMENT SHEET ═══════════════════════════════════════════════════
+   One warm-void sheet. A wide, deliberate left margin carries the declination
+   scale; the whole page reads as a single plotted sheet, not a stack of blocks.*/
+.df-sheet{
+  position:relative;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 24px 0 var(--gutter);
+}
+
+/* ── the continuous declination scale (left-margin tick-comb ruler) ─────────
+   Absolute + top:0/bottom:0 → it spans the whole document height automatically,
+   binding every plate into one instrument sheet. Ticks emanate from a right-edge
+   spine (the ruler edge); plate numbers are dropped onto it by each .df-plate. */
+.df-rail{
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:var(--rail);
+  border-right:1px solid var(--ln);
+  pointer-events:none;
+  opacity:.6;
+  background:
+    /* coarse ticks every 60px, reaching 18px off the spine */
+    repeating-linear-gradient(to bottom,var(--soft) 0 1px,transparent 1px 60px) right/18px 100% no-repeat,
+    /* fine ticks every 12px, 8px off the spine */
+    repeating-linear-gradient(to bottom,var(--soft) 0 1px,transparent 1px 12px) right/8px 100% no-repeat;
+}
+.df-rail__cap{                       /* small instrument label at the rail head */
+  position:absolute; top:0; right:6px;
+  writing-mode:vertical-rl;
+  font-family:var(--mono); font-size:9px; letter-spacing:.34em;
+  text-transform:uppercase; color:var(--soft);
+}
+
+/* ── the catalog column (plates stack here, left-aligned to the gutter) ─────*/
+.df-cat{max-width:1100px;margin:0 auto 0 0;width:100%}
+
+/* ── catalog masthead + colophon: the sheet's top and bottom edge furniture ─*/
+.df-mast,.df-colophon{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soft);font-variant-numeric:tabular-nums;
+}
+.df-mast{padding:26px 0 16px;border-bottom:1px solid var(--ln)}
+.df-colophon{padding:16px 0 60px;border-top:1px solid var(--ln);margin-top:40px}
+.df-mast b{color:var(--bone);font-weight:600;letter-spacing:.10em}
+
+/* ══ THE PLATE FRAME ════════════════════════════════════════════════════════
+   A registration-framed field on the void ground. Border + four corner
+   registration marks are automatic; the head carries a faint ring-echo of the
+   master chart. This frame + the rail + the catalog index on every plate is the
+   structural signature that makes 13 plates read as ONE plate set. */
+.df-plate{
+  position:relative;
+  margin:34px 0;
+  padding:0;
+  border:1px solid var(--ln);
+  background-color:var(--g);
+  /* four corner registration marks (baked --soft; data-URI can't read var()) */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11'%3E%3Cpath d='M0 .5H9 M.5 0V9' fill='none' stroke='%23938c9b' stroke-width='1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11'%3E%3Cpath d='M11 .5H2 M10.5 0V9' fill='none' stroke='%23938c9b' stroke-width='1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11'%3E%3Cpath d='M0 10.5H9 M.5 11V2' fill='none' stroke='%23938c9b' stroke-width='1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11'%3E%3Cpath d='M11 10.5H2 M10.5 11V2' fill='none' stroke='%23938c9b' stroke-width='1'/%3E%3C/svg%3E");
+  background-position:top 7px left 7px,top 7px right 7px,bottom 7px left 7px,bottom 7px right 7px;
+  background-repeat:no-repeat;
+}
+/* inset second hairline → the double-rule registration-border look */
+.df-plate::before{
+  content:"";position:absolute;inset:6px;pointer-events:none;
+  border:1px solid rgba(147,140,155,.10);
+}
+/* the plate number, dropped onto the left declination rail, aligned to the head */
+.df-plate__no{
+  position:absolute;left:-72px;top:16px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--soft);
+  font-variant-numeric:tabular-nums;
+}
+.df-plate__no::after{                /* short tie-tick toward the rail spine */
+  content:"";position:absolute;top:.5em;left:100%;width:14px;height:1px;
+  margin-left:6px;background:var(--soft);opacity:.5;
+}
+
+/* ── plate head: catalog index + instrument-label title + free ring-echo ────*/
+.df-plate__head{
+  position:relative;
+  padding:22px 26px 16px;
+  border-bottom:1px solid var(--ln);
+  overflow:hidden;
+  /* faint registration-ring echo of the master chart, top-right (baked --ln/--lat) */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='150'%3E%3Cg fill='none' stroke='%233a3445' stroke-width='1'%3E%3Ccircle cx='196' cy='34' r='16'/%3E%3Ccircle cx='196' cy='34' r='34'/%3E%3Ccircle cx='196' cy='34' r='58'/%3E%3Ccircle cx='196' cy='34' r='88'/%3E%3C/g%3E%3Cg stroke='%23241f2d' stroke-width='1'%3E%3Cpath d='M196 34 90 34 M196 34 250 108 M196 34 130 130'/%3E%3C/g%3E%3C/svg%3E")
+    top right no-repeat;
+}
+.df-index{
+  margin:0 0 8px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.20em;
+  color:var(--sig);font-variant-numeric:tabular-nums;
+}
+.df-plate__title{
+  margin:0;
+  font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.04;
+  font-size:clamp(20px,3.4vw,30px);
+  color:var(--bone);
+}
+.df-plate__sub{                      /* optional one-line field-note under title */
+  margin:8px 0 0;max-width:64ch;
+  font-family:var(--body);font-size:14px;line-height:1.55;color:var(--soft);
+}
+.df-plate__body{padding:26px}
+
+/* the master plate (Plate 00) — the tallest, most open field, no head border rule
+   pressure; its own wordmark is the hero, the head carries only the catalog index*/
+.df-plate--master .df-plate__body{padding:20px 26px 30px}
+
+/* standalone lattice/ring echo helper (if a plate wants an extra one inside) */
+.df-echo{
+  width:100%;height:1px;margin:4px 0;
+  background:repeating-linear-gradient(to right,var(--lat) 0 6px,transparent 6px 12px);
+  opacity:.7;
+}
+
+/* ══ RESPONSIVE — the frames survive; the rail thins, then hides ════════════*/
+@media (max-width:760px){
+  :root{--gutter:44px;--rail:34px}
+  .df-plate__no{left:-40px;font-size:11px}
+  .df-plate__no::after{display:none}
+  .df-plate__head{padding:18px 18px 14px}
+  .df-plate__body{padding:20px 18px}
+}
+@media (max-width:520px){
+  :root{--gutter:0px}
+  .df-sheet{padding-left:0;padding-right:14px;padding-left:14px}
+  .df-rail{display:none}            /* scale hides; the catalog index keeps the number */
+  .df-plate__no{                    /* number folds into the frame, top-left inside */
+    left:auto;right:14px;top:-1px;
+    background:var(--g);padding:2px 6px;
+  }
+  .df-plate{margin:20px 0}
+  .df-plate__head{padding:16px 14px 12px;background-size:150px auto}
+  .df-plate__body{padding:16px 14px}
+}
+/* FLOOR · honor prefers-reduced-motion — kill all transition/animation for motion-sensitive readers */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}
+}
+
+</style>
+<style>
+/* ── master chart (Plate 00) — one-off classes, ported from round-9 geometry ──*/
+.df-m-wrap{margin:0 auto}
+.df-m-net{width:100%;height:auto;display:block}          /* clips to viewBox → no h-scroll */
+.lat{fill:none;stroke:var(--lat);stroke-width:1}
+.scan{fill:none;stroke:var(--lat);stroke-width:1}
+.ln{stroke:var(--ln);stroke-width:1;vector-effect:non-scaling-stroke}
+.tk,.ch,.ax{stroke:var(--soft);stroke-width:1}
+.rg{fill:none;stroke:var(--ln);stroke-width:1}
+.rg2{fill:none;stroke:var(--soft);stroke-width:1}
+.pt{fill:var(--bone)}
+.sig{fill:var(--sig)}
+.spk{fill:none;stroke:var(--sig);stroke-width:2;vector-effect:non-scaling-stroke}
+.glm-f{fill:none;stroke:var(--soft);stroke-width:1;vector-effect:non-scaling-stroke}
+.glmd{fill:var(--soft);stroke:none}
+.mk{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;fill:var(--soft);font-variant-numeric:tabular-nums}
+.mkg{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;fill:var(--soft);font-variant-numeric:tabular-nums} /* round-9 gold annotation DEMOTED to soft */
+.dl{font-family:var(--mono);font-size:13.5px;fill:var(--soft);font-variant-numeric:tabular-nums}
+/* the ONE gold pop — the single most load-bearing reading on the page */
+.df-pop-dot{fill:var(--pop)}
+.df-pop-ring{fill:none;stroke:var(--pop);stroke-width:1;opacity:.55}
+.df-pop-txt{fill:var(--pop);font-family:var(--mono);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+/* master labels, now native SVG text (was HTML .cl overlay) */
+.df-m-core{font-family:var(--disp);font-weight:700;font-size:52px;letter-spacing:-.03em;fill:var(--bone);text-anchor:middle}
+.df-m-cap{font-family:var(--mono);font-size:11px;letter-spacing:.16em;fill:var(--soft);text-anchor:middle}
+.df-m-h{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:-.015em;fill:var(--bone);text-anchor:middle}
+.df-m-p{font-family:var(--body);font-size:12.5px;fill:var(--soft);text-anchor:middle}
+.df-m-sig{fill:none;stroke:var(--sig);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.df-m-sigd{fill:var(--sig);stroke:none}
+/* ── catalog contents index — the plate-catalog's table of plates (sheet front-matter, notation hand) ── */
+.df-toc{margin:0;padding:18px 0 8px;border-bottom:1px solid var(--ln)}
+.df-toc__cap{display:block;margin:0 0 6px;font-family:var(--mono);font-size:10px;letter-spacing:.30em;text-transform:uppercase;color:var(--soft);font-variant-numeric:tabular-nums}
+.df-toc__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:0 28px}
+.df-toc__list a{display:flex;align-items:center;gap:9px;min-height:44px;padding:2px 6px 2px 0;text-decoration:none;color:var(--soft);border-bottom:1px solid var(--lat)}
+.df-toc__n{flex:0 0 auto;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--soft);font-variant-numeric:tabular-nums}
+.df-toc__n::after{content:"·";margin-left:9px;opacity:.55}
+.df-toc__nm{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--bone)}
+.df-toc__list a:hover .df-toc__n,.df-toc__list a:focus-visible .df-toc__n{color:var(--sig)}
+.df-toc__list a:hover .df-toc__nm{color:var(--bone)}
+@media (max-width:520px){.df-toc__list{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0 16px}}
+</style>
+</head>
+<body>
+<div class="df-sheet">
+  <!-- ══ the continuous declination scale — binds the whole page into one sheet ══ -->
+  <div class="df-rail" aria-hidden="true"><span class="df-rail__cap">dec · plates 00–12</span></div>
+
+  <div class="df-cat">
+
+    <!-- ── catalog masthead (sheet top edge furniture — not a nav bar) ── -->
+    <div class="df-mast">
+      <span><b>design·craft</b> &nbsp;field catalog</span>
+      <span>obs. 2200 · 13 plates · α 05<sup>h</sup>32<sup>m</sup> δ +19°</span>
+    </div>
+
+    <!-- ══ catalog contents — the plate-catalog's table of plates (front-matter, not a nav bar) ══ -->
+    <nav class="df-toc" aria-label="Catalog contents — 13 plates">
+      <span class="df-toc__cap">contents · 13 plates</span>
+      <ul class="df-toc__list">
+        <li><a href="#master"><span class="df-toc__n">00</span><span class="df-toc__nm">Master chart</span></a></li>
+        <li><a href="#the-style"><span class="df-toc__n">01</span><span class="df-toc__nm">The style</span></a></li>
+        <li><a href="#sk-developing-style"><span class="df-toc__n">02</span><span class="df-toc__nm">Developing-style</span></a></li>
+        <li><a href="#sk-composition"><span class="df-toc__n">03</span><span class="df-toc__nm">Composition</span></a></li>
+        <li><a href="#sk-color"><span class="df-toc__n">04</span><span class="df-toc__nm">Color</span></a></li>
+        <li><a href="#sk-type"><span class="df-toc__n">05</span><span class="df-toc__nm">Type</span></a></li>
+        <li><a href="#sk-charting"><span class="df-toc__n">06</span><span class="df-toc__nm">Charting</span></a></li>
+        <li><a href="#sk-imagery"><span class="df-toc__n">07</span><span class="df-toc__nm">Imagery</span></a></li>
+        <li><a href="#sk-ux"><span class="df-toc__n">08</span><span class="df-toc__nm">UX</span></a></li>
+        <li><a href="#sk-branding"><span class="df-toc__n">09</span><span class="df-toc__nm">Branding</span></a></li>
+        <li><a href="#sk-brand-absorption"><span class="df-toc__n">10</span><span class="df-toc__nm">Brand-absorption</span></a></li>
+        <li><a href="#sk-generative"><span class="df-toc__n">11</span><span class="df-toc__nm">Generative</span></a></li>
+        <li><a href="#sk-house"><span class="df-toc__n">12</span><span class="df-toc__nm">House</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- ══════════ PLATE 00 · MASTER CHART ══════════ -->
+    <section class="df-plate df-plate--master" id="master" aria-labelledby="master-t">
+      <div class="df-plate__no" aria-hidden="true">00</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;00&nbsp;·&nbsp;MASTER&nbsp;CHART&nbsp;·&nbsp;✦</p>
+        <h1 class="df-plate__title" id="master-t">The design·craft system as one polar field</h1>
+      </header>
+      <div class="df-plate__body">
+        <div class="df-m-wrap">
+          <svg class="df-m-net" viewBox="0 0 1120 1460" role="img" aria-label="Deep-field notation plate: the design·craft system plotted as one polar star-chart, five disciplines radiating as catalog entries from the design·craft pole. Field-readings scatter: headline signal $5.40M, then $4.12M, $3.91M and $3.86M. Evidence marks: WCAG AA contrast 4.8:1, data-ink 0.92, chartjunk 0.00.">
+            <defs>
+              <radialGradient id="dfLabelBg" cx="50%" cy="50%" r="50%">
+                <stop offset="52%" stop-color="#141217"/><stop offset="100%" stop-color="#141217" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- lattice + scan rings -->
+            <circle cx="575" cy="210" r="160" class="lat"/><circle cx="575" cy="210" r="330" class="lat"/><circle cx="575" cy="210" r="520" class="lat"/><circle cx="575" cy="210" r="730" class="lat"/><circle cx="575" cy="210" r="970" class="lat"/><line x1="575" y1="210" x2="1725" y2="210" class="lat"/><line x1="575" y1="210" x2="1571" y2="785" class="lat"/><line x1="575" y1="210" x2="1150" y2="1206" class="lat"/><line x1="575" y1="210" x2="575" y2="1360" class="lat"/><line x1="575" y1="210" x2="0" y2="1206" class="lat"/><line x1="575" y1="210" x2="-421" y2="785" class="lat"/><line x1="575" y1="210" x2="-575" y2="210" class="lat"/><line x1="575" y1="210" x2="-421" y2="-365" class="lat"/><line x1="575" y1="210" x2="-0" y2="-786" class="lat"/><line x1="575" y1="210" x2="575" y2="-940" class="lat"/><line x1="575" y1="210" x2="1150" y2="-786" class="lat"/><line x1="575" y1="210" x2="1571" y2="-365" class="lat"/><circle cx="380" cy="980" r="300" class="scan"/><circle cx="380" cy="980" r="470" class="scan"/><circle cx="380" cy="980" r="650" class="scan"/>
+            <!-- connectors (constellation) + tick combs -->
+            <line x1="575" y1="210" x2="255" y2="560" class="ln"/><line x1="548" y1="244" x2="543" y2="240" class="tk"/><line x1="518" y1="277" x2="513" y2="273" class="tk"/><line x1="488" y1="309" x2="484" y2="305" class="tk"/><line x1="458" y1="342" x2="454" y2="338" class="tk"/><line x1="429" y1="374" x2="424" y2="370" class="tk"/><line x1="399" y1="407" x2="395" y2="403" class="tk"/><line x1="369" y1="439" x2="365" y2="435" class="tk"/><line x1="340" y1="472" x2="335" y2="468" class="tk"/><line x1="310" y1="504" x2="306" y2="500" class="tk"/><line x1="575" y1="210" x2="865" y2="455" class="ln"/><line x1="611" y1="236" x2="607" y2="241" class="tk"/><line x1="644" y1="264" x2="640" y2="269" class="tk"/><line x1="678" y1="293" x2="674" y2="297" class="tk"/><line x1="711" y1="321" x2="708" y2="326" class="tk"/><line x1="745" y1="350" x2="741" y2="354" class="tk"/><line x1="779" y1="378" x2="775" y2="383" class="tk"/><line x1="812" y1="406" x2="808" y2="411" class="tk"/><line x1="575" y1="210" x2="945" y2="830" class="ln"/><line x1="600" y1="246" x2="595" y2="249" class="tk"/><line x1="623" y1="284" x2="618" y2="287" class="tk"/><line x1="645" y1="322" x2="640" y2="325" class="tk"/><line x1="668" y1="360" x2="663" y2="363" class="tk"/><line x1="690" y1="397" x2="685" y2="400" class="tk"/><line x1="713" y1="435" x2="708" y2="438" class="tk"/><line x1="735" y1="473" x2="730" y2="476" class="tk"/><line x1="758" y1="511" x2="753" y2="514" class="tk"/><line x1="781" y1="549" x2="775" y2="552" class="tk"/><line x1="803" y1="586" x2="798" y2="589" class="tk"/><line x1="826" y1="624" x2="820" y2="627" class="tk"/><line x1="848" y1="662" x2="843" y2="665" class="tk"/><line x1="871" y1="700" x2="866" y2="703" class="tk"/><line x1="893" y1="737" x2="888" y2="741" class="tk"/><line x1="916" y1="775" x2="911" y2="778" class="tk"/><line x1="575" y1="210" x2="320" y2="915" class="ln"/><line x1="563" y1="252" x2="557" y2="250" class="tk"/><line x1="548" y1="294" x2="542" y2="292" class="tk"/><line x1="533" y1="335" x2="527" y2="333" class="tk"/><line x1="518" y1="377" x2="512" y2="374" class="tk"/><line x1="503" y1="418" x2="497" y2="416" class="tk"/><line x1="488" y1="459" x2="482" y2="457" class="tk"/><line x1="473" y1="501" x2="467" y2="499" class="tk"/><line x1="458" y1="542" x2="452" y2="540" class="tk"/><line x1="443" y1="583" x2="437" y2="581" class="tk"/><line x1="428" y1="625" x2="423" y2="623" class="tk"/><line x1="413" y1="666" x2="408" y2="664" class="tk"/><line x1="398" y1="708" x2="393" y2="705" class="tk"/><line x1="383" y1="749" x2="378" y2="747" class="tk"/><line x1="368" y1="790" x2="363" y2="788" class="tk"/><line x1="353" y1="832" x2="348" y2="830" class="tk"/><line x1="338" y1="873" x2="333" y2="871" class="tk"/><line x1="575" y1="210" x2="615" y2="1165" class="ln"/><line x1="580" y1="254" x2="574" y2="254" class="tk"/><line x1="582" y1="298" x2="576" y2="298" class="tk"/><line x1="584" y1="342" x2="578" y2="342" class="tk"/><line x1="585" y1="386" x2="579" y2="386" class="tk"/><line x1="587" y1="430" x2="581" y2="430" class="tk"/><line x1="589" y1="474" x2="583" y2="474" class="tk"/><line x1="591" y1="518" x2="585" y2="518" class="tk"/><line x1="593" y1="562" x2="587" y2="562" class="tk"/><line x1="595" y1="606" x2="589" y2="606" class="tk"/><line x1="596" y1="649" x2="590" y2="650" class="tk"/><line x1="598" y1="693" x2="592" y2="694" class="tk"/><line x1="600" y1="737" x2="594" y2="738" class="tk"/><line x1="602" y1="781" x2="596" y2="782" class="tk"/><line x1="604" y1="825" x2="598" y2="826" class="tk"/><line x1="606" y1="869" x2="600" y2="870" class="tk"/><line x1="607" y1="913" x2="601" y2="914" class="tk"/><line x1="609" y1="957" x2="603" y2="957" class="tk"/><line x1="611" y1="1001" x2="605" y2="1001" class="tk"/><line x1="613" y1="1045" x2="607" y2="1045" class="tk"/><line x1="615" y1="1089" x2="609" y2="1089" class="tk"/><line x1="255" y1="560" x2="865" y2="455" class="ln"/><line x1="298" y1="550" x2="299" y2="555" class="tk"/><line x1="341" y1="542" x2="342" y2="548" class="tk"/><line x1="385" y1="535" x2="386" y2="541" class="tk"/><line x1="428" y1="527" x2="429" y2="533" class="tk"/><line x1="471" y1="520" x2="472" y2="526" class="tk"/><line x1="515" y1="512" x2="516" y2="518" class="tk"/><line x1="558" y1="505" x2="559" y2="511" class="tk"/><line x1="601" y1="497" x2="602" y2="503" class="tk"/><line x1="645" y1="490" x2="646" y2="496" class="tk"/><line x1="688" y1="482" x2="689" y2="488" class="tk"/><line x1="731" y1="475" x2="732" y2="481" class="tk"/><line x1="775" y1="467" x2="776" y2="473" class="tk"/><line x1="818" y1="460" x2="819" y2="466" class="tk"/><line x1="945" y1="830" x2="320" y2="915" class="ln"/><line x1="902" y1="839" x2="901" y2="833" class="tk"/><line x1="858" y1="845" x2="857" y2="839" class="tk"/><line x1="815" y1="851" x2="814" y2="845" class="tk"/><line x1="771" y1="857" x2="770" y2="851" class="tk"/><line x1="727" y1="863" x2="727" y2="857" class="tk"/><line x1="684" y1="869" x2="683" y2="863" class="tk"/><line x1="640" y1="874" x2="639" y2="869" class="tk"/><line x1="597" y1="880" x2="596" y2="874" class="tk"/><line x1="553" y1="886" x2="552" y2="880" class="tk"/><line x1="509" y1="892" x2="509" y2="886" class="tk"/><line x1="466" y1="898" x2="465" y2="892" class="tk"/><line x1="422" y1="904" x2="421" y2="898" class="tk"/><line x1="379" y1="910" x2="378" y2="904" class="tk"/><line x1="615" y1="1165" x2="320" y2="915" class="ln"/><line x1="579" y1="1139" x2="583" y2="1134" class="tk"/><line x1="546" y1="1110" x2="550" y2="1106" class="tk"/><line x1="512" y1="1082" x2="516" y2="1077" class="tk"/><line x1="479" y1="1054" x2="483" y2="1049" class="tk"/><line x1="445" y1="1025" x2="449" y2="1020" class="tk"/><line x1="412" y1="997" x2="416" y2="992" class="tk"/><line x1="378" y1="968" x2="382" y2="964" class="tk"/><line x1="615" y1="1165" x2="865" y2="455" class="ln"/><line x1="627" y1="1123" x2="632" y2="1124" class="tk"/><line x1="641" y1="1081" x2="647" y2="1083" class="tk"/><line x1="656" y1="1039" x2="662" y2="1041" class="tk"/><line x1="671" y1="998" x2="676" y2="1000" class="tk"/><line x1="685" y1="956" x2="691" y2="958" class="tk"/><line x1="700" y1="915" x2="706" y2="917" class="tk"/><line x1="714" y1="873" x2="720" y2="875" class="tk"/><line x1="729" y1="832" x2="735" y2="834" class="tk"/><line x1="744" y1="790" x2="749" y2="792" class="tk"/><line x1="758" y1="749" x2="764" y2="751" class="tk"/><line x1="773" y1="707" x2="779" y2="709" class="tk"/><line x1="788" y1="666" x2="793" y2="668" class="tk"/><line x1="802" y1="624" x2="808" y2="626" class="tk"/><line x1="817" y1="583" x2="822" y2="585" class="tk"/><line x1="831" y1="541" x2="837" y2="543" class="tk"/><line x1="846" y1="500" x2="852" y2="502" class="tk"/><line x1="255" y1="560" x2="320" y2="915" class="ln"/><line x1="266" y1="603" x2="260" y2="604" class="tk"/><line x1="274" y1="646" x2="268" y2="647" class="tk"/><line x1="282" y1="689" x2="276" y2="690" class="tk"/><line x1="290" y1="733" x2="284" y2="734" class="tk"/><line x1="298" y1="776" x2="292" y2="777" class="tk"/><line x1="305" y1="819" x2="300" y2="820" class="tk"/><line x1="313" y1="862" x2="308" y2="864" class="tk"/>
+            <!-- constellation nodes (magenta = signal · bone = neutral) + the pole -->
+            <circle cx="255" cy="560" r="16" class="rg"/><circle cx="255" cy="560" r="9" class="rg2"/><circle cx="255" cy="560" r="3" class="sig"/><line x1="233" y1="560" x2="239" y2="560" class="ch"/><line x1="271" y1="560" x2="277" y2="560" class="ch"/><circle cx="865" cy="455" r="16" class="rg"/><circle cx="865" cy="455" r="9" class="rg2"/><circle cx="865" cy="455" r="3" class="pt"/><line x1="843" y1="455" x2="849" y2="455" class="ch"/><line x1="881" y1="455" x2="887" y2="455" class="ch"/><circle cx="945" cy="830" r="16" class="rg"/><circle cx="945" cy="830" r="9" class="rg2"/><circle cx="945" cy="830" r="3" class="sig"/><line x1="923" y1="830" x2="929" y2="830" class="ch"/><line x1="961" y1="830" x2="967" y2="830" class="ch"/><circle cx="320" cy="915" r="16" class="rg"/><circle cx="320" cy="915" r="9" class="rg2"/><circle cx="320" cy="915" r="3" class="pt"/><line x1="298" y1="915" x2="304" y2="915" class="ch"/><line x1="336" y1="915" x2="342" y2="915" class="ch"/><circle cx="615" cy="1165" r="16" class="rg"/><circle cx="615" cy="1165" r="9" class="rg2"/><circle cx="615" cy="1165" r="3" class="sig"/><line x1="593" y1="1165" x2="599" y2="1165" class="ch"/><line x1="631" y1="1165" x2="637" y2="1165" class="ch"/><circle cx="575" cy="210" r="30" class="rg"/><circle cx="575" cy="210" r="20" class="rg2"/><circle cx="575" cy="210" r="4.5" class="sig"/>
+            <!-- sparkline (magenta systematic accent) -->
+            <polyline class="spk" points="785,545 815,537 845,541 875,521 905,527 935,505 965,513"/><circle cx="965" cy="513" r="3" class="sig"/>
+            <!-- field-marker glyphs (soft notation) -->
+            <g class="glm-f" transform="translate(240,498)"><path d="M0 -7 6.5 4 -6.5 4Z"/><path d="M0 -2.4 3 2.4 -3 2.4Z"/></g><g class="glm-f" transform="translate(913,408)"><circle r="5"/><path d="M-9 0h4M5 0h4M0 -9v4M0 5v4"/></g><g class="glm-f" transform="translate(983,768)"><path d="M0 -7 7 0 0 7 -7 0Z"/><circle class="glmd" r="1.7"/></g><g class="glm-f" transform="translate(293,858)"><path d="M0 -8V8M-6.9 -4 6.9 4M-6.9 4 6.9 -4"/></g><g class="glm-f" transform="translate(668,1103)"><circle r="6.5" stroke-dasharray="1.8 2.4"/></g><g class="glm-f" transform="translate(158,753)"><path d="M0 6V-6M-6 4V-3M6 4V-3M-6 -3 0 -6 6 -3"/></g><g class="glm-f" transform="translate(1008,553)"><circle r="5"/><path d="M5 0h8"/><circle class="glmd" r="1.4"/></g>
+            <!-- evidence marks (soft notation; round-9 gold marks demoted) -->
+            <text x="120" y="440" class="mk">⊢ AA 4·8:1 ⊣</text><text x="705" y="612" class="mk">data-ink 0·92</text><text x="1010" y="688" class="mkg">faces ·3</text><text x="225" y="1015" class="mk">45–75 ch</text><text x="470" y="1075" class="mkg">junk 0·00</text><text x="560" y="330" class="mk">hue → set</text><text x="120" y="1075" class="mk">Δt 2200</text>
+            <!-- Layout node → field-readings connector + the strip plot -->
+            <line x1="320" y1="915" x2="150" y2="1190" class="ln"/><line x1="283" y1="968" x2="289" y2="972" class="tk"/><line x1="250" y1="1023" x2="255" y2="1027" class="tk"/><line x1="216" y1="1078" x2="221" y2="1082" class="tk"/><line x1="182" y1="1133" x2="187" y2="1137" class="tk"/><line x1="150" y1="1335" x2="440" y2="1335" class="ax"/><line x1="150" y1="1190" x2="150" y2="1335" class="ax"/><text x="150" y="1178" class="mk">field readings · Δ↑ × share</text>
+            <circle cx="365" cy="1225" r="15" class="df-pop-ring"/><circle cx="365" cy="1225" r="10" class="df-pop-dot"/><text x="388" y="1230" class="df-pop-txt">$5·40M</text>
+            <circle cx="255" cy="1280" r="7" class="pt"/><text x="268" y="1283" class="dl">$4·12M</text><circle cx="305" cy="1305" r="7" class="pt"/><text x="318" y="1308" class="dl">$3·91M</text><circle cx="195" cy="1262" r="7" class="pt"/><text x="207" y="1265" class="dl">$3·86M</text>
+            <!-- ══ catalog labels — now native SVG text (scale with the field) ══ -->
+            <!-- core / the pole -->
+            <ellipse cx="575" cy="205" rx="215" ry="76" fill="url(#dfLabelBg)"/>
+            <g class="df-m-sig" transform="translate(575,150)"><circle r="11"/><path d="M0 -11V11M-11 0H11"/></g>
+            <text x="575" y="222" class="df-m-core">design·craft</text>
+            <text x="575" y="250" class="df-m-cap">THE INSTRUMENT SET · ONE HAND</text>
+            <!-- Colour → Plate 04 (node + label = one link; rect gives a generous ≥44px target) -->
+            <a href="#sk-color" aria-label="Jump to Plate 04 · Colour"><title>Plate 04 · Colour</title>
+            <rect x="112" y="500" width="286" height="140" fill="transparent" pointer-events="all"/>
+            <ellipse cx="255" cy="572" rx="140" ry="60" fill="url(#dfLabelBg)"/>
+            <g class="df-m-sig" transform="translate(255,528)"><path d="M0 -9 8 5 -8 5Z"/><path d="M0 -3 3.4 3 -3.4 3Z"/></g>
+            <text x="255" y="562" class="df-m-h">Colour</text>
+            <text x="255" y="586" class="df-m-p">hue is the set, lightness the order</text>
+            <text x="255" y="604" class="df-m-p">— every pairing solved for WCAG AA</text>
+            </a>
+            <!-- Charting → Plate 06 -->
+            <a href="#sk-charting" aria-label="Jump to Plate 06 · Charting"><title>Plate 06 · Charting</title>
+            <rect x="722" y="346" width="286" height="128" fill="transparent" pointer-events="all"/>
+            <ellipse cx="865" cy="407" rx="140" ry="58" fill="url(#dfLabelBg)"/>
+            <g class="df-m-sig" transform="translate(865,362)"><circle r="6"/><path d="M-10 0h4M6 0h4M0 -10v4M0 6v4"/></g>
+            <text x="865" y="397" class="df-m-h">Charting</text>
+            <text x="865" y="421" class="df-m-p">Tufte forms, minimal ink</text>
+            <text x="865" y="439" class="df-m-p">no junk, no truncated zero</text>
+            </a>
+            <!-- Typography → Plate 05 (Type) -->
+            <a href="#sk-type" aria-label="Jump to Plate 05 · Typography"><title>Plate 05 · Typography</title>
+            <rect x="792" y="786" width="306" height="124" fill="transparent" pointer-events="all"/>
+            <ellipse cx="945" cy="847" rx="150" ry="58" fill="url(#dfLabelBg)"/>
+            <g class="df-m-sig" transform="translate(945,802)"><path d="M0 -8.5 8.5 0 0 8.5 -8.5 0Z"/><circle class="df-m-sigd" r="1.8"/></g>
+            <text x="945" y="837" class="df-m-h">Typography</text>
+            <text x="945" y="861" class="df-m-p">three faces, no more · Bricolage</text>
+            <text x="945" y="879" class="df-m-p">Plus Jakarta · Plex Mono</text>
+            </a>
+            <!-- Layout → Plate 08 (UX) -->
+            <a href="#sk-ux" aria-label="Jump to Plate 08 · Interface, UX &amp; layout"><title>Plate 08 · Interface, UX &amp; layout</title>
+            <rect x="167" y="871" width="306" height="124" fill="transparent" pointer-events="all"/>
+            <ellipse cx="320" cy="932" rx="150" ry="58" fill="url(#dfLabelBg)"/>
+            <g class="df-m-sig" transform="translate(320,887)"><path d="M0 -9.5V9.5M-8.2 -4.7 8.2 4.7M-8.2 4.7 8.2 -4.7"/></g>
+            <text x="320" y="922" class="df-m-h">Layout</text>
+            <text x="320" y="946" class="df-m-p">targets ≥44px · structure</text>
+            <text x="320" y="964" class="df-m-p">before ornament · 45–75 ch</text>
+            </a>
+            <!-- Style → Plate 02 (Developing-style) -->
+            <a href="#sk-developing-style" aria-label="Jump to Plate 02 · Developing-style"><title>Plate 02 · Developing-style</title>
+            <rect x="452" y="1128" width="326" height="130" fill="transparent" pointer-events="all"/>
+            <ellipse cx="615" cy="1187" rx="160" ry="56" fill="url(#dfLabelBg)"/>
+            <g class="df-m-sig" transform="translate(615,1142)"><circle r="8" stroke-dasharray="2.1 2.6"/></g>
+            <text x="615" y="1177" class="df-m-h">Style</text>
+            <text x="615" y="1201" class="df-m-p">the signature is the form,</text>
+            <text x="615" y="1219" class="df-m-p">not the costume — a shape from elsewhere</text>
+            </a>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PLATE 01 · THE STYLE ══════════ owner: developing-style + director voice -->
+    <section class="df-plate" id="the-style" aria-labelledby="the-style-t">
+      <div class="df-plate__no" aria-hidden="true">01</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;01&nbsp;·&nbsp;THE&nbsp;STYLE&nbsp;·&nbsp;✦</p>
+        <h2 class="df-plate__title" id="the-style-t">The style — what it is &amp; when to use it</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+/* PLATE 01 — THE STYLE ······································· df-style-* */
+.df-style-spec{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));
+  gap:1px;margin:0 0 26px;padding:0;
+  border:1px solid var(--ln);background:var(--ln);
+}
+.df-style-spec>div{background:var(--g);padding:11px 14px}
+.df-style-spec dt{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--soft);margin:0 0 3px;
+}
+.df-style-spec dd{
+  margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.35;color:var(--bone);
+  font-variant-numeric:tabular-nums;
+}
+.df-style-spec dd .df-style-dot{color:var(--sig)}
+
+.df-style-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+.df-style-lede.two{color:var(--soft);margin-bottom:28px}
+.df-style-lede b{color:var(--bone);font-weight:600}
+.df-style-lede .df-style-sig{color:var(--sig);font-weight:600}
+
+.df-style-hd{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sig);margin:0 0 14px;font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:12px;
+}
+.df-style-hd::after{content:"";flex:1;height:1px;
+  background:repeating-linear-gradient(to right,var(--lat) 0 6px,transparent 6px 12px);opacity:.8}
+
+/* vocabulary as a terse field glossary (Plate 02 draws the specimens) */
+.df-style-vocab{margin:0 0 30px;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 34px}
+.df-style-vocab div{
+  display:grid;grid-template-columns:9.5em 1fr;gap:10px;align-items:baseline;
+  padding:8px 0;border-bottom:1px solid var(--lat);
+}
+.df-style-vocab dt{
+  font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--bone);
+  font-variant-numeric:tabular-nums;
+}
+.df-style-vocab dd{margin:0;font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft)}
+
+/* fit / misfit ledger — where it reads true, where it fails */
+.df-style-fit{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ln)}
+.df-style-col{padding:16px 18px}
+.df-style-col+.df-style-col{border-left:1px solid var(--ln)}
+.df-style-col h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  margin:0 0 12px;display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums;
+}
+.df-style-col--yes h4{color:var(--bone)}
+.df-style-col--no h4{color:var(--soft)}
+.df-style-col ul{list-style:none;margin:0;padding:0}
+.df-style-col li{
+  font-family:var(--body);font-size:13px;line-height:1.5;color:var(--soft);
+  padding:7px 0 7px 20px;position:relative;
+}
+.df-style-col li+li{border-top:1px solid var(--lat)}
+.df-style-col li b{color:var(--bone);font-weight:600}
+/* leading notation glyph: a plotted point for SUITS, an open dashed ring for AVOID */
+.df-style-col--yes li::before{
+  content:"";position:absolute;left:2px;top:.72em;width:7px;height:7px;border-radius:50%;
+  background:var(--sig);
+}
+.df-style-col--no li::before{
+  content:"";position:absolute;left:1px;top:.62em;width:8px;height:8px;border-radius:50%;
+  border:1px dashed var(--soft);opacity:.7;
+}
+.df-style-hgl{width:15px;height:15px;flex:0 0 auto}
+
+@media (max-width:620px){
+  .df-style-vocab div{grid-template-columns:1fr;gap:2px}
+  .df-style-fit{grid-template-columns:1fr}
+  .df-style-col+.df-style-col{border-left:none;border-top:1px solid var(--ln)}
+}
+</style>
+
+<!-- the style's specification line — an instrument readout -->
+<dl class="df-style-spec">
+  <div><dt>Register</dt><dd>cold&nbsp;<span class="df-style-dot">·</span>&nbsp;vast&nbsp;<span class="df-style-dot">·</span>&nbsp;precise&nbsp;<span class="df-style-dot">·</span>&nbsp;quiet</dd></div>
+  <div><dt>Volume</dt><dd>expressive, disciplined — never loud</dd></div>
+  <div><dt>Ground</dt><dd>warm-void, always</dd></div>
+  <div><dt>Signal</dt><dd>one magenta&nbsp;·&nbsp;one gold pop</dd></div>
+</dl>
+
+<p class="df-style-lede">Deepfield reads the design·craft toolkit as a <b>deep-sky observatory plate</b> — a dark, year-2200 field notation, not a website. The whole page is one instrument sheet; every skill is a numbered catalog entry, <b>plotted rather than marketed</b>. You are meant to feel you are standing at a large instrument at night, reading a faint, exact signal.</p>
+
+<p class="df-style-lede two">Its register is cold, vast, precise, and quiet. The notation is the entire point — it is expressive — but it is disciplined: it never shouts. Bone marks and terse mono labels sit on a warm-void ground; a single <span class="df-style-sig">magenta</span> thread carries every systematic reading; one warm gold spark, spent exactly once, is the lone human warmth against the cold. It signals rigor and restraint — a look for people who trust measured things.</p>
+
+<p class="df-style-hd">The vocabulary · the fixed move-set</p>
+<dl class="df-style-vocab">
+  <div><dt>Warm-void ground</dt><dd>the dark stage, engineered as figure-ground — never treated as empty space.</dd></div>
+  <div><dt>Bone marks</dt><dd>off-white ink and plotted points; the readable subject on the void.</dd></div>
+  <div><dt>Coordinate lattice</dt><dd>a faint radial and rectilinear grid the field is plotted against.</dd></div>
+  <div><dt>Registration rings</dt><dd>concentric scan-rings that locate and lock each node.</dd></div>
+  <div><dt>Tick-combs</dt><dd>graduated rulers; the continuous left declination scale binds the sheet.</dd></div>
+  <div><dt>Catalog glyphs</dt><dd>small field-marker symbols that tag each reading in the notation hand.</dd></div>
+  <div><dt>Magenta signal</dt><dd>the one systematic accent — it marks every true signal point.</dd></div>
+  <div><dt>Gold pop</dt><dd>one warm spark, spent once, on the single most load-bearing reading.</dd></div>
+</dl>
+
+<p class="df-style-hd">Field of use · where it reads true, where it fails</p>
+<div class="df-style-fit">
+  <div class="df-style-col df-style-col--yes">
+    <h4>
+      <svg class="df-style-hgl" viewBox="0 0 15 15" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6" fill="none" stroke="var(--soft)" stroke-width="1"/><circle cx="7.5" cy="7.5" r="2.4" fill="var(--sig)"/></svg>
+      Suits
+    </h4>
+    <ul>
+      <li><b>Data, science &amp; instrument products</b> — dashboards, telemetry, observatory-grade tools.</li>
+      <li><b>Dashboards that must feel measured</b>, not busy or salesy.</li>
+      <li><b>Editorial data pieces &amp; research tools</b> where rigor is the message.</li>
+      <li>Anything <b>signalling precision and restraint</b>.</li>
+    </ul>
+  </div>
+  <div class="df-style-col df-style-col--no">
+    <h4>
+      <svg class="df-style-hgl" viewBox="0 0 15 15" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6" fill="none" stroke="var(--soft)" stroke-width="1" stroke-dasharray="2 2.2"/></svg>
+      Wrong choice
+    </h4>
+    <ul>
+      <li><b>Warm, friendly consumer brands</b> — the cold reads as distant.</li>
+      <li><b>Playful or expressive products</b> — the discipline reads as severe.</li>
+      <li><b>Dense transactional UIs</b> needing warmth and speed over atmosphere.</li>
+      <li>Anything needing <b>photographic richness or easy approachability</b>.</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 02 · DEVELOPING-STYLE ══════════ owner: developing-style -->
+    <section class="df-plate" id="sk-developing-style" aria-labelledby="sk-developing-style-t">
+      <div class="df-plate__no" aria-hidden="true">02</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;02&nbsp;·&nbsp;DEVELOPING-STYLE&nbsp;·&nbsp;i</p>
+        <h2 class="df-plate__title" id="sk-developing-style-t">Developing-style</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+/* PLATE 02 — DEVELOPING-STYLE ······················ df-style-dev-* */
+.df-style-dev-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+.df-style-dev-lede.two{color:var(--soft);margin-bottom:30px}
+.df-style-dev-lede b{color:var(--bone);font-weight:600}
+.df-style-dev-lede .df-style-dev-em{color:var(--sig);font-weight:600}
+
+.df-style-dev-hd{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sig);margin:0 0 16px;font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:12px;
+}
+.df-style-dev-hd::after{content:"";flex:1;height:1px;
+  background:repeating-linear-gradient(to right,var(--lat) 0 6px,transparent 6px 12px);opacity:.8}
+
+/* step numbering — a mono catalog badge */
+.df-style-dev-badge{
+  flex:0 0 auto;display:inline-grid;place-items:center;width:22px;height:22px;
+  border:1px solid var(--sig);border-radius:50%;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--sig);
+  font-variant-numeric:tabular-nums;
+}
+
+/* steps 01 + 02 — imitate-then-deviate, shown side by side */
+.df-style-dev-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 30px}
+.df-style-dev-cell{border:1px solid var(--ln);padding:14px 15px}
+.df-style-dev-cell h4{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--soft);margin:0 0 3px;display:flex;align-items:center;gap:8px;
+}
+.df-style-dev-cell .df-style-dev-name{
+  font-family:var(--disp);font-weight:700;font-size:15px;color:var(--bone);
+  margin:0 0 11px;letter-spacing:-.01em;
+}
+.df-style-dev-cell svg{width:100%;height:auto;display:block;border:1px solid var(--lat);background:var(--g)}
+.df-style-dev-cell p{font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft);margin:11px 0 0;max-width:none}
+.df-style-dev-cell p b{color:var(--bone);font-weight:600}
+
+/* step 03 — reduced vocabulary as specimens/swatches */
+.df-style-dev-sub{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--bone);margin:0 0 4px;display:flex;align-items:center;gap:10px;
+  font-variant-numeric:tabular-nums;
+}
+.df-style-dev-subnote{font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft);margin:0 0 16px;max-width:64ch;padding-left:32px}
+.df-style-dev-specimens{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--ln);border:1px solid var(--ln);margin:0 0 30px;
+}
+.df-style-dev-chip{background:var(--g);padding:12px 12px 11px}
+.df-style-dev-chip svg{width:100%;height:auto;display:block}
+.df-style-dev-chip .df-style-dev-cap{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;color:var(--bone);
+  margin:9px 0 0;font-variant-numeric:tabular-nums;
+}
+.df-style-dev-chip .df-style-dev-role{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--soft);margin:2px 0 0;
+}
+
+/* step 04 — held constants */
+.df-style-dev-const{list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0 30px}
+.df-style-dev-const li{
+  font-family:var(--body);font-size:13px;line-height:1.5;color:var(--soft);
+  padding:9px 0 9px 24px;position:relative;border-bottom:1px solid var(--lat);
+}
+.df-style-dev-const li b{color:var(--bone);font-weight:600}
+.df-style-dev-const li::before{
+  content:"";position:absolute;left:2px;top:.78em;width:8px;height:8px;
+  border:1px solid var(--sig);background:var(--g);
+}
+.df-style-dev-const li::after{
+  content:"";position:absolute;left:5px;top:1.05em;width:2px;height:2px;background:var(--sig);
+}
+
+@media (max-width:620px){
+  .df-style-dev-pair{grid-template-columns:1fr}
+  .df-style-dev-const{grid-template-columns:1fr}
+  .df-style-dev-specimens{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+
+<p class="df-style-dev-lede">Developing-style invents a <b>new, ownable look from a blank page</b> — not applying a house style, not following an existing brand. Its one principle: a treatment reads as distinctive only by <b>deviating from the surrounding convention</b>, so the method is always the same shape — learn the convention, then break from it.</p>
+
+<p class="df-style-dev-lede two">Reach for it when a brief asks for something <span class="df-style-dev-em">unlike anything</span> or <span class="df-style-dev-em">recognizable</span>, or when output keeps landing generic and derivative. The method runs in order: <b>map the convention → imitate-then-deviate from an unfamiliar domain → reduce to a small vocabulary → hold a few constants</b> — and the result must be novel <i>and</i> coherent: distinctive, not merely different.</p>
+
+<p class="df-style-dev-hd">Demo · the four-step method, run on Deepfield itself</p>
+
+<div class="df-style-dev-pair">
+  <div class="df-style-dev-cell">
+    <h4><span class="df-style-dev-badge">01</span> Convention mapped</h4>
+    <div class="df-style-dev-name">Generic dark-SaaS chrome</div>
+    <svg viewBox="0 0 240 150" role="img" aria-label="The rejected convention: a schematic dark-SaaS layout — a sticky nav bar with logo and links, a hero block with a call-to-action pill, and a row of three drop-shadow cards, drawn dim and struck through to mark it as the norm Deepfield deviates from.">
+      <rect x="0" y="0" width="240" height="150" fill="var(--g)"/>
+      <!-- nav -->
+      <rect x="10" y="10" width="220" height="16" fill="none" stroke="var(--ln)"/>
+      <rect x="16" y="15" width="10" height="6" fill="var(--soft)" opacity=".5"/>
+      <rect x="176" y="16" width="16" height="4" fill="var(--soft)" opacity=".4"/><rect x="198" y="16" width="16" height="4" fill="var(--soft)" opacity=".4"/>
+      <!-- hero + CTA -->
+      <rect x="52" y="40" width="136" height="6" fill="var(--soft)" opacity=".5"/>
+      <rect x="70" y="52" width="100" height="4" fill="var(--soft)" opacity=".3"/>
+      <rect x="98" y="64" width="44" height="14" rx="7" fill="none" stroke="var(--soft)"/>
+      <!-- 3 drop-shadow cards -->
+      <g>
+        <rect x="20" y="100" width="60" height="38" fill="var(--lat)"/><rect x="17" y="97" width="60" height="38" fill="none" stroke="var(--ln)"/>
+        <rect x="93" y="100" width="60" height="38" fill="var(--lat)"/><rect x="90" y="97" width="60" height="38" fill="none" stroke="var(--ln)"/>
+        <rect x="166" y="100" width="60" height="38" fill="var(--lat)"/><rect x="163" y="97" width="60" height="38" fill="none" stroke="var(--ln)"/>
+      </g>
+      <!-- struck: dashed diagonal marks the norm as rejected -->
+      <g stroke="var(--soft)" stroke-width="1" opacity=".55" stroke-dasharray="3 4">
+        <line x1="8" y1="8" x2="232" y2="142"/><line x1="232" y1="8" x2="8" y2="142"/>
+      </g>
+      <text x="14" y="146" font-family="var(--mono)" font-size="8" letter-spacing="1.4" fill="var(--soft)">NORM · REJECTED</text>
+    </svg>
+    <p>Name the surrounding norm first — <b>sticky nav, hero + CTA, drop-shadow cards, rounded dashboard tiles</b>. You cannot deviate from what you have not named.</p>
+  </div>
+
+  <div class="df-style-dev-cell">
+    <h4><span class="df-style-dev-badge">02</span> Deviation source</h4>
+    <div class="df-style-dev-name">Star-catalog plates</div>
+    <svg viewBox="0 0 240 150" role="img" aria-label="The unfamiliar domain it borrowed from: a fragment of an astronomical star-catalog plate — a left tick-comb margin, a coordinate lattice radiating from a pole with two scan-rings, bone plotted points with tick crosses, one magenta signal point, and a mono catalog index line.">
+      <rect x="0" y="0" width="240" height="150" fill="var(--g)"/>
+      <!-- left tick-comb margin -->
+      <line x1="18" y1="10" x2="18" y2="140" stroke="var(--soft)" stroke-width="1" opacity=".7"/>
+      <g stroke="var(--soft)" stroke-width="1" opacity=".7">
+        <line x1="12" y1="24" x2="18" y2="24"/><line x1="14" y1="40" x2="18" y2="40"/><line x1="14" y1="56" x2="18" y2="56"/><line x1="12" y1="72" x2="18" y2="72"/><line x1="14" y1="88" x2="18" y2="88"/><line x1="14" y1="104" x2="18" y2="104"/><line x1="12" y1="120" x2="18" y2="120"/>
+      </g>
+      <!-- lattice radiating from a pole + scan rings -->
+      <g stroke="var(--lat)" stroke-width="1" fill="none">
+        <circle cx="150" cy="58" r="30"/><circle cx="150" cy="58" r="58"/><circle cx="150" cy="58" r="92"/>
+        <line x1="150" y1="58" x2="230" y2="18"/><line x1="150" y1="58" x2="232" y2="92"/><line x1="150" y1="58" x2="188" y2="140"/><line x1="150" y1="58" x2="70" y2="120"/><line x1="150" y1="58" x2="44" y2="40"/>
+      </g>
+      <!-- bone plotted points w/ tick crosses -->
+      <g>
+        <circle cx="196" cy="40" r="3" fill="var(--bone)"/><path d="M188 40h4M200 40h4M196 32v4M196 44v4" stroke="var(--soft)" stroke-width="1"/>
+        <circle cx="92" cy="98" r="3" fill="var(--bone)"/><path d="M84 98h4M96 98h4M92 90v4M92 102v4" stroke="var(--soft)" stroke-width="1"/>
+        <circle cx="120" cy="120" r="2.4" fill="var(--bone)"/>
+      </g>
+      <!-- the pole ring + one magenta signal -->
+      <circle cx="150" cy="58" r="9" fill="none" stroke="var(--soft)"/><circle cx="150" cy="58" r="3" fill="var(--sig)"/>
+      <circle cx="214" cy="108" r="3" fill="var(--sig)"/><path d="M206 108h4M218 108h4" stroke="var(--soft)" stroke-width="1"/>
+      <text x="26" y="146" font-family="var(--mono)" font-size="8" letter-spacing="1.4" fill="var(--soft)">PLATE · BORROWED</text>
+    </svg>
+    <p>Study a domain <b>far from web design</b> — observatory logbooks, deep-sky survey notation. Imitating the unfamiliar <b>restructures the layout</b> instead of restyling a page.</p>
+  </div>
+</div>
+
+<p class="df-style-dev-sub"><span class="df-style-dev-badge">03</span> Reduced vocabulary — the fixed move-set</p>
+<p class="df-style-dev-subnote">The whole style reduces to a small, repeatable set of marks — moderate constraint, held everywhere. The signature <i>is</i> the move-set, not a hero flourish:</p>
+<div class="df-style-dev-specimens">
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <g stroke="var(--lat)" stroke-width="1"><line x1="0" y1="18" x2="96" y2="18"/><line x1="0" y1="34" x2="96" y2="34"/><line x1="34" y1="0" x2="34" y2="52"/><line x1="62" y1="0" x2="62" y2="52"/></g>
+    </svg>
+    <p class="df-style-dev-cap">void ground</p><p class="df-style-dev-role">the stage</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <circle cx="48" cy="26" r="6" fill="var(--bone)"/>
+      <path d="M34 26h8M54 26h8M48 12v8M48 32v8" stroke="var(--soft)" stroke-width="1"/>
+    </svg>
+    <p class="df-style-dev-cap">bone mark</p><p class="df-style-dev-role">the subject</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <g stroke="var(--lat)" stroke-width="1" fill="none">
+        <circle cx="16" cy="42" r="26"/><circle cx="16" cy="42" r="48"/>
+        <line x1="16" y1="42" x2="96" y2="6"/><line x1="16" y1="42" x2="92" y2="42"/><line x1="16" y1="42" x2="60" y2="0"/>
+      </g>
+    </svg>
+    <p class="df-style-dev-cap">lattice</p><p class="df-style-dev-role">coordinate grid</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <line x1="48" y1="4" x2="48" y2="48" stroke="var(--soft)" stroke-width="1"/>
+      <g stroke="var(--soft)" stroke-width="1">
+        <line x1="38" y1="10" x2="48" y2="10"/><line x1="42" y1="18" x2="48" y2="18"/><line x1="42" y1="26" x2="48" y2="26"/><line x1="38" y1="34" x2="48" y2="34"/><line x1="42" y1="42" x2="48" y2="42"/>
+      </g>
+    </svg>
+    <p class="df-style-dev-cap">tick-comb</p><p class="df-style-dev-role">graduated scale</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <g fill="none" stroke="var(--soft)" stroke-width="1"><circle cx="48" cy="26" r="6"/><circle cx="48" cy="26" r="13"/><circle cx="48" cy="26" r="20"/></g>
+      <circle cx="48" cy="26" r="2" fill="var(--bone)"/>
+    </svg>
+    <p class="df-style-dev-cap">registration ring</p><p class="df-style-dev-role">locates a node</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <g fill="none" stroke="var(--soft)" stroke-width="1"><path d="M48 12 62 26 48 40 34 26Z"/></g>
+      <circle cx="48" cy="26" r="1.8" fill="var(--soft)"/>
+      <path d="M26 26h5M65 26h5M48 6v3M48 43v3" stroke="var(--soft)" stroke-width="1"/>
+    </svg>
+    <p class="df-style-dev-cap">catalog glyph</p><p class="df-style-dev-role">tags a reading</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <circle cx="48" cy="26" r="9" fill="none" stroke="var(--soft)" stroke-width="1"/>
+      <circle cx="48" cy="26" r="3" fill="var(--sig)"/>
+      <path d="M33 26h4M59 26h4" stroke="var(--soft)" stroke-width="1"/>
+    </svg>
+    <p class="df-style-dev-cap">magenta signal</p><p class="df-style-dev-role">1 · systematic accent</p>
+  </div>
+
+  <div class="df-style-dev-chip">
+    <svg viewBox="0 0 96 52" aria-hidden="true">
+      <rect x="0" y="0" width="96" height="52" fill="var(--g)"/>
+      <circle cx="48" cy="26" r="13" fill="none" stroke="var(--pop)" stroke-width="1" opacity=".55"/>
+      <circle cx="48" cy="26" r="6" fill="var(--pop)"/>
+      <text x="66" y="18" font-family="var(--mono)" font-size="8" fill="var(--pop)">×1</text>
+    </svg>
+    <p class="df-style-dev-cap">gold pop</p><p class="df-style-dev-role">1 · page-wide</p>
+  </div>
+
+</div>
+
+<p class="df-style-dev-sub"><span class="df-style-dev-badge">04</span> Held constants — what never changes</p>
+<p class="df-style-dev-subnote">The individual hand lives in the constant, minor handling repeated across every plate — pick a few, hold them everywhere:</p>
+<ul class="df-style-dev-const">
+  <li><b>Warm-void ground</b> — always the stage; never a light or neutral surface.</li>
+  <li><b>Mono notation is the voice</b> — labels, catalog index, and data are mono.</li>
+  <li><b>Content is type + plotted points</b> — the reading is the content, nothing else.</li>
+  <li><b>Exactly one magenta signal + one gold pop</b> — one systematic accent, one warm spark.</li>
+  <li><b>No website chrome</b> — no shadow-cards, no hero-CTA grammar, no SaaS button bars.</li>
+</ul>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 03 · COMPOSITION ══════════ owner: graphic-composition (this specialist) -->
+    <section class="df-plate" id="sk-composition" aria-labelledby="sk-composition-t">
+      <div class="df-plate__no" aria-hidden="true">03</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;03&nbsp;·&nbsp;COMPOSITION&nbsp;·&nbsp;ii</p>
+        <h2 class="df-plate__title" id="sk-composition-t">Composition &amp; design theory</h2>
+      </header>
+      <div class="df-plate__body">
+        <!-- FILLED with deliverable C (identical to frags/frag-composition.html body) -->
+        <style>
+        .df-composition-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+        .df-composition-lede.two{color:var(--soft);margin-bottom:26px}
+        .df-composition-lede b{color:var(--bone);font-weight:600}
+        .df-composition-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:0 0 14px;font-variant-numeric:tabular-nums}
+        .df-composition-diagram{width:100%;height:auto;display:block;border:1px solid var(--ln);background:var(--g)}
+        .df-composition-legend{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 22px}
+        .df-composition-legend li{font-family:var(--mono);font-size:12px;line-height:1.45;color:var(--soft);display:flex;gap:9px;font-variant-numeric:tabular-nums}
+        .df-composition-legend b{color:var(--bone);font-weight:600}
+        .df-composition-key{flex:0 0 auto;width:17px;height:17px;border:1px solid var(--sig);border-radius:50%;color:var(--sig);font-size:10px;line-height:15px;text-align:center;font-weight:600}
+        .df-composition-gest{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+        @media(max-width:620px){.df-composition-gest{grid-template-columns:1fr}}
+        .df-composition-cell{border:1px solid var(--ln);padding:14px}
+        .df-composition-cell h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 4px}
+        .df-composition-cell .df-composition-name{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--bone);margin:0 0 10px;letter-spacing:-.01em}
+        .df-composition-cell svg{width:100%;height:74px;display:block}
+        .df-composition-cell p{font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft);margin:10px 0 0;max-width:none}
+        .df-composition-take{margin:30px 0 0;padding:16px 18px;border-left:2px solid var(--soft);background:rgba(147,140,155,.05)}
+        .df-composition-take p{font-family:var(--body);font-size:14px;line-height:1.6;color:var(--bone);margin:0;max-width:70ch}
+        .df-composition-take b{color:var(--bone);font-weight:600}
+        </style>
+
+        <p class="df-composition-lede"><b>Composition owns the arrangement</b> — where every mark sits and why, so the whole field reads as one deliberate piece and not an inventory of parts. The load-bearing idea: meaning lives in the arrangement, not the pieces. Three identical lines become a triangle, an “H,” or a table depending only on how they are joined. This lever holds hierarchy, gestalt grouping, figure-ground, tension, and the structural signature — and it answers to one governing rule: name the single takeaway, then make every element serve it, effortlessly, or cut it.</p>
+        <p class="df-composition-lede two">Reach for it when composing any artifact where arrangement carries meaning — a poster, an identity, a data report, a screen — or to diagnose <i>why</i> a layout reads generic, cluttered, or derivative. It defers colour to perception-and-color, type to typesetting, chart-forms to charting, and screen navigation to ux; it decides where things go, in what relationship, and why.</p>
+
+        <p class="df-composition-hd">Demo · this page is the specimen — its own structural signature, annotated</p>
+        <svg class="df-composition-diagram" viewBox="0 0 720 384" role="img" aria-label="Annotated schematic of one Deepfield plate on the instrument sheet: the left declination scale carries the plate number (1); the registration border frames the field (2); four corner registration marks lock the frame (3); the catalog index names the plate (4); a faint ring-echo of the master chart opens the head (5). The magenta eye-path enters at the index and drops through the body to the single gold pop.">
+          <!-- declination rail slice -->
+          <line x1="46" y1="8" x2="46" y2="376" stroke="var(--ln)" stroke-width="1"/>
+          <g stroke="var(--soft)" stroke-width="1" opacity=".7">
+            <line x1="34" y1="20" x2="46" y2="20"/><line x1="38" y1="44" x2="46" y2="44"/><line x1="38" y1="68" x2="46" y2="68"/><line x1="38" y1="92" x2="46" y2="92"/><line x1="34" y1="116" x2="46" y2="116"/><line x1="38" y1="140" x2="46" y2="140"/><line x1="38" y1="164" x2="46" y2="164"/><line x1="38" y1="188" x2="46" y2="188"/><line x1="34" y1="212" x2="46" y2="212"/><line x1="38" y1="236" x2="46" y2="236"/><line x1="38" y1="260" x2="46" y2="260"/><line x1="38" y1="284" x2="46" y2="284"/><line x1="34" y1="308" x2="46" y2="308"/><line x1="38" y1="332" x2="46" y2="332"/><line x1="38" y1="356" x2="46" y2="356"/>
+          </g>
+          <text x="18" y="72" font-family="var(--mono)" font-size="13" fill="var(--soft)" font-weight="600">03</text>
+          <line x1="30" y1="68" x2="20" y2="68" stroke="var(--soft)" stroke-width="1" opacity=".5"/>
+          <!-- one plate -->
+          <rect x="92" y="40" width="560" height="316" fill="none" stroke="var(--ln)" stroke-width="1"/>
+          <rect x="100" y="48" width="544" height="300" fill="none" stroke="rgba(147,140,155,.14)" stroke-width="1"/>
+          <!-- corner registration marks -->
+          <g stroke="var(--soft)" stroke-width="1" fill="none">
+            <path d="M100 49H110 M101 48V58"/><path d="M644 49H634 M643 48V58"/><path d="M100 347H110 M101 348V338"/><path d="M644 347H634 M643 348V338"/>
+          </g>
+          <!-- head: ring-echo + index + title -->
+          <line x1="92" y1="132" x2="652" y2="132" stroke="var(--ln)" stroke-width="1"/>
+          <g fill="none" stroke="var(--lat)" stroke-width="1"><circle cx="612" cy="66" r="14"/><circle cx="612" cy="66" r="30"/><circle cx="612" cy="66" r="50"/></g>
+          <g stroke="var(--ln)" stroke-width="1"><path d="M612 66 560 66 M612 66 648 104"/></g>
+          <text x="116" y="80" font-family="var(--mono)" font-size="12" letter-spacing="2" fill="var(--sig)">PLATE 03 · COMPOSITION · ii</text>
+          <text x="116" y="112" font-family="var(--disp)" font-size="21" font-weight="700" fill="var(--bone)">Instrument label</text>
+          <!-- body: notation lines + the pop -->
+          <g stroke="var(--soft)" stroke-width="6" opacity=".28" stroke-linecap="round">
+            <line x1="118" y1="170" x2="300" y2="170"/><line x1="118" y1="196" x2="420" y2="196"/><line x1="118" y1="222" x2="360" y2="222"/><line x1="118" y1="256" x2="250" y2="256"/><line x1="118" y1="282" x2="330" y2="282"/>
+          </g>
+          <circle cx="560" cy="300" r="9" fill="var(--pop)"/><circle cx="560" cy="300" r="15" fill="none" stroke="var(--pop)" stroke-width="1" opacity=".55"/>
+          <text x="500" y="272" font-family="var(--mono)" font-size="11" fill="var(--pop)">one pop</text>
+          <!-- eye-path: entry at index → drop to pop -->
+          <path d="M116 84 Q150 150 300 200 T560 292" fill="none" stroke="var(--sig)" stroke-width="1" stroke-dasharray="2 4" opacity=".8"/>
+          <circle cx="116" cy="84" r="3" fill="var(--sig)"/>
+          <!-- callout keys -->
+          <g font-family="var(--mono)" font-size="11" font-weight="600">
+            <circle cx="46" cy="212" r="9" fill="var(--g)" stroke="var(--sig)" stroke-width="1"/><text x="46" y="216" text-anchor="middle" fill="var(--sig)">1</text>
+            <circle cx="92" cy="196" r="9" fill="var(--g)" stroke="var(--sig)" stroke-width="1"/><text x="92" y="200" text-anchor="middle" fill="var(--sig)">2</text>
+            <circle cx="644" cy="49" r="9" fill="var(--g)" stroke="var(--sig)" stroke-width="1"/><text x="644" y="53" text-anchor="middle" fill="var(--sig)">3</text>
+            <circle cx="378" cy="76" r="9" fill="var(--g)" stroke="var(--sig)" stroke-width="1"/><text x="378" y="80" text-anchor="middle" fill="var(--sig)">4</text>
+            <circle cx="612" cy="66" r="9" fill="var(--g)" stroke="var(--sig)" stroke-width="1"/><text x="612" y="70" text-anchor="middle" fill="var(--sig)">5</text>
+          </g>
+        </svg>
+        <ul class="df-composition-legend">
+          <li><span class="df-composition-key">1</span><span><b>Declination scale.</b> The continuous left ruler carries every plate number — one spine down the whole sheet (continuity).</span></li>
+          <li><span class="df-composition-key">2</span><span><b>Registration border.</b> A bounded field on the void — each plate a common region, so 13 read as one set.</span></li>
+          <li><span class="df-composition-key">3</span><span><b>Corner marks.</b> Four registration ticks lock the frame — repetition is the family resemblance (similarity).</span></li>
+          <li><span class="df-composition-key">4</span><span><b>Catalog index.</b> Mono <span class="df-mono">PLATE nn · NAME · roman</span> — the constant that names each entry.</span></li>
+          <li><span class="df-composition-key">5</span><span><b>Ring-echo.</b> A faint echo of the master chart opens each head, tying every plate back to Plate 00.</span></li>
+        </ul>
+
+        <div class="df-composition-gest">
+          <div class="df-composition-cell">
+            <h4>Gestalt · proximity + common-region</h4>
+            <div class="df-composition-name">Why plates cohere</div>
+            <svg viewBox="0 0 200 74" aria-hidden="true">
+              <rect x="6" y="10" width="86" height="54" fill="none" stroke="var(--ln)"/><rect x="108" y="10" width="86" height="54" fill="none" stroke="var(--ln)"/>
+              <g fill="var(--soft)"><circle cx="26" cy="37" r="4"/><circle cx="44" cy="37" r="4"/><circle cx="62" cy="37" r="4"/><circle cx="128" cy="37" r="4"/><circle cx="146" cy="37" r="4"/><circle cx="164" cy="37" r="4"/></g>
+            </svg>
+            <p>Same marks; a shared frame binds each cluster into one thing. The border does the grouping — no label needed.</p>
+          </div>
+          <div class="df-composition-cell">
+            <h4>Gestalt · continuity</h4>
+            <div class="df-composition-name">The rail threads the eye</div>
+            <svg viewBox="0 0 200 74" aria-hidden="true">
+              <line x1="30" y1="6" x2="30" y2="68" stroke="var(--soft)"/>
+              <g stroke="var(--soft)"><line x1="24" y1="18" x2="30" y2="18"/><line x1="24" y1="37" x2="30" y2="37"/><line x1="24" y1="56" x2="30" y2="56"/></g>
+              <g fill="var(--bone)"><circle cx="30" cy="18" r="3.5"/><circle cx="30" cy="37" r="3.5"/><circle cx="30" cy="56" r="3.5"/></g>
+              <g fill="none" stroke="var(--ln)"><rect x="54" y="10" width="132" height="16"/><rect x="54" y="29" width="132" height="16"/><rect x="54" y="48" width="132" height="16"/></g>
+            </svg>
+            <p>One unbroken line down the margin routes reading top-to-bottom, sequencing the plates into a single instrument sheet.</p>
+          </div>
+          <div class="df-composition-cell">
+            <h4>Figure-ground</h4>
+            <div class="df-composition-name">Bone marks on warm void</div>
+            <svg viewBox="0 0 200 74" aria-hidden="true">
+              <rect x="0" y="0" width="200" height="74" fill="var(--g)"/>
+              <g stroke="var(--lat)"><line x1="0" y1="24" x2="200" y2="24"/><line x1="0" y1="50" x2="200" y2="50"/><line x1="70" y1="0" x2="70" y2="74"/><line x1="130" y1="0" x2="130" y2="74"/></g>
+              <circle cx="100" cy="37" r="10" fill="var(--bone)"/><circle cx="100" cy="37" r="4" fill="var(--sig)"/>
+            </svg>
+            <p>The void is engineered as ground; bone and one magenta signal read as figure. The dark is the subject's stage, not empty space.</p>
+          </div>
+        </div>
+
+        <div class="df-composition-take">
+          <p>Hierarchy, aimed: the eye enters at the bright catalog index, drops through the terse body, and lands on the <b>single gold pop</b> — the one most load-bearing reading, spent once on the whole page. One takeaway per plate; one instrument across thirteen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PLATE 04 · COLOR ══════════ owner: perception-and-color -->
+    <section class="df-plate" id="sk-color" aria-labelledby="sk-color-t">
+      <div class="df-plate__no" aria-hidden="true">04</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;04&nbsp;·&nbsp;COLOR&nbsp;·&nbsp;iii</p>
+        <h2 class="df-plate__title" id="sk-color-t">Colour &amp; perception</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+  .df-color-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+  .df-color-lede.two{color:var(--soft);margin-bottom:26px}
+  .df-color-lede b{color:var(--bone);font-weight:600}
+  .df-color-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:34px 0 14px;font-variant-numeric:tabular-nums}
+  .df-color-hd:first-of-type{margin-top:6px}
+  .df-color-sub{font-family:var(--body);font-size:13px;line-height:1.55;color:var(--soft);margin:0 0 16px;max-width:70ch}
+
+  /* ── specification-of-inks board (semantic table = the honest form) ── */
+  .df-color-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .df-color-inks{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
+  .df-color-inks caption{caption-side:bottom;text-align:left;font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--soft);margin-top:12px;letter-spacing:.02em}
+  .df-color-inks th{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);text-align:left;font-weight:400;padding:0 12px 8px 0;border-bottom:1px solid var(--ln)}
+  .df-color-inks th.num,.df-color-inks td.num{text-align:right}
+  .df-color-inks td{font-family:var(--mono);font-size:12px;color:var(--bone);padding:11px 12px 11px 0;border-bottom:1px solid var(--ln);vertical-align:middle}
+  .df-color-inks tr:last-child td{border-bottom:none}
+  .df-color-chip{display:inline-block;width:34px;height:20px;border:1px solid var(--ln);vertical-align:middle;margin-right:9px}
+  .df-color-tok{color:var(--bone)}
+  .df-color-role{color:var(--soft);white-space:nowrap}
+  .df-color-pass{color:var(--bone)}
+  .df-color-mark{color:var(--soft)}
+  .df-color-inks td.num{color:var(--bone)}
+
+  /* ── CVD strip ── */
+  .df-color-cvd{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:520px}
+  .df-color-cvd th{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:400;text-align:center;padding:0 6px 9px}
+  .df-color-cvd th:first-child{text-align:left}
+  .df-color-cvd td{padding:8px 6px;border-top:1px solid var(--ln);text-align:center}
+  .df-color-cvd td:first-child{text-align:left;font-family:var(--mono);font-size:11.5px;color:var(--bone);white-space:nowrap}
+  .df-color-sw{display:inline-block;width:42px;height:18px;border:1px solid var(--ln)}
+  .df-color-cvd small{display:block;font-family:var(--mono);font-size:9px;color:var(--soft);margin-top:3px;letter-spacing:.04em}
+
+  /* ── right / wrong encoding demo ── */
+  .df-color-enc{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+  @media(max-width:620px){.df-color-enc{grid-template-columns:1fr}}
+  .df-color-panel{border:1px solid var(--ln);padding:15px 15px 13px}
+  .df-color-panel h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 4px;font-variant-numeric:tabular-nums}
+  .df-color-panel.ok h4{color:var(--bone)}
+  .df-color-panel.ok h4::before{content:"RIGHT · ";color:var(--sig)}
+  .df-color-panel.bad h4{color:var(--soft)}
+  .df-color-panel.bad h4::before{content:"WRONG · ";color:var(--soft)}
+  .df-color-ramp{display:flex;gap:2px;margin:12px 0 8px}
+  .df-color-ramp span{flex:1;height:46px;border:1px solid rgba(20,18,23,.5)}
+  .df-color-vals{display:flex;gap:2px}
+  .df-color-vals span{flex:1;text-align:center;font-family:var(--mono);font-size:10px;color:var(--soft)}
+  .df-color-panel p{font-family:var(--body);font-size:12px;line-height:1.5;color:var(--soft);margin:11px 0 0;max-width:none}
+  .df-color-panel p b{color:var(--bone);font-weight:600}
+
+  /* ── the pop verdict ── */
+  .df-color-verdict{margin:34px 0 0;border:1px solid var(--ln);border-left:2px solid var(--pop)}
+  .df-color-verdict__bar{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:13px 18px;border-bottom:1px solid var(--ln);font-family:var(--mono)}
+  .df-color-verdict__tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+  .df-color-verdict__pass{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--pop);font-weight:600}
+  .df-color-verdict__ratio{font-size:11px;color:var(--soft);margin-left:auto;font-variant-numeric:tabular-nums}
+  .df-color-verdict__body{padding:15px 18px 16px}
+  .df-color-verdict__body p{font-family:var(--body);font-size:13.5px;line-height:1.6;color:var(--bone);margin:0 0 10px;max-width:72ch}
+  .df-color-verdict__body p:last-child{margin-bottom:0}
+  .df-color-verdict__body b{color:var(--bone);font-weight:600}
+  .df-color-verdict__body b.live{color:var(--pop)} /* the one live-mark reading — mirrors Plate 00's single gold spend; prose emphasis stays bone so gold never reads as generic bold */
+  .df-color-verdict__body .fb{color:var(--soft);font-size:12.5px}
+  .df-color-verdict__body .fb b{color:var(--soft)}
+  .df-color-popdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pop);vertical-align:baseline;margin-right:2px}
+</style>
+
+<p class="df-color-lede"><b>Colour &amp; perception owns two orderings</b> — pick the <i>encoding</i> before the colour, and the <i>contrast</i> before the hue. Position and length read a quantity accurately; area and colour do not, so colour is a last-resort channel for magnitude and luminance does the reading, not hue. The lever also holds palette construction (sequential / diverging / categorical), the ground, the single reserved accent, and colour-vision-deficiency safety. Evidence-based — Cleveland &amp; McGill, Kovesi, ColorBrewer, WCAG, the CVD literature — not taste.</p>
+<p class="df-color-lede two">Reach for it to choose or audit any colour, contrast, palette, background, or visual encoding — and to adjudicate colour-and-eye claims (dark mode, blue light, &ldquo;easy on the eyes&rdquo;) against evidence. It holds three non-negotiable floors: <b>WCAG&nbsp;AA</b> (&ge;4.5:1 body text, &ge;3:1 large text &amp; graphical marks), <b>never colour alone</b> to carry meaning, and <b>CVD-safe</b> sets. Defers chart form to charting, type to typesetting, layout to ux.</p>
+
+<p class="df-color-hd">Specification of inks · measured on the void ground</p>
+<p class="df-color-sub">Every token's real WCAG contrast against void <span class="df-mono">#141217</span>, with its CIELAB lightness (L*) and its verdict — legible as text, or marks-only.</p>
+<div class="df-color-scroll">
+  <table class="df-color-inks">
+    <caption>WCAG&nbsp;2.x relative-luminance ratio, contrast against void #141217. Four inks clear AA body text (4.5:1); the two structural tones sit below 3:1 and are used only as decorative frames &amp; lattice — never to carry data or bound a control (WCAG 1.4.11 exemption).</caption>
+    <thead>
+      <tr><th>Specimen</th><th>Token</th><th>Role</th><th class="num">L*</th><th class="num">Ratio&nbsp;/&nbsp;void</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="df-color-chip" style="background:var(--bone)"></span></td><td class="df-color-tok">--bone&nbsp;#e9e6dd</td><td class="df-color-role">body &amp; heading ink</td><td class="num">91</td><td class="num">14.91:1</td><td class="df-color-pass">AA text · PASS</td></tr>
+      <tr><td><span class="df-color-chip" style="background:var(--gold)"></span></td><td class="df-color-tok">--gold&nbsp;#e6a93a</td><td class="df-color-role">the one warm pop</td><td class="num">73</td><td class="num">8.95:1</td><td class="df-color-pass">AA text · PASS</td></tr>
+      <tr><td><span class="df-color-chip" style="background:var(--soft)"></span></td><td class="df-color-tok">--soft&nbsp;#938c9b</td><td class="df-color-role">notation / labels</td><td class="num">59</td><td class="num">5.73:1</td><td class="df-color-pass">AA text · PASS</td></tr>
+      <tr><td><span class="df-color-chip" style="background:var(--sig)"></span></td><td class="df-color-tok">--sig&nbsp;#ff3d7a</td><td class="df-color-role">systematic accent · signal</td><td class="num">58</td><td class="num">5.49:1</td><td class="df-color-pass">AA text · PASS</td></tr>
+      <tr><td><span class="df-color-chip" style="background:var(--ln)"></span></td><td class="df-color-tok">--ln&nbsp;#3a3445</td><td class="df-color-role">frames / hairlines</td><td class="num">23</td><td class="num">1.56:1</td><td class="df-color-mark">marks-only</td></tr>
+      <tr><td><span class="df-color-chip" style="background:var(--lat)"></span></td><td class="df-color-tok">--lat&nbsp;#241f2d</td><td class="df-color-role">lattice / ring-echo</td><td class="num">13</td><td class="num">1.16:1</td><td class="df-color-mark">marks-only</td></tr>
+      <tr><td><span class="df-color-chip" style="background:var(--g);border-color:var(--soft)"></span></td><td class="df-color-tok">--g&nbsp;#141217</td><td class="df-color-role">warm-void ground</td><td class="num">6</td><td class="num">&mdash;</td><td class="df-color-mark">ground</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="df-color-hd">Colour-vision-deficiency · does the palette hold?</p>
+<p class="df-color-sub">Simulated at full severity (Machado&nbsp;2009). ~8% of men have CVD, so the palette must survive it — and it does, because meaning rides on <b class="df-color-tok" style="color:var(--bone);font-weight:600">lightness</b>, not hue.</p>
+<div class="df-color-scroll">
+  <table class="df-color-cvd">
+    <thead>
+      <tr><th>Ink</th><th>Normal</th><th>Deuteranopia</th><th>Protanopia</th><th>Tritanopia</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>--sig magenta</td>
+        <td><span class="df-color-sw" style="background:#ff3d7a"></span><small>L* 58</small></td>
+        <td><span class="df-color-sw" style="background:#a29975"></span><small>#a29975</small></td>
+        <td><span class="df-color-sw" style="background:#70737b"></span><small>#70737b</small></td>
+        <td><span class="df-color-sw" style="background:#ff0057"></span><small>#ff0057</small></td>
+      </tr>
+      <tr>
+        <td>--gold pop</td>
+        <td><span class="df-color-sw" style="background:#e6a93a"></span><small>L* 73</small></td>
+        <td><span class="df-color-sw" style="background:#cfba3e"></span><small>#cfba3e</small></td>
+        <td><span class="df-color-sw" style="background:#c0ab29"></span><small>#c0ab29</small></td>
+        <td><span class="df-color-sw" style="background:#fa9893"></span><small>#fa9893</small></td>
+      </tr>
+      <tr>
+        <td>--bone ink</td>
+        <td><span class="df-color-sw" style="background:#e9e6dd"></span><small>L* 91</small></td>
+        <td><span class="df-color-sw" style="background:#e9e6dd"></span><small>#e9e6dd</small></td>
+        <td><span class="df-color-sw" style="background:#e8e5dd"></span><small>#e8e5dd</small></td>
+        <td><span class="df-color-sw" style="background:#ebe4e3"></span><small>#ebe4e3</small></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="df-color-sub" style="margin-top:16px">Under deutan/protan, magenta and gold both drift toward muddy yellow — their <i>hue</i> difference collapses. But gold stays lighter than magenta in every simulation (L* 73 vs 58; a luminance gap of 1.45–2.06:1), so they never merge — and the design never asks a CVD viewer to tell them apart to read a value: magenta is the systematic accent, gold is one isolated pop, and both signal points also carry position, shape, and a direct label (WCAG&nbsp;1.4.1). Lightness-order carries the meaning; no CVD viewer is stranded.</p>
+
+<p class="df-color-hd">Encoding an ordered quantity · right vs wrong</p>
+<p class="df-color-sub">Same seven ranked readings (1&rarr;7, faint&rarr;bright). One encoding lets you rank them at a glance; the other does not.</p>
+<div class="df-color-enc">
+  <div class="df-color-panel ok">
+    <h4>lightness-ordered ramp</h4>
+    <div class="df-color-ramp" role="img" aria-label="Monotonic lightness ramp, dark to light, encoding values one through seven — order is readable at a glance and survives greyscale and CVD.">
+      <span style="background:#241f2d"></span><span style="background:#45404a"></span><span style="background:#666168"></span><span style="background:#868285"></span><span style="background:#a7a4a2"></span><span style="background:#c8c5c0"></span><span style="background:#e9e6dd"></span>
+    </div>
+    <div class="df-color-vals" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+    <p><b>Monotonic L* (13&rarr;91).</b> Lightness carries the order, so rank is instant — and it survives greyscale and every CVD type. Kovesi&nbsp;2015; the dark-is-more expectation.</p>
+  </div>
+  <div class="df-color-panel bad">
+    <h4>rainbow / hue-for-order</h4>
+    <div class="df-color-ramp" role="img" aria-label="Rainbow encoding of the same values one through seven — luminance rises then falls, so the order is not perceivable.">
+      <span style="background:#2b3a9e"></span><span style="background:#0a86c4"></span><span style="background:#12a89a"></span><span style="background:#8ec63f"></span><span style="background:#f4d21a"></span><span style="background:#f08a1c"></span><span style="background:#e0342b"></span>
+    </div>
+    <div class="df-color-vals" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+    <p><b>Non-monotonic luminance</b> (L* 29&rarr;53&rarr;62&rarr;74&rarr;<i>85</i>&rarr;67&rarr;50 — peaks at 5, not 7). No perceived value order, and false edges where hue jumps. Borland &amp; Taylor&nbsp;2007.</p>
+  </div>
+</div>
+
+<p class="df-color-hd">The pop · resolution &amp; verdict</p>
+<div class="df-color-verdict">
+  <div class="df-color-verdict__bar">
+    <span class="df-color-verdict__tag">Pop-rule · one pop, one point, page-wide</span>
+    <span class="df-color-verdict__pass">PASS</span>
+    <span class="df-color-verdict__ratio">gold #e6a93a on void = 8.95:1 (AA-pass)</span>
+  </div>
+  <div class="df-color-verdict__body">
+    <p>Round&nbsp;9 spent magenta as the signal <i>and</i> gold broadly as annotation — two general accents. Round&nbsp;10 ruling holds: <b>magenta --sig is the single systematic accent</b> (signal points, the pole, the sparkline). <b>Gold --gold/--pop is the ONE contrasting pop</b>, spent exactly once page-wide — Plate&nbsp;00, the master chart&rsquo;s <span class="df-color-popdot" aria-hidden="true"></span><b class="live">$5&nbsp;&middot;&nbsp;40M</b> reading. Every other former-gold mark demotes to --soft notation grey.</p>
+    <p>Gold reads as a <b>warm-vs-cold contrast</b>, not a second accent: hue ~41&deg; amber against a cold register (magenta ~340&deg; + neutral bone + plum void). A design already carrying one vibrant note earns a pop that contrasts it by temperature — so the warm spark separates by <i>register</i>, not by joining the accent family. On void it measures 8.95:1, the highest-contrast chromatic ink in the set. Verified here on the temperature-contrast and ratio tests.</p>
+    <p class="fb"><b>Fallback (unused):</b> had gold failed the contrast-against-register test, the ruling was to drop gold entirely and let magenta stand as the lone vibrant pop. Gold passes, so the fallback stays parked. The gold chips on this plate are <b>labeled specimens</b> — the palette teaching itself — not the live spend; the single live pop belongs to Plate&nbsp;00.</p>
+  </div>
+</div>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 05 · TYPE ══════════ owner: typesetting -->
+    <section class="df-plate" id="sk-type" aria-labelledby="sk-type-t">
+  <div class="df-plate__no" aria-hidden="true">05</div>
+  <header class="df-plate__head">
+    <p class="df-index">PLATE&nbsp;05&nbsp;·&nbsp;TYPE&nbsp;·&nbsp;iv</p>
+    <h2 class="df-plate__title" id="sk-type-t">Typography &amp; type-setting</h2>
+  </header>
+  <div class="df-plate__body">
+    <style>
+    /* ── notation-voice lede ─────────────────────────────────────────────── */
+    .df-type-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+    .df-type-lede.two{color:var(--soft);margin-bottom:26px}
+    .df-type-lede b{color:var(--bone);font-weight:600}
+    .df-type-lede i{font-style:normal;color:var(--sig)}
+    .df-type-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:32px 0 14px;font-variant-numeric:tabular-nums}
+    .df-type-hd:first-of-type{margin-top:8px}
+    .df-type-cap{font-family:var(--mono);font-size:11px;line-height:1.55;letter-spacing:.02em;color:var(--soft);margin:12px 0 0;max-width:74ch;font-variant-numeric:tabular-nums}
+    .df-type-cap b{color:var(--bone);font-weight:600}
+    .df-type-cap .k{color:var(--sig)}
+
+    /* ── readout strip: the sheet's own settings, instrument-style ───────── */
+    .df-type-readout{display:flex;flex-wrap:wrap;gap:8px 26px;padding:12px 16px;border:1px solid var(--ln);
+      background:rgba(147,140,155,.04);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+      color:var(--soft);font-variant-numeric:tabular-nums;margin:0 0 4px}
+    .df-type-readout span b{color:var(--bone);font-weight:600}
+
+    /* ── three faces, each a labeled specimen line ───────────────────────── */
+    .df-type-faces{list-style:none;margin:0;padding:0;display:grid;gap:0}
+    .df-type-face{padding:18px 0;border-top:1px solid var(--ln)}
+    .df-type-face:first-child{border-top:0;padding-top:6px}
+    .df-type-face__role{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--soft);margin:0 0 8px;font-variant-numeric:tabular-nums}
+    .df-type-face__role b{color:var(--sig);font-weight:600}
+    .df-type-spec{margin:0;color:var(--bone);line-height:1.1}
+    .df-type-spec--disp{font-family:var(--disp);font-weight:700;font-size:clamp(26px,6.4vw,38px);letter-spacing:-.02em}
+    .df-type-spec--body{font-family:var(--body);font-weight:400;font-size:clamp(16px,3.4vw,19px);line-height:1.5;max-width:60ch}
+    .df-type-spec--mono{font-family:var(--mono);font-weight:500;font-size:clamp(14px,3vw,17px);letter-spacing:.01em;font-variant-numeric:tabular-nums}
+    .df-type-spec--mono .k{color:var(--sig)}
+    .df-type-face__stack{display:block;margin:9px 0 0;font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;
+      color:var(--soft);font-variant-numeric:tabular-nums}
+
+    /* ── the scale ladder ────────────────────────────────────────────────── */
+    .df-type-ladder{margin:2px 0 0;border-top:1px solid var(--ln)}
+    .df-type-step{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+      padding:9px 0;border-bottom:1px solid var(--ln)}
+    .df-type-step__spec{font-family:var(--disp);font-weight:600;color:var(--bone);line-height:1;letter-spacing:-.01em;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+    .df-type-step[data-face="body"] .df-type-step__spec{font-family:var(--body);font-weight:400;letter-spacing:0}
+    .df-type-step[data-face="mono"] .df-type-step__spec{font-family:var(--mono);font-weight:400;letter-spacing:0}
+    .df-type-step__meta{flex:0 0 auto;display:flex;align-items:baseline;gap:14px;
+      font-family:var(--mono);font-size:11px;color:var(--soft);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+    .df-type-step__px{min-width:5.4ch;text-align:right;color:var(--bone)}
+    .df-type-step__rem{min-width:6ch;text-align:right}
+    .df-type-step__role{display:none}
+    @media(min-width:620px){.df-type-step__role{display:inline;min-width:22ch;text-align:right;text-transform:uppercase;letter-spacing:.08em}}
+
+    /* ── measure + leading ───────────────────────────────────────────────── */
+    .df-type-measure{margin:0}
+    .df-type-mbox{position:relative;width:66ch;max-width:100%;padding-right:1px;border-right:1px dashed var(--sig)}
+    .df-type-mbox p{font-family:var(--body);font-size:15px;line-height:1.6;color:var(--bone);margin:0}
+    .df-type-medge{position:absolute;top:-16px;right:0;transform:translateX(50%);
+      font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--sig);white-space:nowrap}
+    .df-type-mband{display:flex;gap:6px 20px;flex-wrap:wrap;margin:14px 0 0;font-family:var(--mono);
+      font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);font-variant-numeric:tabular-nums}
+    .df-type-mband b{color:var(--bone);font-weight:600}
+
+    .df-type-lead{display:grid;grid-template-columns:1fr;gap:14px;margin:6px 0 0}
+    @media(min-width:720px){.df-type-lead{grid-template-columns:repeat(3,1fr)}}
+    .df-type-lead figure{margin:0;border:1px solid var(--ln);padding:12px 14px}
+    .df-type-lead figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--soft);margin:0 0 8px;font-variant-numeric:tabular-nums}
+    .df-type-lead figcaption b{color:var(--sig);font-weight:600}
+    .df-type-lead p{font-family:var(--body);font-size:13px;color:var(--bone);margin:0;max-width:none}
+    .df-type-lead .l12{line-height:1.2}
+    .df-type-lead .l16{line-height:1.6}
+    .df-type-lead .l18{line-height:1.8}
+    .df-type-lead .is{outline:1px solid var(--sig);outline-offset:-1px}
+
+    /* ── numerals: proportional vs tabular vs mono ───────────────────────── */
+    .df-type-numwrap{overflow-x:auto}
+    .df-type-nums{border-collapse:collapse;width:100%;min-width:360px}
+    .df-type-nums caption{caption-side:top;text-align:left;font-family:var(--mono);font-size:10.5px;
+      letter-spacing:.12em;text-transform:uppercase;color:var(--soft);padding:0 0 10px}
+    .df-type-nums th,.df-type-nums td{padding:5px 14px;border-bottom:1px solid var(--ln)}
+    .df-type-nums thead th{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--soft);text-align:right;border-bottom:1px solid var(--soft)}
+    .df-type-nums thead th.obj{text-align:left}
+    .df-type-nums tbody th{font-family:var(--body);font-weight:400;font-size:13px;color:var(--soft);text-align:left;white-space:nowrap}
+    .df-type-nums td{font-size:14px;color:var(--bone);text-align:right}
+    .df-type-nums td.prop{font-family:var(--body);font-variant-numeric:proportional-nums lining-nums}
+    .df-type-nums td.tab{font-family:var(--body);font-variant-numeric:tabular-nums lining-nums;color:var(--sig)}
+    .df-type-nums td.mn{font-family:var(--mono);font-variant-numeric:tabular-nums}
+    .df-type-nums thead th.tab{color:var(--sig)}
+    </style>
+
+    <!-- (1) what it does + when to reach for it — notation voice, accurate to SKILL -->
+    <p class="df-type-lede"><b>Type-setting sets the reading</b> — face, size, measure, leading, and hierarchy — so a plate is <i>legible before it is anything else</i>. The proven levers are size, x-height, spacing, and a clear hierarchy; the face itself carries <b>voice, not speed</b> — controlled work finds no universal “faster” font, and reader preference does not predict reading rate (serif-vs-sans is a myth once x-height is matched). Legibility before personality: spend the measurable levers first, choose a face for tone second.</p>
+    <p class="df-type-lede two">Reach for it wherever type must be read or numbers must align — a page, a table, a chart, an instrument plate like this one — to settle which faces, at what scale, measure, and leading. It defers colour and contrast to <b>perception-and-color</b>, chart form to <b>charting</b>, and the page grid to <b>ux</b>; it owns the type <i>inside</i> all of them: a ≥14px reading floor, tabular figures on every numeric column, and a 45–75-character measure on prose.</p>
+
+    <div class="df-type-readout" role="group" aria-label="This sheet's type settings">
+      <span>SHEET&nbsp;· <b>3 faces</b></span>
+      <span>BASE&nbsp;· <b>16px / 1rem</b></span>
+      <span>LEADING&nbsp;· <b>1.6</b></span>
+      <span>MEASURE&nbsp;· <b>45–75ch</b></span>
+      <span>FIGURES&nbsp;· <b>tabular lining</b></span>
+    </div>
+
+    <!-- (2a) three faces — each a labeled specimen line -->
+    <p class="df-type-hd">Specimen · three faces, three jobs</p>
+    <ul class="df-type-faces">
+      <li class="df-type-face">
+        <p class="df-type-face__role"><b>Display</b> · Bricolage Grotesque · headings &amp; wordmark</p>
+        <p class="df-type-spec df-type-spec--disp">Deep-field Notation</p>
+        <span class="df-type-face__stack">'Bricolage Grotesque', system-ui, -apple-system, sans-serif · 400–800 · display sizes only</span>
+      </li>
+      <li class="df-type-face">
+        <p class="df-type-face__role"><b>Body</b> · Plus Jakarta Sans · field-note prose &amp; UI</p>
+        <p class="df-type-spec df-type-spec--body">A faint, exact signal, read slowly at the large instrument — set to be effortless at reading size.</p>
+        <span class="df-type-face__stack">'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif · 400–700 · the anchor</span>
+      </li>
+      <li class="df-type-face">
+        <p class="df-type-face__role"><b>Notation</b> · IBM Plex Mono · labels · index · data · glyphs</p>
+        <p class="df-type-spec df-type-spec--mono"><span class="k">RA</span>&nbsp;05:34.5&nbsp;&nbsp;<span class="k">DEC</span>&nbsp;+22°01′&nbsp;&nbsp;<span class="k">m</span>&nbsp;8.40&nbsp;&nbsp;<span class="k">z</span>&nbsp;0.0158</p>
+        <span class="df-type-face__stack">'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace · 400–600 · the instrument voice</span>
+      </li>
+    </ul>
+
+    <!-- (2b) the scale ladder — actual page sizes, mono-labeled -->
+    <p class="df-type-hd">Specimen · the scale this sheet rides</p>
+    <div class="df-type-ladder">
+      <div class="df-type-step" data-face="disp">
+        <span class="df-type-step__spec" style="font-size:34px">Signal</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">34.0px</span><span class="df-type-step__rem">2.125rem</span><span class="df-type-step__role">display · wordmark</span></span>
+      </div>
+      <div class="df-type-step" data-face="disp">
+        <span class="df-type-step__spec" style="font-size:30px">Plate title</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">30.0px</span><span class="df-type-step__rem">1.875rem</span><span class="df-type-step__role">display · plate title</span></span>
+      </div>
+      <div class="df-type-step" data-face="disp">
+        <span class="df-type-step__spec" style="font-size:21px">Sub-heading</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">21.0px</span><span class="df-type-step__rem">1.313rem</span><span class="df-type-step__role">display · sub-head</span></span>
+      </div>
+      <div class="df-type-step" data-face="body">
+        <span class="df-type-step__spec" style="font-size:16px">Body base — the reading anchor</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">16.0px</span><span class="df-type-step__rem">1.000rem</span><span class="df-type-step__role">body · base</span></span>
+      </div>
+      <div class="df-type-step" data-face="body">
+        <span class="df-type-step__spec" style="font-size:15px">Field-note prose</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">15.0px</span><span class="df-type-step__rem">0.938rem</span><span class="df-type-step__role">body · field-note</span></span>
+      </div>
+      <div class="df-type-step" data-face="body">
+        <span class="df-type-step__spec" style="font-size:14px">Caption · data floor</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">14.0px</span><span class="df-type-step__rem">0.875rem</span><span class="df-type-step__role">caption · data floor</span></span>
+      </div>
+      <div class="df-type-step" data-face="mono">
+        <span class="df-type-step__spec" style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase">Catalog&nbsp;index</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">11.5px</span><span class="df-type-step__rem">0.719rem</span><span class="df-type-step__role">mono · index</span></span>
+      </div>
+      <div class="df-type-step" data-face="mono">
+        <span class="df-type-step__spec" style="font-size:10.9px;letter-spacing:.16em;text-transform:uppercase">Micro&nbsp;furniture</span>
+        <span class="df-type-step__meta"><span class="df-type-step__px">10.9px</span><span class="df-type-step__rem">0.680rem</span><span class="df-type-step__role">mono · furniture</span></span>
+      </div>
+    </div>
+    <p class="df-type-cap">Steps ride a <b>~1.3 major-third feel at display</b>, then fall to whole-pixel increments at reading sizes — a <b>non-constant ramp</b>, kept for consistency, not because a ratio is “correct” (type scales are a design decision, not a finding). Readings hold the <b>≥14px floor</b>; only tracked, uppercase mono <b>furniture</b> — the catalog index and registration labels — sits below it, where letter-recognition, not prose reading, is the job.</p>
+
+    <!-- (2c) measure + leading -->
+    <p class="df-type-hd">Specimen · measure &amp; leading</p>
+    <div class="df-type-measure">
+      <div class="df-type-mbox">
+        <span class="df-type-medge" aria-hidden="true">66ch →|</span>
+        <p>The measure is the number of characters on a line. Short lines aid comprehension; long lines read as fast or faster on screen with no comprehension penalty — so the 45–75-character band is an honest compromise, not a law. This column is set to about sixty-six characters, Bringhurst’s “66,” at fifteen pixels with 1.6 leading. When the viewport is narrower than the target, the column reflows to fit rather than forcing a sideways scroll.</p>
+      </div>
+      <div class="df-type-mband">
+        <span>MIN&nbsp;· <b>45ch</b></span>
+        <span>TARGET&nbsp;· <b>66ch</b></span>
+        <span>MAX&nbsp;· <b>75ch</b></span>
+        <span>WCAG&nbsp;AAA&nbsp;CAP&nbsp;· <b>80ch</b></span>
+      </div>
+    </div>
+    <div class="df-type-lead">
+      <figure>
+        <figcaption>Leading · 1.2 — too tight</figcaption>
+        <p class="l12">Lines crowd; the eye loses its return sweep and skips or re-reads. Fine for big display, wrong for prose.</p>
+      </figure>
+      <figure>
+        <figcaption>Leading · <b>1.6 — this sheet</b></figcaption>
+        <p class="l16 is">Open enough that each line is easy to find; within the proven 1.4–1.6 prose band and WCAG-1.4.12-safe at 1.5×.</p>
+      </figure>
+      <figure>
+        <figcaption>Leading · 1.8 — over-open</figcaption>
+        <p class="l18">Lines drift apart and the paragraph stops reading as one block; reserve for small text on a long measure.</p>
+      </figure>
+    </div>
+    <p class="df-type-cap">Body leading <b>1.6</b> (≈ <b>24px</b> on a 15px body). Prose is <span class="k">left-aligned, ragged-right</span> — never justified (WCAG&nbsp;1.4.8): justified screen text opens rivers of uneven spacing.</p>
+
+    <!-- (2d) tabular figures proof -->
+    <p class="df-type-hd">Specimen · numerals — proportional vs tabular</p>
+    <div class="df-type-numwrap">
+      <table class="df-type-nums">
+        <caption>Field readings · apparent magnitude (m), same values, three figure settings</caption>
+        <thead>
+          <tr>
+            <th class="obj" scope="col">Object</th>
+            <th scope="col">Proportional</th>
+            <th class="tab" scope="col">Tabular&nbsp;·&nbsp;tnum</th>
+            <th scope="col">Plex&nbsp;Mono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Sirius</th><td class="prop">−1.46</td><td class="tab">−1.46</td><td class="mn">−1.46</td></tr>
+          <tr><th scope="row">Vega</th><td class="prop">0.03</td><td class="tab">0.03</td><td class="mn">0.03</td></tr>
+          <tr><th scope="row">Polaris</th><td class="prop">1.98</td><td class="tab">1.98</td><td class="mn">1.98</td></tr>
+          <tr><th scope="row">NGC&nbsp;7000</th><td class="prop">4.00</td><td class="tab">4.00</td><td class="mn">4.00</td></tr>
+          <tr><th scope="row">Field&nbsp;star</th><td class="prop">8.40</td><td class="tab">8.40</td><td class="mn">8.40</td></tr>
+          <tr><th scope="row">Faint&nbsp;source</th><td class="prop">114.20</td><td class="tab">114.20</td><td class="mn">114.20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="df-type-cap"><b>Proportional</b> figures give each digit its own width — a <b>1</b> is narrow, a <b>0</b> wide — so a column of them <b>jitters</b> and the decimal points wander. <span class="k">font-variant-numeric: tabular-nums</span> fixes every digit to one advance width; the decimal points line up and the eye can compare down the column. <b>Plex Mono</b> is tabular by construction — every glyph is already one width. The rule: <b>tabular lining figures on every numeric column</b> — tables, axes, dashboards, readings.</p>
+  </div>
+</section>
+
+
+    <!-- ══════════ PLATE 06 · CHARTING ══════════ owner: tufte-charting -->
+    <section class="df-plate" id="sk-charting" aria-labelledby="sk-charting-t">
+      <div class="df-plate__no" aria-hidden="true">06</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;06&nbsp;·&nbsp;CHARTING&nbsp;·&nbsp;v</p>
+        <h2 class="df-plate__title" id="sk-charting-t">Charting</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+.df-chart-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+.df-chart-lede.two{color:var(--soft);margin-bottom:26px}
+.df-chart-lede b{color:var(--bone);font-weight:600}
+.df-chart-lede i{color:var(--soft);font-style:italic}
+.df-chart-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:30px 0 4px;font-variant-numeric:tabular-nums}
+.df-chart-fig{margin:0 0 6px}
+.df-chart-fig svg{display:block;width:100%;height:auto;border:1px solid var(--ln);background:var(--g)}
+.df-chart-cap{font-family:var(--body);font-size:13px;line-height:1.55;color:var(--soft);margin:8px 0 0;max-width:70ch}
+.df-chart-cap b{color:var(--bone);font-weight:600}
+.df-chart-cap .df-chart-mark{color:var(--sig);font-weight:600}
+.df-chart-rule{border:0;border-top:1px solid var(--ln);margin:30px 0 0}
+.df-chart-note{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--soft);margin:16px 0 0;font-variant-numeric:tabular-nums}
+.df-chart-note b{color:var(--bone);font-weight:600;letter-spacing:.08em}
+</style>
+
+<p class="df-chart-lede"><b>Charting picks the graphical form that answers the question</b>, then draws it so nearly all the ink is data. First the form: match the reader's question — trend over time, ranking, distribution, relationship, part-to-whole, or deviation from a norm — to a canonical shape (a range-frame line, a Cleveland dot plot, small multiples, a slopegraph, a bullet graph). Then the craft: erase every stroke that isn't carrying data — no chart border, no heavy grid, no legend the eye must ferry back to. Encode magnitude by <i>position</i> first, length next, area and colour last; label each series directly; prefer small multiples to overplotting. Colour itself is deferred to perception-and-color.</p>
+<p class="df-chart-lede two">Reach for it whenever a set of numbers carries a question a picture answers faster than a table — a shape to see, a rank to read, an outlier to catch. Don't reach for it for a single scalar (that's a stat readout) or when the reader needs exact lookup (a table wins). Honesty is the floor, not a preference: no truncated bar baseline, no radius encoding a quantity, no dual-axis manufacturing a correlation, no inverted or stretched axis. The form must reveal the true signal, not decorate it.</p>
+
+<p class="df-chart-hd">Demo A · Range-frame line — one faint signal read over 18 nights</p>
+<figure class="df-chart-fig">
+  <svg viewBox="0 0 760 300" role="img" aria-labelledby="df-chart-a-t df-chart-a-d">
+    <title id="df-chart-a-t">Integrated flux of source DF-2200 per nightly exposure, 18 nights</title>
+    <desc id="df-chart-a-d">A magenta signal line on a zero-baseline axis (0 to 6 mJy). The reading rises from 2.1 mJy on night 1 to a peak of 5.8 mJy near night 17, then flattens to 5.7 mJy on night 18.</desc>
+    <!-- reference gridlines: zero is present, so the baseline is NOT truncated -->
+    <g stroke="var(--lat)" stroke-width="1">
+      <line x1="62" y1="173.3" x2="690" y2="173.3"/>
+      <line x1="62" y1="98.7" x2="690" y2="98.7"/>
+      <line x1="62" y1="24" x2="690" y2="24"/>
+    </g>
+    <!-- y tick labels (mJy). 0 is drawn → honest zero baseline -->
+    <g font-family="var(--mono)" font-size="12" fill="var(--soft)" text-anchor="end" font-variant-numeric="tabular-nums">
+      <text x="52" y="252">0</text>
+      <text x="52" y="177.3">2</text>
+      <text x="52" y="102.7">4</text>
+      <text x="52" y="28">6</text>
+    </g>
+    <text x="44" y="16" font-family="var(--mono)" font-size="11" letter-spacing="1.5" fill="var(--soft)">mJy</text>
+    <!-- x-axis = the zero line -->
+    <line x1="62" y1="248" x2="690" y2="248" stroke="var(--ln)" stroke-width="1"/>
+    <!-- marginal rug: one tick per night (the tick-comb hand) -->
+    <g stroke="var(--soft)" stroke-width="1" opacity=".55">
+      <line x1="62" y1="248" x2="62" y2="253"/><line x1="98.9" y1="248" x2="98.9" y2="253"/><line x1="135.9" y1="248" x2="135.9" y2="253"/><line x1="172.8" y1="248" x2="172.8" y2="253"/><line x1="209.8" y1="248" x2="209.8" y2="253"/><line x1="246.7" y1="248" x2="246.7" y2="253"/><line x1="283.6" y1="248" x2="283.6" y2="253"/><line x1="320.6" y1="248" x2="320.6" y2="253"/><line x1="357.5" y1="248" x2="357.5" y2="253"/><line x1="394.5" y1="248" x2="394.5" y2="253"/><line x1="431.4" y1="248" x2="431.4" y2="253"/><line x1="468.4" y1="248" x2="468.4" y2="253"/><line x1="505.3" y1="248" x2="505.3" y2="253"/><line x1="542.2" y1="248" x2="542.2" y2="253"/><line x1="579.2" y1="248" x2="579.2" y2="253"/><line x1="616.1" y1="248" x2="616.1" y2="253"/><line x1="653.1" y1="248" x2="653.1" y2="253"/><line x1="690" y1="248" x2="690" y2="253"/>
+    </g>
+    <!-- x tick labels at nights 1, 6, 12, 18 -->
+    <g font-family="var(--mono)" font-size="12" fill="var(--soft)" text-anchor="middle" font-variant-numeric="tabular-nums">
+      <text x="62" y="267">1</text>
+      <text x="246.7" y="267">6</text>
+      <text x="468.4" y="267">12</text>
+      <text x="690" y="267">18</text>
+    </g>
+    <text x="690" y="285" font-family="var(--mono)" font-size="11" letter-spacing="1.5" fill="var(--soft)" text-anchor="end">NIGHT →</text>
+    <!-- the signal line (magenta = systematic accent) -->
+    <path d="M62,169.6 L98.9,162.1 L135.9,165.9 L172.8,150.9 L209.8,139.7 L246.7,121.1 L283.6,128.5 L320.6,102.4 L357.5,87.5 L394.5,94.9 L431.4,68.8 L468.4,53.9 L505.3,61.3 L542.2,42.7 L579.2,35.2 L616.1,38.9 L653.1,31.5 L690,35.2"
+      fill="none" stroke="var(--sig)" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- direct labels: first reading, peak, and the latest value on its end-dot -->
+    <circle cx="62" cy="169.6" r="2.6" fill="var(--sig)"/>
+    <text x="70" y="164" font-family="var(--mono)" font-size="12" fill="var(--soft)" font-variant-numeric="tabular-nums">2.1</text>
+    <circle cx="653.1" cy="31.5" r="2.6" fill="var(--sig)"/>
+    <text x="653.1" y="22" font-family="var(--mono)" font-size="12" fill="var(--sig)" text-anchor="middle" font-variant-numeric="tabular-nums">5.8</text>
+    <circle cx="690" cy="35.2" r="8" fill="none" stroke="var(--sig)" stroke-width="1" opacity=".5"/>
+    <circle cx="690" cy="35.2" r="4" fill="var(--sig)"/>
+    <text x="702" y="39" font-family="var(--mono)" font-size="12.5" fill="var(--sig)" font-variant-numeric="tabular-nums">5.7 mJy</text>
+  </svg>
+</figure>
+<p class="df-chart-cap"><b>One honest takeaway:</b> source <span class="df-chart-mark">DF-2200</span> brightened from <b>2.1</b> to a peak of <b>5.8&nbsp;mJy</b> — a ~2.7× rise — then flattened to <b>5.7&nbsp;mJy</b> after night 14. The axis carries a true zero, so the climb is read at its real scale, not an inflated one.</p>
+
+<p class="df-chart-hd">Demo B · Cleveland dot plot — sources ranked by nights detected</p>
+<figure class="df-chart-fig">
+  <svg viewBox="0 0 770 340" role="img" aria-labelledby="df-chart-b-t df-chart-b-d">
+    <title id="df-chart-b-t">Eight catalog sources ranked by number of nights detected, out of 18</title>
+    <desc id="df-chart-b-d">A dot plot on a common zero-based scale from 0 to 18 nights. DF-2200 was detected all 18 nights; detection frequency falls steeply down the ranking to DF-085 at 2 nights.</desc>
+    <!-- reference gridlines at 6, 12, 18; zero rule slightly stronger -->
+    <g stroke="var(--lat)" stroke-width="1">
+      <line x1="320" y1="34" x2="320" y2="308"/>
+      <line x1="510" y1="34" x2="510" y2="308"/>
+      <line x1="700" y1="34" x2="700" y2="308"/>
+    </g>
+    <line x1="130" y1="34" x2="130" y2="308" stroke="var(--ln)" stroke-width="1"/>
+    <!-- x-axis -->
+    <line x1="130" y1="308" x2="700" y2="308" stroke="var(--ln)" stroke-width="1"/>
+    <g font-family="var(--mono)" font-size="12" fill="var(--soft)" text-anchor="middle" font-variant-numeric="tabular-nums">
+      <text x="130" y="325">0</text>
+      <text x="320" y="325">6</text>
+      <text x="510" y="325">12</text>
+      <text x="700" y="325">18</text>
+    </g>
+    <text x="415" y="337" font-family="var(--mono)" font-size="11" letter-spacing="1.5" fill="var(--soft)" text-anchor="middle">NIGHTS DETECTED · OF 18</text>
+    <!-- faint dotted leaders from the zero rule to each dot -->
+    <g stroke="var(--soft)" stroke-width="1" opacity=".3" stroke-dasharray="1 4">
+      <line x1="130" y1="44" x2="694" y2="44"/>
+      <line x1="130" y1="78" x2="630.7" y2="78"/>
+      <line x1="130" y1="112" x2="567.3" y2="112"/>
+      <line x1="130" y1="146" x2="472.3" y2="146"/>
+      <line x1="130" y1="180" x2="409" y2="180"/>
+      <line x1="130" y1="214" x2="345.7" y2="214"/>
+      <line x1="130" y1="248" x2="282.3" y2="248"/>
+      <line x1="130" y1="282" x2="187.3" y2="282"/>
+    </g>
+    <!-- source names (direct labels, right-aligned); source of interest in magenta -->
+    <g font-family="var(--mono)" font-size="12.5" text-anchor="end" font-variant-numeric="tabular-nums">
+      <text x="118" y="48" fill="var(--sig)">DF-2200</text>
+      <text x="118" y="82" fill="var(--bone)">DF-118</text>
+      <text x="118" y="116" fill="var(--bone)">DF-341</text>
+      <text x="118" y="150" fill="var(--bone)">DF-076</text>
+      <text x="118" y="184" fill="var(--bone)">DF-559</text>
+      <text x="118" y="218" fill="var(--bone)">DF-402</text>
+      <text x="118" y="252" fill="var(--bone)">DF-233</text>
+      <text x="118" y="286" fill="var(--bone)">DF-085</text>
+    </g>
+    <!-- dots: position = value on the common scale. One magenta accent = source of interest -->
+    <g>
+      <circle cx="700" cy="44" r="9" fill="none" stroke="var(--sig)" stroke-width="1" opacity=".5"/>
+      <circle cx="700" cy="44" r="5.5" fill="var(--sig)"/>
+      <circle cx="636.7" cy="78" r="5.5" fill="var(--bone)"/>
+      <circle cx="573.3" cy="112" r="5.5" fill="var(--bone)"/>
+      <circle cx="478.3" cy="146" r="5.5" fill="var(--bone)"/>
+      <circle cx="415" cy="180" r="5.5" fill="var(--bone)"/>
+      <circle cx="351.7" cy="214" r="5.5" fill="var(--bone)"/>
+      <circle cx="288.3" cy="248" r="5.5" fill="var(--bone)"/>
+      <circle cx="193.3" cy="282" r="5.5" fill="var(--bone)"/>
+    </g>
+    <!-- value labels, direct at each dot -->
+    <g font-family="var(--mono)" font-size="12.5" font-variant-numeric="tabular-nums">
+      <text x="713" y="48" fill="var(--sig)">18</text>
+      <text x="649.7" y="82" fill="var(--soft)">16</text>
+      <text x="586.3" y="116" fill="var(--soft)">14</text>
+      <text x="491.3" y="150" fill="var(--soft)">11</text>
+      <text x="428" y="184" fill="var(--soft)">9</text>
+      <text x="364.7" y="218" fill="var(--soft)">7</text>
+      <text x="301.3" y="252" fill="var(--soft)">5</text>
+      <text x="206.3" y="286" fill="var(--soft)">2</text>
+    </g>
+  </svg>
+</figure>
+<p class="df-chart-cap"><b>One honest takeaway:</b> detection frequency falls off steeply — <span class="df-chart-mark">DF-2200</span> cleared threshold on every one of the <b>18</b> nights, while half the catalog was seen on <b>9 or fewer</b>, down to DF-085 at just <b>2</b>. Position on a shared zero-based scale ranks the eight at a glance; no pie, no legend.</p>
+
+<hr class="df-chart-rule">
+<p class="df-chart-note"><b>PLATE 06 · v</b> &nbsp;— both readouts hold the honesty floor: zero baselines drawn, direct labels over legends, one magenta signal, position before area. Charts as instrument readings, not dashboard widgets.</p>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 07 · IMAGERY ══════════ owner: imagery -->
+    <section class="df-plate" id="sk-imagery" aria-labelledby="sk-imagery-t">
+      <div class="df-plate__no" aria-hidden="true">07</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;07&nbsp;·&nbsp;IMAGERY&nbsp;·&nbsp;vi</p>
+        <h2 class="df-plate__title" id="sk-imagery-t">Imagery</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+  .df-img-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+  .df-img-lede.two{color:var(--soft);margin-bottom:26px}
+  .df-img-lede b{color:var(--bone);font-weight:600}
+  .df-img-lede .df-img-sig{color:var(--sig);font-weight:600}
+  .df-img-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:26px 0 14px;font-variant-numeric:tabular-nums}
+
+  /* stance / treatment rules */
+  .df-img-rules{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:10px}
+  .df-img-rules li{position:relative;padding-left:26px;font-family:var(--body);font-size:13.5px;line-height:1.55;color:var(--soft);max-width:70ch}
+  .df-img-rules li b{color:var(--bone);font-weight:600}
+  .df-img-rules li::before{content:attr(data-k);position:absolute;left:0;top:.05em;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--sig);font-variant-numeric:tabular-nums}
+  .df-img-rules li.no::before{color:var(--soft)}
+
+  /* the demo figure */
+  .df-img-fig{margin:8px 0 0;padding:0}
+  .df-img-illus{width:100%;height:auto;display:block;border:1px solid var(--ln);background:var(--g)}
+  .df-img-illus text{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .df-img-cap{margin:14px 0 0;padding:0}
+  .df-img-alt{margin:0;padding:12px 14px;border:1px solid var(--ln);border-left:2px solid var(--sig);background:rgba(147,140,155,.05)}
+  .df-img-alt .df-img-tag{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sig);margin:0 0 6px;font-variant-numeric:tabular-nums}
+  .df-img-alt .df-img-str{font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--bone)}
+  .df-img-note{margin:12px 0 0;font-family:var(--body);font-size:12.5px;line-height:1.55;color:var(--soft);max-width:70ch}
+  .df-img-note b{color:var(--bone);font-weight:600}
+  .df-img-note code{font-family:var(--mono);font-size:11.5px;color:var(--soft)}
+</style>
+
+<p class="df-img-lede"><b>Imagery is the image lever</b> — it selects a good picture, critiques one, directs its tonal treatment, decides photo-vs-illustration, writes the alt text, and makes <b>light coded illustration</b> (SVG / Pillow). It does not generate photographs and is not a heavy photo editor. Its one governing test: <b>the image must carry the message</b>. A picture that does not advance the point is not neutral — decorative, off-brief, feel-good filler measurably <i>hurts</i> comprehension and gets skipped, so every image earns its place or is cut.</p>
+<p class="df-img-lede two">Reach for it to pick or judge an image, to run the like / not selection loop, to decide whether a subject wants a photo or an illustration, to direct a flat treatment (duotone, grayscale, grain, scrim), or to draw a light programmatic mark. It defers colour and contrast to perception-and-color, arrangement and figure-ground to composition, type over an image to typesetting, and page layout to ux — and it holds one floor of its own: <b>every non-text element has a correct text alternative</b> (WCAG 1.1.1).</p>
+
+<p class="df-img-hd">Stance · Deepfield is illustration / notation-led — not photographic</p>
+<ul class="df-img-rules">
+  <li data-k="01"><b>Coded line-work, not photos.</b> Imagery here is drawn as SVG notation in the instrument hand — coordinate lattices, plotted points, tick-combs, contour readings. A photograph would only be generic stock; the abstract, systematic subject wants an <b>ownable illustration</b> that stays in the plate hand.</li>
+  <li data-k="02"><b>If ever a raster: cold duotone, bone-on-void.</b> Shadows map to the void ground, highlights to bone, with a hint of <span class="df-img-sig">magenta</span> only on the single signal. Never warm stock, never a golden-hour "feel-good" photo — warmth would break the cold, disciplined register.</li>
+  <li data-k="03" class="no"><b>No decorative filler.</b> Every mark must carry a reading; an image that does not advance the plate is removed, not tolerated as texture.</li>
+  <li data-k="04" class="no"><b>Imagery serves the instrument, never decorates.</b> The illustration is a field reading — a plotted plate — not an ornament laid over the notation.</li>
+</ul>
+
+<p class="df-img-hd">Demo · a coded deep-field plate, drawn in the instrument hand</p>
+<figure class="df-img-fig">
+  <svg class="df-img-illus" viewBox="0 0 660 400" role="img"
+       aria-label="A coded deep-field notation plate: bone catalog stars plotted on a coordinate lattice over warm void, a faint nebula drawn as brightness iso-contours rather than a soft glow, and one magenta signal star — catalog DF·07 — marked with a crosshair as the single reading of interest.">
+    <rect x="0" y="0" width="660" height="400" fill="var(--g)"/>
+    <!-- registration ring echo (ties to the master chart) — faint top-right corner echo -->
+    <g fill="none" stroke="var(--lat)" stroke-width="1">
+      <circle cx="654" cy="24" r="70"/><circle cx="654" cy="24" r="118"/><circle cx="654" cy="24" r="170"/>
+    </g>
+    <!-- coordinate lattice -->
+    <g stroke="var(--lat)" stroke-width="1">
+      <line x1="66" y1="0" x2="66" y2="400"/><line x1="132" y1="0" x2="132" y2="400"/><line x1="198" y1="0" x2="198" y2="400"/><line x1="264" y1="0" x2="264" y2="400"/><line x1="330" y1="0" x2="330" y2="400"/><line x1="396" y1="0" x2="396" y2="400"/><line x1="462" y1="0" x2="462" y2="400"/><line x1="528" y1="0" x2="528" y2="400"/><line x1="594" y1="0" x2="594" y2="400"/>
+      <line x1="0" y1="50" x2="660" y2="50"/><line x1="0" y1="100" x2="660" y2="100"/><line x1="0" y1="150" x2="660" y2="150"/><line x1="0" y1="200" x2="660" y2="200"/><line x1="0" y1="250" x2="660" y2="250"/><line x1="0" y1="300" x2="660" y2="300"/><line x1="0" y1="350" x2="660" y2="350"/>
+    </g>
+    <!-- nebula as brightness iso-contours (plotted, not painted) -->
+    <g fill="none" stroke="var(--soft)">
+      <path d="M395 165 C400 120 470 108 505 128 C548 150 545 205 508 224 C470 244 402 236 388 205 C381 190 388 178 395 165Z" opacity=".13"/>
+      <path d="M410 168 C416 138 466 130 492 148 C520 166 516 200 490 214 C462 228 418 222 407 200 C401 188 405 178 410 168Z" opacity=".2"/>
+      <path d="M425 172 C430 152 462 148 480 160 C500 174 496 196 478 206 C456 216 430 212 423 196 C419 186 421 180 425 172Z" opacity=".3"/>
+      <path d="M441 178 C445 166 462 164 471 172 C482 182 479 194 468 200 C455 206 442 202 439 192 C437 186 438 182 441 178Z" opacity=".42"/>
+    </g>
+    <!-- declination ticks (left) + right-ascension ticks (bottom) -->
+    <g stroke="var(--soft)" stroke-width="1" opacity=".85">
+      <line x1="0" y1="100" x2="9" y2="100"/><line x1="0" y1="150" x2="6" y2="150"/><line x1="0" y1="200" x2="9" y2="200"/><line x1="0" y1="250" x2="6" y2="250"/><line x1="0" y1="300" x2="9" y2="300"/>
+      <line x1="132" y1="400" x2="132" y2="391"/><line x1="198" y1="400" x2="198" y2="394"/><line x1="264" y1="400" x2="264" y2="391"/><line x1="330" y1="400" x2="330" y2="394"/><line x1="396" y1="400" x2="396" y2="391"/><line x1="462" y1="400" x2="462" y2="394"/><line x1="528" y1="400" x2="528" y2="391"/>
+    </g>
+    <text x="13" y="97" font-size="9" letter-spacing="1" fill="var(--soft)">+41°</text>
+    <text x="13" y="197" font-size="9" letter-spacing="1" fill="var(--soft)">+40°</text>
+    <text x="13" y="297" font-size="9" letter-spacing="1" fill="var(--soft)">+39°</text>
+    <!-- catalog stars (bone; magnitude by radius, brightest carry a ring + crosshair) -->
+    <g fill="var(--bone)">
+      <circle cx="96" cy="120" r="1.4"/><circle cx="150" cy="330" r="1.8"/><circle cx="212" cy="88" r="1.2"/>
+      <circle cx="300" cy="140" r="1.4"/><circle cx="360" cy="322" r="1.6"/><circle cx="408" cy="300" r="1.2"/>
+      <circle cx="500" cy="300" r="1.4"/><circle cx="540" cy="120" r="1.2"/><circle cx="110" cy="230" r="1.2"/>
+      <circle cx="245" cy="255" r="2.6"/><circle cx="585" cy="235" r="2.8"/>
+    </g>
+    <g fill="none" stroke="var(--bone)" stroke-width="1" opacity=".5">
+      <circle cx="245" cy="255" r="6"/><circle cx="585" cy="235" r="6.5"/>
+    </g>
+    <g stroke="var(--bone)" stroke-width="1" opacity=".55">
+      <line x1="233" y1="255" x2="238" y2="255"/><line x1="252" y1="255" x2="257" y2="255"/>
+      <line x1="573" y1="235" x2="578" y2="235"/><line x1="592" y1="235" x2="597" y2="235"/>
+    </g>
+    <!-- the single magenta signal star: crosshair + ring + catalog tag -->
+    <g stroke="var(--sig)" stroke-width="1">
+      <line x1="270" y1="215" x2="290" y2="215" opacity=".7"/><line x1="310" y1="215" x2="330" y2="215" opacity=".7"/>
+      <line x1="300" y1="185" x2="300" y2="205" opacity=".7"/><line x1="300" y1="225" x2="300" y2="245" opacity=".7"/>
+      <circle cx="300" cy="215" r="8.5" fill="none" opacity=".5"/>
+    </g>
+    <circle cx="300" cy="215" r="3.2" fill="var(--sig)"/>
+    <text x="311" y="205" font-size="9" letter-spacing="1" fill="var(--sig)">DF·07 ✦</text>
+    <!-- soft catalog glyphs -->
+    <g fill="none" stroke="var(--soft)" stroke-width="1" opacity=".8">
+      <g transform="translate(74,352)"><path d="M0 -7 6.5 4 -6.5 4Z"/><path d="M0 -2.6 2.8 2.4 -2.8 2.4Z"/></g>
+      <g transform="translate(612,330)"><path d="M0 -7 7 0 0 7 -7 0Z"/><circle r="1.6" fill="var(--soft)" stroke="none"/></g>
+    </g>
+    <!-- corner index + scale bar (notation labels) -->
+    <text x="14" y="24" font-size="9.5" letter-spacing="2.5" fill="var(--soft)">FIELD DF·07 — DEEP EXPOSURE</text>
+    <text x="14" y="392" font-size="9" letter-spacing="1.5" fill="var(--soft)">R.A. →</text>
+    <g stroke="var(--soft)" stroke-width="1" opacity=".85">
+      <line x1="560" y1="380" x2="620" y2="380"/><line x1="560" y1="376" x2="560" y2="384"/><line x1="620" y1="376" x2="620" y2="384"/>
+    </g>
+    <text x="583" y="373" font-size="9" letter-spacing="1" fill="var(--soft)">1′</text>
+    <rect x="0.5" y="0.5" width="659" height="399" fill="none" stroke="var(--ln)" stroke-width="1"/>
+  </svg>
+
+  <figcaption class="df-img-cap">
+    <p class="df-img-alt" aria-hidden="true">
+      <span class="df-img-tag">Alt text · informative illustration</span>
+      <span class="df-img-str">“A coded deep-field notation plate: bone catalog stars plotted on a coordinate lattice over warm void, a faint nebula drawn as brightness iso-contours rather than a soft glow, and one magenta signal star — catalog DF·07 — marked with a crosshair as the single reading of interest.”</span>
+    </p>
+    <p class="df-img-note">This illustration is <b>informative</b>, so it carries its meaning through <code>role="img"</code> + <code>aria-label</code> holding the point above — not a picture-of description, and never <code>alt=""</code> (that is for decorative marks only, which the page's sigils and the left rail use). The alt string is <b>reprinted here as a visible specimen</b> so the plate can teach it; that specimen is <code>aria-hidden</code> so assistive tech is not told the same thing twice.</p>
+  </figcaption>
+</figure>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 08 · UX ══════════ owner: ux -->
+    <section class="df-plate" id="sk-ux" aria-labelledby="sk-ux-t">
+      <div class="df-plate__no" aria-hidden="true">08</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;08&nbsp;·&nbsp;UX&nbsp;·&nbsp;vii</p>
+        <h2 class="df-plate__title" id="sk-ux-t">Interface, UX &amp; layout</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+/* ── layout rhythm inside the plate body ──────────────────────────────────── */
+.df-ux-wrap{display:flex;flex-direction:column;gap:30px}
+.df-ux-sec{display:flex;flex-direction:column;gap:12px}
+.df-ux-lede{margin:0;max-width:66ch;font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone)}
+.df-ux-lede + .df-ux-lede{color:var(--soft)}
+.df-ux-lede b{color:var(--bone);font-weight:600}
+.df-ux-kicker{                       /* sub-head instrument label */
+  margin:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--soft);font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:10px;
+}
+.df-ux-kicker::after{content:"";flex:1;height:1px;
+  background:repeating-linear-gradient(to right,var(--lat) 0 5px,transparent 5px 10px);opacity:.8}
+
+/* ── §B  the sheet-geometry schematic ─────────────────────────────────────── */
+.df-ux-dgmwrap{overflow-x:auto;border:1px solid var(--ln);background:var(--g)}
+.df-ux-dgm{display:block;width:100%;min-width:560px;height:auto}
+.df-ux-reg{fill:var(--lat)}
+.df-ux-col{fill:var(--g)}
+.df-ux-frame{fill:none;stroke:var(--ln);stroke-width:1}
+.df-ux-div{stroke:var(--ln);stroke-width:1}
+.df-ux-tick{stroke:var(--soft);stroke-width:1;opacity:.7}
+.df-ux-dim{stroke:var(--soft);stroke-width:1}
+.df-ux-dtxt{fill:var(--soft);font-family:var(--mono);font-size:13px;letter-spacing:.06em}
+.df-ux-dtxt--em{fill:var(--bone)}
+.df-ux-dtxt--mid{text-anchor:middle}
+
+/* the measured spec list */
+.df-ux-spec{
+  margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 18px;
+  font-family:var(--mono);font-size:12.5px;line-height:1.4;
+  font-variant-numeric:tabular-nums;color:var(--bone);
+}
+.df-ux-spec dt{color:var(--soft);letter-spacing:.04em;white-space:nowrap}
+.df-ux-spec dd{margin:0;text-align:left}
+.df-ux-spec dd small{color:var(--soft)}
+
+/* ── §C  the instrument controls ──────────────────────────────────────────── */
+
+/* nav / plate-jog index — real anchors, ≥44px, active = single magenta accent */
+.df-ux-jog{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;
+  border:1px solid var(--ln);padding:8px;background:var(--g);
+}
+.df-ux-jog__a{
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:44px;padding:0 15px;                 /* ≥44px hit area */
+  font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  font-variant-numeric:tabular-nums;
+  color:var(--soft);text-decoration:none;border:1px solid transparent;
+  transition:color .12s,border-color .12s,background-color .12s;
+}
+.df-ux-jog__a:hover{color:var(--bone);border-color:var(--ln)}
+.df-ux-jog__a:active{background:var(--lat)}
+.df-ux-jog__idx{margin-left:auto}
+.df-ux-jog__a--here{                              /* you-are-here — the ONE magenta accent */
+  color:var(--sig);border-color:var(--sig);
+}
+.df-ux-jog__a--here:hover{color:var(--sig)}
+
+/* buttons — inverted-bone primary (accent by contrast, not hue), outline secondary */
+.df-ux-btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.df-ux-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;padding:0 20px;                 /* ≥44px hit area */
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bone);background:var(--g);border:1px solid var(--soft);
+  cursor:pointer;text-decoration:none;
+  transition:background-color .12s,color .12s,border-color .12s;
+}
+.df-ux-btn:hover{border-color:var(--bone);background:var(--lat)}
+.df-ux-btn:active{background:var(--ln)}
+.df-ux-btn--primary{                              /* inverted fill = primary via contrast */
+  color:var(--g);background:var(--bone);border-color:var(--bone);font-weight:600;
+}
+.df-ux-btn--primary:hover{filter:brightness(1.08)}
+.df-ux-btn[disabled],.df-ux-btn[aria-disabled="true"]{
+  color:var(--soft);background:var(--g);border-color:var(--ln);
+  opacity:.55;cursor:not-allowed;
+}
+
+/* field-readings data table — Tufte object, hairline rules, tabular figures */
+.df-ux-tablewrap{overflow-x:auto;border:1px solid var(--ln)}
+.df-ux-table{
+  border-collapse:collapse;width:100%;min-width:520px;
+  font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;
+  color:var(--bone);
+}
+.df-ux-table caption{
+  caption-side:top;text-align:left;padding:12px 14px;
+  font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);
+}
+.df-ux-table th,.df-ux-table td{padding:9px 14px;border-bottom:1px solid var(--lat);white-space:nowrap}
+.df-ux-table thead th{
+  color:var(--soft);font-weight:500;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;border-bottom:1px solid var(--ln);
+}
+.df-ux-table tbody th[scope="row"]{color:var(--bone);font-weight:500;text-align:left}
+.df-ux-table .df-ux-num{text-align:right}          /* numerics right-aligned */
+.df-ux-table thead th.df-ux-num{text-align:right}
+.df-ux-table tbody tr:last-child th,.df-ux-table tbody tr:last-child td{border-bottom:0}
+
+/* ── floor-proof specimens ────────────────────────────────────────────────── */
+.df-ux-proofs{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;
+  border-top:1px solid var(--lat);padding-top:16px}
+.df-ux-proof{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.df-ux-hit{                                       /* dashed box tracing the 44px hit bound */
+  position:relative;display:inline-flex;
+  border:1px dashed var(--soft);
+}
+.df-ux-hit::after{                                /* the 44 caliper label */
+  content:"44";position:absolute;left:calc(100% + 6px);top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:10px;color:var(--soft);letter-spacing:.05em;
+}
+.df-ux-showfocus{outline:2px solid var(--sig);outline-offset:2px}  /* ring painted as a specimen */
+.df-ux-plabel{margin:0;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--soft)}
+.df-ux-plabel b{color:var(--bone);font-weight:500}
+
+.df-ux-foot{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  color:var(--soft);line-height:1.6}
+.df-ux-foot .df-ux-ok{color:var(--bone)}
+.df-ux-foot code{font-family:var(--mono);color:var(--bone)}
+
+@media (max-width:520px){
+  .df-ux-jog__idx{margin-left:0}
+  .df-ux-spec{grid-template-columns:1fr}
+  .df-ux-spec dt{margin-top:6px}
+}
+</style>
+
+<div class="df-ux-wrap">
+
+  <!-- ── §A  what it is / when to reach for it ───────────────────────────── -->
+  <section class="df-ux-sec">
+    <p class="df-ux-kicker">Instrument · the structural lever</p>
+    <p class="df-ux-lede"><b>Interface&#8209;UX&#8209;&amp;&#8209;layout</b> fixes the structure a reading sits in:
+      page skeleton, navigation and wayfinding, the grid and spacing rhythm, visual hierarchy, data tables, and
+      interaction states — everything that governs where the eye lands first, next, last, and how the hand acts.
+      It defers chart <i>form</i> to charting and colour to perception&#8209;and&#8209;colour, and it holds the one
+      hard floor: adequate contrast, a visible keyboard focus state, a target the thumb can hit, and an order a
+      stranger reads in three seconds.</p>
+    <p class="df-ux-lede">Reach for it when structuring any screen — page, app shell, or dashboard — or when a
+      layout already reads as cluttered, hard to navigate, or unpolished and you need to know <i>why</i>. It runs on
+      evidence (processing fluency, Fitts's law, Nielsen's heuristics, WCAG) with taste labelled as taste. This plate
+      is its own specimen: the sheet geometry below is measured off this page, and every control meets the floor.</p>
+  </section>
+
+  <!-- ── §B  the grid / spacing system, exposed ──────────────────────────── -->
+  <section class="df-ux-sec">
+    <p class="df-ux-kicker">Sheet geometry · plan view of this page</p>
+
+    <div class="df-ux-dgmwrap">
+      <svg class="df-ux-dgm" viewBox="0 0 1180 196" role="img"
+           aria-label="Plan-view cross-section of the instrument sheet. Left to right: declination rail 64px, then 24px breathing (together the 88px left gutter), then the content column capped at 1100px, then 24px right padding, inside a sheet capped at 1180px and centred.">
+        <title>Sheet geometry — measured off this page</title>
+
+        <!-- the horizontal band: rail | breathing | column | pad -->
+        <rect class="df-ux-reg"   x="0"    y="24" width="64"   height="40"/>
+        <rect class="df-ux-col"   x="88"   y="24" width="1068" height="40"/>
+        <rect class="df-ux-frame" x="0"    y="24" width="1180" height="40"/>
+        <!-- region dividers -->
+        <line class="df-ux-div" x1="64"   y1="24" x2="64"   y2="64"/>
+        <line class="df-ux-div" x1="88"   y1="24" x2="88"   y2="64"/>
+        <line class="df-ux-div" x1="1156" y1="24" x2="1156" y2="64"/>
+        <!-- rail tick-comb echo -->
+        <line class="df-ux-tick" x1="8"  y1="52" x2="8"  y2="64"/>
+        <line class="df-ux-tick" x1="16" y1="52" x2="16" y2="64"/>
+        <line class="df-ux-tick" x1="24" y1="52" x2="24" y2="64"/>
+        <line class="df-ux-tick" x1="32" y1="46" x2="32" y2="64"/>
+        <line class="df-ux-tick" x1="40" y1="52" x2="40" y2="64"/>
+        <line class="df-ux-tick" x1="48" y1="52" x2="48" y2="64"/>
+        <line class="df-ux-tick" x1="56" y1="52" x2="56" y2="64"/>
+
+        <!-- tier-1 segment dimensions -->
+        <g>
+          <line class="df-ux-dim" x1="2"   y1="80" x2="62"   y2="80"/>
+          <line class="df-ux-dim" x1="2"   y1="76" x2="2"   y2="84"/>
+          <line class="df-ux-dim" x1="62"  y1="76" x2="62"  y2="84"/>
+          <text class="df-ux-dtxt df-ux-dtxt--mid" x="32" y="100">RAIL 64</text>
+
+          <line class="df-ux-dim" x1="90"  y1="80" x2="1154" y2="80"/>
+          <line class="df-ux-dim" x1="90"  y1="76" x2="90"  y2="84"/>
+          <line class="df-ux-dim" x1="1154" y1="76" x2="1154" y2="84"/>
+          <text class="df-ux-dtxt df-ux-dtxt--em df-ux-dtxt--mid" x="622" y="100">COLUMN &#8804; 1100 px  ·  .df-cat</text>
+
+          <line class="df-ux-dim" x1="1158" y1="80" x2="1178" y2="80"/>
+          <line class="df-ux-dim" x1="1158" y1="76" x2="1158" y2="84"/>
+          <line class="df-ux-dim" x1="1178" y1="76" x2="1178" y2="84"/>
+          <text class="df-ux-dtxt df-ux-dtxt--mid" x="1168" y="100">24</text>
+        </g>
+
+        <!-- gutter brace over rail + breathing -->
+        <polyline class="df-ux-dim" fill="none" points="2,120 2,126 86,126 86,120"/>
+        <text class="df-ux-dtxt" x="96" y="130">&#9666; GUTTER 88  =  rail 64 + pad 24</text>
+
+        <!-- full sheet brace -->
+        <polyline class="df-ux-dim" fill="none" points="2,160 2,166 1178,166 1178,160"/>
+        <text class="df-ux-dtxt df-ux-dtxt--em df-ux-dtxt--mid" x="590" y="186">SHEET  max-width 1180 px  ·  margin: 0 auto</text>
+      </svg>
+    </div>
+
+    <dl class="df-ux-spec" aria-label="Measured layout values">
+      <dt>SHEET max-width</dt><dd>1180 px <small>· centred</small></dd>
+      <dt>CONTENT column</dt><dd>&#8804; 1100 px <small>· .df-cat</small></dd>
+      <dt>LEFT gutter</dt><dd>88 px <small>· reserves rail 64 + 24</small></dd>
+      <dt>DECLINATION rail</dt><dd>64 px <small>· tick-comb ruler</small></dd>
+      <dt>RIGHT pad</dt><dd>24 px</dd>
+      <dt>PLATE &#8597; rhythm</dt><dd>34 px <small>· between plates</small></dd>
+      <dt>PLATE body pad</dt><dd>26 px</dd>
+      <dt>PLATE head pad</dt><dd>22 / 26 / 16 px</dd>
+      <dt>RAIL tick-comb</dt><dd>12 px fine <small>· 60 px coarse</small></dd>
+      <dt>BASE grid</dt><dd>16 px / 1.6 <small>· 25.6 px line-box</small></dd>
+      <dt>REFLOW &#8804;760w</dt><dd>gutter 44 · rail 34</dd>
+      <dt>REFLOW &#8804;520w</dt><dd>rail hides · gutter 0</dd>
+    </dl>
+  </section>
+
+  <!-- ── §C  instrument controls ─────────────────────────────────────────── -->
+  <section class="df-ux-sec">
+    <p class="df-ux-kicker">Controls · index · readings · actions</p>
+
+    <!-- nav / plate-jog index: real focusable anchors, active = you-are-here -->
+    <nav class="df-ux-jog" aria-label="Plate index jog">
+      <a class="df-ux-jog__a" href="#sk-imagery"><span aria-hidden="true">&#9666;</span> 07 · Imagery</a>
+      <a class="df-ux-jog__a df-ux-jog__a--here" href="#sk-ux" aria-current="page">08 · UX</a>
+      <a class="df-ux-jog__a" href="#sk-branding">09 · Branding <span aria-hidden="true">&#9656;</span></a>
+      <a class="df-ux-jog__a df-ux-jog__idx" href="#master"><span aria-hidden="true">&#10022;</span> Index</a>
+    </nav>
+
+    <!-- field-readings data table: <th scope>, tabular figures, numerics right-aligned -->
+    <div class="df-ux-tablewrap">
+      <table class="df-ux-table">
+        <caption>Field readings · plate 08 aperture · epoch 2200</caption>
+        <thead>
+          <tr>
+            <th scope="col">Object</th>
+            <th scope="col">R.A. (h m s)</th>
+            <th scope="col">Dec (&deg; &prime; &Prime;)</th>
+            <th scope="col" class="df-ux-num">Mag v</th>
+            <th scope="col" class="df-ux-num">S/N</th>
+            <th scope="col" class="df-ux-num">Epoch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">DF&#8209;2200&#8209;014</th>
+            <td>05 34 31.9</td><td>+22 00 52</td>
+            <td class="df-ux-num">8.41</td><td class="df-ux-num">214</td><td class="df-ux-num">2200.42</td>
+          </tr>
+          <tr>
+            <th scope="row">DF&#8209;2200&#8209;015</th>
+            <td>05 34 32.1</td><td>+22 01 07</td>
+            <td class="df-ux-num">12.06</td><td class="df-ux-num">61</td><td class="df-ux-num">2200.42</td>
+          </tr>
+          <tr>
+            <th scope="row">DF&#8209;2200&#8209;016</th>
+            <td>05 34 30.4</td><td>+21 59 44</td>
+            <td class="df-ux-num">9.88</td><td class="df-ux-num">143</td><td class="df-ux-num">2200.43</td>
+          </tr>
+          <tr>
+            <th scope="row">DF&#8209;2200&#8209;017</th>
+            <td>05 34 33.7</td><td>+22 00 18</td>
+            <td class="df-ux-num">14.72</td><td class="df-ux-num">22</td><td class="df-ux-num">2200.43</td>
+          </tr>
+          <tr>
+            <th scope="row">DF&#8209;2200&#8209;018</th>
+            <td>05 34 29.8</td><td>+22 01 55</td>
+            <td class="df-ux-num">11.30</td><td class="df-ux-num">88</td><td class="df-ux-num">2200.44</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="df-ux-foot"><span class="df-ux-ok">Read-only Tufte table</span> — hairline rules, no grid escalation:
+      nothing here asks to be filtered or edited, so it stays a native <code>&lt;table&gt;</code> with
+      <code>th scope</code> (accessible for free) rather than a data-grid.</p>
+
+    <!-- buttons: inverted-bone primary (accent by contrast), outline secondary, disabled state -->
+    <div class="df-ux-btns">
+      <button type="button" class="df-ux-btn df-ux-btn--primary">Commit reading</button>
+      <button type="button" class="df-ux-btn">Re-scan field</button>
+      <a class="df-ux-btn" href="#master" role="button">Return to chart 00</a>
+      <button type="button" class="df-ux-btn" disabled aria-disabled="true">Export &middot; locked</button>
+    </div>
+  </section>
+
+  <!-- ── floor proofs: demonstrate, not just meet ────────────────────────── -->
+  <section class="df-ux-sec">
+    <p class="df-ux-kicker">Floor proof · shown, not just met</p>
+    <div class="df-ux-proofs">
+      <div class="df-ux-proof">
+        <span class="df-ux-hit"><button type="button" class="df-ux-btn">Hit</button></span>
+        <p class="df-ux-plabel"><b>Target &#8805; 44&times;44 px</b> · house floor (WCAG min 24)</p>
+      </div>
+      <div class="df-ux-proof">
+        <button type="button" class="df-ux-btn df-ux-showfocus">Tab-focus</button>
+        <p class="df-ux-plabel"><b>:focus-visible</b> · 2px <span class="df-sig">&#8212;sig</span> ring (kit default; live on every control)</p>
+      </div>
+    </div>
+    <p class="df-ux-foot">AA contrast on all ink <span class="df-ux-ok">&#10003;</span> (bone-on-void &asymp; 15:1,
+      soft-on-void &asymp; 5.7:1 — perception-and-colour owns the measured ratios) ·
+      one systematic accent <span class="df-ux-ok">&#10003;</span> (magenta reserved for the
+      <span class="df-sig">08&nbsp;·&nbsp;UX</span> you-are-here state; primary action leads by inverted contrast, not a second hue) ·
+      no horizontal scroll at 480w <span class="df-ux-ok">&#10003;</span> (schematic + table scroll inside their own containers).</p>
+  </section>
+
+</div>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 09 · BRANDING ══════════ owner: brand-design -->
+    <section class="df-plate" id="sk-branding" aria-labelledby="sk-branding-t">
+  <div class="df-plate__no" aria-hidden="true">09</div>
+  <header class="df-plate__head">
+    <p class="df-index">PLATE&nbsp;09&nbsp;·&nbsp;BRANDING&nbsp;·&nbsp;viii</p>
+    <h2 class="df-plate__title" id="sk-branding-t">Branding &amp; visual identity</h2>
+  </header>
+  <div class="df-plate__body">
+    <style>
+    .df-brand-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+    .df-brand-lede.two{color:var(--soft);margin-bottom:30px}
+    .df-brand-lede b{color:var(--bone);font-weight:600}
+    .df-brand-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:34px 0 16px;font-variant-numeric:tabular-nums}
+    .df-brand-hd:first-of-type{margin-top:4px}
+
+    /* ── the mark, three sizes, proving it holds ─────────────────────────────*/
+    .df-brand-scales{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px}
+    .df-brand-spec{flex:0 0 auto;border:1px solid var(--ln);background:var(--g);padding:14px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+    .df-brand-spec.big{flex:1 1 200px;min-width:160px}
+    .df-brand-spec svg{display:block}
+    .df-brand-cap{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-variant-numeric:tabular-nums;text-align:center;line-height:1.5}
+    .df-brand-cap b{display:block;color:var(--bone);font-weight:600;font-size:11px;letter-spacing:.06em}
+
+    /* ── rationale rows ──────────────────────────────────────────────────────*/
+    .df-brand-rat{margin:0;padding:0}
+    .df-brand-row{display:grid;grid-template-columns:130px 1fr;gap:6px 20px;padding:16px 0;border-top:1px solid var(--ln)}
+    .df-brand-row:last-child{border-bottom:1px solid var(--ln)}
+    @media(max-width:560px){.df-brand-row{grid-template-columns:1fr;gap:8px}}
+    .df-brand-dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sig);font-variant-numeric:tabular-nums;padding-top:2px}
+    .df-brand-dd{margin:0;font-family:var(--body);font-size:13.5px;line-height:1.55;color:var(--bone);max-width:62ch}
+    .df-brand-dd b{font-weight:600}
+    .df-brand-cite{display:block;margin-top:5px;font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--soft);font-variant-numeric:tabular-nums}
+    .df-brand-tag{color:var(--bone);font-weight:600}
+
+    .df-brand-note{margin:16px 0 0;font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--soft);letter-spacing:.02em;font-variant-numeric:tabular-nums;max-width:70ch}
+
+    /* ── one-voice check ─────────────────────────────────────────────────────*/
+    .df-brand-voice{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
+    @media(max-width:560px){.df-brand-voice{grid-template-columns:1fr}}
+    .df-brand-vcell{border:1px solid var(--ln);padding:16px 12px 14px;text-align:center;background:var(--g)}
+    .df-brand-vcell svg{display:block;margin:0 auto 12px}
+    .df-brand-vk{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-variant-numeric:tabular-nums;line-height:1.5}
+    .df-brand-vk b{display:block;color:var(--bone);font-weight:600;font-size:11px;letter-spacing:.06em;margin-bottom:3px}
+    .df-brand-verdict{margin:18px 0 0;padding:14px 16px;border-left:2px solid var(--sig);background:rgba(147,140,155,.05)}
+    .df-brand-verdict p{margin:0;font-family:var(--body);font-size:13.5px;line-height:1.6;color:var(--bone);max-width:70ch}
+    .df-brand-verdict b{color:var(--sig);font-weight:600;font-family:var(--mono);font-size:12px;letter-spacing:.08em}
+
+    /* ── tagline ruling ──────────────────────────────────────────────────────*/
+    .df-brand-rule{margin:18px 0 0;border:1px solid var(--ln);padding:16px 18px}
+    .df-brand-rule dt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:12px}
+    .df-brand-rule dt:first-child{margin-top:0}
+    .df-brand-rule dd{margin:3px 0 0;font-family:var(--body);font-size:13.5px;line-height:1.55;color:var(--bone);max-width:64ch}
+    .df-brand-strike{color:var(--soft);text-decoration:line-through;font-family:var(--mono);font-size:12px}
+    .df-brand-pick{font-family:var(--mono);font-size:14px;letter-spacing:.06em;color:var(--sig);font-variant-numeric:tabular-nums}
+    </style>
+
+    <!-- (1) what branding does + when to reach for it -->
+    <p class="df-brand-lede"><b>Branding directs the identity — it does not draw it.</b> This lever decides <i>what the mark should be</i> (its concept, its fit to the brand's personality, how much visual complexity the exposure budget can afford, and whether a redesign will cost more than it earns) and <i>whether every surface reads as one voice</i>. It is advisory: it briefs the making — drawing the mark to imagery, inventing a new style to developing-style, generating texture to generative-imagery — then reviews what comes back for identity fit. Its findings are evidence-graded, separating adversarially-verified results <b>[STRONG]</b> from canonical-but-unverified literature <b>[ESTABLISHED]</b> and explicit <b>[MYTH]</b>, a named study behind each.</p>
+    <p class="df-brand-lede two">Reach for it when you are designing or judging a visual identity — a logo's shape, descriptiveness, symmetry or complexity; the intent behind a brand colour; a redesign decision; reading or targeting a brand personality; or checking that a growing surface still holds one mark and one voice. It is the <b>wrong</b> tool for the final artwork (that is imagery), for colour science and contrast (perception-and-color), for type selection (typesetting), and for naming, positioning, taglines or campaign strategy — which it does not cover, and touches only where a claim breaks identity consistency.</p>
+
+    <!-- (2) THE MARK — three sizes -->
+    <p class="df-brand-hd">The mark · celestial-pole reticle · holds 16px → plate</p>
+    <div class="df-brand-scales">
+      <div class="df-brand-spec">
+        <svg width="16" height="16" viewBox="-9 -9 18 18" aria-hidden="true"><rect x="-9" y="-9" width="18" height="18" rx="3" fill="var(--g)"/><g fill="none" stroke="var(--sig)" stroke-width="1.2"><circle r="6.8"/><path d="M0 -6.8V6.8M-6.8 0H6.8"/></g></svg>
+        <span class="df-brand-cap"><b>16&nbsp;px</b>favicon · tab</span>
+      </div>
+      <div class="df-brand-spec">
+        <svg width="32" height="32" viewBox="-9 -9 18 18" aria-hidden="true"><rect x="-9" y="-9" width="18" height="18" rx="3" fill="var(--g)"/><g fill="none" stroke="var(--sig)" stroke-width="1.2"><circle r="6.8"/><path d="M0 -6.8V6.8M-6.8 0H6.8"/></g></svg>
+        <span class="df-brand-cap"><b>32&nbsp;px</b>inline · index</span>
+      </div>
+      <div class="df-brand-spec big">
+        <svg width="120" height="120" viewBox="-9 -9 18 18" role="img" aria-labelledby="df-brand-mk-t"><title id="df-brand-mk-t">The Deepfield mark: a magenta registration cross filling a ring — a celestial-pole reticle, on the void ground.</title><g fill="none" stroke="var(--sig)" stroke-width="1.2"><circle r="6.8"/><path d="M0 -6.8V6.8M-6.8 0H6.8"/></g></svg>
+        <span class="df-brand-cap"><b>120&nbsp;px</b>plate mark</span>
+      </div>
+    </div>
+    <p class="df-brand-note">One resolution-independent vector: a ring crossed by two full-diameter hairs. The stroke scales with the mark, so the same geometry that ships as the favicon reads clean on the plate — no detail is lost or added between sizes.</p>
+
+    <!-- rationale rows -->
+    <p class="df-brand-hd">Rationale · read through the branding evidence</p>
+    <dl class="df-brand-rat">
+      <div class="df-brand-row">
+        <dt class="df-brand-dt">Shape /<br>descriptive</dt>
+        <dd class="df-brand-dd"><b>Abstract-suggestive, not literal.</b> A sky-pole / instrument reticle — it says <i>find position</i> without drawing a telescope. A soft ring (containment) fused to a hard orthogonal cross (precision) puts the shape where the register promises: measured, exact.
+          <span class="df-brand-cite"><span class="df-brand-tag">Henderson &amp; Cote 1998 [STRONG]</span> — a less-natural, harmonious mark buys a feeling of knowing on a thin budget. <span class="df-brand-tag">Luffarelli et&nbsp;al. 2019 [STRONG]</span> — congruent form → fluency → authenticity. Shape-fit: <span class="df-brand-tag">Jiang et&nbsp;al. 2016 [ESTABLISHED]</span>.</span>
+        </dd>
+      </div>
+      <div class="df-brand-row">
+        <dt class="df-brand-dt">Complexity</dt>
+        <dd class="df-brand-dd"><b>Low — one ring, two strokes.</b> It clears the 16px favicon intact and asks little of the exposure budget. Note the honest framing: low complexity is not proof of memorability — it <i>lowers the cost</i> of earning fluency, which is a budget advantage, not a memory law.
+          <span class="df-brand-cite"><span class="df-brand-tag">Janiszewski &amp; Meyvis 2001 [STRONG]</span> — complexity is a media-budget multiplier; simple marks earn fluency cheaply. <span class="df-brand-tag">Reber et&nbsp;al. 2004 [ESTABLISHED]</span> — easy to process → liked. Elaboration stays moderate, not maximal (Henderson &amp; Cote [STRONG]).</span>
+        </dd>
+      </div>
+      <div class="df-brand-row">
+        <dt class="df-brand-dt">Symmetry</dt>
+        <dd class="df-brand-dd"><b>Radial, 4-fold.</b> Symmetry is the evidence-backed default; asymmetry lifts <i>only</i> brands whose personality is <i>exciting</i>. Deepfield is cold and precise, not exciting — so symmetry is correct, and breaking it would fight the register.
+          <span class="df-brand-cite"><span class="df-brand-tag">Luffarelli, Stamatogiannakis &amp; Yang 2019 [STRONG]</span> — asymmetry helps excitement only; symmetry is the default otherwise.</span>
+        </dd>
+      </div>
+      <div class="df-brand-row">
+        <dt class="df-brand-dt">Personality</dt>
+        <dd class="df-brand-dd"><b>Precise · cold · rigorous · navigational</b> — carried by the form (registration geometry + restraint), matched to the confirmed mood. In the working vocabulary this reads as <i>competence</i>.
+          <span class="df-brand-cite"><span class="df-brand-tag">Aaker 1997 [STRONG]</span> is the shared vocabulary — used with its documented caveat: a single brand's five-factor profile is provisional, and "competence" is not a safe cross-culture lever ([STRONG] critique, §H).</span>
+        </dd>
+      </div>
+      <div class="df-brand-row">
+        <dt class="df-brand-dt">Redesign<br>risk</dt>
+        <dd class="df-brand-dd"><b>Do not complicate it.</b> The mark now runs identically across favicon → hero pole → plate registration. Adding descriptive detail would raise complexity (a budget cost), over-elaborate past the recognition optimum, and — worst — break the consistency that committed viewers punish hardest.
+          <span class="df-brand-cite"><span class="df-brand-tag">Walsh, Winterich &amp; Mittal 2011 [STRONG]</span> — commitment is a <i>negative</i> moderator: inconsistent redesigns take the biggest attitude hit. Measure commitment before touching it.</span>
+        </dd>
+      </div>
+    </dl>
+
+    <!-- (3) one-voice check -->
+    <p class="df-brand-hd">One-voice check · does the identity hold across the sheet?</p>
+    <div class="df-brand-voice" role="group" aria-label="Three appearances of the same reticle grammar across the sheet: favicon, hero pole, and plate registration mark.">
+      <div class="df-brand-vcell">
+        <svg width="44" height="44" viewBox="-9 -9 18 18" aria-hidden="true"><g fill="none" stroke="var(--sig)" stroke-width="1.2"><circle r="6.8"/><path d="M0 -6.8V6.8M-6.8 0H6.8"/></g></svg>
+        <span class="df-brand-vk"><b>Favicon</b>ring + full cross · signal</span>
+      </div>
+      <div class="df-brand-vcell">
+        <svg width="44" height="44" viewBox="-24 -24 48 48" aria-hidden="true"><g fill="none" stroke="var(--sig)" stroke-width="1"><circle r="20"/><circle r="13"/></g><circle r="3" fill="var(--sig)"/><g stroke="var(--sig)" stroke-width="1"><path d="M-22 0h4M18 0h4M0 -22v4M0 18v4"/></g></svg>
+        <span class="df-brand-vk"><b>Hero pole</b>rings + cross-ticks · signal</span>
+      </div>
+      <div class="df-brand-vcell">
+        <svg width="44" height="44" viewBox="-24 -24 48 48" aria-hidden="true"><g fill="none" stroke="var(--soft)" stroke-width="1.4"><path d="M-18 -18H2 M-18 -18V2"/><path d="M18 18H-2 M18 18V-2"/></g></svg>
+        <span class="df-brand-vk"><b>Plate mark</b>registration L · scaffold</span>
+      </div>
+    </div>
+    <div class="df-brand-verdict">
+      <p><b>COHERENT PASS.</b> &nbsp;One grammar throughout — a ring met by orthogonal registration ticks — split by role, not by dialect: <b style="color:var(--sig);font-family:inherit;font-size:inherit;letter-spacing:0">magenta</b> carries the signal (the mark, the pole, plotted points); grey carries the scaffold (corner ticks, lattice, index rules). The favicon, the hero pole and the corner marks are one reticle seen at three jobs. No surface drifts off-brand.</p>
+    </div>
+
+    <!-- tagline reconciliation -->
+    <p class="df-brand-hd">Consistency ruling · the master-chart tagline</p>
+    <dl class="df-brand-rule">
+      <dt>Conflict</dt>
+      <dd>The hero reads <span class="df-brand-strike">THE INSTRUMENT SET · ONE HAND</span>, but the catalog below it documents <b>11 skills across 13 plates</b>. A number the plate set immediately falsifies is a one-voice break — the hero contradicts the catalog it opens. "Five" was true of round&nbsp;9's five-node sky; the catalog's growth is exactly what breaks it.</dd>
+      <dt>Ruling</dt>
+      <dd>Update — do not keep "five." The "five primary nodes" meaning is invisible to a reader counting plates; keeping it is an unforced contradiction. Move to a number-free phrasing that never goes stale and preserves <b>· one hand</b>, which is the load-bearing claim (one voice across many instruments — the round-10 thesis).</dd>
+      <dt>Recommended string</dt>
+      <dd><span class="df-brand-pick">THE INSTRUMENT SET · ONE HAND</span><br><span class="df-brand-cite" style="margin-top:6px">Fallback, if the numeric-contrast rhythm is wanted: <span class="df-brand-tag">MANY INSTRUMENTS · ONE HAND</span>. Avoid re-inserting any count — the toolkit is still growing. Graphic-composition owns Plate&nbsp;00; apply there.</span></dd>
+    </dl>
+  </div>
+</section>
+
+
+    <!-- ══════════ PLATE 10 · BRAND-ABSORPTION ══════════ owner: brand-capture -->
+    <section class="df-plate" id="sk-brand-absorption" aria-labelledby="sk-brand-absorption-t">
+      <div class="df-plate__no" aria-hidden="true">10</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;10&nbsp;·&nbsp;BRAND-ABSORPTION&nbsp;·&nbsp;ix</p>
+        <h2 class="df-plate__title" id="sk-brand-absorption-t">Brand absorption</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+.df-babs-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+.df-babs-lede.two{color:var(--soft);margin:0 0 26px}
+.df-babs-lede b{color:var(--bone);font-weight:600}
+.df-babs-lede i{color:var(--sig);font-style:normal}
+.df-babs-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:0 0 14px;font-variant-numeric:tabular-nums}
+
+/* ── the captured artifact: a filed Brand-Direction card ───────────────────── */
+.df-babs-card{border:1px solid var(--ln);background:var(--g);position:relative}
+.df-babs-card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;
+  padding:16px 18px 14px;border-bottom:1px solid var(--ln)}
+.df-babs-ref{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 6px;font-variant-numeric:tabular-nums}
+.df-babs-subj{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.01em;color:var(--bone);margin:0;line-height:1.05}
+.df-babs-subj span{color:var(--sig)}
+.df-babs-stamp{flex:0 0 auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soft);border:1px solid var(--soft);padding:6px 9px;line-height:1.35;text-align:center;opacity:.85}
+.df-babs-stamp b{display:block;color:var(--bone);font-weight:600;letter-spacing:.1em}
+
+/* precedence banner — the binding rule the direction states at its top */
+.df-babs-binds{font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--soft);letter-spacing:.02em;
+  padding:11px 18px;border-bottom:1px solid var(--ln);background:rgba(147,140,155,.05)}
+.df-babs-binds b{color:var(--sig);font-weight:600}
+
+/* half labels + rows */
+.df-babs-half{padding:16px 18px 6px}
+.df-babs-half + .df-babs-half{border-top:1px solid var(--ln)}
+.df-babs-halfhd{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin:0 0 14px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.df-babs-halfhd em{font-style:normal;color:var(--sig)}
+.df-babs-row{display:grid;grid-template-columns:120px 1fr;gap:6px 18px;padding:0 0 16px;margin:0 0 16px;border-bottom:1px dashed var(--lat)}
+.df-babs-row:last-child{border-bottom:0;margin-bottom:6px}
+.df-babs-field{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);padding-top:2px;font-variant-numeric:tabular-nums}
+.df-babs-val{min-width:0}
+.df-babs-val p{font-family:var(--body);font-size:13.5px;line-height:1.55;color:var(--bone);margin:0;max-width:60ch}
+.df-babs-keep{font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--soft);margin:8px 0 0;font-variant-numeric:tabular-nums}
+.df-babs-keep b{color:var(--bone);font-weight:600}
+.df-babs-keep .no{color:var(--sig)}
+
+/* colour strip */
+.df-babs-sw{display:flex;flex-wrap:wrap;gap:12px;margin:2px 0 0}
+.df-babs-sw figure{margin:0;width:78px}
+.df-babs-chip{display:block;width:100%;height:34px;border:1px solid var(--ln)}
+.df-babs-chip--rsv{background:repeating-linear-gradient(45deg,transparent 0 5px,rgba(147,140,155,.5) 5px 6px);border-color:var(--soft)}
+.df-babs-sw figcaption{font-family:var(--mono);font-size:9.5px;line-height:1.5;color:var(--soft);margin-top:5px;font-variant-numeric:tabular-nums}
+.df-babs-sw figcaption b{display:block;color:var(--bone);font-weight:600;letter-spacing:.02em}
+
+/* type specimen */
+.df-babs-faces{display:grid;gap:10px}
+.df-babs-face{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.df-babs-face .nm{font-size:18px;color:var(--bone);line-height:1}
+.df-babs-face .df-babs-job{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+
+/* mark specimen */
+.df-babs-mark{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.df-babs-markbox{flex:0 0 auto;width:78px;height:78px;border:1px dashed var(--lat);display:flex;align-items:center;justify-content:center}
+.df-babs-mark svg{display:block}
+
+.df-babs-foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding:13px 18px;border-top:1px solid var(--ln);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--soft);font-variant-numeric:tabular-nums}
+.df-babs-foot b{color:var(--bone);font-weight:600}
+
+@media(max-width:520px){
+  .df-babs-row{grid-template-columns:1fr;gap:5px}
+  .df-babs-field{padding-top:0}
+}
+</style>
+
+<p class="df-babs-lede"><b>The toolkit's one conditional lever.</b> Brand absorption wakes for a single job: adopting an <b>existing</b> brand — a facelift, refresh, reskin, or any work that must still read, unmistakably, as <i>them</i>. It reads a brand from its real, shipping artifacts and codifies them into a binding <b>Brand Direction</b> the rest of the team executes against. It does not invent — an original, ownable look from scratch is developing-style's job, not this one. Absorb what is in front of you, not what you remember: a brand lives in its <i>current</i> materials, and a famous one may be a rebrand or two out of date.</p>
+
+<p class="df-babs-lede two">Every capture has two halves, and the second is mandatory. The <b>surface signature</b> — colour, type, mark, imagery — is measurable, extractable, even scriptable. The <b>hand</b> — how the brand <i>moves</i>, its compositional and tonal logic — is not readable from pixels and is the half most easily lost. If you can't name it, you sampled the pixels; you didn't absorb the brand. Colour values defer to perception-and-color, face selection to typesetting, layout to ux — absorption records what is <i>theirs</i>, and sets the direction.</p>
+
+<p class="df-babs-hd">Demo · the capture run on THIS page — what absorption would file if Deepfield were the client</p>
+
+<div class="df-babs-card">
+  <div class="df-babs-card__top">
+    <div>
+      <p class="df-babs-ref">DIR-DEEPFIELD/01 · captured from the shipping plate · source: this page</p>
+      <p class="df-babs-subj">BRAND DIRECTION — <span>Deepfield</span></p>
+    </div>
+    <div class="df-babs-stamp"><b>FIDELITY</b>reads-as-them<br>check, not taste</div>
+  </div>
+
+  <p class="df-babs-binds"><b>BINDS.</b> When this direction exists, colour · type · layout · composition serve <b>IT</b>; house-style yields entirely. The four floors (AA · chart honesty · legibility · focus/target) still hold above it.</p>
+
+  <!-- HALF A — the measurable surface signature -->
+  <div class="df-babs-half">
+    <p class="df-babs-halfhd"><span>A · Surface signature</span> <em>extracted — measurable</em></p>
+
+    <div class="df-babs-row">
+      <div class="df-babs-field">Colour</div>
+      <div class="df-babs-val">
+        <div class="df-babs-sw">
+          <figure><span class="df-babs-chip" style="background:var(--g);border-color:var(--soft)"></span><figcaption><b>--g</b>#141217 · void ground</figcaption></figure>
+          <figure><span class="df-babs-chip" style="background:var(--bone)"></span><figcaption><b>--bone</b>#e9e6dd · ink</figcaption></figure>
+          <figure><span class="df-babs-chip" style="background:var(--soft)"></span><figcaption><b>--soft</b>#938c9b · notation</figcaption></figure>
+          <figure><span class="df-babs-chip" style="background:var(--sig)"></span><figcaption><b>--sig</b>#ff3d7a · signal</figcaption></figure>
+          <figure><span class="df-babs-chip df-babs-chip--rsv"></span><figcaption><b>--gold→--pop</b>#e6a93a · pop · reserved</figcaption></figure>
+        </div>
+        <p class="df-babs-keep"><b>keep ·</b> warm-void ground · one magenta systematic <b>signal</b> · one warm <b>pop</b> spent once, page-wide. <span class="no">never ·</span> a second general accent; gold as broad annotation. <em style="color:var(--soft);font-style:normal">(pop recorded, not spent here — it lives on Plate 00.)</em></p>
+      </div>
+    </div>
+
+    <div class="df-babs-row">
+      <div class="df-babs-field">Type</div>
+      <div class="df-babs-val">
+        <div class="df-babs-faces">
+          <div class="df-babs-face"><span class="nm df-disp">Bricolage Grotesque</span><span class="df-babs-job">display · instrument titles</span></div>
+          <div class="df-babs-face"><span class="nm df-body">Plus Jakarta Sans</span><span class="df-babs-job">body · readable field-notes</span></div>
+          <div class="df-babs-face"><span class="nm df-mono">IBM Plex Mono</span><span class="df-babs-job">notation · labels · index · data · glyphs</span></div>
+        </div>
+        <p class="df-babs-keep"><b>keep ·</b> three faces, no more; mono is the instrument voice, carries most labels &amp; data; tabular figures on every number. <span class="no">never ·</span> a fourth face; proportional figures in tables.</p>
+      </div>
+    </div>
+
+    <div class="df-babs-row">
+      <div class="df-babs-field">Mark</div>
+      <div class="df-babs-val">
+        <div class="df-babs-mark">
+          <div class="df-babs-markbox">
+            <svg width="34" height="34" viewBox="-9 -9 18 18" role="img" aria-label="The Deepfield pole sigil: a magenta circle crossed by a full-width plus, on the void ground.">
+              <g fill="none" stroke="var(--sig)" stroke-width="1.2"><circle r="6.8"/><path d="M0 -6.8V6.8M-6.8 0H6.8"/></g>
+            </svg>
+          </div>
+          <p>The circled-plus <b style="color:var(--sig);font-weight:600">pole sigil</b> — the fiducial registration mark of the whole chart, the pole every plate radiates from. Also the favicon.</p>
+        </div>
+        <p class="df-babs-keep"><b>keep ·</b> magenta stroke · full-width cross · the clear-space ring. <span class="no">never ·</span> recolour off magenta · reset in a system font · fill the ring · rotate.</p>
+      </div>
+    </div>
+
+    <div class="df-babs-row">
+      <div class="df-babs-field">Imagery</div>
+      <div class="df-babs-val">
+        <p>Notation- and illustration-led: lattices, tick-combs, registration rings, plotted points — drawn, not shot. Cold. Colour lives as ink-on-void, never as a photograph.</p>
+        <p class="df-babs-keep"><b>keep ·</b> instrument marks · duotone-cold if any tone at all. <span class="no">never ·</span> warm stock photography · lens flare · people-in-an-office · a hero image behind a headline.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALF B — the named hand: the non-measurable half -->
+  <div class="df-babs-half">
+    <p class="df-babs-halfhd"><span>B · The hand</span> <em>named — not readable from pixels</em></p>
+
+    <div class="df-babs-row">
+      <div class="df-babs-field">Voice</div>
+      <div class="df-babs-val">
+        <p>Cold, precise, quiet, terse. Field-notes from an instrument, not a pitch. Headings are labels; claims are measured; data is lowercase mono. One warm human spark against the cold — never a whole warm register.</p>
+        <p class="df-babs-keep"><b>keep ·</b> restraint · the exact number · the em-tick. <span class="no">never ·</span> exclamation · marketing verbs · "unlock / supercharge / delightful".</p>
+      </div>
+    </div>
+
+    <div class="df-babs-row">
+      <div class="df-babs-field">Structure</div>
+      <div class="df-babs-val">
+        <p>A <b>plate catalog from one observatory</b>: numbered registration-framed plates on one continuous warm-void sheet, each in the same hand. The signature is structural — <b>registration frames + corner ticks</b>, a <b>catalog index</b> on every plate, and a <b>continuous declination rail</b> binding the whole sheet. Content is <b>plotted, not laid out</b>: data as marks, headings as instrument labels, body as field-note text.</p>
+        <p class="df-babs-keep"><b>keep ·</b> everything is a plate in one instrument hand. <span class="no">never ·</span> website chrome — cards-with-drop-shadows, a SaaS button-bar, hero-with-CTA grammar, a docs-site block.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="df-babs-foot">
+    <span><b>Fit test ·</b> hold any screen against this — judge <b>reads-as-them</b> in 30 s.</span>
+    <span>values → perception-and-color · faces → typesetting · layout → ux</span>
+  </div>
+</div>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 11 · GENERATIVE ══════════ owner: generative-imagery -->
+    <section class="df-plate" id="sk-generative" aria-labelledby="sk-generative-t">
+      <div class="df-plate__no" aria-hidden="true">11</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;11&nbsp;·&nbsp;GENERATIVE&nbsp;·&nbsp;x</p>
+        <h2 class="df-plate__title" id="sk-generative-t">Generative imagery</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+  .df-gen-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+  .df-gen-lede.two{color:var(--soft);margin-bottom:8px}
+  .df-gen-lede b{color:var(--bone);font-weight:600}
+  .df-gen-lede .df-gen-em{color:var(--sig);font-style:normal;font-weight:600}
+  .df-gen-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:30px 0 14px;font-variant-numeric:tabular-nums}
+
+  /* ── the pipeline: RAW → direct·treat → TREATED ─────────────────────────── */
+  .df-gen-pipe{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;margin:0}
+  .df-gen-fig{margin:0;min-width:0}
+  .df-gen-imgwrap{position:relative;border:1px solid var(--ln);background:var(--g);line-height:0}
+  .df-gen-imgwrap img{display:block;width:100%;height:auto}
+  .df-gen-imgwrap.raw img{opacity:.94}
+  /* baked-in plate label lives ON the treated image as crisp, real text */
+  .df-gen-stamp{position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-variant-numeric:tabular-nums;background:rgba(20,18,23,.82);padding:2px 6px;white-space:nowrap}
+  .df-gen-stamp.idx{top:7px;left:7px;color:var(--bone)}
+  .df-gen-stamp.tag{top:7px;right:7px;color:var(--soft)}
+  .df-gen-stamp.read{bottom:7px;right:7px;color:var(--soft)}
+  .df-gen-stamp.sig{bottom:7px;left:7px;color:var(--sig)}
+  .df-gen-cap{margin:9px 0 0;font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft);max-width:46ch}
+  .df-gen-role{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--bone);text-transform:uppercase}
+  .df-gen-arrow{align-self:center;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);text-align:center;line-height:1.7;white-space:nowrap}
+  .df-gen-arrow b{display:block;color:var(--sig);font-size:15px;letter-spacing:0}
+  @media(max-width:640px){
+    .df-gen-pipe{grid-template-columns:1fr;gap:12px}
+    .df-gen-arrow{transform:none}
+    .df-gen-arrow b{transform:rotate(90deg)}
+    .df-gen-cap{max-width:none}
+  }
+
+  /* ── direction note: brief + accept/reject ──────────────────────────────── */
+  .df-gen-dir{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin:0}
+  @media(max-width:640px){.df-gen-dir{grid-template-columns:1fr}}
+  .df-gen-plabel{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 8px;font-variant-numeric:tabular-nums}
+  .df-gen-prompt{margin:0;padding:11px 13px;border:1px solid var(--ln);border-left:2px solid var(--soft);background:rgba(147,140,155,.05);font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--soft);overflow-wrap:anywhere}
+  .df-gen-prompt .df-gen-x{color:var(--bone)}
+  .df-gen-verdict{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .df-gen-verdict li{position:relative;padding-left:22px;font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft)}
+  .df-gen-verdict li b{color:var(--bone);font-weight:600}
+  .df-gen-verdict li::before{position:absolute;left:0;top:0;font-family:var(--mono);font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+  .df-gen-verdict li.ok::before{content:"✓";color:var(--sig)}
+  .df-gen-verdict li.no::before{content:"✕";color:var(--soft)}
+
+  /* ── governance gates: annotation only ──────────────────────────────────── */
+  .df-gen-gates{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .df-gen-gates li{position:relative;padding-left:24px;font-family:var(--body);font-size:12.5px;line-height:1.5;color:var(--soft)}
+  .df-gen-gates li b{color:var(--bone);font-weight:600}
+  .df-gen-gates li::before{content:"✓";position:absolute;left:0;top:0;font-family:var(--mono);font-size:12px;color:var(--sig);font-weight:600}
+
+  .df-gen-note{margin:22px 0 0;padding:11px 13px;border:1px solid var(--ln);background:rgba(147,140,155,.03);font-family:var(--body);font-size:12.5px;line-height:1.55;color:var(--soft);max-width:74ch}
+  .df-gen-note b{color:var(--bone);font-weight:600}
+  .df-gen-note code{font-family:var(--mono);font-size:11.5px;color:var(--soft)}
+</style>
+
+<p class="df-gen-lede"><b>Generative-imagery fills the toolkit's one gap.</b> design-craft has no image model of its own, so imagery can only <i>select</i> or <i>commission</i>; this skill <b>generates</b> a raster — free and keyless, through an external service — for atmosphere, texture, and mood grounds. It is never used for anything a wrong detail would break: no accurate in-image text, no logos, no real people or brands, no charts, no exact counts. You composite real type and marks over a generated ground instead.</p>
+<p class="df-gen-lede two">This plate is the <b>collaboration</b> made visible. <span class="df-gen-em">generative-imagery</span> generates the raw field; <span class="df-gen-em">imagery</span> directs the brief, accepts or rejects the result, and treats what survives into the observatory-plate hand. Two hands, one field — shown end to end below.</p>
+
+<p class="df-gen-hd">Pipeline · one field, two hands</p>
+<div class="df-gen-pipe">
+  <figure class="df-gen-fig">
+    <div class="df-gen-imgwrap raw">
+      <img src="assets/deepfield/gen-deepfield-raw.jpg" width="1024" height="640" loading="lazy" decoding="async"
+           alt="Raw keyless generation, untreated: a monochrome deep-sky survey field — near-black space crossed by a faint diagonal band of pale nebula dust with sparse pinpoint stars. Slightly bright and flat, no coordinate marks, no colour, no text.">
+      <span class="df-gen-stamp idx">RAW · UNGRADED</span>
+    </div>
+    <figcaption class="df-gen-cap"><span class="df-gen-role">generative-imagery</span> generates the raw field from a look-only brief — an on-theme atmospheric ground. No lattice, no grade; flat and a touch bright.</figcaption>
+  </figure>
+
+  <div class="df-gen-arrow" aria-hidden="true">direct<b>&rarr;</b>treat</div>
+
+  <figure class="df-gen-fig">
+    <div class="df-gen-imgwrap">
+      <img src="assets/deepfield/gen-deepfield-treated.jpg" width="1024" height="640" loading="lazy" decoding="async"
+           alt="The same field treated into an observatory plate: graded to a cold bone-on-void duotone and darkened so the dust reads as a faint signal, then composited as plate material — a coordinate lattice, four corner registration marks, a left-margin declination tick-comb, small survey crosshairs on plotted stars, and a single magenta registration ring marking the one signal point at the central dust knot.">
+      <span class="df-gen-stamp idx">PLATE 11 · GEN-FIELD</span>
+      <span class="df-gen-stamp tag">TREATED · PLACED</span>
+      <span class="df-gen-stamp read">λ 656.3 · Hα</span>
+      <span class="df-gen-stamp sig">◦ SIG</span>
+    </div>
+    <figcaption class="df-gen-cap"><span class="df-gen-role">imagery</span> grades it into the plate hand — cold bone-on-void duotone, coordinate lattice, registration ring, one magenta signal point. It now reads as an instrument plate, not a photo.</figcaption>
+  </figure>
+</div>
+
+<p class="df-gen-hd">The direction imagery gave — brief · accept / reject</p>
+<div class="df-gen-dir">
+  <div>
+    <p class="df-gen-plabel">The brief handed to the generator — look only, assembled from palette + mood</p>
+    <p class="df-gen-prompt">monochrome grayscale deep-sky survey field · <span class="df-gen-x">near-black warm void</span>, faint diagonal band of pale nebula dust, sparse fine star speckle · high dynamic range, cold · quiet · minimal · matte, subtle astronomical grain · <span class="df-gen-x">no colour, no text, no faces, no logos, no bright glow</span></p>
+  </div>
+  <div>
+    <p class="df-gen-plabel">imagery's verdict — accepted, rejected, treated</p>
+    <ul class="df-gen-verdict">
+      <li class="ok"><b>Accept</b> — the field: faint diagonal dust, sparse stars, deep void. Good structure, grades cleanly.</li>
+      <li class="no"><b>Reject</b> — an earlier ground's violet cast (it leaned pink-purple, off the cold register). Re-briefed to grayscale so the grade owns the colour, not the generator.</li>
+      <li class="ok"><b>Treat</b> — grayscale &rarr; cold duotone (void shadows &rarr; bone highlights), darkened until the field reads faint; magenta spent as <b>one</b> registration ring, never a bloom; composited as plate material with lattice, declination comb, and catalog label.</li>
+    </ul>
+  </div>
+</div>
+
+<p class="df-gen-hd">Governance gates — annotation, never a substitute for the image</p>
+<ul class="df-gen-gates">
+  <li><b>Availability — checked first.</b> The service is probed before generating (it returned reachable this run). If it is unreachable, imagery does <i>not</i> generate — the design is built without it. A plate must never depend on an outside service.</li>
+  <li><b>Director approval — passed.</b> Never a naked prompt: the brief is assembled from the team's palette and mood, and the art-director judges every result on-register through render&nbsp;&rarr;&nbsp;look&nbsp;&rarr;&nbsp;refine. Off-register or cheap, it is discarded — no graphic beats a cheap one.</li>
+  <li><b>Minimal · supporting — held.</b> Generated imagery is embellishment: a ground or texture, never the concept, never dominant. Here it stays a governed specimen inside the notation, subordinate to the plate.</li>
+</ul>
+
+<p class="df-gen-note"><b>Alt-text floor — imagery owns it.</b> Role decides the alt, not the pixels. As pure ambient texture in a live layout this ground would be <b>decorative</b> — <code>alt=""</code>, skipped by assistive tech. Here <b>both</b> images are the subject under discussion — the raw generation and the treated plate — so each earns a full descriptive alt that names what changed between them. A generated raster is still non-text content: WCAG 1.1.1 applies whether the pixels came from a camera, a pen, or a model.</p>
+
+</div>
+    </section>
+
+    <!-- ══════════ PLATE 12 · HOUSE ══════════ owner: house-style-templates -->
+    <section class="df-plate" id="sk-house" aria-labelledby="sk-house-t">
+      <div class="df-plate__no" aria-hidden="true">12</div>
+      <header class="df-plate__head">
+        <p class="df-index">PLATE&nbsp;12&nbsp;·&nbsp;HOUSE&nbsp;·&nbsp;xi</p>
+        <h2 class="df-plate__title" id="sk-house-t">House-style templates</h2>
+      </header>
+      <div class="df-plate__body">
+<style>
+.df-house-lede{font-family:var(--body);font-size:15px;line-height:1.62;color:var(--bone);max-width:66ch;margin:0 0 14px}
+.df-house-lede.two{color:var(--soft);margin-bottom:26px}
+.df-house-lede b{color:var(--bone);font-weight:600}
+.df-house-lede i{font-style:normal;color:var(--sig)}
+.df-house-hd{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sig);margin:0 0 4px;font-variant-numeric:tabular-nums}
+.df-house-status{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:0 0 20px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.df-house-status::before{content:"";width:7px;height:7px;flex:0 0 auto;border:1px solid var(--soft);transform:rotate(45deg)}
+
+/* ── the registered entry (the figure) ─────────────────────────────────────*/
+.df-house-card{border:1px solid var(--soft);background:rgba(147,140,155,.045);position:relative}
+.df-house-card__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:11px 16px;border-bottom:1px solid var(--ln)}
+.df-house-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--sig);
+  display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.df-house-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sig);flex:0 0 auto;
+  box-shadow:0 0 0 3px rgba(255,61,122,.16)}
+.df-house-ref{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);
+  font-variant-numeric:tabular-nums}
+.df-house-spec{margin:0;padding:6px 0}
+.df-house-spec>div{display:grid;grid-template-columns:150px 1fr;gap:4px 20px;padding:11px 16px;border-top:1px solid rgba(147,140,155,.10)}
+.df-house-spec>div:first-child{border-top:0}
+.df-house-spec dt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);
+  padding-top:3px;font-variant-numeric:tabular-nums}
+.df-house-spec dd{margin:0;font-family:var(--body);font-size:14px;line-height:1.55;color:var(--bone);max-width:62ch}
+.df-house-name{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.01em;color:var(--bone);line-height:1.1}
+.df-house-consts{font-family:var(--mono);font-size:12px;line-height:1.62;color:var(--soft);font-variant-numeric:tabular-nums;max-width:none}
+.df-house-consts b{color:var(--bone);font-weight:600}
+.df-house-consts .df-house-mag{color:var(--sig)}
+@media(max-width:560px){.df-house-spec>div{grid-template-columns:1fr;gap:6px}}
+
+/* ── the shelf: the rest of the set, all registered ─────────────────────────*/
+.df-house-shelf{margin-top:22px}
+.df-house-shelf__cap{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);
+  margin:0 0 12px;font-variant-numeric:tabular-nums}
+.df-house-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
+.df-house-slot{height:58px;border:1px dashed var(--ln);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  opacity:.72}
+.df-house-slot span:first-child{font-family:var(--mono);font-size:15px;color:var(--ln);line-height:1}
+.df-house-slot__lab{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);opacity:.85}
+.df-house-foot{margin:14px 0 0;font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--soft);
+  font-variant-numeric:tabular-nums;max-width:none}
+.df-house-foot b{color:var(--bone);font-weight:600}
+.df-house-foot .df-house-count{color:var(--sig)}
+</style>
+
+<p class="df-house-lede"><b>House-style templates is design-craft's reference library of its own house-look templates</b> — cohesive, directional treatments the art-director and the builder pull from so a result feels like one body of work, and that anyone can reuse as a starting template. It is <i>reference-only</i>: no dedicated agent runs it; the art-director owns applying it, checking a design coheres with the set.</p>
+<p class="df-house-lede two">It is the plugin's one openly-subjective layer — its authority is declared taste, not evidence — and so the <b>most overridable</b> in the toolkit: it yields to the four floors (colour · type · charting · ux) and every evidence skill before it asserts anything of its own. The directional template set is <b>built — five registered entries:</b> Meridian · Ledger · Terminal · Deepfield · Prism. Each is a baseline, never a cage — a real design is expected to diverge from it wherever the brief demands. Read this plate as the intent plus Deepfield's own entry in that catalog.</p>
+
+<p class="df-house-hd">Demo · Deepfield registered as one directional template</p>
+<p class="df-house-status">Status · built — 5 entries registered, the set complete</p>
+
+<article class="df-house-card" aria-label="Registered directional template: The Deep-Field Notation Plate">
+  <div class="df-house-card__bar">
+    <span class="df-house-tag">Registered</span>
+    <span class="df-house-ref">Entry 04 / 05 · directional template</span>
+  </div>
+  <dl class="df-house-spec">
+    <div>
+      <dt>Name</dt>
+      <dd class="df-house-name">The Deep-Field Notation Plate</dd>
+    </div>
+    <div>
+      <dt>Register</dt>
+      <dd>Expressive · cold · disciplined — reads as a precise instrument, never a poster that shouts. For people who trust measured things.</dd>
+    </div>
+    <div>
+      <dt>When to pull</dt>
+      <dd>Reach for it when measured data or a whole system must signal rigor and restraint — a catalog, a spec, a dashboard drawn as an instrument readout — under a cold, vast, quiet mood with one warm human spark. Wrong choice for warm, playful, or persuasion-first work.</dd>
+    </div>
+    <div>
+      <dt>Held constants</dt>
+      <dd class="df-house-consts">Warm-void ground · bone ink · one <span class="df-house-mag">magenta</span> systematic signal · one gold pop, page-wide.<br><b>Bricolage Grotesque</b> / Plus Jakarta Sans / IBM Plex Mono (the instrument voice).<br>Registration-framed plates on a continuous declination rail · a mono catalog index on every plate.<br>Notation hand — labels as instrument readouts, data as plotted points, terse field-note body.</dd>
+    </div>
+  </dl>
+</article>
+
+<div class="df-house-shelf">
+  <p class="df-house-shelf__cap">The rest of the set — all registered</p>
+  <div class="df-house-slots" aria-label="The four sibling directional templates; the library set is complete">
+    <div class="df-house-slot"><span aria-hidden="true">01</span><span class="df-house-slot__lab">Meridian</span></div>
+    <div class="df-house-slot"><span aria-hidden="true">02</span><span class="df-house-slot__lab">Ledger</span></div>
+    <div class="df-house-slot"><span aria-hidden="true">03</span><span class="df-house-slot__lab">Terminal</span></div>
+    <div class="df-house-slot"><span aria-hidden="true">05</span><span class="df-house-slot__lab">Prism</span></div>
+  </div>
+  <p class="df-house-foot"><span class="df-house-count">5 registered</span> · set complete — <b>Meridian · Ledger · Terminal · Deepfield · Prism</b>. Baselines to pull and diverge from as the brief demands — never cages.</p>
+</div>
+
+</div>
+    </section>
+
+    <!-- ── colophon (sheet bottom edge furniture) ── -->
+    <div class="df-colophon">
+      <span>design·craft · deepfield · plate catalog</span>
+      <span>13 plates · one instrument hand · ✦</span>
+    </div>
+
+  </div>
+</div>
+</body></html>
